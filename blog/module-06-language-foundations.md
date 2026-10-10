@@ -1,0 +1,260 @@
+---
+title: "Module 6: JavaScript Language Foundations"
+subtitle: "Values, types, variables, operators and your first decisions, all in the Console."
+module: 6
+series: Code559 Front-End Developer Course
+estimated_time: "about 90 minutes (estimate)"
+---
+
+# Module 6 — JavaScript Language Foundations
+
+*Values, types, variables, operators and your first decisions, all in the Console.*
+
+**In this module you will learn:**
+
+- What a value is, and the five basic types: string, number, boolean, undefined and null
+- How `typeof` tells you a value's type, including the odd result for `null`
+- How to store values with `const` and `let`, and why this course does not use `var`
+- The difference between assignment (`=`) and comparison (`===`)
+- The arithmetic operators, and why `+` behaves differently with text
+- The comparison operators, and why `===` is safer than `==`
+- That every comparison produces a Boolean: `true` or `false`
+- How `if`, `else if` and `else` choose which code runs
+
+## Why this matters
+
+Every interactive thing on a web page comes down to a few small moves. Store a value. Compare it with something. Decide what to do. A dark-mode switch, a form check, a gallery's Next button: all of them do exactly that. This module teaches those moves on their own, in the Console and in Node, with no page to distract you.
+
+Most early JavaScript bugs come from the topics in this module. Text that looks like a number but is not one. A single `=` where you meant to compare. A `==` that says two different things are equal. You will cause each of these on purpose, so you recognize them later when you did not mean to.
+
+As in Module 5, nothing touches your site yet. Every result in this post was produced by running the code, and you will run the same code yourself.
+
+## Before you start
+
+1. Finish Module 5. You should be able to run `node hello.js` in your `js-practice` folder and open the Console with Ctrl+Shift+J.
+2. Open `js-practice` in VS Code and open a terminal in it.
+3. Open a new tab in Edge or Chrome and open the Console. Keep it beside VS Code; you will switch between them.
+
+> **Checkpoint.** You have a terminal whose prompt ends in `js-practice>` and a browser Console with a blinking cursor next to `>`.
+
+## Core concepts
+
+### 1. What are values and types?
+
+*Introduce.* A **value** is one piece of data: a word, a number, yes or no. Every value has a **type**, and the type decides what you can do with it.
+
+*Explain.* Five types cover almost everything in this course. A **string** is text, always inside quotes: `"hello"`, `"42"`. A **number** is a number with no quotes: `42`, `3.5`. A **boolean** is `true` or `false`. **undefined** means a variable has no value yet. **null** means "nothing here," on purpose; you assign it yourself. The `typeof` operator tells you the type, as a string. One result looks wrong: `typeof null` gives `"object"`. MDN's *typeof* page explains it as a leftover from the first version of JavaScript, kept because changing it would break old code. Remember it as a known exception.
+
+*Illustrate.*
+
+![The Console showing typeof for "hello", 42, 3.5, true, undefined, null and "42", with results string, number, number, boolean, undefined, object, string.](images/m06-typeof.png)
+*Look at the last line: `"42"` is a string, not a number, because of the quotes. And `typeof null` really is `"object"`. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* In the Console, type `typeof "true"`. Predict first: quotes or no quotes?
+
+### 2. How do you store a value: const or let?
+
+*Introduce.* A **variable** is a name that holds a value. You create one with `const` or `let`.
+
+*Explain.* Use `const` when the name should always hold the same value, and `let` when it needs to change. MDN's *const* page says a constant's value "can't be changed through reassignment." Start with `const` every time; switch to `let` only when you find you need to change it. A `let` with no value holds `undefined` until you give it one. You will also see `var` in older code and tutorials. It follows older rules about where a name can be seen (MDN's *var* page notes that blocks such as `if` "do not create scopes for `var`"), which causes surprises. This course uses only `const` and `let`.
+
+*Illustrate.*
+
+![The Console: let visits = 1, visits = visits + 1 gives 2, const siteName = "My Site", siteName gives "My Site", let note, note gives undefined.](images/m06-const-let.png)
+*Declaring a variable shows `undefined`: the Console reports that the declaration itself has no value, just as with `console.log()` in Module 5. `visits = visits + 1` reads the right side first (1 + 1), then stores 2. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* **What value does this variable hold?** After `let count = 5;` and `count = count + 10;`, what is in `count`? Type it to check.
+
+### 3. What is the difference between = and ===?
+
+*Introduce.* One `=` **assigns**: it puts a value into a variable. Three `===` **compare**: they ask whether two values are the same.
+
+*Explain.* Read `mood = "busy"` as "mood becomes busy." Read `mood === "busy"` as "is mood busy?" The first changes the variable. The second only asks a question and answers `true` or `false`. Mixing them up is one of the most common beginner mistakes, because in math class `=` meant "is equal to."
+
+*Illustrate.*
+
+![The Console: let mood = "calm", mood === "busy" gives false, mood = "busy" gives "busy", mood === "busy" gives true.](images/m06-assign-compare.png)
+*The comparison does not change `mood`. Only the assignment on the third line does. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* Say each line of the image out loud using "becomes" for `=` and "is it…?" for `===`.
+
+### 4. How does arithmetic work, and why is + different?
+
+*Introduce.* JavaScript has the arithmetic you know: `+`, `-`, `*` (multiply), `/` (divide), plus `%`, which gives the **remainder** after dividing.
+
+*Explain.* `+` has two jobs. With two numbers it adds. If either side is a string, it **joins** them into one longer string, so `"5" + 3` is `"53"`. The other operators only do math, so JavaScript turns the text `"5"` into the number 5: `"5" - 3` is `2`. JavaScript also works from left to right. In `"Total: " + 2 + 3`, it first joins `"Total: "` and `2`, then joins `3`. Parentheses force the math to happen first.
+
+*Illustrate.*
+
+![The Console: 7 + 2 is 9, 7 - 2 is 5, 7 * 2 is 14, 7 / 2 is 3.5, 7 % 2 is 1, "5" + 3 is "53", "5" - 3 is 2, "5" * 2 is 10, "Total: " + 2 + 3 is "Total: 23", "Total: " + (2 + 3) is "Total: 5".](images/m06-arithmetic.png)
+*Watch the quotes on the results: `"53"` and `"Total: 23"` are strings; `2` and `10` are numbers. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* Predict `10 % 3` and `"10" + 1`. Then type both.
+
+### 5. How do comparisons work, and why === instead of ==?
+
+*Introduce.* Comparison operators ask a question about two values: `>`, `<`, `>=`, `<=`, `===` (same), `!==` (not the same).
+
+*Explain.* There are two kinds of "equal." `===` is **strict**: MDN's *Strict equality* page says it "always considers operands of different types to be different." `==` is **loose**: if the types differ, it "attempts to convert them to the same type before comparing." That is why `5 == "5"` is `true` and `0 == false` is `true`. Loose equality hides type mistakes, so this course always uses `===` and `!==`.
+
+*Illustrate.*
+
+![The Console: 10 > 9 true, 10 >= 10 true, 3 !== 4 true, 5 === 5 true, 5 === "5" false, 5 == "5" true, 0 == false true, 0 === false false, null == undefined true, null === undefined false.](images/m06-equality.png)
+*Every pair of `==` and `===` lines gives opposite answers. Strict equality is the one that agrees with what you can see. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* Predict `"7" === 7` and `"7" == 7` before you type them.
+
+### 6. What does a comparison produce?
+
+*Introduce.* Every comparison produces a **Boolean**: `true` or `false`.
+
+*Explain.* A Boolean is a value like any other. You can store it in a variable, log it, and check its type. Naming such a variable as a yes-or-no question, like `needsJacket` or `isOpen`, makes code easier to read. This matters for the next concept: `if` runs its code when the value inside its parentheses is `true`.
+
+*Illustrate.*
+
+![The Console: const temp = 62, temp < 50 gives false, const needsJacket = temp < 70, needsJacket gives true, typeof needsJacket gives "boolean".](images/m06-boolean-results.png)
+*The comparison `temp < 70` was worked out once and its answer, `true`, was stored. (real output, rendered; evaluated in Chromium)*
+
+*Apply.* Write a line that stores whether a number is greater than 100, with a question-style name. Check its `typeof`.
+
+### 7. How does a program make a decision?
+
+*Introduce.* `if` runs a block of code only when a condition is `true`. `else if` adds another condition to check. `else` catches everything left over.
+
+*Explain.* JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it.
+
+*Illustrate.*
+
+```js
+// weather.js: suggest what to wear from the temperature (degrees F)
+const temp = 40;
+
+if (temp < 50) {
+  console.log("Wear a coat");
+} else if (temp < 70) {
+  console.log("Bring a jacket");
+} else {
+  console.log("T-shirt weather");
+}
+
+console.log("Checked " + temp + " degrees");
+```
+
+![A decision diagram: temp < 50? true leads to Wear a coat; false leads to temp < 70? true leads to Bring a jacket; false leads to else: T-shirt weather.](images/m06-if-flow.png)
+*Checked top to bottom; the first true condition wins. (illustration, not a screenshot)*
+
+![A terminal running node weather.js three times, printing Wear a coat and Checked 40 degrees, Bring a jacket and Checked 62 degrees, T-shirt weather and Checked 85 degrees.](images/m06-if-else-node.png)
+*The file was edited and saved between runs, with `temp` set to 40, then 62, then 85. Each run printed exactly one suggestion, and the last line ran every time because it is outside the `if`. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
+
+*Apply.* **What happens if this changes?** Predict the output for `temp` set to `50` and to `70`. Edit, save and run to check. Those are the edges, and edges are where bugs live.
+
+## Exercise
+
+*Apply — your hands, about 40 minutes (estimate).* Type it, do not paste it. Work in the Console unless a step says otherwise.
+
+1. **Predict on paper.** Copy the left column of this table and write your prediction next to each line. Do not run anything yet.
+
+   | # | Type this | Your prediction |
+   |---|---|---|
+   | a | `typeof "7"` | |
+   | b | `typeof 7` | |
+   | c | `"7" + 7` | |
+   | d | `"7" - 7` | |
+   | e | `7 + 7 + "7"` | |
+   | f | `"7" + 7 + 7` | |
+   | g | `10 / 4` | |
+   | h | `10 % 4` | |
+   | i | `7 == "7"` | |
+   | j | `7 === "7"` | |
+   | k | `typeof (7 > 3)` | |
+   | l | `typeof undefined` | |
+   | m | `typeof null` | |
+
+2. **Run.** Type each line into the Console. Mark each prediction right or wrong. Then check against the results we got in Chromium:
+
+   | # | Result | | # | Result |
+   |---|---|---|---|---|
+   | a | `"string"` | | h | `2` |
+   | b | `"number"` | | i | `true` |
+   | c | `"77"` | | j | `false` |
+   | d | `0` | | k | `"boolean"` |
+   | e | `"147"` | | l | `"undefined"` |
+   | f | `"777"` | | m | `"object"` |
+   | g | `2.5` | | | |
+
+   For every one you got wrong, write one sentence on why. Lines e and f are worth the most time: they use the same three values in a different order.
+3. **Modify.** Change line c to use `*` instead of `+`. Predict, then run.
+4. **Create.** Write two variables of your own with `const`, one a number and one a string that looks like a number. Write one comparison between them that is `true` with `==` and `false` with `===`.
+5. **Break it on purpose.** In the Console type `const city = "Fresno"` (or any city), press Enter, then type `city = "Chicago"` and press Enter. Read the error. Then type `city` to see what it holds now.
+
+   ![The Console: const city = "Fresno", then city = "Chicago" gives Uncaught TypeError: Assignment to constant variable. at anonymous 1:6, then city still gives "Fresno".](images/m06-const-error.png)
+   *Name: `TypeError`. Message: `Assignment to constant variable.` The value did not change. MDN's *const* page notes the exact wording can differ between browsers; this is Chromium's, the engine inside Edge and Chrome. (real output, rendered; evaluated in Chromium)*
+
+6. **Same mistake in Node.** Create `break-const.js` in `js-practice` with these three lines, save, and run `node break-const.js`:
+
+   ```js
+   const city = "Fresno";
+   city = "Chicago";
+   console.log(city);
+   ```
+
+   ![A terminal showing node break-const.js with the error pointing at line 2, a caret under the equals sign, and TypeError: Assignment to constant variable.](images/m06-const-error-node.png)
+   *Same name and message as the Console, plus the file and line from Module 5's error-reading routine. Line 3 never ran. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the first line shows your Windows path to the file.)*
+
+   Fix it by changing `const` to `let` on line 1. Run again and confirm it prints `Chicago`. Then ask yourself whether `let` was the right fix, or whether the program should never have changed the city.
+
+## Project (in the full packet)
+
+The Project is a **"plan my day"** script. You set one number, the hour of the day from 0 to 23, and the script decides what to print: a different plan for the morning, the afternoon and the evening, plus a polite message when the hour makes no sense, like 25. You will choose your own time ranges, predict the output for the edge hours before you run them, and test every branch on purpose. The full brief, the step-by-step build, and the finishing work in Git are in the Module 6 packet. [Get the packet →](PACKET_LINK_MODULE_6)
+
+## Common misconception
+
+> *"`=` means equals, like in math."*
+
+What would you say? Hint: look at `visits = visits + 1` in Core Concept 2. In math that line could never be true.
+
+## Summary
+
+A value is one piece of data, and its type is string, number, boolean, undefined or null; `typeof` names the type, and `typeof null` is `"object"` for historical reasons. `const` holds a value that will not be reassigned, `let` holds one that will, and this course does not use `var`. One `=` assigns; `===` compares. `+` adds numbers but joins strings, while `-`, `*`, `/` and `%` only do math. `===` treats different types as different; `==` converts them first, which hides mistakes. Every comparison produces a Boolean you can store and test. `if`, `else if` and `else` check conditions from top to bottom and run only the first block whose condition is true.
+
+## Check your understanding
+
+1. Why is `"5" + 3` equal to `"53"`, but `"5" - 3` equal to `2`?
+2. A teammate writes `if (answer == 0)`. What would you change, and why?
+3. **What value does this variable hold?** After these lines, what is in `total`, and what is its type?
+
+   ```js
+   let total = "10";
+   total = total + 5;
+   ```
+
+## Before next module
+
+- [ ] You can name the five basic types and check any value with `typeof`
+- [ ] You start every variable with `const` and switch to `let` only when it must change
+- [ ] You can explain `"5" + 3` and `"5" - 3` without running them
+- [ ] You use `===` and `!==`, never `==`
+- [ ] `weather.js` runs, and you tested the edge values 50 and 70
+- [ ] You caused the const `TypeError` in the Console and in Node and can read both
+- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+
+## Go further
+
+- MDN: *typeof* (including the section on `typeof null`)
+- MDN: *const*, *let* and *var*
+- MDN: *Strict equality (===)* and *Equality (==)*
+- MDN: *if...else*
+- MDN: *JavaScript error reference* (for *TypeError*)
+- [W3Schools JavaScript Tutorial](AFFILIATE_W3SCHOOLS_JS)
+
+*Affiliate link: Code559 may earn a commission at no extra cost to you.*
+
+## What to keep
+
+Keep your filled-in prediction table, with a sentence beside every line you got wrong, and keep `weather.js` in `js-practice`. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+
+---
+
+*Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
+
+*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference".*

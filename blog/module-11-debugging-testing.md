@@ -1,0 +1,402 @@
+---
+title: "Module 11: Debugging and Testing"
+subtitle: "Read the red line, find the cause, change one thing, and prove it works with a written test."
+module: 11
+series: Code559 Front-End Developer Course
+estimated_time: "about 2 hours (estimate)"
+---
+
+# Module 11 — Debugging and Testing
+
+*Read the red line, find the cause, change one thing, and prove it works with a written test.*
+
+**In this module you will learn:**
+
+- What a bug is in plain terms: a gap between what you expected and what happened
+- How to read a Console error: its type, its message, and the file name and line number
+- Three common error types (`SyntaxError`, `ReferenceError`, `TypeError`) and what each one usually means
+- What `null` means when it comes back from `document.querySelector()`, and the `TypeError` that follows it
+- How to debug a selector by testing it in the Console
+- How to use `console.log()` to see what a variable holds at the moment it matters
+- Why you change one thing at a time
+- What the browser debugger and a breakpoint are (awareness only)
+- How to test a page with the keyboard alone, and what a focus state looks like
+- The **Action / Expected / Actual** test matrix, the testing standard for the rest of this course
+- How to test edge cases: empty input, the first item, the last item, and wrap-around
+
+## Why this matters
+
+Every page you have built so far has broken at least once. Up to now you fixed things by looking hard and trying edits until something worked. That works on small pages. It stops working the day a page has forty lines of JavaScript and the button does nothing.
+
+Debugging is a method, not a talent. You say what you expected, you look at what happened, and you find the first place where the two split. The Console tells you more than most beginners read. A short `console.log()` line tells you the rest.
+
+Testing is the other half. A test is a written promise: "when I do this, I expect that." If you write the promise down, you can check it again tomorrow, after every change. From this module on, every interactive feature you build gets a small written test plan in one shared format.
+
+## Before you start
+
+1. Finish Module 10. Your site should have at least one feature that responds to a click or a form submit.
+2. In your course folder (for example `Documents\code559`), create a throwaway folder called `m11-practice`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
+3. Open Edge or Chrome. You will press **F12** often in this module. Click the **Console** tab once so it opens there next time.
+4. Have paper or a blank text file ready. You will write predictions before you run things.
+
+> **Checkpoint.** You have an empty `m11-practice` folder open in VS Code, Live Preview works, and you can open the Console with F12.
+
+## Core concepts
+
+### 1. What is a bug, exactly?
+
+*Introduce.* A bug is a difference between what you **expected** and what **actually** happened. Nothing more. If you cannot say what you expected, you cannot say there is a bug.
+
+*Explain.* MDN's *What went wrong? Troubleshooting JavaScript* sorts errors into kinds. A **syntax error** is a spelling or punctuation mistake that stops the code from running. A **logic error** is code that runs but gives the wrong result; MDN notes these are harder, because "there usually isn't an error message to direct you to the source of the error." So the first habit is to write down your expectation before you click. Then the comparison is easy.
+
+*Illustrate.*
+
+![Five boxes in a row: Predict, Run, Compare, Change one thing, Retest.](images/m11-loop.png)
+*The loop you will use for every bug in this module. Notice that "Compare" needs a written prediction to compare against. (illustration, not a screenshot)*
+
+*Apply.* Pick one button on your own site. Before you click it, write one sentence: "When I click ___, I expect ___." Click it. Did the actual result match?
+
+### 2. How do you read a Console error?
+
+*Introduce.* When JavaScript cannot go on, it stops and prints a red line in the Console. That line has three parts, and each one is a clue.
+
+*Explain.* Here is a two-line script for a page with a button whose id is `message-button`. The id in the script is misspelled:
+
+```js
+const messageButton = document.querySelector("#mesage-button");
+messageButton.addEventListener("click", showMessage);
+```
+
+Read the red line from left to right. **The type** comes first (`TypeError`): what kind of problem. **The message** comes next: what JavaScript tried to do. **The location** is on the right (`script.js:2`): the file and the line number. Click that link in DevTools and it opens the file at that line. The `at script.js:2:15` line underneath adds the column: character 15 on line 2.
+
+*Illustrate.*
+
+![A Console showing Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') with script.js:2 on the right.](images/m11-console-typeerror.png)
+*Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn. In your DevTools the `at …` lines may be folded under a small arrow.)* **[unverified: whether your version of Edge or Chrome shows the stack lines expanded or folded by default.]**
+
+*Apply.* Say the three parts of that error out loud: type, message, file and line.
+
+### 3. What do the three common error types usually mean?
+
+*Introduce.* You will see three error types far more than any others.
+
+*Explain.* A **`SyntaxError`** means the code is not valid JavaScript, so none of the file runs; look for a missing bracket, quote or parenthesis. A **`ReferenceError`** means you used a name that does not exist; it is almost always a typo or a variable used before it was made. A **`TypeError`** means the name exists, but its value is the wrong kind for what you asked; the most common one in front-end work is trying to use `null` as if it were an element.
+
+*Illustrate.* The same two-line script, broken two other ways. First a missing `)` at the end of line 2, then a typo in the function name (`showMesage`):
+
+![A Console with two red lines: Uncaught SyntaxError: missing ) after argument list at script.js:2, and Uncaught ReferenceError: showMesage is not defined at script.js:2.](images/m11-console-syntax-reference.png)
+*Both errors point at line 2, but they mean different things. The `SyntaxError` has no `at …` line because the file never started running. (real output, rendered; captured in Chromium from two pages loaded as files. The Console frame is drawn.)*
+
+*Apply.* Without running anything: which type would you get from `consol.log("hi")`? (Answer: `ReferenceError`, because `consol` is not a name JavaScript knows.)
+
+### 4. What does `null` mean, and why does a `TypeError` follow it?
+
+*Introduce.* `document.querySelector()` looks for the first element that matches a CSS selector. MDN's page *Document: querySelector() method* says it plainly: "If no matches are found, `null` is returned."
+
+*Explain.* So `null` here means **JavaScript did not find the element**. It is not an error yet. The error comes on the next line that uses the variable, because `null` has no `addEventListener` and no `textContent`. That is why the red line often points at a different line from the real mistake. MDN's troubleshooting page warns about exactly this: "the error will not necessarily be on that line." The line number tells you where `null` was *used*. You still have to trace back to where it was *made*.
+
+*Illustrate.* When you see "of null" in a message, go to the `querySelector` line that filled that variable, and compare its selector with the HTML, letter by letter.
+
+*Apply.* In your own `script.js`, find one `querySelector` line. Write down the exact id or class it looks for. Now find that id or class in your HTML. Do they match exactly, including `#` or `.`?
+
+### 5. How do you debug a selector?
+
+*Introduce.* You do not have to guess whether a selector works. You can ask the page.
+
+*Explain.* Open the page, open the Console, and type the `querySelector` call by itself. If the answer is `null`, the selector found nothing. If you see an element, the selector is fine and the bug is somewhere else. `document.querySelectorAll(...).length` tells you how many elements match, which is useful when you expected several.
+
+*Illustrate.*
+
+![A Console where querySelector("#mesage-button") returns null, querySelector("#message-button") returns the button element, and querySelectorAll("button").length returns 1.](images/m11-selector-null.png)
+*One letter changes the answer from `null` to the button. Testing the selector by itself takes seconds and ends the guessing. (real output, rendered; evaluated in Chromium against the demo page)*
+
+*Apply.* On your own site, open the Console and type one of your `querySelector` calls. Is the answer an element or `null`?
+
+### 6. How do you see what a variable holds?
+
+*Introduce.* Logic errors give no red line. To find them, you look inside the code while it runs.
+
+*Explain.* `console.log()`, in MDN's words, "outputs a message to the console." Put one line where the wrong thing happens, and print the values that line depends on. Each time that code runs, you get a new line in the Console, with the file and line number on the right. When you have found the bug, delete the log line.
+
+*Illustrate.* In the practice page you will build in the Exercise, the Next button eventually shows an empty tip. Adding this as the first line inside the function that draws the tip:
+
+```js
+console.log("index is", index, "tip is", tips[index]);
+```
+
+then loading the page and clicking Next three times gives this:
+
+![Four Console log lines: index is 0, 1, 2 with tip text, then index is 3 tip is undefined, each from script.js:19.](images/m11-console-log-index.png)
+*The first line is the page load; the next three are the clicks. On the fourth line, `index` is 3, but there are only three tips, numbered 0 to 2. That is the bug, found in one run. (real output, rendered; captured in Chromium)*
+
+*Apply.* Question to answer before the Exercise: **what value does this variable hold** when `tips[index]` is `undefined`?
+
+### 7. Why change one thing at a time?
+
+*Introduce.* When you find a suspect, it is tempting to fix three things at once.
+
+*Explain.* If you change three things and the page works, you do not know which change fixed it. If it still fails, you do not know whether you fixed one bug and made another. Change **one** thing, save, and repeat the same test. Then you know exactly what each edit did. This is also why your Git commits in Module 12 hold one change each.
+
+*Illustrate.* Look at the loop picture in concept 1 again: "Change one thing" comes before "Retest," every time.
+
+*Apply.* For the rest of this module, say out loud which single thing you are changing before you save.
+
+### 8. What is the browser debugger?
+
+*Introduce.* DevTools has a **Sources** panel that can pause your code on a line, so you can look at every variable at that moment. You do not need it yet; `console.log()` is enough for this course. You should know it exists.
+
+*Explain.* Chrome's documentation (*Pause your code with breakpoints*) says to open the Sources panel, open the file, and click the line number to set a **line-of-code breakpoint**. The next time that line runs, the page freezes and the side panel shows the current values. Writing `debugger;` in your code does the same thing from inside the file.
+
+*Illustrate.*
+
+![A drawn Sources panel with script.js open, a blue marker on line 19, and a Scope panel showing index: 3.](images/m11-debugger.png)
+*A breakpoint on line 19 pauses the page so you can read `index` without a log line. The code is the real practice file; the panel layout and labels are drawn and simplified. (illustration, not a screenshot)*
+
+*Apply.* None today. When a `console.log()` would need five values at once, come back to this.
+
+### 9. How do you test with the keyboard?
+
+*Introduce.* Some visitors never use a mouse. A page that only works with clicks is broken for them, and no red line will tell you.
+
+*Explain.* MDN's *HTML: A good basis for accessibility* says to "try pressing the tab key" and watch focus move through the page. Press **Tab** to move forward and **Shift+Tab** to move back. Every link, button and form field should get a visible **focus state**, a ring or outline that shows where you are. A real `<button>` can be reached with Tab and pressed with Enter or Space; MDN notes you "lose the native keyboard accessibility" if you build a button out of a `<div>`. In CSS, `:focus-visible` is the selector for "focused, and the browser thinks the focus should be shown."
+
+*Illustrate.*
+
+![The fixed practice page at 390 px with a thick amber ring around the Show help button.](images/m11-focus-help-fixed.png)
+*After five presses of Tab, focus is on "Show help," and the amber `:focus-visible` outline from the stylesheet shows it. (real: rendered in Chromium at 390 px, focus moved with five real Tab key presses)*
+
+*Apply.* Open your site. Put the mouse away. Press Tab until you have visited every link and button. Write down any you could not reach or could not see.
+
+### 10. What is the Action / Expected / Actual test matrix?
+
+*Introduce.* This is the testing format for the rest of the course. Every interactive feature gets one.
+
+*Explain.* It is a table with three columns. **Action** is one thing a visitor does, written so someone else could repeat it. **Expected** is what should happen, written *before* you test. **Actual** is what did happen, written *after*. A row passes when the last two match. Here is a filled-in example for the tip card you will build:
+
+| Action | Expected | Actual |
+| --- | --- | --- |
+| Load the page | First tip shows; count reads "Tip 1 of 3" | |
+| Click Next once | Second tip; "Tip 2 of 3" | |
+| Click Previous on the first tip | Wraps to the last tip; "Tip 3 of 3" | |
+| Click Next on the last tip | Wraps to the first tip; "Tip 1 of 3" | |
+| Submit the form with the box empty | No tip added; a message asks for text | |
+| Submit with only spaces | Same as empty | |
+| Tab through the page | Every button and the text box get a visible ring, in order | |
+
+*Illustrate.* The Actual column is empty on purpose. You fill it in during the Exercise.
+
+*Apply.* Copy the empty table into your notes now. You will need it in ten minutes.
+
+### 11. What is an edge case?
+
+*Introduce.* An **edge case** is an input or a moment at the boundary of what the code expects. Bugs live there.
+
+*Explain.* Four edges come up in almost every feature in this course. **Empty input**: the visitor submits nothing, or only spaces. **The first item**: what does Previous do when you are already at the start? **The last item**: what does Next do at the end? **Wrap-around**: when you go past an end, do you land on the other end, or on nothing? Not every edge case finds a bug. You still test each one, because you do not know which one will.
+
+*Illustrate.* Four of the seven rows in the table above are edge cases. Point to each one.
+
+*Apply.* For one feature on your own site, write one edge case you have never tested.
+
+## Exercise
+
+*Apply — your hands, about 60 minutes (estimate).* Type it, do not paste it. This page has **six planted bugs**. Some print a red line. Some do not. Your job is to find all six with the Console, `console.log()`, the keyboard, and the test table.
+
+1. **Make the files.** In `m11-practice`, create a folder called `bug-hunt` with three files: `index.html`, `style.css`, `script.js`.
+2. **Type `index.html`.**
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Bug hunt</title>
+     <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+     <main>
+       <h1>Bug hunt</h1>
+       <section class="card">
+         <h2>Tip of the day</h2>
+         <p id="tip-text"></p>
+         <p id="tip-count"></p>
+         <button id="prev-button" type="button">Previous</button>
+         <button id="next-button" type="button">Next</button>
+       </section>
+       <section class="card">
+         <h2>Add a tip</h2>
+         <form id="tip-form">
+           <label for="new-tip">Your tip</label>
+           <input id="new-tip" type="text">
+           <button type="submit">Add tip</button>
+         </form>
+         <p id="form-message" role="status"></p>
+       </section>
+       <section class="card">
+         <div class="help-toggle" id="help-toggle">Show help</div>
+         <p id="help" class="help">Use Previous and Next to move through the tips.</p>
+       </section>
+     </main>
+     <script src="script.js"></script>
+   </body>
+   </html>
+   ```
+
+3. **Type `style.css`.**
+
+   ```css
+   body { font-family: system-ui, sans-serif; margin: 0; background: #f4f6f8; color: #1d2733; }
+   main { max-width: 640px; margin: 0 auto; padding: 16px; }
+   h1 { margin: 8px 0 16px; }
+   .card { background: #fff; border: 1px solid #d5dbe1; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+   .card h2 { margin-top: 0; font-size: 1.2rem; }
+   button, .help-toggle { font: inherit; padding: 8px 14px; border: 1px solid #2f5d8a; border-radius: 6px; background: #2f5d8a; color: #fff; cursor: pointer; display: inline-block; }
+   button:focus-visible, input:focus-visible { outline: 3px solid #e3a008; outline-offset: 2px; }
+   label { display: block; margin-bottom: 4px; }
+   input { font: inherit; padding: 8px; border: 1px solid #8a96a3; border-radius: 6px; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
+   .help { display: none; }
+   .help.is-visible { display: block; }
+   ```
+
+4. **Type `script.js`.** Type it exactly as shown, bugs included. Line numbers matter, so do not add blank lines.
+
+   ```js
+   const tips = [
+     "Save before you refresh.",
+     "Read the whole error message.",
+     "Change one thing at a time."
+   ];
+   let index = 0;
+
+   const tipText = document.querySelector("#tip-txt");
+   const tipCount = document.querySelector("#tip-count");
+   const prevButton = document.querySelector("#prev-button");
+   const nextButton = document.querySelector("#next-button");
+   const tipForm = document.querySelector("#tip-form");
+   const newTip = document.querySelector("#new-tip");
+   const formMessage = document.querySelector("#form-message");
+   const helpToggle = document.querySelector("#help-toggle");
+   const help = document.querySelector("#help");
+
+   function showTip() {
+     tipText.textContent = tips[index];
+     tipCount.textContent = "Tip " + index + " of " + tips.length;
+   }
+
+   nextButton.addEventListener("click", function () {
+     index = index + 1;
+     if (index > tips.length) {
+       index = 0;
+     }
+     showTip();
+   });
+
+   prevButton.addEventListener("click", function () {
+     index = index - 1;
+     if (index < 0) {
+       index = tips.length - 1;
+     }
+     showTip();
+   });
+
+   tipForm.addEventListener("submit", function (event) {
+     event.preventDefault();
+     const text = newTip.value;
+     tips.push(text);
+     formMessage.textContent = "Added. There are now " + tips.length + " tips.";
+     newTip.value = "";
+     showTip();
+   });
+
+   helpToggle.addEventListener("click", function () {
+     help.classList.toggle("visible");
+   });
+
+   showTip();
+   ```
+
+5. **Predict, then run.** Write your prediction: what will the tip card show? Open `index.html` with Live Preview or in the browser, then press F12. The tip card has buttons but no tip and no count, and the Console shows this:
+
+   ![A Console showing Uncaught TypeError: Cannot set properties of null (setting 'textContent') at showTip (script.js:19:23) and at script.js:52:1.](images/m11-bughunt-console.png)
+   *Read the stack from the top: the error happened inside `showTip` on line 19, and `showTip` was called from line 52. The real cause is on neither line. (real output, rendered; captured in Chromium loading the file. The Console frame is drawn.)*
+
+   Use concepts 4 and 5 to find **bug 1**. Fix only that. Save. Reload.
+
+6. **Run the test table.** Now the page loads with no red line. Go through the Action / Expected / Actual table from concept 10, one row at a time, and fill in Actual. You should get at least three rows that do not match. Here are two of them:
+
+   ![The tip card at 390 px reading "Save before you refresh." and "Tip 0 of 3".](images/m11-bughunt-count-390.png)
+   *Row 1: Expected "Tip 1 of 3", Actual "Tip 0 of 3". No red line, so this is a logic error. (real: rendered in Chromium at 390 px)*
+
+   ![The tip card at 390 px with no tip text and the count "Tip 3 of 3".](images/m11-bughunt-undefined-390.png)
+   *After three clicks on Next the tip disappears. Concept 6 shows the `console.log()` line that explains why. (real: rendered in Chromium at 390 px, after three real clicks on Next)*
+
+7. **Fix one bug at a time.** For each row that failed: say which line you think is wrong, change one thing, save, and run the **same row** again. Write the new Actual. Do not move on until the row passes.
+8. **Break it on purpose.** Once Next wraps correctly, change `>=` (or whatever you used) back to `>`. Predict what row 4 will show now. Run row 4. Then fix it again and rerun row 4. Breaking a fixed bug and watching the test catch it is how you learn to trust the test.
+9. **Test the keyboard.** Put the mouse away. Press Tab from the top of the page. In the page as typed, focus goes Previous → Next → the text box → Add tip, and then leaves the page; "Show help" is never reached (checked in Chromium with real Tab presses). Fix it so Tab reaches "Show help" and Enter opens the help text. Hint: concept 9.
+10. **Check the last one.** Click "Show help" with the mouse. Does the help paragraph appear? If not, compare the class name in `script.js` with the class names in `style.css`.
+11. **Finish the table.** Every row's Actual now matches Expected. Add one more row of your own: one edge case the table does not cover yet.
+
+<details>
+<summary>Check your hunt: the six bugs (open only after you have tried)</summary>
+
+1. Line 8: the selector `#tip-txt` does not match the HTML id `tip-text`, so `tipText` is `null` (the `TypeError` on line 19).
+2. Line 20: the count shows `index`, which starts at 0; people count from 1.
+3. Line 25: `index > tips.length` lets `index` reach 3, one past the last tip; it should wrap when `index` reaches `tips.length`.
+4. Line 41: an empty or spaces-only box is still added as a tip; it needs `.trim()` and an empty check (Module 10).
+5. Line 49: the script toggles `visible`, but the CSS shows `.help.is-visible`.
+6. HTML: "Show help" is a `<div>`, so Tab skips it and Enter does nothing; it should be a `<button type="button">`.
+
+In the corrected version, all seven rows of the table pass in Chromium, including both wrap-arounds and the spaces-only submit.
+</details>
+
+## Project (in the full packet)
+
+Your personal site now has several interactive features: navigation, forms with validation, show/hide panels, maybe a gallery. In the project you write an Action / Expected / Actual test plan for **every** interactive feature on the site, including the keyboard and the four edge cases, run it on the live site, record every Actual, and fix what fails, one change at a time. The finished test plan is saved in the repository so you can rerun it after every future change. The full brief, the step-by-step build, and the finishing work in Git are in the Module 11 packet. [Get the packet →](PACKET_LINK_MODULE_11)
+
+## Common misconception
+
+> *"The error is on the line the Console points to."*
+
+What would you say? Hint: in the Exercise, the red line said 19, and the mistake was on line 8.
+
+## Summary
+
+A bug is a gap between what you expected and what actually happened, so you write the expectation down first. A Console error gives you a type, a message, and a file and line number, and you read all three. `SyntaxError` means the code is not valid, `ReferenceError` means a name does not exist, and `TypeError` usually means a value is the wrong kind, most often `null`. `querySelector` returns `null` when it finds nothing, and the error appears later, where that `null` is used. You test a selector by typing it into the Console. `console.log()` shows what a variable holds at the moment the code runs. You change one thing at a time so you know what each change did. The Sources panel can pause code at a breakpoint when logs are not enough. A keyboard test with Tab and Shift+Tab finds problems no error message reports. The Action / Expected / Actual table is the course's test standard, and edge cases (empty input, first item, last item, wrap-around) are where most bugs hide.
+
+## Check your understanding
+
+1. The Console says `Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')` at `script.js:14`. What do you check first, and is it on line 14?
+2. Why can a page have a bug and show no red line at all? Give one example from the Exercise.
+3. **What would you test?** You add a fourth tip to the `tips` array. Which rows of the table would you run again, and why those?
+
+## Before next module
+
+- [ ] You can name the three parts of a Console error and click through to the line
+- [ ] You found all six bugs in `bug-hunt`, one change at a time, and broke one fix on purpose and caught it again
+- [ ] Every row of your bug-hunt test table has an Actual that matches Expected
+- [ ] You tabbed through your own site with the mouse put away, and wrote down what you could not reach
+- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+
+## Go further
+
+- MDN: *What went wrong? Troubleshooting JavaScript*
+- MDN: *TypeError: "x" is (not) "y"* (the reference page for `null` and `undefined` errors)
+- MDN: *Document: querySelector() method*
+- MDN: *console: log() static method*
+- MDN: *HTML: A good basis for accessibility* (the keyboard sections)
+- MDN: *:focus-visible*
+- Chrome for Developers: *Pause your code with breakpoints*
+- freeCodeCamp: the debugging lessons in its JavaScript curriculum (search "debugging" on freecodecamp.org)
+- [W3Schools JavaScript Debugging](AFFILIATE_W3SCHOOLS_JS_DEBUGGING)
+
+*Affiliate link: Code559 may earn a commission at no extra cost to you.*
+
+## What to keep
+
+Keep your filled-in bug-hunt test table and the empty Action / Expected / Actual template; you will use the template in every module from here on. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+
+---
+
+*Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
+
+*Sources checked 2026-10-09: MDN "What went wrong? Troubleshooting JavaScript"; MDN "TypeError: "x" is (not) "y""; MDN "Document: querySelector() method"; MDN "console: log() static method"; MDN "HTML: A good basis for accessibility"; MDN ":focus-visible"; Chrome for Developers "Pause your code with breakpoints".*
