@@ -43,84 +43,84 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 
 ### 1. What is a function?
 
-*Introduce.* A function is a named, reusable set of instructions. You write the instructions once. After that, the name runs them.
+💡 A function is a named, reusable set of instructions. You write the instructions once. After that, the name runs them.
 
-*Explain.* A function definition has four parts. The keyword `function` says a definition is coming. The **name** is how you run it later. The **parameters** in parentheses are names for the inputs. The **body** in curly braces is the work. The line that starts with `return` hands a value back.
+❓ A function definition has four parts. The keyword `function` says a definition is coming. The **name** is how you run it later. The **parameters** in parentheses are names for the inputs. The **body** in curly braces is the work. The line that starts with `return` hands a value back.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A function definition for toMinutes with labels on the keyword, the name, the parameter and the body, and below it a call toMinutes(2) labeled with the argument and the parentheses.](images/m07-anatomy.png)
-*Top: the definition. Bottom: a call. The parentheses after the name are what make it run. (illustration, not a screenshot)*
+*Top: the definition. Bottom: a call. The parentheses after the name are what make it run.*
 
-*Apply.* Point at each part of `function toMinutes(hours) { return hours * 60; }` and say its name out loud: keyword, name, parameter, body.
+❗ Point at each part of `function toMinutes(hours) { return hours * 60; }` and say its name out loud: keyword, name, parameter, body.
 
 ### 2. What is the difference between defining and calling?
 
-*Introduce.* Writing a function down and running it are two separate steps. MDN's *Functions* guide puts it this way: "Defining a function does not execute it."
+💡 Writing a function down and running it are two separate steps. MDN's *Functions* guide puts it this way: "Defining a function does not execute it."
 
-*Explain.* When you define `toMinutes`, JavaScript stores the instructions under that name and does nothing else. When you **call** it, by writing the name followed by parentheses, `toMinutes(2)`, the body runs. You can call one definition as many times as you like.
+❓ When you define `toMinutes`, JavaScript stores the instructions under that name and does nothing else. When you **call** it, by writing the name followed by parentheses, `toMinutes(2)`, the body runs. You can call one definition as many times as you like.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console after typing the toMinutes definition, which prints undefined, then three calls printing 120, 90 and 0.](images/m07-define-call.png)
 *The Console prints `undefined` after the definition. That is its comment on the line you typed, not an answer from your function. The three calls each hand back a number. (real output, rendered)*
 
-*Apply.* Type the definition into your browser Console, then call it with `toMinutes(3)`. Predict the answer before you press Enter.
+❗ Type the definition into your browser Console, then call it with `toMinutes(3)`. Predict the answer before you press Enter.
 
 ### 3. What is a parameter, and what is an argument?
 
-*Introduce.* They are two words for the two ends of the same input.
+💡 They are two words for the two ends of the same input.
 
-*Explain.* A **parameter** is the name written in the definition: `hours`. An **argument** is the real value you give when you call: the `2` in `toMinutes(2)`. When the call runs, the parameter works like a variable that was just set to the argument. Call it again with `1.5`, and this time `hours` holds `1.5`.
+❓ A **parameter** is the name written in the definition: `hours`. An **argument** is the real value you give when you call: the `2` in `toMinutes(2)`. When the call runs, the parameter works like a variable that was just set to the argument. Call it again with `1.5`, and this time `hours` holds `1.5`.
 
-*Illustrate.* In the picture under Concept 1, `hours` is the parameter and `2` is the argument. Inside that one call, `hours * 60` becomes `2 * 60`.
+👀 In the picture under Concept 1, `hours` is the parameter and `2` is the argument. Inside that one call, `hours * 60` becomes `2 * 60`.
 
-*Apply.* Predict what `toMinutes()` gives with **no** argument. Then try it. (You will see `NaN`, "not a number," because `hours` holds `undefined` and `undefined * 60` is not a number.)
+❗ Predict what `toMinutes()` gives with **no** argument. Then try it. (You will see `NaN`, "not a number," because `hours` holds `undefined` and `undefined * 60` is not a number.)
 
 ### 4. What does `return` do, and why is `console.log()` not the same?
 
-*Introduce.* `return` hands a value back to the line that called the function, and it ends the function right there. `console.log()` only **shows** a value on the screen.
+💡 `return` hands a value back to the line that called the function, and it ends the function right there. `console.log()` only **shows** a value on the screen.
 
-*Explain.* A shown value is gone as soon as you read it. A returned value can be stored in a variable, compared, joined to text, or passed to another function. If a function has no `return`, it still hands something back: `undefined`. This is the most common mistake at this stage. The function "works" because you see the right text, but the line that called it receives nothing.
+❓ A shown value is gone as soon as you read it. A returned value can be stored in a variable, compared, joined to text, or passed to another function. If a function has no `return`, it still hands something back: `undefined`. This is the most common mistake at this stage. The function "works" because you see the right text, but the line that called it receives nothing.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console with two functions. logGreeting prints Hello, Sam! but storing its result gives undefined. makeGreeting prints nothing, but storing its result gives 'Hello, Sam!'.](images/m07-return-vs-log.png)
 *`logGreeting` shows the text and hands back `undefined`, so `a` holds `undefined`. `makeGreeting` shows nothing and hands back the text, so `b` holds `'Hello, Sam!'`. (real output, rendered)*
 
-*Apply.* In your Console, type `makeGreeting("Sam") + " Welcome back."` and predict the answer. Then try the same with `logGreeting`. Why does the second one end in `undefined Welcome back.`?
+❗ In your Console, type `makeGreeting("Sam") + " Welcome back."` and predict the answer. Then try the same with `logGreeting`. Why does the second one end in `undefined Welcome back.`?
 
 ### 5. What is local scope?
 
-*Introduce.* A variable created inside a function belongs to that function. Code outside cannot see it.
+💡 A variable created inside a function belongs to that function. Code outside cannot see it.
 
-*Explain.* MDN's *Functions* guide says "variables defined inside a function cannot be accessed from anywhere outside the function." That is a feature. It means two functions can each have a variable called `total` without stepping on each other. If you need a value from inside, `return` it, and store it where you called.
+❓ MDN's *Functions* guide says "variables defined inside a function cannot be accessed from anywhere outside the function." That is a feature. It means two functions can each have a variable called `total` without stepping on each other. If you need a value from inside, `return` it, and store it where you called.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console with countLetters defined, countLetters("website") returning 7, then typing total and getting Uncaught ReferenceError: total is not defined.](images/m07-scope.png)
 *The function used `total` and handed back `7`. Outside, `total` does not exist, so JavaScript stops with a `ReferenceError`. (real output, rendered)*
 
-*Apply.* Fix it the right way: type `const letters = countLetters("website");` and then `letters`. You get the value without reaching inside.
+❗ Fix it the right way: type `const letters = countLetters("website");` and then `letters`. You get the value without reaching inside.
 
 ### 6. How do you test a function by itself?
 
-*Introduce.* You call it with several inputs, one after another, and compare each answer with what you expected.
+💡 You call it with several inputs, one after another, and compare each answer with what you expected.
 
-*Explain.* Pick at least three inputs: a normal one, a different normal one, and an edge. An **edge** is the value right at a boundary, like `0`, an empty string, or exactly the limit in an `if`. Edges are where mistakes hide. In the Console, you type each call. In a file, you put each call inside `console.log()` and run the file with Node, so the tests can be run again any time.
+❓ Pick at least three inputs: a normal one, a different normal one, and an edge. An **edge** is the value right at a boundary, like `0`, an empty string, or exactly the limit in an `if`. Edges are where mistakes hide. In the Console, you type each call. In a file, you put each call inside `console.log()` and run the file with Node, so the tests can be run again any time.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal running node helpers.js and printing 120, 90, 0, true, false, false, [Function: showMessage] and Thanks for visiting!](images/m07-node-tests.png)
 *One run, eight answers. The `false` for `isNarrow(600)` is the edge test: 600 is not less than 600. (real output, rendered; captured on Linux with Node 22.22.0. Node prints the same lines on Windows.)*
 
-*Apply.* For `toMinutes`, write down three inputs and the answer you expect for each before you run anything. That list is your test.
+❗ For `toMinutes`, write down three inputs and the answer you expect for each before you run anything. That list is your test.
 
 ### 7. How do you write a function from a one-sentence description?
 
-*Introduce.* This is the step most learners find hardest, because the description does not tell you where to start. Use the same five steps every time.
+💡 This is the step most learners find hardest, because the description does not tell you where to start. Use the same five steps every time.
 
-*Explain.* Take this description: *"Write a function that takes a width in pixels and returns true when it is narrower than 600."*
+❓ Take this description: *"Write a function that takes a width in pixels and returns true when it is narrower than 600."*
 **1. Name it** with a verb or a question: `isNarrow`.
 **2. List the inputs**: one, a width, so one parameter, `width`.
 **3. State the output and its type**: `true` or `false`, a Boolean.
@@ -133,20 +133,20 @@ function isNarrow(width) {
 }
 ```
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Five boxes in a row: Name it, List inputs, State output, Write tests, Write body.](images/m07-description-method.png)
-*Steps 1 to 4 need no code at all. By the time you write the body, you already know what "working" means. (illustration, not a screenshot)*
+*Steps 1 to 4 need no code at all. By the time you write the body, you already know what "working" means.*
 
-*Apply.* Use the five steps on this description, on paper first: *"Write a function that takes a first name and returns a greeting that says Welcome, then the name, then a full stop."*
+❗ Use the five steps on this description, on paper first: *"Write a function that takes a first name and returns a greeting that says Welcome, then the name, then a full stop."*
 
 ### 8. What is the difference between `showMessage` and `showMessage()`?
 
-*Introduce.* The name alone is a **reference** to the function. The name with parentheses is a **call**. They give you two completely different things.
+💡 The name alone is a **reference** to the function. The name with parentheses is a **call**. They give you two completely different things.
 
-*Explain.* `showMessage` evaluates to the function itself, the stored instructions. Nothing runs. `showMessage()` runs the function and evaluates to whatever it returns, here a string. You can even store the function itself in another variable and call it later through the new name.
+❓ `showMessage` evaluates to the function itself, the stored instructions. Nothing runs. `showMessage()` runs the function and evaluates to whatever it returns, here a string. You can even store the function itself in another variable and call it later through the new name.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console with showMessage defined. Typing showMessage shows the function itself; showMessage() returns 'Thanks for visiting!'; typeof gives 'function' for one and 'string' for the other; storing it in later and calling later() gives the same text.](images/m07-reference-call.png)
 *Without parentheses you get the function. With them you get its answer. `typeof` proves it: `'function'` versus `'string'`. In Node, `console.log(showMessage)` prints `[Function: showMessage]` instead (see the Concept 6 image). (real output, rendered)*
@@ -154,26 +154,26 @@ function isNarrow(width) {
 This is the bridge to Module 9. There you will tell a button: "when you are clicked, run this function." The button needs **the function itself**, so it can call it later, every time someone clicks. It does not need the result of running it once, right now.
 
 ![Two boxes. Left: addEventListener with showMessage, which hands over the function. Right: addEventListener with showMessage(), which runs it immediately and hands over a string.](images/m07-listener-bridge.png)
-*A preview of Module 9. You do not need to type this yet. When we tried the right-hand version in Chromium, it refused with "TypeError: Failed to execute 'addEventListener' on 'EventTarget': parameter 2 is not of type 'Object'." (illustration, not a screenshot)*
+*A preview of Module 9. You do not need to type this yet. When we tried the right-hand version in Chromium, it refused with "TypeError: Failed to execute 'addEventListener' on 'EventTarget': parameter 2 is not of type 'Object'."*
 
-*Apply.* Before you press Enter on each, predict what `later` and `later()` will show.
+❗ Before you press Enter on each, predict what `later` and `later()` will show.
 
 ### 9. How does a function say "there is no answer"?
 
-*Introduce.* Sometimes a function is asked a question it cannot answer. It should say so clearly, with a value that means "nothing here." That value is `null`.
+💡 Sometimes a function is asked a question it cannot answer. It should say so clearly, with a value that means "nothing here." That value is `null`.
 
-*Explain.* Both `null` and `undefined` mean "no value," but they have different jobs. `undefined` is what you get by accident, such as a forgotten `return`. `null` is a value you hand back **on purpose**. The calling code then checks with `=== null` before it uses the answer. Do not use `0` or `""` for "no answer": those can be real answers.
+❓ Both `null` and `undefined` mean "no value," but they have different jobs. `undefined` is what you get by accident, such as a forgotten `return`. `null` is a value you hand back **on purpose**. The calling code then checks with `=== null` before it uses the answer. Do not use `0` or `""` for "no answer": those can be real answers.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console with pickColor defined. pickColor("dark") returns '#222222', pickColor("blue") returns null, pickColor("blue") === null is true, and pickColor("light") === null is false.](images/m07-null.png)
 *`"blue"` is not a mode this function knows, so it reaches the last line and returns `null`. The `=== null` check turns that into a plain `true` or `false` you can use in an `if`. (real output, rendered)*
 
-*Apply.* Write the `if` you would put in front of using the color: `if (color === null) { … }`. What should happen inside it?
+❗ Write the `if` you would put in front of using the color: `if (color === null) { … }`. What should happen inside it?
 
 ## Exercise
 
-*Apply — your hands, about 45 minutes (estimate).* Type it, do not paste it. Work in `m07-practice`. Nothing here is published.
+*Your hands, about 45 minutes (estimate).* Type it, do not paste it. Work in `m07-practice`. Nothing here is published.
 
 1. **Create the file.** In VS Code, create `helpers.js` inside `m07-practice`.
 2. **Define and test `toMinutes`.** Type the function from Concept 1. Below it, type three test lines: `console.log(toMinutes(2));`, `console.log(toMinutes(1.5));` and `console.log(toMinutes(0));`. Write your three predictions in a comment above them, like `// expect 120, 90, 0`.

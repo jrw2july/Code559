@@ -43,40 +43,40 @@ By the end of this module your Contact page sends real data, and you have built 
 
 ### 1. What are the parts of a form?
 
-*Introduce.* A form is a `<form>` element holding controls the visitor fills in and a button that sends them.
+💡 A form is a `<form>` element holding controls the visitor fills in and a button that sends them.
 
-*Explain.* Each control is an `<input>` with a `type` (`text`, `email`, `tel`, `radio`, `checkbox` and more), a `<textarea>` for longer text, or a `<button>`. Every control needs a `<label>`. MDN's `<label>` page explains that the label's `for` value is "the `id` of the labelable form control" it belongs to. Two good things follow. Clicking the label focuses or activates the control, which gives a bigger target on a phone. And, in MDN's words, "a screen reader will read out the label when the user is focused on the form input." `required` tells the browser not to send the form until that control has a value. `type="email"` also makes the browser check that the text looks like an email address.
+❓ Each control is an `<input>` with a `type` (`text`, `email`, `tel`, `radio`, `checkbox` and more), a `<textarea>` for longer text, or a `<button>`. Every control needs a `<label>`. MDN's `<label>` page explains that the label's `for` value is "the `id` of the labelable form control" it belongs to. Two good things follow. Clicking the label focuses or activates the control, which gives a bigger target on a phone. And, in MDN's words, "a screen reader will read out the label when the user is focused on the form input." `required` tells the browser not to send the form until that control has a value. `type="email"` also makes the browser check that the text looks like an email address.
 
 ```html
 <label for="visitor-email">Email</label>
 <input type="email" id="visitor-email" name="visitor-email" required>
 ```
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A contact form at phone width with labels above four fields and a full-width Send message button.](images/m04-contact-390.png)
 *A contact form at 390 px. Every field has a visible label joined to it with `for` and `id`. The third field is missing something on purpose; Concept 2 shows what. (real: rendered in Chromium at 390 px)*
 
-*Apply.* On your own Contact page, click each label's text. If the cursor does not jump into the field, that label's `for` does not match an `id`.
+❗ On your own Contact page, click each label's text. If the cursor does not jump into the field, that label's `for` does not match an `id`.
 
 ### 2. What does a form send, and why does `name` matter?
 
-*Introduce.* `id` and `name` look alike, but they have different jobs. `id` is for the page: labels, CSS and, later, JavaScript. `name` is for the data.
+💡 `id` and `name` look alike, but they have different jobs. `id` is for the page: labels, CSS and, later, JavaScript. `name` is for the data.
 
-*Explain.* A form with no `method` uses GET. MDN's `<form>` page lists `get` as the default and says the form data is "appended to the `action` URL with a `?` separator." With no `action`, the data goes back to the same page. Each control is sent as `name=value`, and pairs are joined with `&`. A control with no `name` is not sent at all.
+❓ A form with no `method` uses GET. MDN's `<form>` page lists `get` as the default and says the form data is "appended to the `action` URL with a `?` separator." With no `action`, the data goes back to the same page. Each control is sent as `name=value`, and pairs are joined with `&`. A control with no `name` is not sent at all.
 
-*Illustrate.* The form above was filled in (name, email, a nickname and a message) and submitted for real in Chromium.
+👀 The form above was filled in (name, email, a nickname and a message) and submitted for real in Chromium.
 
 ![A browser address bar ending in ?visitor-name=Sam&visitor-email=sam%40example.com&message=Hello+there.](images/m04-contact-url.png)
 *Three pairs arrived. The nickname was typed but is missing, because its input has no `name`. The browser also encoded the text: `@` became `%40` and a space became `+`. (page real: rendered in Chromium; browser frame drawn. The address is the real URL Chromium reported, served from a local test server.)*
 
-*Apply.* Predict: if you remove `name` from the message box too, how many pairs will the address show? (Two.)
+❗ Predict: if you remove `name` from the message box too, how many pairs will the address show? (Two.)
 
 ### 3. What makes radio buttons a group?
 
-*Introduce.* A radio button lets the visitor pick exactly one choice from a few.
+💡 A radio button lets the visitor pick exactly one choice from a few.
 
-*Explain.* The `name` makes the group. MDN's radio page: "A radio group is defined by giving each of radio buttons in the group the same `name`." Selecting one turns the others off. Each radio still needs its own `id`, so its label can point to it, and its own `value`, because the checked radio sends `name=value`. MDN warns that a radio with no `value` sends the string `on`, which tells you nothing.
+❓ The `name` makes the group. MDN's radio page: "A radio group is defined by giving each of radio buttons in the group the same `name`." Selecting one turns the others off. Each radio still needs its own `id`, so its label can point to it, and its own `value`, because the checked radio sends `name=value`. MDN warns that a radio with no `value` sends the string `on`, which tells you nothing.
 
 `required` is unusual on radios. MDN says that if any radio in a same-named group has `required`, "a radio button in that group must be checked, although it doesn't have to be the one with the attribute applied." So you put `required` on one radio, and it covers the whole group.
 
@@ -89,7 +89,7 @@ By the end of this module your Contact page sends real data, and you have built 
 <label for="hours-high">6 or more</label>
 ```
 
-*Illustrate.* First, a real submit with "3 to 5" chosen:
+👀 First, a real submit with "3 to 5" chosen:
 
 ![A browser address bar ending in ?hours=3-5 above the radio form.](images/m04-radio-url.png)
 *One group sends one pair: the group's `name` and the checked radio's `value`. (page real: rendered in Chromium; browser frame drawn. The address is the real URL. Opening the file straight from disk gave the same `?hours=3-5` ending.)*
@@ -99,46 +99,46 @@ Second, `required` checked in the Console with nothing selected:
 ![A Console session: checkValidity is false, the third radio has no required attribute but its valueMissing is true, the message is Please select one of these options, and after clicking the third radio checkValidity is true.](images/m04-required-console.png)
 *Only the first radio has `required`, yet the third radio also reports `valueMissing: true`. Checking any one radio makes the whole form valid. Pressing Send with nothing chosen left the address unchanged and moved focus to the first radio. (real output, rendered; Chromium 141. The message text may be worded differently in your browser or language.)*
 
-*Apply.* Say out loud what `id`, `name` and `value` each do on one radio. Then check yourself against the paragraph above.
+❗ Say out loud what `id`, `name` and `value` each do on one radio. Then check yourself against the paragraph above.
 
 ### 4. What do `fieldset` and `legend` add?
 
-*Introduce.* A sighted visitor sees the question above the radios. A screen reader user moving into the group hears a label like "3 to 5," and nothing about what the numbers mean, unless the group has a title.
+💡 A sighted visitor sees the question above the radios. A screen reader user moving into the group hears a label like "3 to 5," and nothing about what the numbers mean, unless the group has a title.
 
-*Explain.* MDN's `<fieldset>` page says it is "used to group several controls," with "a nested `<legend>` element providing a caption." Wrap the radios in `<fieldset>`, and put the question in `<legend>` as the first thing inside it. It costs two tags.
+❓ MDN's `<fieldset>` page says it is "used to group several controls," with "a nested `<legend>` element providing a caption." Wrap the radios in `<fieldset>`, and put the question in `<legend>` as the first thing inside it. It costs two tags.
 
-*Illustrate.* In the keyboard picture in Concept 6, the box around the radios is the fieldset, and "How many hours did you code this week?" sits in its border because it is the legend.
+👀 In the keyboard picture in Concept 6, the box around the radios is the fieldset, and "How many hours did you code this week?" sits in its border because it is the legend.
 
-*Apply.* Any group of radios or checkboxes you write from now on starts with `<fieldset>` and `<legend>`.
+❗ Any group of radios or checkboxes you write from now on starts with `<fieldset>` and `<legend>`.
 
 ### 5. What does the `hidden` attribute do?
 
-*Introduce.* Sometimes a page holds a part it is not showing yet, like a thank-you message that appears after a form is sent.
+💡 Sometimes a page holds a part it is not showing yet, like a thank-you message that appears after a form is sent.
 
-*Explain.* MDN's `hidden` page says "the browser will not render elements that are in the hidden state," and "if something is marked hidden, it is hidden from all presentations, including, for instance, screen readers." It is also out of the Tab order. One warning from the same page: a CSS `display` rule on the element (for example `display: block`) overrides `hidden`, so do not give a hidden element a `display` value in your stylesheet.
+❓ MDN's `hidden` page says "the browser will not render elements that are in the hidden state," and "if something is marked hidden, it is hidden from all presentations, including, for instance, screen readers." It is also out of the Tab order. One warning from the same page: a CSS `display` rule on the element (for example `display: block`) overrides `hidden`, so do not give a hidden element a `display` value in your stylesheet.
 
-*Illustrate.* On the keyboard practice page in Concept 6, a `<section hidden>` holds a button. Chromium measured the section at `offsetHeight` 0 with computed `display: none`. Pressing Tab eight times visited the skip link, four nav links and the visible button, and never reached the hidden button.
+👀 On the keyboard practice page in Concept 6, a `<section hidden>` holds a button. Chromium measured the section at `offsetHeight` 0 with computed `display: none`. Pressing Tab eight times visited the skip link, four nav links and the visible button, and never reached the hidden button.
 
-*Apply.* Predict: you remove `hidden` from that section. Name two things that change. (It appears, and its button joins the Tab order.)
+❗ Predict: you remove `hidden` from that section. Name two things that change. (It appears, and its button joins the Tab order.)
 
 ### 6. How does a keyboard user move through a form?
 
-*Introduce.* Without a mouse, a visitor uses **Tab** to move forward, **Shift+Tab** to move back, **Space** or **Enter** to press, and the **arrow keys** inside some controls.
+💡 Without a mouse, a visitor uses **Tab** to move forward, **Shift+Tab** to move back, **Space** or **Enter** to press, and the **arrow keys** inside some controls.
 
-*Explain.* A radio group is one stop in the Tab order. Tab enters the group, the arrow keys move the choice inside it, and the next Tab leaves the group. You get all of this for free with real `<input type="radio">` elements. You lose it if you build fake radios out of `<div>`s.
+❓ A radio group is one stop in the Tab order. Tab enters the group, the arrow keys move the choice inside it, and the next Tab leaves the group. You get all of this for free with real `<input type="radio">` elements. You lose it if you build fake radios out of `<div>`s.
 
-*Illustrate.* The radio page from Concept 3, driven by keyboard only in Chromium. After each key press the page was captured and asked which element had focus and which radio was checked.
+👀 The radio page from Concept 3, driven by keyboard only in Chromium. After each key press the page was captured and asked which element had focus and which radio was checked.
 
 ![Four captures of the radio form. After Tab, the first radio has a focus ring and nothing is checked. After ArrowRight, the second radio is focused and checked. After another ArrowRight, the third. After Tab, the Send button has the ring.](images/m04-keyboard.png)
 *Tab put focus on the group without choosing anything. Each arrow key moved the focus **and** the choice. The second Tab left the group and went to Send. (real: rendered in Chromium; captured on Linux. Edge and Chrome on Windows use the same engine; check it yourself in step 4 of the Exercise.)*
 
-*Apply.* Open your Contact page, put the mouse aside, and fill in the whole form with the keyboard. Note anything you could not reach.
+❗ Open your Contact page, put the mouse aside, and fill in the whole form with the keyboard. Note anything you could not reach.
 
 ### 7. What are `:focus-visible`, `aria-current` and a skip link?
 
-*Introduce.* Three small tools make keyboard use pleasant: a clear focus ring, a marker for the current page, and a shortcut past the menu.
+💡 Three small tools make keyboard use pleasant: a clear focus ring, a marker for the current page, and a shortcut past the menu.
 
-*Explain.* **`:focus-visible`** is a CSS pseudo-class. MDN says it matches a focused element when the browser decides "the focus should be made evident," so you can style the ring for keyboard users without a ring appearing on every mouse click. In Chromium, a link clicked with the mouse did not match `:focus-visible`; the next link reached with Tab did. Never remove the outline without replacing it.
+❓ **`:focus-visible`** is a CSS pseudo-class. MDN says it matches a focused element when the browser decides "the focus should be made evident," so you can style the ring for keyboard users without a ring appearing on every mouse click. In Chromium, a link clicked with the mouse did not match `:focus-visible`; the next link reached with Tab did. Never remove the outline without replacing it.
 
 **`aria-current="page"`** goes on the nav link for the page the visitor is on. MDN's *ARIA: aria-current attribute* says it marks "the current item within a container or set of related elements," and `page` means the current page. Screen readers announce it, and you can style it with `a[aria-current="page"]`.
 
@@ -151,7 +151,7 @@ a:focus-visible { outline: 3px solid #f4a261; outline-offset: 2px; }
 nav a[aria-current="page"] { text-decoration: underline; font-weight: 700; }
 ```
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A page whose first Tab reveals a Skip to main content link with an orange focus ring, drawn over the navigation bar.](images/m04-skip-link.png)
 *The first Tab on the page reveals the skip link. Pressing Enter moved focus to `<main>` (Chromium reported the address ending in `#main`), and the next Tab went straight to the button in the main content. (real: rendered in Chromium at 600 px)*
@@ -159,13 +159,13 @@ nav a[aria-current="page"] { text-decoration: underline; font-weight: 700; }
 ![The same page after three Tabs: the About link has an orange focus ring and is bold and underlined.](images/m04-focus-visible.png)
 *Three Tabs in: the orange ring is the `:focus-visible` style. About is bold and underlined because it has `aria-current="page"`. (real: rendered in Chromium at 600 px)*
 
-*Apply.* Add `aria-current="page"` to the right link on each page of `my-site`. Each page's own link gets it; no other link does.
+❗ Add `aria-current="page"` to the right link on each page of `my-site`. Each page's own link gets it; no other link does.
 
 ### 8. How do custom properties and state selectors style a control you cannot see?
 
-*Introduce.* A plain radio circle is tiny and hard to style. A common pattern is to hide the circle, style the label as a big button, and let the real radio keep doing its job underneath.
+💡 A plain radio circle is tiny and hard to style. A common pattern is to hide the circle, style the label as a big button, and let the real radio keep doing its job underneath.
 
-*Explain.* Start with **custom properties**. MDN's *Using CSS custom properties (variables)* says it is "common practice" to define them on `:root` so they can be used everywhere, and you read them with `var()`. Names start with two dashes and are case sensitive.
+❓ Start with **custom properties**. MDN's *Using CSS custom properties (variables)* says it is "common practice" to define them on `:root` so they can be used everywhere, and you read them with `var()`. Names start with two dashes and are case sensitive.
 
 Next, hide the radio with a **`.visually-hidden`** class. It shrinks the element to one clipped pixel, so it is invisible but still in the page: it still takes focus, is still announced by screen readers, and is still sent with the form. That is the difference from `display: none` and `hidden`, which remove the control entirely.
 
@@ -194,29 +194,29 @@ Finally, style the label from the radio's **state**. Put each input right before
 .choices input:checked + label { background: var(--on); color: white; }
 ```
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Three round buttons labeled 1, 2 and 3. Button 2 is dark with a teal ring around it; button 3 is teal.](images/m04-state-selectors.png)
 *2 is checked (dark) and has keyboard focus (ring); the mouse is over 3 (`:hover`). The radios are invisible, yet Tab landed on the checked one, and Send produced `?pick=2`. When the inputs were set to `display: none` instead, the first Tab skipped the group and went straight to Send. (real: rendered in Chromium at 420 px)*
 
-*Apply.* Predict: you swap the order of one input and its label in the HTML. Which state style stops working for that choice, and why does `+` explain it?
+❗ Predict: you swap the order of one input and its label in the HTML. Which state style stops working for that choice, and why does `+` explain it?
 
 ### 9. How do you read a design brief?
 
-*Introduce.* At work you rarely get code. You get a brief: a picture of the finished thing, what the visitor must be able to do, the words, and the colors.
+💡 At work you rarely get code. You get a brief: a picture of the finished thing, what the visitor must be able to do, the words, and the colors.
 
-*Explain.* Read the brief twice. Then turn each part of the picture into an element, **before** you write any CSS. A heading is an `<h1>`. A choice of one from five is a `<fieldset>` with a `<legend>` and five radios that share a name. A button that sends is `<button type="submit">`. A message that appears later is a `<section hidden>`. Test that HTML with the keyboard and a real submit. If the page works with no CSS, it will keep working when the CSS is added. If it does not, CSS will only hide the problem.
+❓ Read the brief twice. Then turn each part of the picture into an element, **before** you write any CSS. A heading is an `<h1>`. A choice of one from five is a `<fieldset>` with a `<legend>` and five radios that share a name. A button that sends is `<button type="submit">`. A message that appears later is a `<section hidden>`. Test that HTML with the keyboard and a real submit. If the page works with no CSS, it will keep working when the CSS is added. If it does not, CSS will only hide the problem.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A sketch of a rating card with lines from each part to the element it becomes: heading to h1, paragraph to p, five circles to fieldset legend and radios, the button to button type submit, and a later thank-you to section hidden. A side list shows what the visitor can do and three color names.](images/m04-brief.png)
-*Reading a brief means naming the element for each piece of the picture. Colors wait for the CSS step. (illustration, not a screenshot)*
+*Reading a brief means naming the element for each piece of the picture. Colors wait for the CSS step.*
 
-*Apply.* Look at the Contact page you built in Concept 1 and write its "brief" in three lines: what is on it, what the visitor can do, what it sends.
+❗ Look at the Contact page you built in Concept 1 and write its "brief" in three lines: what is on it, what the visitor can do, what it sends.
 
 ## Exercise
 
-*Apply — your hands, about 45 minutes (estimate).* Work in `form-lab`. Type it, do not paste it. `id`, `for`, `name` and `value` should go through your fingers once.
+*Your hands, about 45 minutes (estimate).* Work in `form-lab`. Type it, do not paste it. `id`, `for`, `name` and `value` should go through your fingers once.
 
 1. **Write the group.** Create `radio-practice.html` with the normal head (charset, viewport, title). In the body, type the form from Concept 3 inside a `<form>`, wrapped in `<fieldset>` with `<legend>How many hours did you code this week?</legend>`, followed by `<button type="submit">Send</button>`.
 2. **Use the labels.** Open the page in your browser. Click the words, not the circles. Each label selects its radio, and choosing one turns the others off.

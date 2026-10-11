@@ -30,7 +30,7 @@ You will also make one decision that shapes the rest of the course: you will tur
 By the end you will have five tools installed and checked, and a folder ready for the site you build in Module 1.
 
 ![Five boxes in a row: VS Code, Live Preview, Git, GitHub CLI, Node.js, with what each one does.](images/m00-toolkit.png)
-*The five tools you install in this module and the job each one does. (illustration, not a screenshot)*
+*The five tools you install in this module and the job each one does.*
 
 ## Before you start
 
@@ -44,95 +44,95 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 ### 1. What is each tool for?
 
-*Introduce.* A front-end developer builds the part of a website that people see and use. To do that you need a place to write code, a way to see it, a way to keep its history, and a place to publish it.
+💡 A front-end developer builds the part of a website that people see and use. To do that you need a place to write code, a way to see it, a way to keep its history, and a place to publish it.
 
-*Explain.* **VS Code** is the editor where you type HTML, CSS and JavaScript. **Live Preview** is a VS Code extension that shows your page and refreshes it when you save. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
+❓ **VS Code** is the editor where you type HTML, CSS and JavaScript. **Live Preview** is a VS Code extension that shows your page and refreshes it when you save. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
 
-*Illustrate.* Look at the toolkit picture above. Every box is something you will use in almost every module.
+👀 Look at the toolkit picture above. Every box is something you will use in almost every module.
 
-*Apply.* Before you install anything, say out loud which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
+❗ Before you install anything, say out loud which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
 
 ### 2. Why show file extensions?
 
-*Introduce.* A file extension is the part of a name after the last dot: `.html`, `.css`, `.js`. Windows hides it by default.
+💡 A file extension is the part of a name after the last dot: `.html`, `.css`, `.js`. Windows hides it by default.
 
-*Explain.* When extensions are hidden, a file you meant to name `index.html` can quietly become `index.html.txt`, and the browser treats it as plain text. Showing extensions stops that mistake before it happens.
+❓ When extensions are hidden, a file you meant to name `index.html` can quietly become `index.html.txt`, and the browser treats it as plain text. Showing extensions stops that mistake before it happens.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A File Explorer window listing a folder, a text file and index.html with the full extension visible.](images/m00-explorer-extensions.png)
-*With extensions shown, you can see that the file really ends in `.html`. (illustration, not a screenshot)*
+*With extensions shown, you can see that the file really ends in `.html`.*
 
-*Apply.* Open File Explorer. Select **View → Show → File name extensions** so it has a check mark.
+❗ Open File Explorer. Select **View → Show → File name extensions** so it has a check mark.
 
 ### 3. What do VS Code and Live Preview do together?
 
-*Introduce.* VS Code is free and made by Microsoft. Live Preview is a Microsoft extension that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*).
+💡 VS Code is free and made by Microsoft. Live Preview is a Microsoft extension that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*).
 
-*Explain.* Without Live Preview you save a file, switch to the browser, and refresh. With it, the preview sits next to your code and updates when you save. Note that the Marketplace page labels it "still under development." If it ever misbehaves, opening the file in Edge or Chrome and pressing F5 always works.
+❓ Without Live Preview you save a file, switch to the browser, and refresh. With it, the preview sits next to your code and updates when you save. Note that the Marketplace page labels it "still under development." If it ever misbehaves, opening the file in Edge or Chrome and pressing F5 always works.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![VS Code's Extensions view showing Live Preview by Microsoft with an Install button.](images/m00-vscode-live-preview.png)
-*Search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install. (illustration, not a screenshot)*
+*Search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install.*
 
-*Apply.* You will install both in the Exercise.
+❗ You will install both in the Exercise.
 
 ### 4. Why turn off AI features?
 
-*Introduce.* Current VS Code includes GitHub Copilot features. VS Code's documentation says you can "disable the built-in AI features in VS Code with the `chat.disableAIFeatures`" setting (VS Code Docs, *Set up GitHub Copilot in VS Code*).
+💡 Current VS Code includes GitHub Copilot features. VS Code's documentation says you can "disable the built-in AI features in VS Code with the `chat.disableAIFeatures`" setting (VS Code Docs, *Set up GitHub Copilot in VS Code*).
 
-*Explain.* This course has one honesty rule: **if a tool wrote a line, you mark it and explain it.** While you are learning, it is much simpler to write every line yourself. You can turn AI features back on later, after you can read and explain code without help.
+❓ This course has one honesty rule: **if a tool wrote a line, you mark it and explain it.** While you are learning, it is much simpler to write every line yourself. You can turn AI features back on later, after you can read and explain code without help.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![VS Code Settings with chat.disableAIFeatures searched and checked.](images/m00-vscode-ai-off.png)
-*Type the setting name into the Settings search box and tick it. (illustration, not a screenshot)*
+*Type the setting name into the Settings search box and tick it.*
 
-*Apply.* You will do this in step 4 of the Exercise.
+❗ You will do this in step 4 of the Exercise.
 
 ### 5. What does Git need to know about you?
 
-*Introduce.* Every commit records who made it. Git needs a name and an email for that.
+💡 Every commit records who made it. Git needs a name and an email for that.
 
-*Explain.* You set three things once, with `git config --global`: your name, your email, and the name of the first branch in new projects. Git still names the first branch `master` unless you tell it otherwise; GitHub uses `main`. Setting `init.defaultBranch` to `main` keeps the two in agreement.
+❓ You set three things once, with `git config --global`: your name, your email, and the name of the first branch in new projects. Git still names the first branch `master` unless you tell it otherwise; GitHub uses `main`. Setting `init.defaultBranch` to `main` keeps the two in agreement.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal showing git --version, three git config commands with no output, then git config --global --list printing the three settings.](images/m00-git-config.png)
 *The three `config` commands print nothing when they work. `--list` proves they were saved. (real output, rendered; captured on Linux with Git 2.43.0. On Windows the version line ends in `.windows.1` or similar, and your version will be newer.)*
 
-*Apply.* Predict: what will `git config --global --list` show if you skip the email line? (Answer: only two lines.)
+❗ Predict: what will `git config --global --list` show if you skip the email line? (Answer: only two lines.)
 
 ### 6. Why sign in to GitHub from the terminal?
 
-*Introduce.* The GitHub CLI can create a repository on GitHub and push your files to it with one command. It needs permission to act as you.
+💡 The GitHub CLI can create a repository on GitHub and push your files to it with one command. It needs permission to act as you.
 
-*Explain.* `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. GitHub shows a one-time code; you paste it in the browser page that opens.
+❓ `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. GitHub shows a one-time code; you paste it in the browser page that opens.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal running gh auth login, showing the first three prompts answered GitHub.com and HTTPS, ending at the Authenticate Git question.](images/m00-gh-auth-prompts.png)
 *The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. (real output, rendered; captured on Linux. The later "How would you like to authenticate" and one-time-code steps were not captured for this post.)* **[unverified: exact wording of the browser-login step in your version of `gh`.]**
 
-*Apply.* After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
+❗ After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
 
 ### 7. Why install Node.js now?
 
-*Introduce.* Node.js runs JavaScript on your computer instead of inside a web page.
+💡 Node.js runs JavaScript on your computer instead of inside a web page.
 
-*Explain.* In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Node's download page lists **v24.21.0** as the current LTS (Long-Term Support) version on the day this post was written; "LTS" is the version to choose.
+❓ In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Node's download page lists **v24.21.0** as the current LTS (Long-Term Support) version on the day this post was written; "LTS" is the version to choose.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal showing node --version printing v22.22.0 and npm --version printing 10.9.4.](images/m00-node-version.png)
 *Two version numbers mean both Node and npm (its package manager) are installed. (real output, rendered; captured on Linux with Node 22. Your numbers will be newer, for example v24.x.)*
 
-*Apply.* After installing, run `node --version`. Any `v` followed by numbers is a pass.
+❗ After installing, run `node --version`. Any `v` followed by numbers is a pass.
 
 ## Exercise
 
-*Apply — your hands, about 60 minutes (estimate).* Type every command. Do not paste. Typing is how your fingers learn the commands.
+*Your hands, about 60 minutes (estimate).* Type every command. Do not paste. Typing is how your fingers learn the commands.
 
 1. **Show file extensions.** In File Explorer: **View → Show → File name extensions**.
 2. **Make your course folder.** Create the folder you chose (for example `Documents\code559`). Inside it, create a folder called `my-site`.
@@ -142,7 +142,7 @@ By the end you will have five tools installed and checked, and a folder ready fo
 6. **Open a terminal.** In VS Code: **File → Open Folder…**, choose `my-site`, then **Terminal → New Terminal**. The prompt should end in `my-site>`.
 
    ![VS Code with the my-site folder open and a terminal at the bottom whose prompt ends in my-site>.](images/m00-vscode-terminal.png)
-   *The prompt shows which folder the terminal is in. Always check it before you type a Git command. (illustration, not a screenshot)*
+   *The prompt shows which folder the terminal is in. Always check it before you type a Git command.*
 
 7. **Install Git.** In the terminal type:
 

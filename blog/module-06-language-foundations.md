@@ -41,89 +41,89 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 ### 1. What are values and types?
 
-*Introduce.* A **value** is one piece of data: a word, a number, yes or no. Every value has a **type**, and the type decides what you can do with it.
+💡 A **value** is one piece of data: a word, a number, yes or no. Every value has a **type**, and the type decides what you can do with it.
 
-*Explain.* Five types cover almost everything in this course. A **string** is text, always inside quotes: `"hello"`, `"42"`. A **number** is a number with no quotes: `42`, `3.5`. A **boolean** is `true` or `false`. **undefined** means a variable has no value yet. **null** means "nothing here," on purpose; you assign it yourself. The `typeof` operator tells you the type, as a string. One result looks wrong: `typeof null` gives `"object"`. MDN's *typeof* page explains it as a leftover from the first version of JavaScript, kept because changing it would break old code. Remember it as a known exception.
+❓ Five types cover almost everything in this course. A **string** is text, always inside quotes: `"hello"`, `"42"`. A **number** is a number with no quotes: `42`, `3.5`. A **boolean** is `true` or `false`. **undefined** means a variable has no value yet. **null** means "nothing here," on purpose; you assign it yourself. The `typeof` operator tells you the type, as a string. One result looks wrong: `typeof null` gives `"object"`. MDN's *typeof* page explains it as a leftover from the first version of JavaScript, kept because changing it would break old code. Remember it as a known exception.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console showing typeof for "hello", 42, 3.5, true, undefined, null and "42", with results string, number, number, boolean, undefined, object, string.](images/m06-typeof.png)
 *Look at the last line: `"42"` is a string, not a number, because of the quotes. And `typeof null` really is `"object"`. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* In the Console, type `typeof "true"`. Predict first: quotes or no quotes?
+❗ In the Console, type `typeof "true"`. Predict first: quotes or no quotes?
 
 ### 2. How do you store a value: const or let?
 
-*Introduce.* A **variable** is a name that holds a value. You create one with `const` or `let`.
+💡 A **variable** is a name that holds a value. You create one with `const` or `let`.
 
-*Explain.* Use `const` when the name should always hold the same value, and `let` when it needs to change. MDN's *const* page says a constant's value "can't be changed through reassignment." Start with `const` every time; switch to `let` only when you find you need to change it. A `let` with no value holds `undefined` until you give it one. You will also see `var` in older code and tutorials. It follows older rules about where a name can be seen (MDN's *var* page notes that blocks such as `if` "do not create scopes for `var`"), which causes surprises. This course uses only `const` and `let`.
+❓ Use `const` when the name should always hold the same value, and `let` when it needs to change. MDN's *const* page says a constant's value "can't be changed through reassignment." Start with `const` every time; switch to `let` only when you find you need to change it. A `let` with no value holds `undefined` until you give it one. You will also see `var` in older code and tutorials. It follows older rules about where a name can be seen (MDN's *var* page notes that blocks such as `if` "do not create scopes for `var`"), which causes surprises. This course uses only `const` and `let`.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: let visits = 1, visits = visits + 1 gives 2, const siteName = "My Site", siteName gives "My Site", let note, note gives undefined.](images/m06-const-let.png)
 *Declaring a variable shows `undefined`: the Console reports that the declaration itself has no value, just as with `console.log()` in Module 5. `visits = visits + 1` reads the right side first (1 + 1), then stores 2. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* **What value does this variable hold?** After `let count = 5;` and `count = count + 10;`, what is in `count`? Type it to check.
+❗ **What value does this variable hold?** After `let count = 5;` and `count = count + 10;`, what is in `count`? Type it to check.
 
 ### 3. What is the difference between = and ===?
 
-*Introduce.* One `=` **assigns**: it puts a value into a variable. Three `===` **compare**: they ask whether two values are the same.
+💡 One `=` **assigns**: it puts a value into a variable. Three `===` **compare**: they ask whether two values are the same.
 
-*Explain.* Read `mood = "busy"` as "mood becomes busy." Read `mood === "busy"` as "is mood busy?" The first changes the variable. The second only asks a question and answers `true` or `false`. Mixing them up is one of the most common beginner mistakes, because in math class `=` meant "is equal to."
+❓ Read `mood = "busy"` as "mood becomes busy." Read `mood === "busy"` as "is mood busy?" The first changes the variable. The second only asks a question and answers `true` or `false`. Mixing them up is one of the most common beginner mistakes, because in math class `=` meant "is equal to."
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: let mood = "calm", mood === "busy" gives false, mood = "busy" gives "busy", mood === "busy" gives true.](images/m06-assign-compare.png)
 *The comparison does not change `mood`. Only the assignment on the third line does. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* Say each line of the image out loud using "becomes" for `=` and "is it…?" for `===`.
+❗ Say each line of the image out loud using "becomes" for `=` and "is it…?" for `===`.
 
 ### 4. How does arithmetic work, and why is + different?
 
-*Introduce.* JavaScript has the arithmetic you know: `+`, `-`, `*` (multiply), `/` (divide), plus `%`, which gives the **remainder** after dividing.
+💡 JavaScript has the arithmetic you know: `+`, `-`, `*` (multiply), `/` (divide), plus `%`, which gives the **remainder** after dividing.
 
-*Explain.* `+` has two jobs. With two numbers it adds. If either side is a string, it **joins** them into one longer string, so `"5" + 3` is `"53"`. The other operators only do math, so JavaScript turns the text `"5"` into the number 5: `"5" - 3` is `2`. JavaScript also works from left to right. In `"Total: " + 2 + 3`, it first joins `"Total: "` and `2`, then joins `3`. Parentheses force the math to happen first.
+❓ `+` has two jobs. With two numbers it adds. If either side is a string, it **joins** them into one longer string, so `"5" + 3` is `"53"`. The other operators only do math, so JavaScript turns the text `"5"` into the number 5: `"5" - 3` is `2`. JavaScript also works from left to right. In `"Total: " + 2 + 3`, it first joins `"Total: "` and `2`, then joins `3`. Parentheses force the math to happen first.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: 7 + 2 is 9, 7 - 2 is 5, 7 * 2 is 14, 7 / 2 is 3.5, 7 % 2 is 1, "5" + 3 is "53", "5" - 3 is 2, "5" * 2 is 10, "Total: " + 2 + 3 is "Total: 23", "Total: " + (2 + 3) is "Total: 5".](images/m06-arithmetic.png)
 *Watch the quotes on the results: `"53"` and `"Total: 23"` are strings; `2` and `10` are numbers. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* Predict `10 % 3` and `"10" + 1`. Then type both.
+❗ Predict `10 % 3` and `"10" + 1`. Then type both.
 
 ### 5. How do comparisons work, and why === instead of ==?
 
-*Introduce.* Comparison operators ask a question about two values: `>`, `<`, `>=`, `<=`, `===` (same), `!==` (not the same).
+💡 Comparison operators ask a question about two values: `>`, `<`, `>=`, `<=`, `===` (same), `!==` (not the same).
 
-*Explain.* There are two kinds of "equal." `===` is **strict**: MDN's *Strict equality* page says it "always considers operands of different types to be different." `==` is **loose**: if the types differ, it "attempts to convert them to the same type before comparing." That is why `5 == "5"` is `true` and `0 == false` is `true`. Loose equality hides type mistakes, so this course always uses `===` and `!==`.
+❓ There are two kinds of "equal." `===` is **strict**: MDN's *Strict equality* page says it "always considers operands of different types to be different." `==` is **loose**: if the types differ, it "attempts to convert them to the same type before comparing." That is why `5 == "5"` is `true` and `0 == false` is `true`. Loose equality hides type mistakes, so this course always uses `===` and `!==`.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: 10 > 9 true, 10 >= 10 true, 3 !== 4 true, 5 === 5 true, 5 === "5" false, 5 == "5" true, 0 == false true, 0 === false false, null == undefined true, null === undefined false.](images/m06-equality.png)
 *Every pair of `==` and `===` lines gives opposite answers. Strict equality is the one that agrees with what you can see. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* Predict `"7" === 7` and `"7" == 7` before you type them.
+❗ Predict `"7" === 7` and `"7" == 7` before you type them.
 
 ### 6. What does a comparison produce?
 
-*Introduce.* Every comparison produces a **Boolean**: `true` or `false`.
+💡 Every comparison produces a **Boolean**: `true` or `false`.
 
-*Explain.* A Boolean is a value like any other. You can store it in a variable, log it, and check its type. Naming such a variable as a yes-or-no question, like `needsJacket` or `isOpen`, makes code easier to read. This matters for the next concept: `if` runs its code when the value inside its parentheses is `true`.
+❓ A Boolean is a value like any other. You can store it in a variable, log it, and check its type. Naming such a variable as a yes-or-no question, like `needsJacket` or `isOpen`, makes code easier to read. This matters for the next concept: `if` runs its code when the value inside its parentheses is `true`.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: const temp = 62, temp < 50 gives false, const needsJacket = temp < 70, needsJacket gives true, typeof needsJacket gives "boolean".](images/m06-boolean-results.png)
 *The comparison `temp < 70` was worked out once and its answer, `true`, was stored. (real output, rendered; evaluated in Chromium)*
 
-*Apply.* Write a line that stores whether a number is greater than 100, with a question-style name. Check its `typeof`.
+❗ Write a line that stores whether a number is greater than 100, with a question-style name. Check its `typeof`.
 
 ### 7. How does a program make a decision?
 
-*Introduce.* `if` runs a block of code only when a condition is `true`. `else if` adds another condition to check. `else` catches everything left over.
+💡 `if` runs a block of code only when a condition is `true`. `else if` adds another condition to check. `else` catches everything left over.
 
-*Explain.* JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it.
+❓ JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ```js
 // weather.js: suggest what to wear from the temperature (degrees F)
@@ -141,16 +141,16 @@ console.log("Checked " + temp + " degrees");
 ```
 
 ![A decision diagram: temp < 50? true leads to Wear a coat; false leads to temp < 70? true leads to Bring a jacket; false leads to else: T-shirt weather.](images/m06-if-flow.png)
-*Checked top to bottom; the first true condition wins. (illustration, not a screenshot)*
+*Checked top to bottom; the first true condition wins.*
 
 ![A terminal running node weather.js three times, printing Wear a coat and Checked 40 degrees, Bring a jacket and Checked 62 degrees, T-shirt weather and Checked 85 degrees.](images/m06-if-else-node.png)
 *The file was edited and saved between runs, with `temp` set to 40, then 62, then 85. Each run printed exactly one suggestion, and the last line ran every time because it is outside the `if`. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
 
-*Apply.* **What happens if this changes?** Predict the output for `temp` set to `50` and to `70`. Edit, save and run to check. Those are the edges, and edges are where bugs live.
+❗ **What happens if this changes?** Predict the output for `temp` set to `50` and to `70`. Edit, save and run to check. Those are the edges, and edges are where bugs live.
 
 ## Exercise
 
-*Apply — your hands, about 40 minutes (estimate).* Type it, do not paste it. Work in the Console unless a step says otherwise.
+*Your hands, about 40 minutes (estimate).* Type it, do not paste it. Work in the Console unless a step says otherwise.
 
 1. **Predict on paper.** Copy the left column of this table and write your prediction next to each line. Do not run anything yet.
 
