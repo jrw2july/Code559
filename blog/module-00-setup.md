@@ -44,91 +44,91 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 ### 1. What is each tool for?
 
-💡 A front-end developer builds the part of a website that people see and use. To do that you need a place to write code, a way to see it, a way to keep its history, and a place to publish it.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A front-end developer builds the part of a website that people see and use. To do that you need a place to write code, a way to see it, a way to keep its history, and a place to publish it.
 
-❓ **VS Code** is the editor where you type HTML, CSS and JavaScript. **Live Preview** is a VS Code extension that shows your page and refreshes it when you save. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **VS Code** is the editor where you type HTML, CSS and JavaScript. **Live Preview** is a VS Code extension that shows your page and refreshes it when you save. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
 
-👀 Look at the toolkit picture above. Every box is something you will use in almost every module.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Look at the toolkit picture above. Every box is something you will use in almost every module.
 
-❗ Before you install anything, say out loud which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you install anything, say out loud which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
 
 ### 2. Why show file extensions?
 
-💡 A file extension is the part of a name after the last dot: `.html`, `.css`, `.js`. Windows hides it by default.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A file extension is the part of a name after the last dot: `.html`, `.css`, `.js`. Windows hides it by default.
 
-❓ When extensions are hidden, a file you meant to name `index.html` can quietly become `index.html.txt`, and the browser treats it as plain text. Showing extensions stops that mistake before it happens.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> When extensions are hidden, a file you meant to name `index.html` can quietly become `index.html.txt`, and the browser treats it as plain text. Showing extensions stops that mistake before it happens.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A File Explorer window listing a folder, a text file and index.html with the full extension visible.](images/m00-explorer-extensions.png)
-*With extensions shown, you can see that the file really ends in `.html`.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *With extensions shown, you can see that the file really ends in `.html`.*
 
-❗ Open File Explorer. Select **View → Show → File name extensions** so it has a check mark.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open File Explorer. Select **View → Show → File name extensions** so it has a check mark.
 
 ### 3. What do VS Code and Live Preview do together?
 
-💡 VS Code is free and made by Microsoft. Live Preview is a Microsoft extension that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*).
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> VS Code is free and made by Microsoft. Live Preview is a Microsoft extension that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*).
 
-❓ Without Live Preview you save a file, switch to the browser, and refresh. With it, the preview sits next to your code and updates when you save. Note that the Marketplace page labels it "still under development." If it ever misbehaves, opening the file in Edge or Chrome and pressing F5 always works.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Without Live Preview you save a file, switch to the browser, and refresh. With it, the preview sits next to your code and updates when you save. Note that the Marketplace page labels it "still under development." If it ever misbehaves, opening the file in Edge or Chrome and pressing F5 always works.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![VS Code's Extensions view showing Live Preview by Microsoft with an Install button.](images/m00-vscode-live-preview.png)
-*Search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install.*
 
-❗ You will install both in the Exercise.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will install both in the Exercise.
 
 ### 4. Why turn off AI features?
 
-💡 Current VS Code includes GitHub Copilot features. VS Code's documentation says you can "disable the built-in AI features in VS Code with the `chat.disableAIFeatures`" setting (VS Code Docs, *Set up GitHub Copilot in VS Code*).
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Current VS Code includes GitHub Copilot features. VS Code's documentation says you can "disable the built-in AI features in VS Code with the `chat.disableAIFeatures`" setting (VS Code Docs, *Set up GitHub Copilot in VS Code*).
 
-❓ This course has one honesty rule: **if a tool wrote a line, you mark it and explain it.** While you are learning, it is much simpler to write every line yourself. You can turn AI features back on later, after you can read and explain code without help.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> This course has one honesty rule: **if a tool wrote a line, you mark it and explain it.** While you are learning, it is much simpler to write every line yourself. You can turn AI features back on later, after you can read and explain code without help.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![VS Code Settings with chat.disableAIFeatures searched and checked.](images/m00-vscode-ai-off.png)
-*Type the setting name into the Settings search box and tick it.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Type the setting name into the Settings search box and tick it.*
 
-❗ You will do this in step 4 of the Exercise.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will do this in step 4 of the Exercise.
 
 ### 5. What does Git need to know about you?
 
-💡 Every commit records who made it. Git needs a name and an email for that.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every commit records who made it. Git needs a name and an email for that.
 
-❓ You set three things once, with `git config --global`: your name, your email, and the name of the first branch in new projects. Git still names the first branch `master` unless you tell it otherwise; GitHub uses `main`. Setting `init.defaultBranch` to `main` keeps the two in agreement.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You set three things once, with `git config --global`: your name, your email, and the name of the first branch in new projects. Git still names the first branch `master` unless you tell it otherwise; GitHub uses `main`. Setting `init.defaultBranch` to `main` keeps the two in agreement.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal showing git --version, three git config commands with no output, then git config --global --list printing the three settings.](images/m00-git-config.png)
-*The three `config` commands print nothing when they work. `--list` proves they were saved. (real output, rendered; captured on Linux with Git 2.43.0. On Windows the version line ends in `.windows.1` or similar, and your version will be newer.)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The three `config` commands print nothing when they work. `--list` proves they were saved. (real output, rendered; captured on Linux with Git 2.43.0. On Windows the version line ends in `.windows.1` or similar, and your version will be newer.)*
 
-❗ Predict: what will `git config --global --list` show if you skip the email line? (Answer: only two lines.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: what will `git config --global --list` show if you skip the email line? (Answer: only two lines.)
 
 ### 6. Why sign in to GitHub from the terminal?
 
-💡 The GitHub CLI can create a repository on GitHub and push your files to it with one command. It needs permission to act as you.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The GitHub CLI can create a repository on GitHub and push your files to it with one command. It needs permission to act as you.
 
-❓ `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. GitHub shows a one-time code; you paste it in the browser page that opens.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. GitHub shows a one-time code; you paste it in the browser page that opens.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running gh auth login, showing the first three prompts answered GitHub.com and HTTPS, ending at the Authenticate Git question.](images/m00-gh-auth-prompts.png)
-*The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. (real output, rendered; captured on Linux. The later "How would you like to authenticate" and one-time-code steps were not captured for this post.)* **[unverified: exact wording of the browser-login step in your version of `gh`.]**
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. (real output, rendered; captured on Linux. The later "How would you like to authenticate" and one-time-code steps were not captured for this post.)* **[unverified: exact wording of the browser-login step in your version of `gh`.]**
 
-❗ After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
 
 ### 7. Why install Node.js now?
 
-💡 Node.js runs JavaScript on your computer instead of inside a web page.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Node.js runs JavaScript on your computer instead of inside a web page.
 
-❓ In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Node's download page lists **v24.21.0** as the current LTS (Long-Term Support) version on the day this post was written; "LTS" is the version to choose.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Node's download page lists **v24.21.0** as the current LTS (Long-Term Support) version on the day this post was written; "LTS" is the version to choose.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal showing node --version printing v22.22.0 and npm --version printing 10.9.4.](images/m00-node-version.png)
-*Two version numbers mean both Node and npm (its package manager) are installed. (real output, rendered; captured on Linux with Node 22. Your numbers will be newer, for example v24.x.)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Two version numbers mean both Node and npm (its package manager) are installed. (real output, rendered; captured on Linux with Node 22. Your numbers will be newer, for example v24.x.)*
 
-❗ After installing, run `node --version`. Any `v` followed by numbers is a pass.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> After installing, run `node --version`. Any `v` followed by numbers is a pass.
 
 ## Exercise
 

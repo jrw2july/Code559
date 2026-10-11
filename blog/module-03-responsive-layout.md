@@ -41,22 +41,22 @@ This module also brings in CSS Grid. In Module 2 you used Flexbox to put things 
 
 ### 1. What is the box model?
 
-💡 Every element on a page is a rectangle. CSS calls that rectangle a box, and every box has four layers.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every element on a page is a rectangle. CSS calls that rectangle a box, and every box has four layers.
 
-❓ From the inside out: the **content** is your text or image. **Padding** is space inside the border; it takes the element's background color. The **border** is the visible edge. **Margin** is space outside the border that pushes other boxes away. MDN's *The box model* page says that in the default model, "if you set `width` and `height` property values on a box, these values define the `width` and `height` of the *content box*. Any padding and borders are then added." So a box with `width: 300px`, `padding: 20px` and a `5px` border is really 350 pixels wide on the screen.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> From the inside out: the **content** is your text or image. **Padding** is space inside the border; it takes the element's background color. The **border** is the visible edge. **Margin** is space outside the border that pushes other boxes away. MDN's *The box model* page says that in the default model, "if you set `width` and `height` property values on a box, these values define the `width` and `height` of the *content box*. Any padding and borders are then added." So a box with `width: 300px`, `padding: 20px` and a `5px` border is really 350 pixels wide on the screen.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Four nested rectangles labeled margin, border, padding and content, with a short note about each.](images/m03-box-model.png)
-*Margin is outside the border, padding is inside it, and `width` sets only the content in the default model.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Margin is outside the border, padding is inside it, and `width` sets only the content in the default model.*
 
-❗ Open any page you built, press F12, click an element in the Elements panel and find the Computed tab. DevTools draws that element's box with all four layers and their sizes.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any page you built, press F12, click an element in the Elements panel and find the Computed tab. DevTools draws that element's box with all four layers and their sizes.
 
 ### 2. What does `box-sizing: border-box` change?
 
-💡 `box-sizing` decides what `width` measures.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `box-sizing` decides what `width` measures.
 
-❓ With `box-sizing: border-box`, MDN says "any width is the width of the visible box on the page." The padding and border fit **inside** the width you set, so 300 means 300. That makes layouts much easier to reason about, which is why many stylesheets begin with this rule for every element:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> With `box-sizing: border-box`, MDN says "any width is the width of the visible box on the page." The padding and border fit **inside** the width you set, so 300 means 300. That makes layouts much easier to reason about, which is why many stylesheets begin with this rule for every element:
 
 ```css
 *, *::before, *::after {
@@ -64,35 +64,35 @@ This module also brings in CSS Grid. In Module 2 you used Flexbox to put things 
 }
 ```
 
-👀 Two boxes with the same CSS (`width: 300px; padding: 20px; border: 5px solid`). The only difference is `box-sizing`. A small script on the page wrote each box's real width into it.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Two boxes with the same CSS (`width: 300px; padding: 20px; border: 5px solid`). The only difference is `box-sizing`. A small script on the page wrote each box's real width into it.
 
 ![Two boxes under orange 300-pixel rulers. The content-box one reads offsetWidth 350px and sticks out past the ruler; the border-box one reads 300px and matches it.](images/m03-box-sizing.png)
 *The orange bars are 300 px wide. The default box is 350 px; the border-box one is exactly 300 px. The numbers are `offsetWidth`, measured by the page in Chromium. (real: rendered in Chromium)*
 
-❗ Predict: with `border-box`, what happens to the content area if you raise the padding from 20px to 40px? (It shrinks by 40 px; the outside stays 300 px.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: with `border-box`, what happens to the content area if you raise the padding from 20px to 40px? (It shrinks by 40 px; the outside stays 300 px.)
 
 ### 3. What does the viewport meta tag do?
 
-💡 You have been typing this line in every `<head>` since Module 1:
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You have been typing this line in every `<head>` since Module 1:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-❓ MDN's page on `<meta name="viewport">` explains that some phones lay a page out in a "virtual viewport" that is wider than the screen, for example 980 px, "and then it will be shrunk down to fit." When that happens, MDN goes on, media queries meant for narrow screens "will never be used." The viewport tag tells the phone to use its real width. `initial-scale=1` asks it to start at 100% zoom.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's page on `<meta name="viewport">` explains that some phones lay a page out in a "virtual viewport" that is wider than the screen, for example 980 px, "and then it will be shrunk down to fit." When that happens, MDN goes on, media queries meant for narrow screens "will never be used." The viewport tag tells the phone to use its real width. `initial-scale=1` asks it to start at 100% zoom.
 
-👀 You will see this for yourself in step 8 of the Exercise. Here is the result in advance.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> You will see this for yourself in step 8 of the Exercise. Here is the result in advance.
 
 ![Two phone-width renders of the same page side by side. With the viewport tag, the text is large and the cards are in one column. Without it, the whole desktop layout is shrunk down and the text is tiny.](images/m03-viewport-break.png)
 *Same page, same 390 px phone, in Chromium's phone emulation. With the tag removed, the page measured `innerWidth` 980 and laid out 4 grid columns, then shrank everything to fit. (real: rendered in Chromium)*
 
-❗ Look at the `<head>` of your Home page now. Is the viewport line there, spelled exactly? If not, add it.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at the `<head>` of your Home page now. Is the viewport line there, spelled exactly? If not, add it.
 
 ### 4. How does a mobile-first media query work?
 
-💡 A media query is a block of CSS that only applies when a condition is true, such as "the viewport is at least 700 px wide."
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A media query is a block of CSS that only applies when a condition is true, such as "the viewport is at least 700 px wide."
 
-❓ **Mobile first** means you write the phone layout as your normal rules, then add `@media (min-width: …)` blocks that change only what is different on wider screens. MDN's *Using media queries* page notes that range features like `width` take `min-` and `max-` prefixes, and that these comparisons are inclusive, so `min-width: 700px` is true at exactly 700.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Mobile first** means you write the phone layout as your normal rules, then add `@media (min-width: …)` blocks that change only what is different on wider screens. MDN's *Using media queries* page notes that range features like `width` take `min-` and `max-` prefixes, and that these comparisons are inclusive, so `min-width: 700px` is true at exactly 700.
 
 The order matters. A rule inside a media query has the same specificity as the same rule outside it. When two rules tie, **the later one wins** (you met this in Module 2's cascade). So the media query must come **after** the base rules it changes. If you put it first, the base rule comes later and always wins.
 
@@ -112,28 +112,28 @@ The order matters. A rule inside a media query has the same specificity as the s
 }
 ```
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Two 1200-pixel-wide headers. With the media query after the base rules, the logo is left and the links are right. With the media query moved above, the header is stacked even on a wide screen.](images/m03-rule-order.png)
-*Both renders are 1200 px wide, so the media query is true in both. Moved above the base rules, it loses: Chromium measured `flex-direction: column` instead of `row`. (real: rendered in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Both renders are 1200 px wide, so the media query is true in both. Moved above the base rules, it loses: Chromium measured `flex-direction: column` instead of `row`. (real: rendered in Chromium)*
 
-❗ In your own stylesheet, find every `@media` block. Is each one below the rules it changes?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In your own stylesheet, find every `@media` block. Is each one below the rules it changes?
 
 ### 5. What makes navigation responsive?
 
-💡 Navigation is usually the first thing to break on a phone. Four links in a row fit on a laptop and overflow on a phone.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Navigation is usually the first thing to break on a phone. Four links in a row fit on a laptop and overflow on a phone.
 
-❓ The simplest responsive navigation needs no JavaScript. On a phone, the header stacks (logo above links) and the links use `flex-wrap: wrap` so they flow onto a second line if they must. At 700 px and up, the media query from Concept 4 puts the logo and the links in one row. Give each link some padding so it is easy to tap with a finger. Menus that open and close with a button need JavaScript, which comes in Module 9.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The simplest responsive navigation needs no JavaScript. On a phone, the header stacks (logo above links) and the links use `flex-wrap: wrap` so they flow onto a second line if they must. At 700 px and up, the media query from Concept 4 puts the logo and the links in one row. Give each link some padding so it is easy to tap with a finger. Menus that open and close with a button need JavaScript, which comes in Module 9.
 
-👀 Compare the top of the 390 px and 1200 px screenshots in Concept 6 below. Same HTML, same stylesheet.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Compare the top of the 390 px and 1200 px screenshots in Concept 6 below. Same HTML, same stylesheet.
 
-❗ Add `flex-wrap: wrap` to your own navigation list now, and give its links `padding: 0.4rem 0.75rem`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Add `flex-wrap: wrap` to your own navigation list now, and give its links `padding: 0.4rem 0.75rem`.
 
 ### 6. How does CSS Grid make a card layout?
 
-💡 Grid lays out children in columns and rows. You turn it on with `display: grid` on the parent.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Grid lays out children in columns and rows. You turn it on with `display: grid` on the parent.
 
-❓ This one line does most of the work:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> This one line does most of the work:
 
 ```css
 .card-grid {
@@ -155,10 +155,10 @@ There is no media query in that rule. The number of columns changes with the wid
 
 One card can be wider than the others with `grid-column: span 2`. Put that inside the `min-width` media query. When it was applied at all widths, Chromium measured `220px 122px` at 390 px: the span forced a second, squeezed column onto a phone.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The Exercise page at 390 pixels: the header is stacked, and all six cards are in one column.](images/m03-grid-390.png)
-*390 px (a phone): one column, header stacked. (real: rendered in Chromium at 390 px)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *390 px (a phone): one column, header stacked. (real: rendered in Chromium at 390 px)*
 
 ![The same page at 800 pixels: the header is one row, card one spans two of three columns.](images/m03-grid-800.png)
 *800 px (a tablet): three columns, and the featured card spans two of them. (real: rendered in Chromium at 800 px)*
@@ -166,13 +166,13 @@ One card can be wider than the others with `grid-column: span 2`. Put that insid
 ![The same page at 1200 pixels: four columns, the featured card spans two, and the page stops growing at 1100 pixels wide.](images/m03-grid-1200.png)
 *1200 px (a laptop): four columns. `main` has `max-width: 1100px`, so the cards stop growing. Notice that cards two and three are as tall as card one: items in the same grid row stretch to the row's height by default. (real: rendered in Chromium at 1200 px)*
 
-❗ Predict: how many columns at 1000 px? Write your guess down. You will check it in the Exercise.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: how many columns at 1000 px? Write your guess down. You will check it in the Exercise.
 
 ### 7. How do responsive images work?
 
-💡 A photo big enough for a laptop is a waste of data on a phone. HTML lets you offer several sizes and lets the browser choose.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A photo big enough for a laptop is a waste of data on a phone. HTML lets you offer several sizes and lets the browser choose.
 
-❓ Four attributes and one pair of elements do the job:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Four attributes and one pair of elements do the job:
 
 - **`srcset`** lists the files and their real widths with a `w` descriptor. MDN's *Using responsive images in HTML* points out that `480w` "uses the `w` unit, not `px` as you might expect." The number must match the file's real pixel width.
 - **`sizes`** tells the browser how wide the image will be shown, before the CSS has loaded. `(min-width: 700px) 50vw, 100vw` means "about half the viewport on wider screens, the full width otherwise." The browser uses the first condition that is true.
@@ -202,25 +202,25 @@ The browser also counts pixel density. A phone screen often has two or three dev
 | 800 px | photo-one-400.jpg | photo-one-800.jpg |
 | 1200 px | photo-one-800.jpg | photo-one-1600.jpg |
 
-👀 To see the reserved space, the page below asks for two photos that never arrive. The left one has `width` and `height`; the right one does not.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> To see the reserved space, the page below asks for two photos that never arrive. The left one has `width` and `height`; the right one does not.
 
 ![Two panels. The left panel has a grey placeholder the size of the photo with the text below it. The right panel has no placeholder, and its text sits right under the heading.](images/m03-layout-shift.png)
 *While the photos were still loading, Chromium measured the left image at 221 px tall and the right one at 0 px. When the right photo arrives, its text jumps down. (real: rendered in Chromium at 800 px)*
 
-❗ Pick any image on your site. Find its real pixel size (right-click the file in File Explorer, **Properties → Details**) and add `width` and `height` to its `<img>` tag.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick any image on your site. Find its real pixel size (right-click the file in File Explorer, **Properties → Details**) and add `width` and `height` to its `<img>` tag.
 
 ### 8. How do you test at different widths?
 
-💡 You do not need three devices to test three widths. DevTools can resize the page for you.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You do not need three devices to test three widths. DevTools can resize the page for you.
 
-❓ Open DevTools (F12), then press **Ctrl+Shift+M** (Chrome DevTools' shortcut for *Toggle Device Mode*; Edge uses the same DevTools). A toolbar appears above the page. Leave the dimensions on Responsive and type a width: 390, then 800, then 1200. You can also drag the handle on the side of the page. Chrome's documentation calls device mode "a first-order approximation" of a phone, so check on a real phone when you can.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Open DevTools (F12), then press **Ctrl+Shift+M** (Chrome DevTools' shortcut for *Toggle Device Mode*; Edge uses the same DevTools). A toolbar appears above the page. Leave the dimensions on Responsive and type a width: 390, then 800, then 1200. You can also drag the handle on the side of the page. Chrome's documentation calls device mode "a first-order approximation" of a phone, so check on a real phone when you can.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A drawn browser with the device toolbar open, set to 390 by 844, a phone-width page in the middle, and the DevTools panel on the right with the device toolbar toggle highlighted.](images/m03-devtools-device.png)
-*The device toolbar sits above the page; the toggle is next to the Elements tab. Labels in your browser may differ slightly.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The device toolbar sits above the page; the toggle is next to the Elements tab. Labels in your browser may differ slightly.*
 
-❗ Open your Home page in the browser, open device mode, and try 390, 800 and 1200. Write down one thing that looks wrong at 390.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your Home page in the browser, open device mode, and try 390, 800 and 1200. Write down one thing that looks wrong at 390.
 
 ## Exercise
 

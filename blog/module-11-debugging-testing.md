@@ -45,22 +45,22 @@ Testing is the other half. A test is a written promise: "when I do this, I expec
 
 ### 1. What is a bug, exactly?
 
-💡 A bug is a difference between what you **expected** and what **actually** happened. Nothing more. If you cannot say what you expected, you cannot say there is a bug.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A bug is a difference between what you **expected** and what **actually** happened. Nothing more. If you cannot say what you expected, you cannot say there is a bug.
 
-❓ MDN's *What went wrong? Troubleshooting JavaScript* sorts errors into kinds. A **syntax error** is a spelling or punctuation mistake that stops the code from running. A **logic error** is code that runs but gives the wrong result; MDN notes these are harder, because "there usually isn't an error message to direct you to the source of the error." So the first habit is to write down your expectation before you click. Then the comparison is easy.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *What went wrong? Troubleshooting JavaScript* sorts errors into kinds. A **syntax error** is a spelling or punctuation mistake that stops the code from running. A **logic error** is code that runs but gives the wrong result; MDN notes these are harder, because "there usually isn't an error message to direct you to the source of the error." So the first habit is to write down your expectation before you click. Then the comparison is easy.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Five boxes in a row: Predict, Run, Compare, Change one thing, Retest.](images/m11-loop.png)
-*The loop you will use for every bug in this module. Notice that "Compare" needs a written prediction to compare against.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The loop you will use for every bug in this module. Notice that "Compare" needs a written prediction to compare against.*
 
-❗ Pick one button on your own site. Before you click it, write one sentence: "When I click ___, I expect ___." Click it. Did the actual result match?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick one button on your own site. Before you click it, write one sentence: "When I click ___, I expect ___." Click it. Did the actual result match?
 
 ### 2. How do you read a Console error?
 
-💡 When JavaScript cannot go on, it stops and prints a red line in the Console. That line has three parts, and each one is a clue.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When JavaScript cannot go on, it stops and prints a red line in the Console. That line has three parts, and each one is a clue.
 
-❓ Here is a two-line script for a page with a button whose id is `message-button`. The id in the script is misspelled:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Here is a two-line script for a page with a button whose id is `message-button`. The id in the script is misspelled:
 
 ```js
 const messageButton = document.querySelector("#mesage-button");
@@ -69,56 +69,56 @@ messageButton.addEventListener("click", showMessage);
 
 Read the red line from left to right. **The type** comes first (`TypeError`): what kind of problem. **The message** comes next: what JavaScript tried to do. **The location** is on the right (`script.js:2`): the file and the line number. Click that link in DevTools and it opens the file at that line. The `at script.js:2:15` line underneath adds the column: character 15 on line 2.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A Console showing Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') with script.js:2 on the right.](images/m11-console-typeerror.png)
-*Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn. In your DevTools the `at …` lines may be folded under a small arrow.)* **[unverified: whether your version of Edge or Chrome shows the stack lines expanded or folded by default.]**
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn. In your DevTools the `at …` lines may be folded under a small arrow.)* **[unverified: whether your version of Edge or Chrome shows the stack lines expanded or folded by default.]**
 
-❗ Say the three parts of that error out loud: type, message, file and line.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say the three parts of that error out loud: type, message, file and line.
 
 ### 3. What do the three common error types usually mean?
 
-💡 You will see three error types far more than any others.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You will see three error types far more than any others.
 
-❓ A **`SyntaxError`** means the code is not valid JavaScript, so none of the file runs; look for a missing bracket, quote or parenthesis. A **`ReferenceError`** means you used a name that does not exist; it is almost always a typo or a variable used before it was made. A **`TypeError`** means the name exists, but its value is the wrong kind for what you asked; the most common one in front-end work is trying to use `null` as if it were an element.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A **`SyntaxError`** means the code is not valid JavaScript, so none of the file runs; look for a missing bracket, quote or parenthesis. A **`ReferenceError`** means you used a name that does not exist; it is almost always a typo or a variable used before it was made. A **`TypeError`** means the name exists, but its value is the wrong kind for what you asked; the most common one in front-end work is trying to use `null` as if it were an element.
 
-👀 The same two-line script, broken two other ways. First a missing `)` at the end of line 2, then a typo in the function name (`showMesage`):
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The same two-line script, broken two other ways. First a missing `)` at the end of line 2, then a typo in the function name (`showMesage`):
 
 ![A Console with two red lines: Uncaught SyntaxError: missing ) after argument list at script.js:2, and Uncaught ReferenceError: showMesage is not defined at script.js:2.](images/m11-console-syntax-reference.png)
 *Both errors point at line 2, but they mean different things. The `SyntaxError` has no `at …` line because the file never started running. (real output, rendered; captured in Chromium from two pages loaded as files. The Console frame is drawn.)*
 
-❗ Without running anything: which type would you get from `consol.log("hi")`? (Answer: `ReferenceError`, because `consol` is not a name JavaScript knows.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Without running anything: which type would you get from `consol.log("hi")`? (Answer: `ReferenceError`, because `consol` is not a name JavaScript knows.)
 
 ### 4. What does `null` mean, and why does a `TypeError` follow it?
 
-💡 `document.querySelector()` looks for the first element that matches a CSS selector. MDN's page *Document: querySelector() method* says it plainly: "If no matches are found, `null` is returned."
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `document.querySelector()` looks for the first element that matches a CSS selector. MDN's page *Document: querySelector() method* says it plainly: "If no matches are found, `null` is returned."
 
-❓ So `null` here means **JavaScript did not find the element**. It is not an error yet. The error comes on the next line that uses the variable, because `null` has no `addEventListener` and no `textContent`. That is why the red line often points at a different line from the real mistake. MDN's troubleshooting page warns about exactly this: "the error will not necessarily be on that line." The line number tells you where `null` was *used*. You still have to trace back to where it was *made*.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> So `null` here means **JavaScript did not find the element**. It is not an error yet. The error comes on the next line that uses the variable, because `null` has no `addEventListener` and no `textContent`. That is why the red line often points at a different line from the real mistake. MDN's troubleshooting page warns about exactly this: "the error will not necessarily be on that line." The line number tells you where `null` was *used*. You still have to trace back to where it was *made*.
 
-👀 When you see "of null" in a message, go to the `querySelector` line that filled that variable, and compare its selector with the HTML, letter by letter.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> When you see "of null" in a message, go to the `querySelector` line that filled that variable, and compare its selector with the HTML, letter by letter.
 
-❗ In your own `script.js`, find one `querySelector` line. Write down the exact id or class it looks for. Now find that id or class in your HTML. Do they match exactly, including `#` or `.`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In your own `script.js`, find one `querySelector` line. Write down the exact id or class it looks for. Now find that id or class in your HTML. Do they match exactly, including `#` or `.`?
 
 ### 5. How do you debug a selector?
 
-💡 You do not have to guess whether a selector works. You can ask the page.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You do not have to guess whether a selector works. You can ask the page.
 
-❓ Open the page, open the Console, and type the `querySelector` call by itself. If the answer is `null`, the selector found nothing. If you see an element, the selector is fine and the bug is somewhere else. `document.querySelectorAll(...).length` tells you how many elements match, which is useful when you expected several.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Open the page, open the Console, and type the `querySelector` call by itself. If the answer is `null`, the selector found nothing. If you see an element, the selector is fine and the bug is somewhere else. `document.querySelectorAll(...).length` tells you how many elements match, which is useful when you expected several.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A Console where querySelector("#mesage-button") returns null, querySelector("#message-button") returns the button element, and querySelectorAll("button").length returns 1.](images/m11-selector-null.png)
-*One letter changes the answer from `null` to the button. Testing the selector by itself takes seconds and ends the guessing. (real output, rendered; evaluated in Chromium against the demo page)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One letter changes the answer from `null` to the button. Testing the selector by itself takes seconds and ends the guessing. (real output, rendered; evaluated in Chromium against the demo page)*
 
-❗ On your own site, open the Console and type one of your `querySelector` calls. Is the answer an element or `null`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> On your own site, open the Console and type one of your `querySelector` calls. Is the answer an element or `null`?
 
 ### 6. How do you see what a variable holds?
 
-💡 Logic errors give no red line. To find them, you look inside the code while it runs.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Logic errors give no red line. To find them, you look inside the code while it runs.
 
-❓ `console.log()`, in MDN's words, "outputs a message to the console." Put one line where the wrong thing happens, and print the values that line depends on. Each time that code runs, you get a new line in the Console, with the file and line number on the right. When you have found the bug, delete the log line.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `console.log()`, in MDN's words, "outputs a message to the console." Put one line where the wrong thing happens, and print the values that line depends on. Each time that code runs, you get a new line in the Console, with the file and line number on the right. When you have found the bug, delete the log line.
 
-👀 In the practice page you will build in the Exercise, the Next button eventually shows an empty tip. Adding this as the first line inside the function that draws the tip:
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> In the practice page you will build in the Exercise, the Next button eventually shows an empty tip. Adding this as the first line inside the function that draws the tip:
 
 ```js
 console.log("index is", index, "tip is", tips[index]);
@@ -129,49 +129,49 @@ then loading the page and clicking Next three times gives this:
 ![Four Console log lines: index is 0, 1, 2 with tip text, then index is 3 tip is undefined, each from script.js:19.](images/m11-console-log-index.png)
 *The first line is the page load; the next three are the clicks. On the fourth line, `index` is 3, but there are only three tips, numbered 0 to 2. That is the bug, found in one run. (real output, rendered; captured in Chromium)*
 
-❗ Question to answer before the Exercise: **what value does this variable hold** when `tips[index]` is `undefined`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Question to answer before the Exercise: **what value does this variable hold** when `tips[index]` is `undefined`?
 
 ### 7. Why change one thing at a time?
 
-💡 When you find a suspect, it is tempting to fix three things at once.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When you find a suspect, it is tempting to fix three things at once.
 
-❓ If you change three things and the page works, you do not know which change fixed it. If it still fails, you do not know whether you fixed one bug and made another. Change **one** thing, save, and repeat the same test. Then you know exactly what each edit did. This is also why your Git commits in Module 12 hold one change each.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> If you change three things and the page works, you do not know which change fixed it. If it still fails, you do not know whether you fixed one bug and made another. Change **one** thing, save, and repeat the same test. Then you know exactly what each edit did. This is also why your Git commits in Module 12 hold one change each.
 
-👀 Look at the loop picture in concept 1 again: "Change one thing" comes before "Retest," every time.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Look at the loop picture in concept 1 again: "Change one thing" comes before "Retest," every time.
 
-❗ For the rest of this module, say out loud which single thing you are changing before you save.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For the rest of this module, say out loud which single thing you are changing before you save.
 
 ### 8. What is the browser debugger?
 
-💡 DevTools has a **Sources** panel that can pause your code on a line, so you can look at every variable at that moment. You do not need it yet; `console.log()` is enough for this course. You should know it exists.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> DevTools has a **Sources** panel that can pause your code on a line, so you can look at every variable at that moment. You do not need it yet; `console.log()` is enough for this course. You should know it exists.
 
-❓ Chrome's documentation (*Pause your code with breakpoints*) says to open the Sources panel, open the file, and click the line number to set a **line-of-code breakpoint**. The next time that line runs, the page freezes and the side panel shows the current values. Writing `debugger;` in your code does the same thing from inside the file.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Chrome's documentation (*Pause your code with breakpoints*) says to open the Sources panel, open the file, and click the line number to set a **line-of-code breakpoint**. The next time that line runs, the page freezes and the side panel shows the current values. Writing `debugger;` in your code does the same thing from inside the file.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A drawn Sources panel with script.js open, a blue marker on line 19, and a Scope panel showing index: 3.](images/m11-debugger.png)
-*A breakpoint on line 19 pauses the page so you can read `index` without a log line. The code is the real practice file; the panel layout and labels are drawn and simplified.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *A breakpoint on line 19 pauses the page so you can read `index` without a log line. The code is the real practice file; the panel layout and labels are drawn and simplified.*
 
-❗ None today. When a `console.log()` would need five values at once, come back to this.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> None today. When a `console.log()` would need five values at once, come back to this.
 
 ### 9. How do you test with the keyboard?
 
-💡 Some visitors never use a mouse. A page that only works with clicks is broken for them, and no red line will tell you.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Some visitors never use a mouse. A page that only works with clicks is broken for them, and no red line will tell you.
 
-❓ MDN's *HTML: A good basis for accessibility* says to "try pressing the tab key" and watch focus move through the page. Press **Tab** to move forward and **Shift+Tab** to move back. Every link, button and form field should get a visible **focus state**, a ring or outline that shows where you are. A real `<button>` can be reached with Tab and pressed with Enter or Space; MDN notes you "lose the native keyboard accessibility" if you build a button out of a `<div>`. In CSS, `:focus-visible` is the selector for "focused, and the browser thinks the focus should be shown."
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *HTML: A good basis for accessibility* says to "try pressing the tab key" and watch focus move through the page. Press **Tab** to move forward and **Shift+Tab** to move back. Every link, button and form field should get a visible **focus state**, a ring or outline that shows where you are. A real `<button>` can be reached with Tab and pressed with Enter or Space; MDN notes you "lose the native keyboard accessibility" if you build a button out of a `<div>`. In CSS, `:focus-visible` is the selector for "focused, and the browser thinks the focus should be shown."
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The fixed practice page at 390 px with a thick amber ring around the Show help button.](images/m11-focus-help-fixed.png)
-*After five presses of Tab, focus is on "Show help," and the amber `:focus-visible` outline from the stylesheet shows it. (real: rendered in Chromium at 390 px, focus moved with five real Tab key presses)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *After five presses of Tab, focus is on "Show help," and the amber `:focus-visible` outline from the stylesheet shows it. (real: rendered in Chromium at 390 px, focus moved with five real Tab key presses)*
 
-❗ Open your site. Put the mouse away. Press Tab until you have visited every link and button. Write down any you could not reach or could not see.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your site. Put the mouse away. Press Tab until you have visited every link and button. Write down any you could not reach or could not see.
 
 ### 10. What is the Action / Expected / Actual test matrix?
 
-💡 This is the testing format for the rest of the course. Every interactive feature gets one.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> This is the testing format for the rest of the course. Every interactive feature gets one.
 
-❓ It is a table with three columns. **Action** is one thing a visitor does, written so someone else could repeat it. **Expected** is what should happen, written *before* you test. **Actual** is what did happen, written *after*. A row passes when the last two match. Here is a filled-in example for the tip card you will build:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It is a table with three columns. **Action** is one thing a visitor does, written so someone else could repeat it. **Expected** is what should happen, written *before* you test. **Actual** is what did happen, written *after*. A row passes when the last two match. Here is a filled-in example for the tip card you will build:
 
 | Action | Expected | Actual |
 | --- | --- | --- |
@@ -183,19 +183,19 @@ then loading the page and clicking Next three times gives this:
 | Submit with only spaces | Same as empty | |
 | Tab through the page | Every button and the text box get a visible ring, in order | |
 
-👀 The Actual column is empty on purpose. You fill it in during the Exercise.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The Actual column is empty on purpose. You fill it in during the Exercise.
 
-❗ Copy the empty table into your notes now. You will need it in ten minutes.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Copy the empty table into your notes now. You will need it in ten minutes.
 
 ### 11. What is an edge case?
 
-💡 An **edge case** is an input or a moment at the boundary of what the code expects. Bugs live there.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An **edge case** is an input or a moment at the boundary of what the code expects. Bugs live there.
 
-❓ Four edges come up in almost every feature in this course. **Empty input**: the visitor submits nothing, or only spaces. **The first item**: what does Previous do when you are already at the start? **The last item**: what does Next do at the end? **Wrap-around**: when you go past an end, do you land on the other end, or on nothing? Not every edge case finds a bug. You still test each one, because you do not know which one will.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Four edges come up in almost every feature in this course. **Empty input**: the visitor submits nothing, or only spaces. **The first item**: what does Previous do when you are already at the start? **The last item**: what does Next do at the end? **Wrap-around**: when you go past an end, do you land on the other end, or on nothing? Not every edge case finds a bug. You still test each one, because you do not know which one will.
 
-👀 Four of the seven rows in the table above are edge cases. Point to each one.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Four of the seven rows in the table above are edge cases. Point to each one.
 
-❗ For one feature on your own site, write one edge case you have never tested.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For one feature on your own site, write one edge case you have never tested.
 
 ## Exercise
 

@@ -43,45 +43,45 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 
 ### 1. What happens when you visit a web page?
 
-💡 The web is a conversation between two computers. Your browser is the **client**. The computer that stores the website is the **server**.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The web is a conversation between two computers. Your browser is the **client**. The computer that stores the website is the **server**.
 
-❓ When you type an address or click a link, the client sends a **request**: "please send me this file." The server sends back a **response** with the file's contents. For a web page, that is HTML text. The browser reads the HTML, notices it also needs a stylesheet or an image, and requests those too. Then it draws the page. While you are learning, you will often open a file straight from your own disk. Then there is no server at all; the browser reads the file directly, and the address starts with `file:///`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> When you type an address or click a link, the client sends a **request**: "please send me this file." The server sends back a **response** with the file's contents. For a web page, that is HTML text. The browser reads the HTML, notices it also needs a stylesheet or an image, and requests those too. Then it draws the page. While you are learning, you will often open a file straight from your own disk. Then there is no server at all; the browser reads the file directly, and the address starts with `file:///`.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A client box (your browser) sends a request for /about.html to a server box that holds index.html, about.html, styles.css and image-one.jpg; the server sends the file's contents back.](images/m01-request-response.png)
-*Two messages: the request goes out, the response comes back. Everything else in this course happens inside one of these two boxes.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Two messages: the request goes out, the response comes back. Everything else in this course happens inside one of these two boxes.*
 
-❗ Open any website and click one link. Say out loud which part was the request and which part was the response.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any website and click one link. Say out loud which part was the request and which part was the response.
 
 ### 2. What are the parts of a URL?
 
-💡 MDN defines a URL as "the address of a unique resource on the internet" (MDN, *What is a URL?*).
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> MDN defines a URL as "the address of a unique resource on the internet" (MDN, *What is a URL?*).
 
-❓ Read a URL left to right. The **scheme** (`https`) tells the browser which protocol to use to ask. After `://` comes the **host**, also called the domain (`www.example.com`), which says which server to ask. Then the **path** (`/about.html`) says which file on that server. An optional **anchor** (`#contact`) points to a spot inside the page. MDN notes that the part after `#` "is never sent to the server with the request"; the browser uses it to scroll.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Read a URL left to right. The **scheme** (`https`) tells the browser which protocol to use to ask. After `://` comes the **host**, also called the domain (`www.example.com`), which says which server to ask. Then the **path** (`/about.html`) says which file on that server. An optional **anchor** (`#contact`) points to a spot inside the page. MDN notes that the part after `#` "is never sent to the server with the request"; the browser uses it to scroll.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The URL https://www.example.com/about.html#contact split into colored boxes labeled scheme, host (domain), path and anchor (fragment).](images/m01-url-parts.png)
-*One URL, four parts. You will write paths and anchors yourself in this module.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One URL, four parts. You will write paths and anchors yourself in this module.*
 
-❗ Look at your browser's address bar right now. Point to the scheme, the host and the path.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at your browser's address bar right now. Point to the scheme, the host and the path.
 
 ### 3. How do you create, save and see a file in VS Code?
 
-💡 An HTML page is a text file whose name ends in `.html`. The home page of a site is called `index.html` by convention.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An HTML page is a text file whose name ends in `.html`. The home page of a site is called `index.html` by convention.
 
-❓ In VS Code, use **File → Open Folder…** and choose the folder you want to work in. The Explorer panel on the left lists its files. Use the **New File** button at the top of the Explorer, type the full name including `.html`, and press Enter. When a tab shows a dot instead of an ✕, the file has unsaved changes. Press **Ctrl+S** to save. To see the page, open it in Edge or Chrome (double-click it in File Explorer) or use Live Preview. From then on you work in a loop: **edit → save → refresh**. If the browser does not show your change, the most common reason is that you did not save.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In VS Code, use **File → Open Folder…** and choose the folder you want to work in. The Explorer panel on the left lists its files. Use the **New File** button at the top of the Explorer, type the full name including `.html`, and press Enter. When a tab shows a dot instead of an ✕, the file has unsaved changes. Press **Ctrl+S** to save. To see the page, open it in Edge or Chrome (double-click it in File Explorer) or use Live Preview. From then on you work in a loop: **edit → save → refresh**. If the browser does not show your change, the most common reason is that you did not save.
 
-👀 The first page in the next concept was opened from disk, which is why its address starts with `file:///`.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The first page in the next concept was opened from disk, which is why its address starts with `file:///`.
 
-❗ You will create your first file in the Exercise. Remember the loop: edit, **Ctrl+S**, then F5 in the browser.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will create your first file in the Exercise. Remember the loop: edit, **Ctrl+S**, then F5 in the browser.
 
 ### 4. What does every HTML document need?
 
-💡 HTML is made of **elements**. Most elements have an opening tag, content and a closing tag: `<p>Hello</p>`. The closing tag has a `/`.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> HTML is made of **elements**. Most elements have an opening tag, content and a closing tag: `<p>Hello</p>`. The closing tag has a `/`.
 
-❓ Every page starts with the same skeleton. `<!DOCTYPE html>` tells the browser this is modern HTML. `<html lang="en">` wraps everything and states the page's language, which MDN says helps search engines and people using screen readers. The `<head>` holds information *about* the page: `<meta charset="utf-8">` sets the character encoding so any language's characters display correctly; `<meta name="viewport" content="width=device-width, initial-scale=1">` tells phones to use their real screen width instead of pretending to be a wide desktop; `<title>` is the text in the browser tab. The `<body>` holds everything visitors see.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Every page starts with the same skeleton. `<!DOCTYPE html>` tells the browser this is modern HTML. `<html lang="en">` wraps everything and states the page's language, which MDN says helps search engines and people using screen readers. The `<head>` holds information *about* the page: `<meta charset="utf-8">` sets the character encoding so any language's characters display correctly; `<meta name="viewport" content="width=device-width, initial-scale=1">` tells phones to use their real screen width instead of pretending to be a wide desktop; `<title>` is the text in the browser tab. The `<body>` holds everything visitors see.
 
 ```html
 <!DOCTYPE html>
@@ -98,18 +98,18 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 </html>
 ```
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A browser window whose tab says My First Page, showing a large heading Hello, web and one paragraph.](images/m01-first-page.png)
-*The `<title>` appears on the tab, not on the page. The `<h1>` and `<p>` are the only things in the body. Measured at 800 px wide. (page real: rendered in Chromium; browser frame drawn)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The `<title>` appears on the tab, not on the page. The `<h1>` and `<p>` are the only things in the body. Measured at 800 px wide. (page real: rendered in Chromium; browser frame drawn)*
 
-❗ Predict: if you change only the text inside `<title>`, what changes on screen? (Only the tab.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: if you change only the text inside `<title>`, what changes on screen? (Only the tab.)
 
 ### 5. How do headings, paragraphs and lists work?
 
-💡 Headings run from `<h1>` (most important) to `<h6>`. Paragraphs are `<p>`. A bulleted list is an **unordered list**, `<ul>`, with one `<li>` (list item) per bullet.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Headings run from `<h1>` (most important) to `<h6>`. Paragraphs are `<p>`. A bulleted list is an **unordered list**, `<ul>`, with one `<li>` (list item) per bullet.
 
-❓ Use one `<h1>` per page for its main title, then `<h2>` for sections and `<h3>` inside those. Choose a heading level for its meaning, not its size; size is CSS's job in Module 2. Every `<li>` must sit inside the `<ul>`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Use one `<h1>` per page for its main title, then `<h2>` for sections and `<h3>` inside those. Choose a heading level for its meaning, not its size; size is CSS's job in Module 2. Every `<li>` must sit inside the `<ul>`.
 
 ```html
 <h2>Three favorites</h2>
@@ -120,15 +120,15 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 </ul>
 ```
 
-👀 You will see this exact list rendered in the Exercise.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> You will see this exact list rendered in the Exercise.
 
-❗ Without looking, write the opening and closing tags of a list with two items on paper.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Without looking, write the opening and closing tags of a list with two items on paper.
 
 ### 6. How does a link work?
 
-💡 A link is an `<a>` (anchor) element. Its `href` attribute holds the address to go to. The text between the tags is what people click.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A link is an `<a>` (anchor) element. Its `href` attribute holds the address to go to. The text between the tags is what people click.
 
-❓ `href` can be a full URL (`https://developer.mozilla.org/`), a **relative path** to another file in your site (`about.html`), or an anchor on the same page (`#contact`). For a same-page link, give the target element an `id` and put `#` plus that id in the `href`. MDN puts it this way: "Elements with an `id` attribute in the document automatically create a document fragment that can be linked to" (MDN, *Creating links*). An `id` must be unique on its page.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `href` can be a full URL (`https://developer.mozilla.org/`), a **relative path** to another file in your site (`about.html`), or an anchor on the same page (`#contact`). For a same-page link, give the target element an `id` and put `#` plus that id in the `href`. MDN puts it this way: "Elements with an `id` attribute in the document automatically create a document fragment that can be linked to" (MDN, *Creating links*). An `id` must be unique on its page.
 
 ```html
 <a href="#contact">Contact</a>
@@ -138,32 +138,32 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 </section>
 ```
 
-👀 The pages in Concept 8 use all three kinds of `href`.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The pages in Concept 8 use all three kinds of `href`.
 
-❗ Predict: what happens if the `href` says `#contacts` but the `id` is `contact`? (The link does nothing, because no element has that id.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: what happens if the `href` says `#contacts` but the `id` is `contact`? (The link does nothing, because no element has that id.)
 
 ### 7. How does an image work, and what is `alt` for?
 
-💡 An image is an `<img>` element. It has no closing tag. `src` says which file to show. `alt` describes the picture in words.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An image is an `<img>` element. It has no closing tag. `src` says which file to show. `alt` describes the picture in words.
 
-❓ `src` is a path, just like `href`; if the image sits in the same folder as the page, the path is just the file name. `alt` is read aloud by screen readers and is shown when the image cannot load. Write what the picture shows, as you would describe it to someone on the phone.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `src` is a path, just like `href`; if the image sits in the same folder as the page, the path is just the file name. `alt` is read aloud by screen readers and is shown when the image cannot load. Write what the picture shows, as you would describe it to someone on the phone.
 
 ```html
 <img src="image-one.jpg" alt="A hill under a pale blue sky" width="320">
 ```
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Two copies of the same img element. The first, with the correct src, shows the picture. The second, with src misspelled as imge-one.jpg, shows a small broken-image icon followed by the alt text.](images/m01-alt-text.png)
-*One wrong letter in `src` and the picture is gone. The `alt` text is what remains, so make it useful. (real: rendered in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One wrong letter in `src` and the picture is gone. The `alt` text is what remains, so make it useful. (real: rendered in Chromium)*
 
-❗ Write `alt` text for the picture you copied into `practice-01`. Keep it to one short sentence.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Write `alt` text for the picture you copied into `practice-01`. Keep it to one short sentence.
 
 ### 8. What are semantic elements, and how do pages share navigation?
 
-💡 **Semantic** means "says what it is." `<header>`, `<nav>`, `<main>`, `<section>` and `<footer>` look like nothing at all on their own, but they tell browsers, search engines and screen readers what each part of the page is for.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> **Semantic** means "says what it is." `<header>`, `<nav>`, `<main>`, `<section>` and `<footer>` look like nothing at all on their own, but they tell browsers, search engines and screen readers what each part of the page is for.
 
-❓ A typical page has a `<header>` with the site name and a `<nav>` of links, one `<main>` with the page's own content split into `<section>`s, and a `<footer>`. A site with several pages repeats the same header, nav and footer on every page. In plain HTML you do that by **copying the same block into each file**. Links between your pages use relative paths: `about.html` means "the file called about.html in the same folder as this page." Because each page has its own copy of the navigation, you must **click every link on every page** after any change. A link to `index.html#contact` goes to another page *and* jumps to a spot on it.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A typical page has a `<header>` with the site name and a `<nav>` of links, one `<main>` with the page's own content split into `<section>`s, and a `<footer>`. A site with several pages repeats the same header, nav and footer on every page. In plain HTML you do that by **copying the same block into each file**. Links between your pages use relative paths: `about.html` means "the file called about.html in the same folder as this page." Because each page has its own copy of the navigation, you must **click every link on every page** after any change. A link to `index.html#contact` goes to another page *and* jumps to a spot on it.
 
 ```html
 <header>
@@ -176,21 +176,21 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 </header>
 ```
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The practice home page with dashed outlines and labels showing header containing nav, main containing two sections, and footer.](images/m01-semantic-outline.png)
-*The same page with each semantic element outlined and labeled. The outlines were added for this picture only; without CSS these elements are invisible. Measured at 800 px wide. (real: rendered in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The same page with each semantic element outlined and labeled. The outlines were added for this picture only; without CSS these elements are invisible. Measured at 800 px wide. (real: rendered in Chromium)*
 
 ![A browser window showing about.html: the same Practice Site header and links, then an About heading and paragraph.](images/m01-about-after-click.png)
 *Captured after Chromium clicked the **About** link on the home page. Same header and links, different main content: that is shared navigation. (page real: rendered in Chromium; browser frame drawn)*
 
-❗ For a two-page site, write down how many links you must click to test the navigation fully. (Three links × two pages = six clicks.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For a two-page site, write down how many links you must click to test the navigation fully. (Three links × two pages = six clicks.)
 
 ### 9. How do you publish your first page?
 
-💡 Your pages live only on your computer. To give them a public address you need three things: a Git history of your folder, a copy of that history on GitHub (a **repository**), and **GitHub Pages**, which serves a repository's HTML as a website.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Your pages live only on your computer. To give them a public address you need three things: a Git history of your folder, a copy of that history on GitHub (a **repository**), and **GitHub Pages**, which serves a repository's HTML as a website.
 
-❓ Start with the free **GitHub Skills** exercise *Introduction to GitHub*. Its page says it takes "less than one hour," needs no installs, and has the prerequisite "None." It introduces repositories, branches, commits and pull requests, and its four steps are: create a branch, commit a file, open a pull request, merge your pull request. You start it with its **Copy Exercise** button, which makes your own copy of the exercise repository; the page suggests making it public. You will not use branches or pull requests on your own site until Module 12, but seeing the whole cycle once now makes the rest of the course easier to follow.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Start with the free **GitHub Skills** exercise *Introduction to GitHub*. Its page says it takes "less than one hour," needs no installs, and has the prerequisite "None." It introduces repositories, branches, commits and pull requests, and its four steps are: create a branch, commit a file, open a pull request, merge your pull request. You start it with its **Copy Exercise** button, which makes your own copy of the exercise repository; the page suggests making it public. You will not use branches or pull requests on your own site until Module 12, but seeing the whole cycle once now makes the rest of the course easier to follow.
 
 Then you save your own folder's history with Git, on your computer:
 
@@ -215,12 +215,12 @@ The GitHub CLI manual describes the flags: `--public` "Make the new repository p
 
 Finally, turn on Pages. GitHub Docs (*Configuring a publishing source for your GitHub Pages site*) gives these steps: on your repository, click **Settings**; in the **Code, planning, and automation** section of the sidebar, click **Pages**; under **Build and deployment**, under **Source**, select **Deploy from a branch**; choose the branch **main** and the folder **/ (root)**; click **Save**. A project site's address has the form `https://your-username.github.io/my-site/` (GitHub Docs, *What is GitHub Pages?*). Pages is free for public repositories.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A simplified drawing of the repository Settings page with Pages selected in the sidebar, Source set to Deploy from a branch, Branch set to main and / (root), and a Save button.](images/m01-pages-settings.png)
-*Where the Pages settings live. Labels follow GitHub Docs; the real page has more on it and GitHub changes its layout from time to time.* **[unverified: the exact look of the Pages settings page on the day you do this; the steps are from GitHub Docs.]**
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Where the Pages settings live. Labels follow GitHub Docs; the real page has more on it and GitHub changes its layout from time to time.* **[unverified: the exact look of the Pages settings page on the day you do this; the steps are from GitHub Docs.]**
 
-❗ Before you run anything, say what each of the four commands above does in five words or fewer.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you run anything, say what each of the four commands above does in five words or fewer.
 
 ## Exercise
 

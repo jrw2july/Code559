@@ -45,34 +45,34 @@ This module is short on new syntax and long on habits. You will run a script, ch
 
 ### 1. What is a program?
 
-💡 A program is a list of instructions for the computer. In JavaScript, each instruction is usually one line.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A program is a list of instructions for the computer. In JavaScript, each instruction is usually one line.
 
-❓ The computer runs the instructions **in order, from top to bottom**, one at a time. It does not skip ahead or guess what you meant. If line 2 has a mistake, the computer stops at line 2. Later modules add ways to repeat lines or choose between them, but the starting rule is always the same: top to bottom.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The computer runs the instructions **in order, from top to bottom**, one at a time. It does not skip ahead or guess what you meant. If line 2 has a mistake, the computer stops at line 2. Later modules add ways to repeat lines or choose between them, but the starting rule is always the same: top to bottom.
 
-👀 In the next concept you will run a three-line script. The three lines of output come out in the same order as the three lines of code.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> In the next concept you will run a three-line script. The three lines of output come out in the same order as the three lines of code.
 
-❗ Write three things you did this morning as three numbered steps. Swap two of them. Did the meaning change? Order matters to a program in the same way.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Write three things you did this morning as three numbered steps. Swap two of them. Did the meaning change? Order matters to a program in the same way.
 
 ### 2. Where does JavaScript run?
 
-💡 JavaScript was made for web browsers. Every browser, including Edge and Chrome, can run it. **Node** is a program that runs JavaScript outside a browser, in the terminal.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> JavaScript was made for web browsers. Every browser, including Edge and Chrome, can run it. **Node** is a program that runs JavaScript outside a browser, in the terminal.
 
-❓ The language is the same in both places. The browser runs JavaScript as part of a web page; you will use its **Console** to try one line at a time. Node runs a whole `.js` file from the terminal, with no web page at all. In this module you use both: Node for files, the Console for quick experiments.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The language is the same in both places. The browser runs JavaScript as part of a web page; you will use its **Console** to try one line at a time. Node runs a whole `.js` file from the terminal, with no web page at all. In this module you use both: Node for files, the Console for quick experiments.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Your JavaScript on the left, with arrows to two boxes: In the browser, and In Node.](images/m05-where-js-runs.png)
-*Same language, two places to run it. Modules 5 to 8 use both; Module 9 brings JavaScript into your pages.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Same language, two places to run it. Modules 5 to 8 use both; Module 9 brings JavaScript into your pages.*
 
-❗ Say which place you would use to (a) try `2 + 3` quickly, (b) run a saved file called `hello.js`. (Answers: the Console; Node.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say which place you would use to (a) try `2 + 3` quickly, (b) run a saved file called `hello.js`. (Answers: the Console; Node.)
 
 ### 3. What are statements, semicolons and comments?
 
-💡 A **statement** is one complete instruction, like a sentence. A **comment** is a note for humans that the computer skips.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A **statement** is one complete instruction, like a sentence. A **comment** is a note for humans that the computer skips.
 
-❓ In this course every statement ends with a semicolon `;`, the way a sentence ends with a period. JavaScript can often add a missing semicolon for you (MDN's *Lexical grammar* page calls this "automatic semicolon insertion"), but writing them yourself keeps your code clear. A comment starts with `//`; MDN puts it this way: it "makes all text following it on the same line into a comment." Use comments to explain *why* a line is there.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In this course every statement ends with a semicolon `;`, the way a sentence ends with a period. JavaScript can often add a missing semicolon for you (MDN's *Lexical grammar* page calls this "automatic semicolon insertion"), but writing them yourself keeps your code clear. A comment starts with `//`; MDN puts it this way: it "makes all text following it on the same line into a comment." Use comments to explain *why* a line is there.
 
-👀 Here is the first script. Line 1 is a comment. Lines 2 to 4 are statements.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Here is the first script. Line 1 is a comment. Lines 2 to 4 are statements.
 
 ```js
 // hello.js: my first script
@@ -81,77 +81,77 @@ console.log("This line runs second.");
 console.log(2 + 3); // a number, not text
 ```
 
-❗ Point at each semicolon and say "end of instruction." Then find the comment at the end of line 4.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Point at each semicolon and say "end of instruction." Then find the comment at the end of line 4.
 
 ### 4. How do you see a value?
 
-💡 `console.log()` prints whatever you put between the parentheses.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `console.log()` prints whatever you put between the parentheses.
 
-❓ Text goes inside quotes: `"Hello, world!"`. A sum like `2 + 3` has no quotes, so JavaScript works it out first and prints the result, `5`. In Node, `console.log()` prints to the terminal. In the browser, it prints to the Console. It is the main way you will check your work in Modules 5 to 8: when you are unsure what a value is, log it.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Text goes inside quotes: `"Hello, world!"`. A sum like `2 + 3` has no quotes, so JavaScript works it out first and prints the result, `5`. In Node, `console.log()` prints to the terminal. In the browser, it prints to the Console. It is the main way you will check your work in Modules 5 to 8: when you are unsure what a value is, log it.
 
-👀 You will see the output in the next concept.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> You will see the output in the next concept.
 
-❗ Predict what `console.log(10 - 4);` prints. Then predict what `console.log("10 - 4");` prints. (One works out the sum; the other prints its characters exactly as typed. You will check both in the Exercise.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict what `console.log(10 - 4);` prints. Then predict what `console.log("10 - 4");` prints. (One works out the sum; the other prints its characters exactly as typed. You will check both in the Exercise.)
 
 ### 5. How do you run a file with Node?
 
-💡 In the terminal, `node` followed by a file name runs that file.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> In the terminal, `node` followed by a file name runs that file.
 
-❓ Type `node hello.js` and press Enter. Node reads the file from top to bottom and runs each statement. Anything you `console.log()` appears in the terminal, and then the prompt comes back. The terminal must be in the folder that holds the file. If it is not, Node prints `Error: Cannot find module` and the path it tried.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Type `node hello.js` and press Enter. Node reads the file from top to bottom and runs each statement. Anything you `console.log()` appears in the terminal, and then the prompt comes back. The terminal must be in the folder that holds the file. If it is not, Node prints `Error: Cannot find module` and the path it tried.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running node hello.js and printing Hello, world!, This line runs second., and 5.](images/m05-node-hello.png)
-*Three statements, three lines of output, in the same order. The comment printed nothing. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Three statements, three lines of output, in the same order. The comment printed nothing. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
 
-❗ Look at the third output line. Why does it show `5` and not `2 + 3`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at the third output line. Why does it show `5` and not `2 + 3`?
 
 ### 6. How do you open the Console and try an expression?
 
-💡 Every Edge and Chrome window has built-in developer tools, called **DevTools**. The **Console** is one of its panels.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every Edge and Chrome window has built-in developer tools, called **DevTools**. The **Console** is one of its panels.
 
-❓ Click inside any web page, then press **Ctrl + Shift + J** to open DevTools straight to the Console. **F12** also opens DevTools, on whichever panel you used last; if that is not Console, click the **Console** tab. (Both shortcuts are listed in Chrome's *Open Chrome DevTools* page and Microsoft's *Keyboard shortcuts* page for Edge DevTools.) Click next to the `>` sign at the bottom, type an expression, and press Enter. The Console shows the result on the next line.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Click inside any web page, then press **Ctrl + Shift + J** to open DevTools straight to the Console. **F12** also opens DevTools, on whichever panel you used last; if that is not Console, click the **Console** tab. (Both shortcuts are listed in Chrome's *Open Chrome DevTools* page and Microsoft's *Keyboard shortcuts* page for Edge DevTools.) Click next to the `>` sign at the bottom, type an expression, and press Enter. The Console shows the result on the next line.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A browser window with DevTools docked at the bottom, the Console tab selected, and an input line with a cursor.](images/m05-devtools-console.png)
-*DevTools usually opens docked to the side or bottom of the window. Type next to the `>` sign.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *DevTools usually opens docked to the side or bottom of the window. Type next to the `>` sign.*
 
 ![The Console after typing 2 + 3, "Hello, " + "world", 60 * 24, and a console.log line.](images/m05-console-expressions.png)
 *Each expression gets an answer line. `console.log()` prints its text, then shows `undefined`: that is the Console reporting that `console.log()` itself hands back no value. It is not an error. Your Console may show text in single quotes instead of double; both mean text. (real output, rendered; evaluated in Chromium)*
 
-❗ Open the Console now and type `60 * 24`. That is the number of minutes in a day.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open the Console now and type `60 * 24`. That is the number of minutes in a day.
 
 ### 7. How do you read an error message?
 
-💡 When JavaScript cannot run a line, it stops and prints an **error**. An error is not a punishment. It is a report.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When JavaScript cannot run a line, it stops and prints an **error**. An error is not a punishment. It is a report.
 
-❓ MDN's *JavaScript error reference* says each error "has a `name` and a `message`." Read every error in the same order. **Where:** the file name and line number at the top. **What line:** the code it was running, with a `^` under the problem spot. **Name:** the word before the colon, such as `ReferenceError` (a name JavaScript does not recognize) or `SyntaxError` (the code is not valid JavaScript, so nothing in the file ran). **Message:** the words after the colon. The lines starting with `at` are the *stack*; the first one repeats your file with `line:column`, and the rest point inside Node itself, so you can usually skip them.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *JavaScript error reference* says each error "has a `name` and a `message`." Read every error in the same order. **Where:** the file name and line number at the top. **What line:** the code it was running, with a `^` under the problem spot. **Name:** the word before the colon, such as `ReferenceError` (a name JavaScript does not recognize) or `SyntaxError` (the code is not valid JavaScript, so nothing in the file ran). **Message:** the words after the colon. The lines starting with `at` are the *stack*; the first one repeats your file with `line:column`, and the rest point inside Node itself, so you can usually skip them.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The top of a real Node error, labeled: file and line, the code line, the caret, the error name and message, and the file:line:column in the stack.](images/m05-error-anatomy.png)
-*Read from the top down. This is the real error from the Exercise's break-it step, with the long folder path shortened to `.../` on the stack line only.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read from the top down. This is the real error from the Exercise's break-it step, with the long folder path shortened to `.../` on the stack line only.*
 
 In the Console, the same mistake shows a shorter error. It starts with `Uncaught`, which only means no code caught the error before it reached you.
 
 ![The Console showing consol.log("hi") giving Uncaught ReferenceError: consol is not defined, and console.log("hi) giving Uncaught SyntaxError: Invalid or unexpected token.](images/m05-console-error.png)
 *Same names, same messages as in Node. The real Console also adds a small location link next to each error; this render shows only the name and message. (real output, rendered; evaluated in Chromium)*
 
-❗ In the Console, type `consol.log("hi")` with the missing `e`. Say the error's name and message out loud.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In the Console, type `consol.log("hi")` with the missing `e`. Say the error's name and message out loud.
 
 ### 8. What is the habit?
 
-💡 Every piece of code in this course goes through five steps: **Predict, Run, Modify, Create, Debug.**
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every piece of code in this course goes through five steps: **Predict, Run, Modify, Create, Debug.**
 
-❓ **Predict:** before you press Enter, say what will happen. **Run:** run it and compare with your prediction. **Modify:** change one thing and predict again. **Create:** write a line of your own that does something similar. **Debug:** break it on purpose and read the message. The prediction is the important part. When your prediction is wrong, you have found exactly the thing you did not understand yet.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Predict:** before you press Enter, say what will happen. **Run:** run it and compare with your prediction. **Modify:** change one thing and predict again. **Create:** write a line of your own that does something similar. **Debug:** break it on purpose and read the message. The prediction is the important part. When your prediction is wrong, you have found exactly the thing you did not understand yet.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Five boxes in a row: Predict, Run, Modify, Create, Debug.](images/m05-habit.png)
-*The habit for every piece of code from here on.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The habit for every piece of code from here on.*
 
-❗ You will use all five steps in the Exercise, in order.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will use all five steps in the Exercise, in order.
 
 ## Exercise
 

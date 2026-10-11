@@ -41,9 +41,9 @@ This is also the end of the core course. The last part of the module is a whole-
 
 ### 1. How do you read a requirement table?
 
-💡 A **requirement** is one thing the finished page must do, written in plain words. A requirement table lists them one per row, with a second column that says how you will know the row is met.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A **requirement** is one thing the finished page must do, written in plain words. A requirement table lists them one per row, with a second column that says how you will know the row is met.
 
-❓ Read the whole table before you write any code. Then read it again, one row at a time, and underline the nouns (the things that must exist on the page) and the verbs (what the visitor does, and what the page does back). The "done when" column is your test. If a row has no "done when," write one before you start; otherwise you cannot tell when you have finished it. Here is a small sample from a task planner called Pocket Planner:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Read the whole table before you write any code. Then read it again, one row at a time, and underline the nouns (the things that must exist on the page) and the verbs (what the visitor does, and what the page does back). The "done when" column is your test. If a row has no "done when," write one before you start; otherwise you cannot tell when you have finished it. Here is a small sample from a task planner called Pocket Planner:
 
 | # | Requirement | Done when |
 | --- | --- | --- |
@@ -52,33 +52,33 @@ This is also the end of the core course. The last part of the module is a whole-
 | 3 | Each task has a checkbox. Checking it marks the task done, and a line shows how many are done. | The task text is struck through, and the line reads, for example, "1 of 3 done." Unchecking undoes both. |
 | 4 | One column on a phone. From 700 px wide, the form sits beside the list. | At 390 px the panels stack; at 1200 px they sit side by side. |
 
-👀 Row 2's nouns are "task" and "message." Its verbs are "is not added" and "says why." Its test is "the list does not change, and the message appears."
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Row 2's nouns are "task" and "message." Its verbs are "is not added" and "says why." Its test is "the list does not change, and the message appears."
 
-❗ Underline the nouns and verbs in row 3. How many things must exist on the page for row 3 alone?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Underline the nouns and verbs in row 3. How many things must exist on the page for row 3 alone?
 
 ### 2. How do you turn a row into tasks?
 
-💡 A row is too big to code in one go. You break it into small tasks, one per layer.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A row is too big to code in one go. You break it into small tasks, one per layer.
 
-❓ For each row ask three questions, in this order. **Structure:** what HTML must exist? **Look:** what CSS does it need? **Behavior:** what JavaScript makes it act? Then add a fourth line: **the test row**, copied straight from "done when" into your Action / Expected / Actual table. Structure comes first because CSS and JavaScript both need elements to select. Behavior comes last because it is the hardest to test, and it is easier to test on a page that already looks right.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> For each row ask three questions, in this order. **Structure:** what HTML must exist? **Look:** what CSS does it need? **Behavior:** what JavaScript makes it act? Then add a fourth line: **the test row**, copied straight from "done when" into your Action / Expected / Actual table. Structure comes first because CSS and JavaScript both need elements to select. Behavior comes last because it is the hardest to test, and it is easier to test on a page that already looks right.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A requirement row on the left with four arrows to boxes labeled Structure (HTML), Look (CSS), Behavior (JS) and Test row.](images/m13-req-to-tasks.png)
-*Row 2 as four small tasks. Each one is small enough to finish and check in a few minutes.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Row 2 as four small tasks. Each one is small enough to finish and check in a few minutes.*
 
-❗ Write the four task lines for row 1 of the sample table. Keep each to one sentence.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Write the four task lines for row 1 of the sample table. Keep each to one sentence.
 
 ### 3. What does the finished sample look like?
 
-💡 To check that the four rows above can be built with what you already know, a minimal Pocket Planner was built for this post from those rows, and nothing else.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> To check that the four rows above can be built with what you already know, a minimal Pocket Planner was built for this post from those rows, and nothing else.
 
-❓ It uses only things from earlier modules: a form with a label, `querySelector`, a `submit` listener with `preventDefault()`, `.trim()` and an empty check, `createElement` and `textContent` (no `innerHTML`), `classList`, and one media query. Then each row's "done when" was run as a test.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It uses only things from earlier modules: a form with a label, `querySelector`, a `submit` listener with `preventDefault()`, `.trim()` and an empty check, `createElement` and `textContent` (no `innerHTML`), `classList`, and one media query. Then each row's "done when" was run as a test.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Pocket Planner at 390 px: a blue header, an Add a task panel, and below it a Tasks panel reading 1 of 3 done, with the first task checked and struck through.](images/m13-planner-390.png)
-*Row 4 at 390 px: one column. Rows 1 and 3 together: three tasks added with the Enter key, the first one checked, and the line reads "1 of 3 done." (real: rendered in Chromium at 390 px, tasks typed and checked by script)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Row 4 at 390 px: one column. Rows 1 and 3 together: three tasks added with the Enter key, the first one checked, and the line reads "1 of 3 done." (real: rendered in Chromium at 390 px, tasks typed and checked by script)*
 
 ![Pocket Planner at 1200 px: the Add a task panel on the left and the wider Tasks panel on the right.](images/m13-planner-1200.png)
 *Row 4 at 1200 px: two columns. Measured in Chromium, the grid has one column at 699 px and two at 700 px, which is the boundary the row asks for. (real: rendered in Chromium at 1200 px)*
@@ -86,28 +86,30 @@ This is also the end of the core course. The last part of the module is a whole-
 ![Pocket Planner at 390 px with the red message Type a task first. under the Add task button and No tasks yet. in the Tasks panel.](images/m13-planner-empty.png)
 *Row 2: three spaces submitted. The list stays empty and the message appears. (real: rendered in Chromium at 390 px)*
 
-❗ Look at the 390 px picture and point to the element that proves each of rows 1, 3 and 4.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at the 390 px picture and point to the element that proves each of rows 1, 3 and 4.
 
 ### 4. What is the nine-step completion standard?
 
-💡 Code559 has one definition of done. A feature is finished when it has passed all nine of these steps, in order.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Code559 has one definition of done. A feature is finished when it has passed all nine of these steps, in order.
 
-❓ **Predict:** before you run new code, write what you expect it to do. **Run:** do it once. **Explain:** say, line by line, why it did what it did. **Modify:** change one thing on purpose and predict again. **Debug:** when actual and expected differ, find the gap with the Module 11 method. **Retest:** run the same test row again. **Commit:** one change, with a message that says what it does. **Push:** send it to GitHub. **Verify live:** open the real site, refresh it, and run the test row there. The last step catches the problems that only happen online, such as a file name whose capital letters match on your computer but not on the server.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Predict:** before you run new code, write what you expect it to do. **Run:** do it once. **Explain:** say, line by line, why it did what it did. **Modify:** change one thing on purpose and predict again. **Debug:** when actual and expected differ, find the gap with the Module 11 method. **Retest:** run the same test row again. **Commit:** one change, with a message that says what it does. **Push:** send it to GitHub. **Verify live:** open the real site, refresh it, and run the test row there. The last step catches the problems that only happen online, such as a file name whose capital letters match on your computer but not on the server.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Nine boxes in three rows: Predict, Run, Explain; Modify, Debug, Retest; Commit, Push, Verify live.](images/m13-nine-steps.png)
-*Read it as three groups: understand it (1–3), make it right (4–6), ship it (7–9). Skipping a group is how "it worked on my computer" happens.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read it as three groups: understand it (1–3), make it right (4–6), ship it (7–9). Skipping a group is how "it worked on my computer" happens.*
 
-❗ Think of the last feature you added to your site. Which of the nine steps did you skip?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Think of the last feature you added to your site. Which of the nine steps did you skip?
 
 ### 5. What is code-origin honesty?
 
-💡 This course has one honesty rule, set in Module 0: **if a tool wrote a line, you mark it and explain it.** The capstone is where that rule matters most, because it is the piece people will read.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> This course has one honesty rule, set in Module 0: **if a tool wrote a line, you mark it and explain it.** The capstone is where that rule matters most, because it is the piece people will read.
 
-❓ "A tool" means anything that wrote code for you: an AI assistant, a code generator, a snippet you copied from a website. You may use them after this course. What you may not do is present their lines as yours without understanding them. The mark is a comment above the lines, saying where they came from, what they do, and what you changed. If you cannot write the "what they do" part, you are not ready to commit those lines.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> "A tool" means anything that wrote code for you: an AI assistant, a code generator, a snippet you copied from a website. You may use them after this course. What you may not do is present their lines as yours without understanding them. The mark is a comment above the lines, saying where they came from, what they do, and what you changed. If you cannot write the "what they do" part, you are not ready to commit those lines.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;">
 
 ```js
 // Tool-written: the next two lines came from [name the tool or site].
@@ -115,15 +117,15 @@ This is also the end of the core course. The last part of the module is a whole-
 // What I changed: renamed the variables to match my page.
 ```
 
-❗ Search your `my-site` folder for any line you did not type yourself. Mark it with a comment like the one above, or rewrite it.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Search your `my-site` folder for any line you did not type yourself. Mark it with a comment like the one above, or rewrite it.
 
 ### 6. How do you run a final accessibility pass?
 
-💡 Before you call the site finished, check it the way a visitor with different needs would use it. Four checks cover most problems.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Before you call the site finished, check it the way a visitor with different needs would use it. Four checks cover most problems.
 
-❓ **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
 
-👀 The sample planner passed the keyboard check: from the text box, two presses of Tab reached the first checkbox, and Space checked it.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The sample planner passed the keyboard check: from the text box, two presses of Tab reached the first checkbox, and Space checked it.
 
 ![Pocket Planner at 390 px with an amber focus ring around the first task's checkbox, which is checked, and the line 1 of 2 done.](images/m13-planner-focus.png)
 *Keyboard only: Tab, Tab, Space. The ring shows where focus is, and the summary updated, so row 3 works without a mouse. (real: rendered in Chromium at 390 px with real Tab and Space key presses)*
@@ -133,27 +135,27 @@ The planner's colors were also checked with a short Node script that applies the
 ![A terminal running node contrast.js, listing five color pairs: four pass AA with ratios from 6.54:1 to 15.11:1, and a light gray on white fails at 2.56:1.](images/m13-contrast.png)
 *All four colors the planner uses pass AA for normal text. The light gray is there to show what a fail looks like: it is the kind of "soft" gray that looks elegant and is hard to read. (real output, rendered; captured on Linux with Node 22. The prompt is drawn to match the course folder.)*
 
-❗ Open your home page, open DevTools, click Inspect, and hover over your smallest, palest text. Write down the ratio.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your home page, open DevTools, click Inspect, and hover over your smallest, palest text. Write down the ratio.
 
 ### 7. What is a portfolio audit?
 
-💡 An employer looks at your site for a minute or two, and at your GitHub repositories for less. An audit makes sure that minute goes well.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An employer looks at your site for a minute or two, and at your GitHub repositories for less. An audit makes sure that minute goes well.
 
-❓ Open your live site on a phone and on a computer, and go through this list. Every page loads, and every link in the navigation goes where it says. The Console shows no red lines on any page. Every interactive feature has a test plan (Module 11) that you reran this week. Each repository has a README that says what it is, how to see it live, and what you learned. Commit messages say what each change does. Nothing in any repository is a private file, a password, or a half-finished experiment you would not want read.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Open your live site on a phone and on a computer, and go through this list. Every page loads, and every link in the navigation goes where it says. The Console shows no red lines on any page. Every interactive feature has a test plan (Module 11) that you reran this week. Each repository has a README that says what it is, how to see it live, and what you learned. Commit messages say what each change does. Nothing in any repository is a private file, a password, or a half-finished experiment you would not want read.
 
-👀 Treat the audit like the test table: Action ("open Contact on a phone"), Expected ("form fits, label visible"), Actual.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Treat the audit like the test table: Action ("open Contact on a phone"), Expected ("form fits, label visible"), Actual.
 
-❗ Do the first two checks now, on your phone.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Do the first two checks now, on your phone.
 
 ### 8. What comes after the core course?
 
-💡 You can now build, test, publish and explain a multi-page site with HTML, CSS and JavaScript. That is the core.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You can now build, test, publish and explain a multi-page site with HTML, CSS and JavaScript. That is the core.
 
-❓ There is one optional extension: a module on a small **Node server** and **`fetch`**, so a form can send data to a program you wrote and show the reply without leaving the page. After that, many learners want a framework. Frameworks are a separate product, not part of this course, and you should not move to one just because you reached the last module. Move when plain JavaScript feels easy to read and write, and you can explain why a framework would help with a page you have actually built.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> There is one optional extension: a module on a small **Node server** and **`fetch`**, so a form can send data to a program you wrote and show the reply without leaving the page. After that, many learners want a framework. Frameworks are a separate product, not part of this course, and you should not move to one just because you reached the last module. Move when plain JavaScript feels easy to read and write, and you can explain why a framework would help with a page you have actually built.
 
-👀 A good sign you are ready for more: you can rewrite one of your own functions from a one-sentence description, with the file closed.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> A good sign you are ready for more: you can rewrite one of your own functions from a one-sentence description, with the file closed.
 
-❗ Pick one function from your site. Close the file. Rewrite it from memory, then compare.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick one function from your site. Close the file. Rewrite it from memory, then compare.
 
 ## Exercise
 

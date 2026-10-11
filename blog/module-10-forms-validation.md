@@ -43,9 +43,9 @@ This module stays on your own computer. Nothing is sent anywhere. A one-second t
 
 ### 1. How do you catch a form before it leaves?
 
-💡 A form fires a `submit` event when the visitor presses a submit button or presses Enter in a field.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A form fires a `submit` event when the visitor presses a submit button or presses Enter in a field.
 
-❓ Listen on the **form**, not the button. MDN: "The submit event fires on the `<form>` element itself, and not on any `<button>` or `<input type="submit">` inside it" (MDN, *HTMLFormElement: submit event*). The browser hands your function an **event object**, usually named `event`. Its method `preventDefault()` "tells the user agent that the event is being explicitly handled, so its default action… should not be taken" (MDN, *Event: preventDefault() method*). For a form, the default action is sending the data and loading a page. So the first line of every submit handler in this course is the same:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Listen on the **form**, not the button. MDN: "The submit event fires on the `<form>` element itself, and not on any `<button>` or `<input type="submit">` inside it" (MDN, *HTMLFormElement: submit event*). The browser hands your function an **event object**, usually named `event`. Its method `preventDefault()` "tells the user agent that the event is being explicitly handled, so its default action… should not be taken" (MDN, *Event: preventDefault() method*). For a form, the default action is sending the data and loading a page. So the first line of every submit handler in this course is the same:
 
 ```js
 function handleSubmit(event) {
@@ -58,53 +58,53 @@ form.addEventListener("submit", handleSubmit);
 
 Notice the pattern from Module 9: `handleSubmit` with no parentheses. The browser calls it, and it passes in `event`.
 
-👀 You will see what happens without this line, for real, in the Exercise break-it step.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> You will see what happens without this line, for real, in the Exercise break-it step.
 
-❗ Answer the standing question: **what causes this function to run?** Name two different things a visitor can do that fire `submit`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Answer the standing question: **what causes this function to run?** Name two different things a visitor can do that fire `submit`.
 
 ### 2. How do you read what the visitor typed, and why trim it?
 
-💡 Every input and textarea has a `.value`, the text in it right now, as a string.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every input and textarea has a `.value`, the text in it right now, as a string.
 
-❓ `nameInput.value` gives whatever is in the box, spaces included. A visitor who presses the space bar three times has typed `"   "`, which is **not** the empty string `""`. So a check like `if (nameInput.value === "")` lets three spaces through. `.trim()` "removes whitespace from both ends of this string and returns a new string, without modifying the original string" (MDN, *String.prototype.trim()*). Trim first, then check: `const name = nameInput.value.trim();` and `if (name === "")`. Note the parentheses: `.value` is a property you read, `.trim()` is a method you call, the same difference you met with `.length` and `.push()` in Module 8.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `nameInput.value` gives whatever is in the box, spaces included. A visitor who presses the space bar three times has typed `"   "`, which is **not** the empty string `""`. So a check like `if (nameInput.value === "")` lets three spaces through. `.trim()` "removes whitespace from both ends of this string and returns a new string, without modifying the original string" (MDN, *String.prototype.trim()*). Trim first, then check: `const name = nameInput.value.trim();` and `if (name === "")`. Note the parentheses: `.value` is a property you read, `.trim()` is a method you call, the same difference you met with `.length` and `.push()` in Module 8.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The Console: "   " === "" is false; "   ".length is 3; "   ".trim() === "" is true; "  Your Name  ".trim() is "Your Name".](images/m10-trim-console.png)
-*Three spaces have a length of 3, so they are not empty. After `.trim()`, they are. (real output, rendered; evaluated in Chromium 141)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Three spaces have a length of 3, so they are not empty. After `.trim()`, they are. (real output, rendered; evaluated in Chromium 141)*
 
 One detail, checked in Chromium: an `<input type="email">` already strips spaces from both ends of its value (`"  you@example.com  "` came back as `"you@example.com"`), but `type="text"` and `<textarea>` do not (`"  Your Name  "` came back unchanged). Trim every field anyway. It costs nothing and you never have to remember which type does what.
 
-❗ Predict: what is `"  hi  ".trim().length`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: what is `"  hi  ".trim().length`?
 
 ### 3. What does the browser already check for you?
 
-💡 HTML has validation built in. You used `required` in Module 4.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> HTML has validation built in. You used `required` in Module 4.
 
-❓ MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console:
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The Console: the empty name field's validity.valueMissing is true and its validationMessage is "Please fill out this field." After setting the email value to "you@", checkValidity() is false and validationMessage is "Please enter a part following '@'. 'you@' is incomplete."](images/m10-builtin-console.png)
-*`checkValidity()` returns `true` or `false` using the HTML rules. `validationMessage` is the text the browser would show in its bubble; the exact wording differs between browsers and languages. (real output, rendered; evaluated in Chromium 141)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`checkValidity()` returns `true` or `false` using the HTML rules. `validationMessage` is the text the browser would show in its bubble; the exact wording differs between browsers and languages. (real output, rendered; evaluated in Chromium 141)*
 
-❗ Which attribute would you add to make a "Message" textarea refuse anything under 10 characters?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Which attribute would you add to make a "Message" textarea refuse anything under 10 characters?
 
 ### 4. When do you write your own checks?
 
-💡 The built-in bubbles work, but you cannot style them, and they disappear after a moment.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The built-in bubbles work, but you cannot style them, and they disappear after a moment.
 
-❓ When you want your own messages on the page, you add `novalidate` to the `<form>`. MDN: it "stops the form from showing its own error message bubbles, and allows us to instead display the custom error messages in the DOM," and it "doesn't disable support for the constraint validation API" (MDN, *Client-side form validation*). So you keep the attributes (they still describe the rules, and `checkValidity()` still uses them) and your `submit` handler does the checking. In the Exercise, JavaScript checks three things: the trimmed name is not empty; the email is not empty, and `emailInput.checkValidity()` is `true` (the browser's own `type="email"` rule); the trimmed message is at least 10 characters long. Use built-in checks where they fit, and your own JavaScript where you need a rule HTML cannot say, like "not just spaces."
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> When you want your own messages on the page, you add `novalidate` to the `<form>`. MDN: it "stops the form from showing its own error message bubbles, and allows us to instead display the custom error messages in the DOM," and it "doesn't disable support for the constraint validation API" (MDN, *Client-side form validation*). So you keep the attributes (they still describe the rules, and `checkValidity()` still uses them) and your `submit` handler does the checking. In the Exercise, JavaScript checks three things: the trimmed name is not empty; the email is not empty, and `emailInput.checkValidity()` is `true` (the browser's own `type="email"` rule); the trimmed message is at least 10 characters long. Use built-in checks where they fit, and your own JavaScript where you need a rule HTML cannot say, like "not just spaces."
 
-👀 See the image under Concept 6.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> See the image under Concept 6.
 
-❗ With `novalidate` on, what happens if your `submit` handler does no checking at all?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> With `novalidate` on, what happens if your `submit` handler does no checking at all?
 
 ### 5. How do you show an error that everyone can perceive?
 
-💡 An error message must be seen **and** heard. A red border alone tells a screen-reader user nothing, and color alone fails visitors who do not see red.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An error message must be seen **and** heard. A red border alone tells a screen-reader user nothing, and color alone fails visitors who do not see red.
 
-❓ Put an empty element for the message right after each field, and tie it to the field with `aria-describedby`:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Put an empty element for the message right after each field, and tie it to the field with `aria-describedby`:
 
 ```html
 <input id="email" name="email" type="email" required aria-describedby="email-error">
@@ -115,41 +115,41 @@ MDN: `aria-describedby` "lists the ids of the elements that describe the object"
 
 This is the only ARIA in the form, on purpose. MDN quotes the first rule of ARIA: "If you can use a native HTML element or attribute with the semantics and behavior you require already built in… then do so" (MDN, *ARIA*). The `<label for>` already names each field. `required` already says it is required. `aria-describedby` is here because HTML has no native way to say "this paragraph is the error for that input." **ARIA only when native HTML is not enough.**
 
-👀 The image under Concept 6 shows two filled message elements.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The image under Concept 6 shows two filled message elements.
 
-❗ Why is the message element in the HTML from the start, empty, instead of created by JavaScript when the error happens? (Hint: `aria-describedby` points to an id. What has to exist for it to point at?)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Why is the message element in the HTML from the start, empty, instead of created by JavaScript when the error happens? (Hint: `aria-describedby` points to an id. What has to exist for it to point at?)
 
 ### 6. Where should the cursor go when something is wrong?
 
-💡 After a failed submit, the visitor's next question is "what do I fix?" Move them there.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> After a failed submit, the visitor's next question is "what do I fix?" Move them there.
 
-❓ Every element that can take focus has a `.focus()` method. The checking function in the Exercise, `findFirstProblem()`, checks every field, shows every message, and **returns the first field with a problem, or `null`** if there is none, the same return-`null` pattern from Module 7. The submit handler then calls `firstProblem.focus()`. Focus lands in the field, a keyboard user can type the fix at once, and a screen reader reads the label and the error together.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Every element that can take focus has a `.focus()` method. The checking function in the Exercise, `findFirstProblem()`, checks every field, shows every message, and **returns the first field with a problem, or `null`** if there is none, the same return-`null` pattern from Module 7. The submit handler then calls `firstProblem.focus()`. Focus lands in the field, a keyboard user can type the fix at once, and a screen reader reads the label and the error together.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Two real renders at 390 px. Before: an empty form with Name, Email and Message fields, a practice checkbox and a Send button. After Send with Your Name, you@ and hi: the email box has the orange focus ring and the message "That email address looks incomplete. Check the @ and the part after it." The message box has a red border and "Please write at least 10 characters."](images/m10-form-errors.png)
-*Name was fine, so the first problem is Email, and that is where focus went (the orange ring). Both problems are listed at once, so the visitor fixes everything in one pass. Labels added above each render. (real: rendered in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Name was fine, so the first problem is Email, and that is where focus went (the orange ring). Both problems are listed at once, so the visitor fixes everything in one pass. Labels added above each render. (real: rendered in Chromium)*
 
-❗ If all three fields had problems, which field would receive focus? Why that one?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> If all three fields had problems, which field would receive focus? Why that one?
 
 ### 7. How do you confirm success and clear the form?
 
-💡 When everything passes, say so, clearly, and get the form ready for the next message.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When everything passes, say so, clearly, and get the form ready for the next message.
 
-❓ The confirmation goes into a status element that is in the HTML from the start: `<p id="status" role="status"></p>`. MDN's live-regions guide describes `role="status"` as "an area of the screen that provides an updated status of some kind"; it is a polite live region, which the guide says a screen reader speaks "whenever the user is idle." The same guide warns: "Establish the live region before updating its content… The most reliable way to ensure that live regions are registered is to include them in the initial markup" (MDN, *ARIA live regions*). Then `form.reset()`, which "restores a form element's default values" (MDN, *HTMLFormElement: reset() method*). Read anything you want to show (like the name) **before** you reset, or it will be gone.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The confirmation goes into a status element that is in the HTML from the start: `<p id="status" role="status"></p>`. MDN's live-regions guide describes `role="status"` as "an area of the screen that provides an updated status of some kind"; it is a polite live region, which the guide says a screen reader speaks "whenever the user is idle." The same guide warns: "Establish the live region before updating its content… The most reliable way to ensure that live regions are registered is to include them in the initial markup" (MDN, *ARIA live regions*). Then `form.reset()`, which "restores a form element's default values" (MDN, *HTMLFormElement: reset() method*). Read anything you want to show (like the name) **before** you reset, or it will be gone.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Two real renders at 390 px. Left, sending: fields still filled, the Send button faded, and a pale blue "Sending..." message. Right, one second later: all fields empty and a green message "Thanks, Your Name. Your message was sent."](images/m10-form-sent.png)
-*The fixed form went through `sending` and then `sent`. The name in the thank-you line was read before `form.reset()` emptied the fields. Labels added above each render. (real: rendered in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The fixed form went through `sending` and then `sent`. The name in the thank-you line was read before `form.reset()` emptied the fields. Labels added above each render. (real: rendered in Chromium)*
 
-❗ Put these in order: `form.reset()`, read the name, show the thank-you message.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Put these in order: `form.reset()`, read the name, show the thank-you message.
 
 ### 8. How do you show what state the form is in?
 
-💡 A real form is not just "filled" or "empty." It is waiting, or busy, or done, or it failed.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A real form is not just "filled" or "empty." It is waiting, or busy, or done, or it failed.
 
-❓ Give the form exactly one state class at a time and let CSS draw each state. One small function does it, using two `classList` methods from Module 9:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Give the form exactly one state class at a time and let CSS draw each state. One small function does it, using two `classList` methods from Module 9:
 
 ```js
 function setState(stateName) {
@@ -160,31 +160,31 @@ function setState(stateName) {
 
 `remove()` accepts several class names at once; classes that are not there are ignored. While sending, the button is also disabled with `sendButton.disabled = true`, so a second click cannot send twice. In the Exercise, `setTimeout(finishSending, 1000)` waits one second and then calls `finishSending`, a stand-in for a server's answer. (Same rule as listeners: you pass `finishSending`, not `finishSending()`.) A practice checkbox lets you choose whether the pretend send fails, so you can see every state. In a later module, a real server replaces the timer. **Nothing in this module leaves your computer.**
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A diagram: idle, an arrow labeled valid submit to sending, then two arrows to sent (thank-you, form reset) and failed (error, values kept). Under idle: a problem found, stay idle, show errors.](images/m10-state-diagram.png)
-*Four states, one class at a time. When the send fails, the values stay, so the visitor does not retype a long message.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Four states, one class at a time. When the send fails, the values stay, so the visitor does not retype a long message.*
 
 ![Four real renders at 390 px side by side: idle (empty form), sending (faded button, Sending...), sent (empty form, green thank-you), failed (checkbox ticked, values kept, red "Sorry, your message did not go through. Please try again.").](images/m10-states.png)
 *The same page in each of the four states, driven only by the class on the `<form>` and the text in `#status`. Labels added above each render. (real: rendered in Chromium)*
 
-❗ Which CSS selector in the Exercise colors the status message red? Find it before you type the CSS.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Which CSS selector in the Exercise colors the status message red? Find it before you type the CSS.
 
 ### 9. Why is client-side validation not security?
 
-💡 Everything in this module runs in the visitor's browser. The visitor controls that browser.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Everything in this module runs in the visitor's browser. The visitor controls that browser.
 
-❓ MDN is direct: client-side validation "should not be considered an exhaustive security measure," because it "is too easy to bypass," and "Your apps should always perform validation, including security checks, on any form-submitted data on the server-side as well" (MDN, *Client-side form validation*). Anyone can open DevTools and delete your `required` attributes, switch off JavaScript, or skip your page entirely and send data straight to the server. So the rule for this course is: **client-side validation is user experience, not security.** It helps honest visitors fix mistakes quickly. **Server-side validation** means the program that receives the data checks it again, every time, before trusting it. Writing that program is outside this course's core; you only need to know it must exist.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN is direct: client-side validation "should not be considered an exhaustive security measure," because it "is too easy to bypass," and "Your apps should always perform validation, including security checks, on any form-submitted data on the server-side as well" (MDN, *Client-side form validation*). Anyone can open DevTools and delete your `required` attributes, switch off JavaScript, or skip your page entirely and send data straight to the server. So the rule for this course is: **client-side validation is user experience, not security.** It helps honest visitors fix mistakes quickly. **Server-side validation** means the program that receives the data checks it again, every time, before trusting it. Writing that program is outside this course's core; you only need to know it must exist.
 
-<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The Console on the practice page: the form's checkValidity() is false; a for...of loop over querySelectorAll("[required]") removes each required attribute; checkValidity() is now true.](images/m10-bypass-console.png)
-*One line in the Console, using Module 9's `querySelectorAll()` and `for...of`, switched the browser's rules off. The empty form now counts as valid. (real output, rendered; evaluated in Chromium 141)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One line in the Console, using Module 9's `querySelectorAll()` and `for...of`, switched the browser's rules off. The empty form now counts as valid. (real output, rendered; evaluated in Chromium 141)*
 
 ![Three boxes: Browser checks (required, type, your JS; fast feedback = UX), Request travels (anyone can change it or send their own), Server checks (checks again, every time; this is the security).](images/m10-client-server.png)
 *Your checks live in the first box. Only the last box protects anything.*
 
-❗ A friend says, "My form has `required` on every field, so no one can send me an empty message." What one sentence do you say back?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> A friend says, "My form has `required` on every field, so no one can send me an empty message." What one sentence do you say back?
 
 ## Exercise
 
