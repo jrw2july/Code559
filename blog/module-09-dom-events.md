@@ -46,22 +46,22 @@ You also learn a habit that keeps scripts readable: every script in this course 
 
 ### 1. What does each layer of a page do?
 
-*Introduce.* A web page is built from three languages, and each has one job.
+💡 A web page is built from three languages, and each has one job.
 
-*Explain.* **HTML is structure**: what is on the page (a heading, a button, a paragraph). **CSS is appearance**: how it looks (colors, spacing, layout). **JavaScript is behavior**: what happens when something happens (a click, a key press, a form being sent). Keep the jobs apart. A paragraph that should start hidden is marked in HTML with `hidden`. Its color lives in CSS. The decision to show it lives in JavaScript.
+❓ **HTML is structure**: what is on the page (a heading, a button, a paragraph). **CSS is appearance**: how it looks (colors, spacing, layout). **JavaScript is behavior**: what happens when something happens (a click, a key press, a form being sent). Keep the jobs apart. A paragraph that should start hidden is marked in HTML with `hidden`. Its color lives in CSS. The decision to show it lives in JavaScript.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Three boxes side by side: HTML equals structure, CSS equals appearance, JavaScript equals behavior, each with examples.](images/m09-layers.png)
-*Three files, three jobs. When you are not sure where a line belongs, ask which of the three jobs it does. (illustration, not a screenshot)*
+*Three files, three jobs. When you are not sure where a line belongs, ask which of the three jobs it does.*
 
-*Apply.* For each of these, name the layer: "the button is blue," "there is a button," "clicking the button shows a paragraph."
+❗ For each of these, name the layer: "the button is blue," "there is a button," "clicking the button shows a paragraph."
 
 ### 2. How do you connect `script.js`, and when does it run?
 
-*Introduce.* You connect a script with a `<script>` tag and a `src`, the same way you connected a stylesheet with `<link>` in Module 2.
+💡 You connect a script with a `<script>` tag and a `src`, the same way you connected a stylesheet with `<link>` in Module 2.
 
-*Explain.* A plain `<script src="script.js">` runs **the moment the browser reaches it**, before it reads the rest of the HTML. If that tag is in the `<head>`, your script runs while the `<body>` does not exist yet. Every `querySelector()` finds nothing and gives back `null`. There are two fixes. You can put the tag at the very bottom of `<body>`, after all the HTML. Or you can keep it in the `<head>` and add `defer`. MDN describes `defer` as meaning "the script is meant to be executed after the document has been parsed, but before firing `DOMContentLoaded`" (MDN, *&lt;script&gt;: The Script element*). This course uses `defer`, so the head holds both the stylesheet and the script:
+❓ A plain `<script src="script.js">` runs **the moment the browser reaches it**, before it reads the rest of the HTML. If that tag is in the `<head>`, your script runs while the `<body>` does not exist yet. Every `querySelector()` finds nothing and gives back `null`. There are two fixes. You can put the tag at the very bottom of `<body>`, after all the HTML. Or you can keep it in the `<head>` and add `defer`. MDN describes `defer` as meaning "the script is meant to be executed after the document has been parsed, but before firing `DOMContentLoaded`" (MDN, *&lt;script&gt;: The Script element*). This course uses `defer`, so the head holds both the stylesheet and the script:
 
 ```html
 <link rel="stylesheet" href="style.css">
@@ -70,7 +70,7 @@ You also learn a habit that keeps scripts readable: every script in this course 
 
 Two notes from the same MDN page: `defer` only works on a script with a `src`, not on code written between the tags, and deferred scripts run in the order they appear.
 
-*Illustrate.* Here is the exercise page with the script in the `<head>` and **no** `defer`.
+👀 Here is the exercise page with the script in the `<head>` and **no** `defer`.
 
 ![The Console showing one red error: Uncaught TypeError: Cannot read properties of null (reading 'addEventListener'), at script.js:40:14.](images/m09-head-null.png)
 *`querySelector()` did not fail. It returned `null`, because the button did not exist yet. The error only appears on line 40, the first time the script tries to use that `null`. (real output, rendered; captured in Chromium 141. The message and location come from the page error Chromium reported; line 40 is `toggleButton.addEventListener(…)`.)*
@@ -78,13 +78,13 @@ Two notes from the same MDN page: `defer` only works on a script with a `src`, n
 ![Two real renders of the same page at 390 px. Left, script in head without defer: the Things I like box is empty. Right, with defer: three list items appear, two with a star.](images/m09-defer-compare.png)
 *Same files, one word different. Without `defer` the script stopped at the error, so the list was never built. With `defer` everything runs. Labels added above each render. (real: rendered in Chromium)*
 
-*Apply.* Say in one sentence why `null` appears even though the button is in your HTML.
+❗ Say in one sentence why `null` appears even though the button is in your HTML.
 
 ### 3. What does `querySelector()` give you, and why store it?
 
-*Introduce.* `document.querySelector()` takes a CSS selector, the same kind you write in a stylesheet, and finds an element.
+💡 `document.querySelector()` takes a CSS selector, the same kind you write in a stylesheet, and finds an element.
 
-*Explain.* MDN: it "returns the first Element within the document that matches the specified CSS selector… If no matches are found, `null` is returned" (MDN, *Document: querySelector() method*). So `"#toggle-btn"` finds the element with that id, `".item"` finds the **first** element with that class, and a typo finds nothing and gives `null`. You store what it finds in a `const`, once, at the top of your script, so every function below can use the name:
+❓ MDN: it "returns the first Element within the document that matches the specified CSS selector… If no matches are found, `null` is returned" (MDN, *Document: querySelector() method*). So `"#toggle-btn"` finds the element with that id, `".item"` finds the **first** element with that class, and a typo finds nothing and gives `null`. You store what it finds in a `const`, once, at the top of your script, so every function below can use the name:
 
 ```js
 const toggleButton = document.querySelector("#toggle-btn");
@@ -92,17 +92,17 @@ const toggleButton = document.querySelector("#toggle-btn");
 
 The variable does not hold a copy. It holds a **reference** to the real element on the page. Change `toggleButton.textContent` and the page changes.
 
-*Illustrate.* See the first and fourth lines in the image under Concept 4.
+👀 See the first and fourth lines in the image under Concept 4.
 
-*Apply.* Predict what `document.querySelector("#toggle-button")` gives on the exercise page, where the id is `toggle-btn`.
+❗ Predict what `document.querySelector("#toggle-button")` gives on the exercise page, where the id is `toggle-btn`.
 
 ### 4. What does `querySelectorAll()` give you, and how do you loop through it?
 
-*Introduce.* When you want every match, not just the first, use `querySelectorAll()`.
+💡 When you want every match, not just the first, use `querySelectorAll()`.
 
-*Explain.* It gives back a **NodeList**, a collection of elements in page order. MDN calls it "a static (not live) NodeList" and adds that when nothing matches you get "an empty NodeList," not `null` (MDN, *Document: querySelectorAll() method*). A NodeList has a `.length` and works with the `for...of` loop from Module 8, so you can visit each element in turn. The difference matters: with no match, `querySelector()` gives `null`, and `querySelectorAll()` gives an empty list whose `.length` is `0`.
+❓ It gives back a **NodeList**, a collection of elements in page order. MDN calls it "a static (not live) NodeList" and adds that when nothing matches you get "an empty NodeList," not `null` (MDN, *Document: querySelectorAll() method*). A NodeList has a `.length` and works with the `for...of` loop from Module 8, so you can visit each element in turn. The difference matters: with no match, `querySelector()` gives `null`, and `querySelectorAll()` gives an empty list whose `.length` is `0`.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console on a page with three li elements of class item. querySelector(".item") gives one li. querySelectorAll(".item") gives NodeList(3). Its length is 3. querySelector(".missing") gives null. querySelectorAll(".missing").length gives 0.](images/m09-query-vs-all.png)
 *One element versus a collection, and `null` versus an empty list. (real output, rendered; evaluated in Chromium 141. Real DevTools shows each element as an expandable tag with its text; this frame shows only the opening tag.)*
@@ -110,26 +110,26 @@ The variable does not hold a copy. It holds a **reference** to the real element 
 ![The Console running a for...of loop over querySelectorAll(".item") and logging First, Second, Third.](images/m09-for-of-nodelist.png)
 *The same `for...of` you used on arrays. Each lap, `item` holds the next element. (real output, rendered; evaluated in Chromium 141)*
 
-*Apply.* Predict what `document.querySelectorAll("li").length` gives on the exercise page after the list is built.
+❗ Predict what `document.querySelectorAll("li").length` gives on the exercise page after the list is built.
 
 ### 5. How do you change text, and why not `innerHTML`?
 
-*Introduce.* `textContent` reads or replaces the text inside an element.
+💡 `textContent` reads or replaces the text inside an element.
 
-*Explain.* Set `toggleButton.textContent = "Hide details";` and the button says exactly that. There is another property, `innerHTML`, that reads its text **as HTML** and builds elements from it. MDN advises against using it for text: "it deals with raw HTML rather than plain text and can be susceptible to XSS attacks" and "it is still less semantic and slower because it needs to invoke the HTML parser" (MDN, *Node: textContent property*). XSS means someone gets their own code to run on your page through text you display. For this course the rule is simple: **text goes in with `textContent`.** New elements are made with `createElement()` (Concept 9).
+❓ Set `toggleButton.textContent = "Hide details";` and the button says exactly that. There is another property, `innerHTML`, that reads its text **as HTML** and builds elements from it. MDN advises against using it for text: "it deals with raw HTML rather than plain text and can be susceptible to XSS attacks" and "it is still less semantic and slower because it needs to invoke the HTML parser" (MDN, *Node: textContent property*). XSS means someone gets their own code to run on your page through text you display. For this course the rule is simple: **text goes in with `textContent`.** New elements are made with `createElement()` (Concept 9).
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Two lines on a page. The first, set with textContent, shows the characters <b>Hello</b> literally. The second, set with innerHTML, shows Hello in bold.](images/m09-textcontent.png)
 *`textContent` shows what you gave it, character for character. `innerHTML` turned the same characters into a real bold element. That is useful for HTML you wrote, and risky for text a visitor typed. (real: rendered in Chromium)*
 
-*Apply.* If a visitor types `<b>hi</b>` into a form, which property shows it safely as plain characters?
+❗ If a visitor types `<b>hi</b>` into a form, which property shows it safely as plain characters?
 
 ### 6. How does `addEventListener()` work, and why no parentheses?
 
-*Introduce.* `addEventListener()` tells an element: "when this event happens to you, run this function."
+💡 `addEventListener()` tells an element: "when this event happens to you, run this function."
 
-*Explain.* It takes two things: the event name as a string, and the function to run. MDN says the listener "must be `null`, an object with a `handleEvent()` method, or a JavaScript function" (MDN, *EventTarget: addEventListener() method*). That is Module 7's lesson in action. `toggleDetails` is the function itself. `toggleDetails()` runs the function **now** and hands over whatever it returns, which here is `undefined`. So:
+❓ It takes two things: the event name as a string, and the function to run. MDN says the listener "must be `null`, an object with a `handleEvent()` method, or a JavaScript function" (MDN, *EventTarget: addEventListener() method*). That is Module 7's lesson in action. `toggleDetails` is the function itself. `toggleDetails()` runs the function **now** and hands over whatever it returns, which here is `undefined`. So:
 
 ```js
 toggleButton.addEventListener("click", toggleDetails);   // right: hands over the function
@@ -138,41 +138,41 @@ toggleButton.addEventListener("click", toggleDetails()); // wrong: runs it once,
 
 The browser keeps the function and calls it each time the click happens. You do not call it. The click does.
 
-*Illustrate.* You will see the wrong version for real in the Exercise, step 9.
+👀 You will see the wrong version for real in the Exercise, step 9.
 
-*Apply.* Answer the standing question for this module: **what causes this function to run?** For `toggleDetails`, the answer is "a click on the button," not "the line that mentions it."
+❗ Answer the standing question for this module: **what causes this function to run?** For `toggleDetails`, the answer is "a click on the button," not "the line that mentions it."
 
 ### 7. How do you add, remove and toggle a class?
 
-*Introduce.* Every element has a `classList`, a list of its CSS classes that JavaScript can change.
+💡 Every element has a `classList`, a list of its CSS classes that JavaScript can change.
 
-*Explain.* MDN: it "contains a live DOMTokenList collection representing the class attribute of the element," changed with "the `add()`, `remove()`, `replace()`, and `toggle()` methods" (MDN, *Element: classList property*). `add("is-open")` puts the class on. `remove("is-open")` takes it off. `toggle("is-open")` flips it: on if it was off, off if it was on, and it returns `true` or `false` to tell you which. `contains("is-open")` only asks. This is how JavaScript and CSS share the work: CSS says what `.is-open` looks like, and JavaScript only decides when the class is there.
+❓ MDN: it "contains a live DOMTokenList collection representing the class attribute of the element," changed with "the `add()`, `remove()`, `replace()`, and `toggle()` methods" (MDN, *Element: classList property*). `add("is-open")` puts the class on. `remove("is-open")` takes it off. `toggle("is-open")` flips it: on if it was off, off if it was on, and it returns `true` or `false` to tell you which. `contains("is-open")` only asks. This is how JavaScript and CSS share the work: CSS says what `.is-open` looks like, and JavaScript only decides when the class is there.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![The Console: classList.add("is-open") returns undefined, className is now "is-open", contains("is-open") is true, remove returns undefined, then toggle returns true and a second toggle returns false.](images/m09-classlist-console.png)
 *`add` and `remove` give back nothing. `toggle` tells you the new state: `true` means the class is now on. (real output, rendered; evaluated in Chromium 141)*
 
-*Apply.* After three `toggle("is-open")` calls in a row on a button that started without the class, is the class on or off?
+❗ After three `toggle("is-open")` calls in a row on a button that started without the class, is the class on or off?
 
 ### 8. How do you show and hide something?
 
-*Introduce.* The `hidden` attribute you used in Module 4 has a matching JavaScript property.
+💡 The `hidden` attribute you used in Module 4 has a matching JavaScript property.
 
-*Explain.* `details.hidden = true` hides it; `details.hidden = false` shows it. To flip it, use `!` from Module 8: `details.hidden = !details.hidden;`. The text stays in the HTML the whole time; only whether it is shown changes. One trap: MDN warns that "changing the value of the CSS `display` property on a hidden element will override the hidden state" (MDN, *hidden* global attribute). Checked in Chromium: a paragraph with `hidden` and `display: block` in its style had a computed `display` of `"block"`, so it showed. If `hidden` "does nothing," look for a `display` rule on that element.
+❓ `details.hidden = true` hides it; `details.hidden = false` shows it. To flip it, use `!` from Module 8: `details.hidden = !details.hidden;`. The text stays in the HTML the whole time; only whether it is shown changes. One trap: MDN warns that "changing the value of the CSS `display` property on a hidden element will override the hidden state" (MDN, *hidden* global attribute). Checked in Chromium: a paragraph with `hidden` and `display: block` in its style had a computed `display` of `"block"`, so it showed. If `hidden` "does nothing," look for a `display` rule on that element.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Two real renders at 390 px. Before click: a Show details button and no paragraph. After one click: the button is dark blue and says Hide details, and a paragraph appears below it.](images/m09-toggle-before-after.png)
 *One click did three things: `hidden` turned off, the text changed with `textContent`, and `classList.toggle("is-open")` made the button dark. Labels added above each render. (real: rendered in Chromium)*
 
-*Apply.* Which single line in `toggleDetails` would you delete to make the button change color but never show the paragraph?
+❗ Which single line in `toggleDetails` would you delete to make the button change color but never show the paragraph?
 
 ### 9. How do you build page items from an array of objects?
 
-*Introduce.* In Module 8 you stored data in an array of objects. Now each object becomes a list item on the page.
+💡 In Module 8 you stored data in an array of objects. Now each object becomes a list item on the page.
 
-*Explain.* `document.createElement("li")` makes a new, empty element. It is not on the page yet. You fill it (with `textContent`, `classList`, `src`, `alt`), and then `list.append(item)` puts it inside the list, after anything already there. MDN: `append()` "inserts a set of Node objects or strings after the last child of the Element" (MDN, *Element: append() method*). A `for...of` loop does this once per object:
+❓ `document.createElement("li")` makes a new, empty element. It is not on the page yet. You fill it (with `textContent`, `classList`, `src`, `alt`), and then `list.append(item)` puts it inside the list, after anything already there. MDN: `append()` "inserts a set of Node objects or strings after the last child of the Element" (MDN, *Element: append() method*). A `for...of` loop does this once per object:
 
 ```js
 function buildList() {
@@ -193,30 +193,30 @@ function buildList() {
 
 The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides how many items appear.
 
-*Illustrate.* In the right half of the image under Concept 2, three objects became three list items, and the two with `favorite: true` got a bold class and a star.
+👀 In the right half of the image under Concept 2, three objects became three list items, and the two with `favorite: true` got a bold class and a star.
 
-*Apply.* Predict what changes on the page if you add a fourth object with `favorite: false`.
+❗ Predict what changes on the page if you add a fourth object with `favorite: false`.
 
 ### 10. How is every script in this course organized?
 
-*Introduce.* Scripts get long. A fixed order makes them easy to read and easy to fix.
+💡 Scripts get long. A fixed order makes them easy to read and easy to fix.
 
-*Explain.* Every script has three blocks, marked with comments. **1. Find elements**: every `querySelector()`, stored in `const`, at the top. **2. Define behavior**: the functions, which say what should happen but do not run yet. **3. Connect events**: the `addEventListener()` lines, plus any function that should run once at load, like `buildList()`. When a button does nothing, check block 3. When you get `null`, check block 1.
+❓ Every script has three blocks, marked with comments. **1. Find elements**: every `querySelector()`, stored in `const`, at the top. **2. Define behavior**: the functions, which say what should happen but do not run yet. **3. Connect events**: the `addEventListener()` lines, plus any function that should run once at load, like `buildList()`. When a button does nothing, check block 3. When you get `null`, check block 1.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Three boxes with arrows: 1. Find elements (querySelector, store in const), 2. Define behavior (function toggleDetails, function buildList), 3. Connect events (addEventListener click toggleDetails).](images/m09-pattern.png)
-*Find, define, connect. The Exercise script follows this order exactly. (illustration, not a screenshot)*
+*Find, define, connect. The Exercise script follows this order exactly.*
 
-*Apply.* In the Exercise script, find the comment that starts each block before you type anything else.
+❗ In the Exercise script, find the comment that starts each block before you type anything else.
 
 ### 11. Why does a real button work with the keyboard for free?
 
-*Introduce.* Some visitors never use a mouse. They move with Tab and press Enter or Space.
+💡 Some visitors never use a mouse. They move with Tab and press Enter or Space.
 
-*Explain.* A native `<button>` already does this. MDN's button-role page lists Enter and Space as the keys that activate a button and notes that, for native buttons, `onclick` fires for mouse clicks and when the user presses Space or Enter (MDN, *ARIA: button role*). A `<div>` with a click listener does not. Even with `tabindex="0"` so it can take focus, Enter and Space do nothing unless you write extra code. Use `<button type="button">` for anything a visitor clicks that is not a link, and you get focus, keys and a screen-reader name without writing them.
+❓ A native `<button>` already does this. MDN's button-role page lists Enter and Space as the keys that activate a button and notes that, for native buttons, `onclick` fires for mouse clicks and when the user presses Space or Enter (MDN, *ARIA: button role*). A `<div>` with a click listener does not. Even with `tabindex="0"` so it can take focus, Enter and Space do nothing unless you write extra code. Use `<button type="button">` for anything a visitor clicks that is not a link, and you get focus, keys and a screen-reader name without writing them.
 
-*Illustrate.* A test page with one real button and one `<div tabindex="0">`, each with a click listener that logs a line. Tab to the button, press Enter, press Space; Tab to the div, press Enter, press Space.
+👀 A test page with one real button and one `<div tabindex="0">`, each with a click listener that logs a line. Tab to the button, press Enter, press Space; Tab to the div, press Enter, press Space.
 
 ![The Console after the four key presses holds only two lines, both reading click on the real button.](images/m09-keyboard.png)
 *Two key presses on the button gave two clicks. Two key presses on the div gave none. (real output, rendered; key presses sent to Chromium 141 with Playwright)*
@@ -224,11 +224,11 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
 ![The exercise page at 390 px after pressing Tab and then Enter: the Hide details button has an orange focus ring and the paragraph is showing.](images/m09-keyboard-focus.png)
 *Tab moved focus to the button (the orange ring is the `:focus-visible` style), and Enter ran the same `toggleDetails` a mouse click runs. (real: rendered in Chromium)*
 
-*Apply.* You will test this yourself in Exercise step 8.
+❗ You will test this yourself in Exercise step 8.
 
 ## Exercise
 
-*Apply — your hands, about 60 minutes (estimate).* Type it, do not paste it. Work in `m09-practice`. Nothing here is published.
+*Your hands, about 60 minutes (estimate).* Type it, do not paste it. Work in `m09-practice`. Nothing here is published.
 
 1. **Create the HTML.** Make `index.html` in `m09-practice`:
 

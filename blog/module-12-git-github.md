@@ -49,52 +49,52 @@ A note on the pictures. Every terminal image in this post comes from a real run 
 
 ### 1. Where does your work live in Git?
 
-*Introduce.* Git keeps your project in four places. Most confusion about Git comes from not knowing which place a change is in.
+💡 Git keeps your project in four places. Most confusion about Git comes from not knowing which place a change is in.
 
-*Explain.* The **working folder** is the files you see and edit. The **staging area** is a list of changes you have chosen for the next commit. **Commits** are saved snapshots, stored in the hidden `.git` folder on your computer. The **remote** is the copy on GitHub. `git add` moves a change from the folder to staging. `git commit` turns staging into a snapshot. `git push` sends your commits to GitHub. Nothing reaches GitHub until you push.
+❓ The **working folder** is the files you see and edit. The **staging area** is a list of changes you have chosen for the next commit. **Commits** are saved snapshots, stored in the hidden `.git` folder on your computer. The **remote** is the copy on GitHub. `git add` moves a change from the folder to staging. `git commit` turns staging into a snapshot. `git push` sends your commits to GitHub. Nothing reaches GitHub until you push.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Four boxes left to right: Working folder, Staging area, Commits, Remote (GitHub), joined by arrows labeled git add, git commit, git push. Brackets underneath show what git diff and git diff --staged compare.](images/m12-mental-model.png)
-*Each arrow is one command. `git diff` compares the folder with staging; `git diff --staged` compares staging with the last commit. (illustration, not a screenshot)*
+*Each arrow is one command. `git diff` compares the folder with staging; `git diff --staged` compares staging with the last commit.*
 
-*Apply.* Say out loud which box a file is in right after you save it in VS Code. (Answer: only the working folder.)
+❗ Say out loud which box a file is in right after you save it in VS Code. (Answer: only the working folder.)
 
 ### 2. What is `git status` telling you?
 
-*Introduce.* `git status` is the question "where is everything right now?" Run it before and after every other Git command.
+💡 `git status` is the question "where is everything right now?" Run it before and after every other Git command.
 
-*Explain.* In a brand-new project, Git lists your files as **untracked**: it sees them, but it is not keeping their history yet. `git status --short` gives the same facts in one line per file. The two characters at the start are two columns. The **left** column is the staging area; the **right** column is the working folder. `??` means untracked. `A` on the left means added to staging. `M` means modified: on the left it is staged, on the right it is not staged yet.
+❓ In a brand-new project, Git lists your files as **untracked**: it sees them, but it is not keeping their history yet. `git status --short` gives the same facts in one line per file. The two characters at the start are two columns. The **left** column is the staging area; the **right** column is the working folder. `??` means untracked. `A` on the left means added to staging. `M` means modified: on the left it is staged, on the right it is not staged yet.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal running git init, then git status listing index.html and style.css as untracked, then git status --short showing two lines beginning with question marks.](images/m12-init-status.png)
 *The long form explains; the short form is faster once you can read it. `??` means "untracked." (real output, rendered; captured on Linux with Git 2.43.0. On Windows the `git init` line shows your own folder path.)*
 
-*Apply.* In your `my-site` folder, run `git status --short` now. An empty answer means nothing has changed since your last commit.
+❗ In your `my-site` folder, run `git status --short` now. An empty answer means nothing has changed since your last commit.
 
 ### 3. What do `git add` and `git commit` actually do?
 
-*Introduce.* `git add` chooses. `git commit` saves. They are separate so that you decide exactly what goes into each snapshot.
+💡 `git add` chooses. `git commit` saves. They are separate so that you decide exactly what goes into each snapshot.
 
-*Explain.* You have used `git add .`, which stages everything. Naming one file, `git add index.html`, stages only that file. Then `git commit -m "message"` saves what is staged, and only that. This lets you follow the most useful habit in Git: **one change per commit**. A good message finishes the sentence "This commit will…": *Add home page structure*, *Add base styles*. Short, starts with a verb, says what changed. "stuff" and "fixes" tell your future self nothing.
+❓ You have used `git add .`, which stages everything. Naming one file, `git add index.html`, stages only that file. Then `git commit -m "message"` saves what is staged, and only that. This lets you follow the most useful habit in Git: **one change per commit**. A good message finishes the sentence "This commit will…": *Add home page structure*, *Add base styles*. Short, starts with a verb, says what changed. "stuff" and "fixes" tell your future self nothing.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git add index.html, git status --short showing A index.html and ?? style.css, a commit, then git add style.css and a second commit, then git status saying working tree clean.](images/m12-add-commit.png)
 *After `git add index.html`, only that file has an `A`. Two files, two commits, two clear messages. "working tree clean" means the folder matches the last commit. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Look at your own `my-site` history with `git log --oneline` (Concept 5). Find one message that does not finish "This commit will…". You will write better ones from now on.
+❗ Look at your own `my-site` history with `git log --oneline` (Concept 5). Find one message that does not finish "This commit will…". You will write better ones from now on.
 
 ### 4. How do you check your work before you commit?
 
-*Introduce.* `git diff` shows exactly which lines changed. Reading it before every commit is how you catch a stray edit before it becomes history.
+💡 `git diff` shows exactly which lines changed. Reading it before every commit is how you catch a stray edit before it becomes history.
 
-*Explain.* `git diff --stat` gives a summary: which files changed and how many lines. `git diff` shows the lines. A line starting with `+` was added; `-` was removed; the lines with no sign are context so you can find your place. Once you stage a file, plain `git diff` stops showing it, because it compares the folder with staging. To see what you are about to commit, use `git diff --staged`.
+❓ `git diff --stat` gives a summary: which files changed and how many lines. `git diff` shows the lines. A line starting with `+` was added; `-` was removed; the lines with no sign are context so you can find your place. Once you stage a file, plain `git diff` stops showing it, because it compares the folder with staging. To see what you are about to commit, use `git diff --staged`.
 
 In the story below, two different changes are waiting: a new tagline in `index.html` and a darker heading color in `style.css`. That is two changes, so it should be two commits.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git diff --stat showing two files changed, then git diff showing a plus line adding a paragraph to index.html and a minus and plus pair changing a color in style.css.](images/m12-diff.png)
 *`--stat` first for the big picture, then the full diff. The color change shows as one `-` line and one `+` line. (real output, rendered; captured on Linux with Git 2.43.0)*
@@ -102,52 +102,52 @@ In the story below, two different changes are waiting: a new tagline in `index.h
 ![A terminal: git add index.html, git diff --staged showing only the tagline change, then two commits, one per file.](images/m12-diff-staged.png)
 *`git diff --staged` shows only what the next commit will contain, so each commit holds one change. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Before your next commit on `my-site`, run `git diff --staged` and read every `+` and `-` line. If a line surprises you, do not commit yet.
+❗ Before your next commit on `my-site`, run `git diff --staged` and read every `+` and `-` line. If a line surprises you, do not commit yet.
 
 ### 5. How do you read history, and what is a branch?
 
-*Introduce.* `git log --oneline` lists your commits, newest first, one line each. A **branch** is a separate line of commits, so you can try something without touching `main`.
+💡 `git log --oneline` lists your commits, newest first, one line each. A **branch** is a separate line of commits, so you can try something without touching `main`.
 
-*Explain.* `git switch -c add-about-page` creates a branch and moves you onto it. Commits you make there belong to that branch only. To prove it, list the files Git is tracking with `git ls-files`, switch back with `git switch main`, and list them again. The new page is gone from `main`; it is safe on its branch. `git branch` lists your branches and puts a `*` beside the one you are on. The git-scm.com manual describes `-c` as "Create a new branch named *<new-branch>* … before switching to the branch" (*git-switch*).
+❓ `git switch -c add-about-page` creates a branch and moves you onto it. Commits you make there belong to that branch only. To prove it, list the files Git is tracking with `git ls-files`, switch back with `git switch main`, and list them again. The new page is gone from `main`; it is safe on its branch. `git branch` lists your branches and puts a `*` beside the one you are on. The git-scm.com manual describes `-c` as "Create a new branch named *<new-branch>* … before switching to the branch" (*git-switch*).
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git log --oneline with four commits, git switch -c add-about-page, a commit adding about.html, git ls-files listing three files, git switch main, git ls-files listing two files, git branch showing two branches with a star on main.](images/m12-branch.png)
 *On the branch, `about.html` exists. Back on `main`, it does not. Same folder, different branch, different files. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Predict: if you open the folder in File Explorer while on `main`, will you see `about.html`? (No. Git removes it from the folder when you switch, and puts it back when you switch to the branch.)
+❗ Predict: if you open the folder in File Explorer while on `main`, will you see `about.html`? (No. Git removes it from the folder when you switch, and puts it back when you switch to the branch.)
 
 ### 6. How does a merge bring the branch back?
 
-*Introduce.* When the branch is ready, you stand on `main` and run `git merge` with the branch name.
+💡 When the branch is ready, you stand on `main` and run `git merge` with the branch name.
 
-*Explain.* If `main` has not changed since you made the branch, Git does not need a new commit. It simply moves `main` forward to the branch's last commit. The manual calls this a **fast-forward**: "only update the branch pointer to match the merged branch; do not create a merge commit" (*git-merge*). After the merge, the branch has done its job; `git branch -d` deletes the name. Your commits stay. Git refuses to delete a branch whose work is not merged yet; in a test it printed "error: the branch 'y' is not fully merged."
+❓ If `main` has not changed since you made the branch, Git does not need a new commit. It simply moves `main` forward to the branch's last commit. The manual calls this a **fast-forward**: "only update the branch pointer to match the merged branch; do not create a merge commit" (*git-merge*). After the merge, the branch has done its job; `git branch -d` deletes the name. Your commits stay. Git refuses to delete a branch whose work is not merged yet; in a test it printed "error: the branch 'y' is not fully merged."
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git merge add-about-page printing Updating, Fast-forward and about.html 12 plus signs, then git ls-files now listing about.html on main, git log --oneline with five commits, and git branch -d deleting the branch.](images/m12-merge.png)
 *"Fast-forward" means `main` just moved ahead; the log shows no extra merge commit. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Explain in one sentence why the log after the merge has exactly five lines, not six.
+❗ Explain in one sentence why the log after the merge has exactly five lines, not six.
 
 ### 7. What are `switch`, `restore` and `checkout`?
 
-*Introduce.* These three commands overlap, and you will see all three in tutorials.
+💡 These three commands overlap, and you will see all three in tutorials.
 
-*Explain.* `git switch` changes branches. `git restore` puts a file back. `git restore index.html` throws away the changes you have not committed and returns the file to its last committed version. `git restore --staged style.css` takes a file out of staging but keeps your edit in the folder. `git checkout` is the older command that does both jobs; its manual title is "Switch branches or restore working tree files" (*git-checkout*). `git checkout -b name` is the older way to write `git switch -c name`. You will meet it in older tutorials; this course uses `switch` and `restore` because each does one job. One more word you may hear is "check-in." That is not a Git command.
+❓ `git switch` changes branches. `git restore` puts a file back. `git restore index.html` throws away the changes you have not committed and returns the file to its last committed version. `git restore --staged style.css` takes a file out of staging but keeps your edit in the folder. `git checkout` is the older command that does both jobs; its manual title is "Switch branches or restore working tree files" (*git-checkout*). `git checkout -b name` is the older way to write `git switch -c name`. You will meet it in older tutorials; this course uses `switch` and `restore` because each does one job. One more word you may hear is "check-in." That is not a Git command.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git status --short shows index.html modified, git restore index.html, status is empty; then style.css staged with M in the left column, git restore --staged moves the M to the right column, git restore style.css, and git status says working tree clean.](images/m12-restore.png)
 *Watch the `M` move from the left column (staged) to the right column (not staged) after `git restore --staged`. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Be careful: `git restore` on a file throws away your edits to it. There is no undo for edits you never committed. Run `git diff` on the file first.
+❗ Be careful: `git restore` on a file throws away your edits to it. There is no undo for edits you never committed. Run `git diff` on the file first.
 
 ### 8. How do you keep files out of Git?
 
-*Introduce.* Some files in your folder should never be committed: editor settings, system files, logs.
+💡 Some files in your folder should never be committed: editor settings, system files, logs.
 
-*Explain.* A file named `.gitignore`, in the top of your project, lists patterns Git should ignore. Use this starter:
+❓ A file named `.gitignore`, in the top of your project, lists patterns Git should ignore. Use this starter:
 
 ```
 .vscode/
@@ -157,20 +157,20 @@ Thumbs.db
 
 `.vscode/` (with the slash) matches a folder; the manual says a pattern ending in a slash "will only match directories." `Thumbs.db` is a file Windows can create to store picture thumbnails. `*.log` matches every file ending in `.log`, because "an asterisk `*` matches anything except a slash" (*gitignore*). One catch: "Files already tracked by Git are not affected" (*gitignore*). Add the `.gitignore` before you commit those files, not after.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git status --short lists .vscode/, Thumbs.db and debug.log as untracked; after .gitignore is created, git status --short lists only .gitignore; then it is committed and status is clean.](images/m12-gitignore.png)
 *The proof: three untracked entries disappear the moment `.gitignore` exists. The files are still in the folder; Git just stops reporting them. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-*Apply.* Run `git status --short` in `my-site`. If you see `.vscode/` or a `.log` file listed, that is your sign to add a `.gitignore`.
+❗ Run `git status --short` in `my-site`. If you see `.vscode/` or a `.log` file listed, that is your sign to add a `.gitignore`.
 
 ### 9. What goes in a README?
 
-*Introduce.* `README.md` is the first thing a visitor sees on your repository page. GitHub shows it below the file list.
+💡 `README.md` is the first thing a visitor sees on your repository page. GitHub shows it below the file list.
 
-*Explain.* The `.md` means Markdown: `#` makes a heading, `##` a smaller one. This course uses four headings for every project: **What it does**, **Built with**, **What I learned**, **Live site**. Keep each to a sentence or two. "What I learned" is the one employers read.
+❓ The `.md` means Markdown: `#` makes a heading, `##` a smaller one. This course uses four headings for every project: **What it does**, **Built with**, **What I learned**, **Live site**. Keep each to a sentence or two. "What I learned" is the one employers read.
 
-*Illustrate.* This is the README committed in the story (the commit appears in Concept 10):
+👀 This is the README committed in the story (the commit appears in Concept 10):
 
 ```
 # My Portfolio
@@ -189,84 +189,84 @@ branches for new pages, and a .gitignore for files that do not belong.
 https://your-username.github.io/portfolio/
 ```
 
-*Apply.* Draft the "What I learned" section for your own `my-site` in two sentences. You will use it in the Project.
+❗ Draft the "What I learned" section for your own `my-site` in two sentences. You will use it in the Project.
 
 ### 10. How do you mark a finished version?
 
-*Introduce.* A **tag** is a name stuck to one commit, such as `v1.0`. A GitHub **release** is a page built on a tag.
+💡 A **tag** is a name stuck to one commit, such as `v1.0`. A GitHub **release** is a page built on a tag.
 
-*Explain.* `git tag v1.0` puts the name on the commit you are on. `git tag` lists your tags. `git log --oneline --decorate` shows the tag next to the commit. GitHub Docs explains the link: "Releases are based on Git tags, which mark a specific point in your repository's history" (*About releases*). Tags are not sent by a plain `git push`; you send one with `git push origin v1.0`, or let GitHub create the tag when you draft the release on the website. **[unverified in this build: no push was run, so the push of a tag and the GitHub release form were not tested here.]**
+❓ `git tag v1.0` puts the name on the commit you are on. `git tag` lists your tags. `git log --oneline --decorate` shows the tag next to the commit. GitHub Docs explains the link: "Releases are based on Git tags, which mark a specific point in your repository's history" (*About releases*). Tags are not sent by a plain `git push`; you send one with `git push origin v1.0`, or let GitHub create the tag when you draft the release on the website. **[unverified in this build: no push was run, so the push of a tag and the GitHub release form were not tested here.]**
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: README.md committed, git tag v1.0, git tag printing v1.0, and git log --oneline --decorate showing HEAD -> main, tag: v1.0 beside the newest commit.](images/m12-tag.png)
 *`tag: v1.0` now sits on the README commit. That exact snapshot can always be found again by name. (real output, rendered; captured on Linux with Git 2.43.0)*
 
 ![A GitHub release page for Portfolio v1.0 with a Latest badge, tag v1.0 on main, release notes and source code downloads.](images/m12-release.png)
-*What a release looks like on GitHub: a title, notes and downloads, all pointing at the tagged commit. (illustration, not a screenshot)*
+*What a release looks like on GitHub: a title, notes and downloads, all pointing at the tagged commit.*
 
-*Apply.* Run `git tag` in `my-site`. You probably have none yet. You will add `v1.0` in the Project.
+❗ Run `git tag` in `my-site`. You probably have none yet. You will add `v1.0` in the Project.
 
 ### 11. Can VS Code do all of this with buttons?
 
-*Introduce.* Yes. The Source Control view in VS Code runs the same Git commands behind its buttons.
+💡 Yes. The Source Control view in VS Code runs the same Git commands behind its buttons.
 
-*Explain.* In a folder with no repository, the view shows **Initialize Repository** (the same as `git init`). When you have changes, each file has a **+** button, **Stage Changes**, which is `git add`. You type a message in the box and select **Commit**. To put a brand-new repository on GitHub you open the Command Palette (Ctrl+Shift+P) and run **Publish to GitHub**. After that, **Sync Changes** sends and receives commits; VS Code's documentation says it "pulls remote changes before pushing your commits" (*Quickstart: use source control in VS Code*). The terminal is still the main tool in this course, because its messages teach you what happened. Use the buttons once you can say which command each one runs.
+❓ In a folder with no repository, the view shows **Initialize Repository** (the same as `git init`). When you have changes, each file has a **+** button, **Stage Changes**, which is `git add`. You type a message in the box and select **Commit**. To put a brand-new repository on GitHub you open the Command Palette (Ctrl+Shift+P) and run **Publish to GitHub**. After that, **Sync Changes** sends and receives commits; VS Code's documentation says it "pulls remote changes before pushing your commits" (*Quickstart: use source control in VS Code*). The terminal is still the main tool in this course, because its messages teach you what happened. Use the buttons once you can say which command each one runs.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![Three Source Control panels: one with an Initialize Repository button; one with a commit message box, a Commit button, a staged index.html and an unstaged style.css with a plus button; one with Publish to GitHub and Sync Changes buttons.](images/m12-vscode-source-control.png)
-*Each button is a Git command you already know. (illustration, not a screenshot)*
+*Each button is a Git command you already know.*
 
-*Apply.* Open the Source Control view in `my-site` and match each file it lists to a line of `git status --short`.
+❗ Open the Source Control view in `my-site` and match each file it lists to a line of `git status --short`.
 
 ### 12. How do Issues and pull requests work together?
 
-*Introduce.* An **Issue** is a note on GitHub that names a piece of work. A **pull request** (PR) proposes the commits that do that work. GitHub Docs puts it plainly: "Pull requests are proposals to merge code changes into a project" (*Pull requests*).
+💡 An **Issue** is a note on GitHub that names a piece of work. A **pull request** (PR) proposes the commits that do that work. GitHub Docs puts it plainly: "Pull requests are proposals to merge code changes into a project" (*Pull requests*).
 
-*Explain.* The flow is: open an Issue (say, #1 "Add a Contact page"); make a branch; commit on it; push the branch; open a pull request from the branch into `main`. In the PR description, write **`Closes #1`**. When the PR is merged, GitHub closes Issue #1 for you. The keywords that work are close, closes, closed, fix, fixes, fixed, resolve, resolves and resolved, and GitHub only reads them "when the pull request targets the repository's *default* branch" (*Linking a pull request to an issue*). For you, that is `main`.
+❓ The flow is: open an Issue (say, #1 "Add a Contact page"); make a branch; commit on it; push the branch; open a pull request from the branch into `main`. In the PR description, write **`Closes #1`**. When the PR is merged, GitHub closes Issue #1 for you. The keywords that work are close, closes, closed, fix, fixes, fixed, resolve, resolves and resolved, and GitHub only reads them "when the pull request targets the repository's *default* branch" (*Linking a pull request to an issue*). For you, that is `main`.
 
 Working alone, you can still review your own work. In the PR, open **Files changed**, hover a line number, and click the blue comment icon. Type a note, then choose **Comment** for one note or **Start a review** for several (*Commenting on a pull request*). Reading your own diff on GitHub, slowly, catches mistakes you skipped past in the terminal.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A GitHub page showing Issue #1 Add a Contact page beside Pull request #2 Add Contact page, whose description ends with Closes #1, and a note that merging closes the issue.](images/m12-issue-pr.png)
-*`Closes #1` in the description links the two. Merge into `main`, and the Issue closes. (illustration, not a screenshot)*
+*`Closes #1` in the description links the two. Merge into `main`, and the Issue closes.*
 
 ![A GitHub Files changed view of contact.html with a blue plus icon beside line 11 and a comment box with Start a review and Comment buttons.](images/m12-line-comment.png)
-*A line comment on your own pull request: a note pinned to the exact line it is about. (illustration, not a screenshot)*
+*A line comment on your own pull request: a note pinned to the exact line it is about.*
 
-*Apply.* Write, on paper, the title of an Issue for the next change you want on `my-site`. Keep it to a few words that start with a verb.
+❗ Write, on paper, the title of an Issue for the next change you want on `my-site`. Keep it to a few words that start with a verb.
 
 ### 13. What is GitHub Desktop?
 
-*Introduce.* GitHub Desktop is "a free, open source application that helps you to work with files hosted on GitHub" (*About GitHub Desktop*). It runs on Windows and macOS.
+💡 GitHub Desktop is "a free, open source application that helps you to work with files hosted on GitHub" (*About GitHub Desktop*). It runs on Windows and macOS.
 
-*Explain.* It shows the same ideas you now know: a Changes list (status and diff), a History list (log), a commit box, and buttons to talk to GitHub. In this course it is **awareness only**. You do not need to install it. If a future job uses it, you will recognize every part.
+❓ It shows the same ideas you now know: a Changes list (status and diff), a History list (log), a commit box, and buttons to talk to GitHub. In this course it is **awareness only**. You do not need to install it. If a future job uses it, you will recognize every part.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A GitHub Desktop window with Current repository portfolio, Current branch main, a Changes tab listing index.html, a diff with one added line, and a commit button.](images/m12-github-desktop.png)
-*Different screen, same model: changes, staging, commit, history. (illustration, not a screenshot)*
+*Different screen, same model: changes, staging, commit, history.*
 
-*Apply.* Name the terminal command that matches the History tab. (`git log`.)
+❗ Name the terminal command that matches the History tab. (`git log`.)
 
 ### 14. What does "dubious ownership" mean?
 
-*Introduce.* One day Git may refuse to work in a folder and print `fatal: detected dubious ownership in repository`.
+💡 One day Git may refuse to work in a folder and print `fatal: detected dubious ownership in repository`.
 
-*Explain.* Git checks that the folder belongs to the user account running Git. If it does not, Git stops, so that a repository someone else controls cannot run settings on your account. On Windows this tends to happen with folders on an external or network drive, or folders copied from another account. Your work is fine. Git prints the fix itself: one `git config --global --add safe.directory …` command with your folder's path. Copy it exactly as Git prints it, run it, and run `git status` again.
+❓ Git checks that the folder belongs to the user account running Git. If it does not, Git stops, so that a repository someone else controls cannot run settings on your account. On Windows this tends to happen with folders on an external or network drive, or folders copied from another account. Your work is fine. Git prints the fix itself: one `git config --global --add safe.directory …` command with your folder's path. Copy it exactly as Git prints it, run it, and run `git status` again.
 
-*Illustrate.*
+<div role="separator" aria-label="Illustrate" style="display:flex;align-items:center;gap:0.75em;margin:1.5em 0;"><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span><span aria-hidden="true">👀</span><span style="flex:1;border-top:1px solid currentColor;opacity:0.35;"></span></div>
 
 ![A terminal: git status fails with fatal: detected dubious ownership and prints a git config --global --add safe.directory command; that command is run, and git status then works.](images/m12-dubious.png)
 *Git names the exact command to run. After it, `git status` works. (real output, rendered; captured on Linux by giving a copy of the project to a different user account. The paths are Linux paths; on Windows Git prints your Windows folder path.)* **[unverified: the exact path format Git prints on Windows, and which Windows drive setups trigger it on your computer.]**
 
-*Apply.* If you ever see this message, read the last line first. That is the fix.
+❗ If you ever see this message, read the last line first. That is the fix.
 
 ## Exercise
 
-*Apply — your hands, about 45 minutes (estimate).* Type every command. Do not paste. This is a throwaway folder: you will not push it.
+*Your hands, about 45 minutes (estimate).* Type every command. Do not paste. This is a throwaway folder: you will not push it.
 
 1. **Make the practice folder.** In File Explorer, create `git-practice` inside your `code559` folder (beside `my-site`, not inside it). Open it in VS Code with **File → Open Folder…**, then **Terminal → New Terminal**. Check that the prompt ends in `git-practice>`.
 2. **Start a repository.** Type `git init`. Create a file `notes.txt` with one line, `Favorite color: blue` (use your own color). Save it. Then:
