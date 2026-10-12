@@ -10,6 +10,8 @@ estimated_time: "about 2 to 2½ hours (estimate)"
 
 *Catch the form before it leaves, check what the visitor typed, and say clearly what to fix.*
 
+**Time:** about 2 to 2½ hours (estimate)
+
 **In this module you will learn:**
 
 - How to handle a form with `addEventListener("submit", …)` and stop the page from reloading with `event.preventDefault()`
@@ -43,7 +45,7 @@ This module stays on your own computer. Nothing is sent anywhere. A one-second t
 
 ### 1. How do you catch a form before it leaves?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A form fires a `submit` event when the visitor presses a submit button or presses Enter in a field.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A form fires a `submit` event when the visitor presses a submit button or presses Enter in a one-line field, like a text or email box. In a `<textarea>`, Enter starts a new line instead.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Listen on the **form**, not the button. MDN: "The submit event fires on the `<form>` element itself, and not on any `<button>` or `<input type="submit">` inside it" (MDN, *HTMLFormElement: submit event*). The browser hands your function an **event object**, usually named `event`. Its method `preventDefault()` "tells the user agent that the event is being explicitly handled, so its default action… should not be taken" (MDN, *Event: preventDefault() method*). For a form, the default action is sending the data and loading a page. So the first line of every submit handler in this course is the same:
 
@@ -83,7 +85,7 @@ Checkboxes and radio buttons hold their answer in a different way. A checkbox ha
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> HTML has validation built in. You used `required` in Module 4.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). Each attribute checks only its own rule. `minlength` does not refuse an empty box: "If an input is not `required`, an empty string can be submitted even if `minlength` is set" (MDN, *minlength HTML attribute*). Checked in Chromium: a textarea with only `minlength="10"` passed `checkValidity()` while empty and failed after typing `hi`. So a field that must be filled in and be long enough needs both `required` and `minlength`. With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -171,6 +173,8 @@ function setState(stateName) {
 ```
 
 `remove()` accepts several class names at once; classes that are not there are ignored. While sending, the button is also disabled with `sendButton.disabled = true`, so a second click cannot send twice. In the Exercise, `setTimeout(finishSending, 1000)` waits one second and then calls `finishSending`, a stand-in for a server's answer. (Same rule as listeners: you pass `finishSending`, not `finishSending()`.) A practice checkbox lets you choose whether the pretend send fails, so you can see every state. In a later, optional module (not yet published), a real server replaces the timer. **Nothing in this module leaves your computer.**
+
+One side effect of disabling Send, checked in Chromium: if focus is on the button when it becomes disabled (after a click, or Tab and Enter), focus drops to the page itself, and `document.activeElement` is `<body>`. Focus stays there after the button comes back, so a keyboard user presses Shift+Tab to get back into the form. Pressing Enter in the Name or Email box does not have this problem: focus stays in that box.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -313,7 +317,7 @@ Press **F5** afterwards to get the `required` attributes back.
    .sending + #status { background: #eef1f6; color: #2d4a7a; }
    ```
 
-3. **Type the script.** Make `script.js`. Type the three block comments first. Then fill block 1, then the small functions in block 2, then `findFirstProblem`, then `handleSubmit`, then block 3.
+3. **Type the script.** Make `script.js`. Type the three block comments first. Then fill block 1, then the small functions in block 2, then `findFirstProblem`, then `finishSending`, then `handleSubmit`, then block 3.
 
    ```js
    // 1. Find elements
@@ -410,8 +414,8 @@ Press **F5** afterwards to get the `required` attributes back.
 4. **Predict, then test empty.** Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Predict what happens when you press **Send** with every field empty: how many messages, and where does the cursor go? Then press Send.
 5. **Test the tricky values.** Type three spaces in Name, `you@` in Email and `hi` in Message. Press Send. Compare with the right half of the image under Concept 6 (that one had a real name, so Name passed).
 6. **Fix and send.** Fix all three fields and press Send. Watch for `Sending...` and the faded button, then the green thank-you one second later. The fields should be empty.
-7. **Test the failure.** Fill the form again, tick **Practice only: pretend the send fails**, and press Send. Your values should still be there under the red message.
-8. **Keyboard only.** Reload. Use only Tab, typing and Enter to fill the form with one mistake and submit it. Pressing Enter in a text field submits the form too. Does focus land on the mistake?
+7. **Test the failure.** Fill the form again, tick **Practice only: pretend the send fails**, and press Send. Your values should still be in the fields, above the red message.
+8. **Keyboard only.** Reload. Use only Tab, typing and Enter to fill the form with one mistake and submit it. Pressing Enter in the Name or Email box submits the form too. In the Message box, Enter starts a new line, so Tab to **Send** and press Enter there. Does focus land on the mistake?
 9. **Break it on purpose.** In `handleSubmit`, comment out the first line: `// event.preventDefault();`. Save and press **F5**. Type a name, leave the rest empty, and press Send. Watch the address bar.
 
    ![A real render of the practice page inside a drawn browser frame. The address reads file:///C:/Users/you/Documents/code559/practice-10/index.html?name=Your+Name&email=&message= and the form is empty, with no error messages showing.](images/m10-no-prevent.png)
@@ -464,9 +468,6 @@ A form fires `submit` on the form itself, and `event.preventDefault()` stops the
 - MDN: *HTMLFormElement: reset() method*
 - MDN: *ARIA: aria-describedby attribute*; *ARIA live regions*; *ARIA* (the "Before using ARIA" section and the first rule of ARIA)
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript Form Validation](AFFILIATE_W3SCHOOLS_FORMS)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -476,4 +477,4 @@ Keep `practice-10` with its finished `script.js`, and write down the five tests 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Client-side form validation"; MDN "HTMLFormElement: submit event"; MDN "Event: preventDefault() method"; MDN "String.prototype.trim()"; MDN "HTMLFormElement: reset() method"; MDN "ARIA: aria-describedby attribute"; MDN "ARIA live regions"; MDN "ARIA". Checked 2026-10-11: MDN ":checked"; MDN ":empty"; MDN "Handling conflicts" (attribute selectors count in the class column). Every page render, Console result and accessibility-tree check was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "Client-side form validation"; MDN "HTMLFormElement: submit event"; MDN "Event: preventDefault() method"; MDN "String.prototype.trim()"; MDN "HTMLFormElement: reset() method"; MDN "ARIA: aria-describedby attribute"; MDN "ARIA live regions"; MDN "ARIA". Checked 2026-10-11: MDN ":checked"; MDN ":empty"; MDN "Handling conflicts" (attribute selectors count in the class column); MDN "HTMLFormElement: submit event" (pressing Enter in a text input); MDN "minlength HTML attribute". Every page render, Console result and accessibility-tree check was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*

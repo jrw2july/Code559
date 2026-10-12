@@ -10,6 +10,8 @@ estimated_time: "about 2.5 hours (estimate)"
 
 *Give your pages color, type and spacing, and learn exactly which rule wins.*
 
+**Time:** about 2.5 hours (estimate)
+
 **In this module you will learn:**
 
 - How to link an external stylesheet with `<link rel="stylesheet">`
@@ -129,7 +131,16 @@ nav a { color: white; }      /* links inside the nav; other links keep their col
 ![A table scoring selectors in three columns, ID, Class and Element: p is 0-0-1, .note is 0-1-0, #special is 1-0-0, and .tag twice is 0-1-0, a tie where the later rule wins.](images/m02-specificity.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read the columns from left to right; the first column that differs decides.*
 
-Here is a real test. The stylesheet sets `p` to gray, then `#special` to purple, then `.note` to green, then `.tag` to blue, and finally `.tag` to crimson. Notice that `#special` comes *before* `.note` in the file.
+Here is a real test. To keep it apart from the Exercise, make two new files in `practice-02`: `cascade.html`, whose `<head>` links `cascade.css`, and `cascade.css` itself. The page's `<body>` holds four paragraphs. Each has an `id` so the Console picture below can find it; only `#special` has a rule.
+
+```html
+<p id="one">1. Only the element rule (p) matches me.</p>
+<p id="two" class="note">2. The element rule and the class rule (.note) both match me.</p>
+<p id="special" class="note">3. Element, class and id (#special) rules all match me.</p>
+<p id="four" class="tag">4. Two .tag rules match me. They tie, so the later one wins.</p>
+```
+
+The stylesheet sets `p` to gray, then `#special` to purple, then `.note` to green, then `.tag` to blue, and finally `.tag` to crimson. Notice that `#special` comes *before* `.note` in the file.
 
 ```css
 p        { color: gray; font-size: 20px; }
@@ -175,6 +186,19 @@ nav {
 }
 ```
 
+The bars in the picture below hold a big **My Site** label and three links. In the picture the links also have a background color and padding, so you can see their boxes. To try it yourself, use this HTML with the `nav` rule above and add `.logo { font-size: 40px; }` (`href="#"` just goes to the top of the page):
+
+```html
+<nav>
+  <span class="logo">My Site</span>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+</nav>
+```
+
+The big label is what makes `align-items` visible. When every item is the same height, like the two links in the Exercise nav, `align-items: center` changes nothing you can see.
+
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![Five versions of the same navigation bar with a large My Site label and three links. 1: no flexbox, links sit in a line with small spaces. 2: display flex, links touch. 3: gap 16px, links spaced. 4: justify-content space-between, items spread across the bar with links stretched tall. 5: align-items center, links centered vertically.](images/m02-flex-nav.png)
@@ -190,10 +214,10 @@ nav {
 2. In `index.html`, add `<link rel="stylesheet" href="styles.css">` as the last line inside `<head>`.
 3. Add a `<nav>` at the top of `<body>` with two same-page links to two of your `<h2>` headings (give each heading an `id`, as in Module 1). Add `class="highlight"` to one paragraph.
 4. **Predict.** Before you write any CSS, say what will change when you add a `body` rule with a background color.
-5. In `styles.css`, type a `body` rule (font, color, background, margin, padding), an `h1` rule and an `h2` rule with different colors, a `.highlight` rule, a `nav` rule with `display: flex`, `gap` and a background color, and a `nav a` rule that makes the links white. Use your own colors.
+5. In `styles.css`, type a `body` rule (font, color, background, margin, padding), an `h1` rule and an `h2` rule with different colors, a `.highlight` rule, a `nav` rule with `display: flex`, `gap`, `padding` and a background color, and a `nav a` rule that makes the links white. Use your own colors.
 6. **Run.** Save both files and press **F5** in the browser.
 
-   ![The practice page at phone width: a dark nav bar with two white links, a red main heading, a paragraph, an orange highlighted paragraph, teal section headings, a bulleted list and a picture, on a cream background.](images/m02-exercise-phone.png)
+   ![The practice page at phone width: a dark nav bar with two white links, a red main heading, an orange highlighted paragraph, teal section headings, a bulleted list, a paragraph with a blue link and a picture, on a cream background.](images/m02-exercise-phone.png)
    *One example, measured at 390 px wide, about the width of a phone. Your colors and words will differ. (page real: rendered in Chromium; browser frame drawn)*
 
 7. **Modify.** Add `justify-content: center;` to the `nav` rule. Save, refresh, and check your prediction from Concept 7. Then add a second `.highlight` rule *below* the first with a different background color. Which one wins, and why?
@@ -207,7 +231,7 @@ nav {
    ![A DevTools-style Console showing one red error: Failed to load resource: net::ERR_FILE_NOT_FOUND.](images/m02-break-console.png)
    *The browser did report the problem, just not on the page. In real DevTools the line also names the file it could not find. (real output, rendered; captured from Chromium loading the broken page from disk)*
 
-   Edge and Chrome may lay out this message a little differently. Look for the red error and the file name it could not load.
+   Edge and Chrome may lay out this message a little differently. Look for the red error and the file name it could not load. If the page came from a server instead of from disk (for example through Live Preview), the same mistake shows `Failed to load resource: the server responded with a status of 404 (Not Found)` instead: the server answered that it has no such file.
 
 9. **Debug.** Fix the `href`, save and refresh. Then make a second, different mistake: delete the colon in one declaration, such as `color #d1495b;`. Which part of the page lost its style? Fix it.
 
@@ -246,16 +270,13 @@ A `<link rel="stylesheet">` in the `<head>` fetches a CSS file by a relative pat
 - MDN: search "Basic concepts of flexbox" and the reference pages for `justify-content` and `align-items`
 - MDN: search "CSS selectors" for type and class selectors
 - freeCodeCamp: the CSS section of the Responsive Web Design curriculum
-- [W3Schools CSS Tutorial](AFFILIATE_W3SCHOOLS_CSS)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
-Keep your `practice-02` folder, including the cascade test if you typed it, and a one-line note in your own words of the rule for "which rule wins." Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep your `practice-02` folder, including `cascade.html` and `cascade.css` if you typed the cascade test, and a one-line note in your own words of the rule for "which rule wins." Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Handling conflicts" (MDN's Learn page on cascade, specificity and inheritance); MDN "Block and inline layout in normal flow"; MDN "The box model". Checked 2026-10-11: MDN "Descendant combinator"; MDN "Introduction to CSS syntax: declarations, rulesets, and statements".*
+*Sources checked 2026-10-09: MDN "Handling conflicts" (MDN's Learn page on cascade, specificity and inheritance); MDN "Block and inline layout in normal flow"; MDN "The box model". Checked 2026-10-11: MDN "Descendant combinator"; MDN "Introduction to CSS syntax: declarations, rulesets, and statements"; MDN "`<a>` HTML anchor element" (`href="#"` links to the top of the page); Live Preview source code (microsoft/vscode-livepreview on GitHub, `src/server/httpServer.ts`: a missing file gets status 404).*

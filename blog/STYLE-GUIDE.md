@@ -54,7 +54,7 @@ Three questions; one is a standing question (rotate: Why does it work? / What va
 - [ ] checkboxes
 
 ## Go further
-Real resources only: MDN (search term or page title), GitHub Docs article titles, and freeCodeCamp. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). Affiliate slots as plain placeholders: `[W3Schools HTML Tutorial](AFFILIATE_W3SCHOOLS)` with the line "*Affiliate link: Code559 may earn a commission at no extra cost to you.*" Never invent video titles or runtimes.
+Real resources only: MDN (search term or page title), GitHub Docs article titles, and freeCodeCamp. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). No affiliate links for now (decided 2026-10-12; the W3Schools slots were removed until a program is chosen). Never invent video titles or runtimes.
 
 ## What to keep
 What the reader should have at the end, plus "Which step would be hardest to repeat without this post, and why?"
@@ -93,7 +93,7 @@ What the reader should have at the end, plus "Which step would be hardest to rep
 - **Git checklist line, Modules 2–11** ("Before next module"):
   `- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)`
 - **DOM code typed before Module 9** (Modules 3–4): introduce each Console line with "Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives."
-- **Code shown only in a Console picture:** put the exact lines in a `js` block above the picture, starting with "Typed into the Console for the picture below, in this order:".
+- **Code shown only in a Console picture:** put the exact lines in a `js` block above the picture, starting with "Typed into the Console for the picture below, in this order:". A Console picture that only shows how a result was checked, and that the reader is not meant to repeat, needs no block; its caption says "You do not need to type…".
 - **freeCodeCamp line, Modules 5–11** (Go further): `- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked YYYY-MM-DD) has practice on this topic.` No module names.
 
 ## Accessibility standard

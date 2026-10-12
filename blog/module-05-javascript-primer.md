@@ -10,6 +10,8 @@ estimated_time: "about 75 minutes (estimate)"
 
 *Run your first script, read your first error, and build the habit you will use for every line of code.*
 
+**Time:** about 75 minutes (estimate)
+
 **In this module you will learn:**
 
 - What a program is: instructions that run in order, top to bottom
@@ -122,13 +124,19 @@ console.log(2 + 3); // a number, not text
 
 **Predict first.** Write your prediction down before you type. In Edge and Chrome, the Console shows a gray preview of the result under the line you are typing, before you press Enter. This feature is called **Eager evaluation**, and it is on by default. If you want to predict first, turn it off: click the **Console settings** gear in the top-right corner of the Console and clear the **Eager evaluation** checkbox. (Chrome's and Microsoft's *Console features reference* pages both describe this setting.) One more thing: if you paste code into the Console, Edge or Chrome may block it and ask you to type `allow pasting` first. This warning protects people from pasting harmful code they do not understand. Typing the code yourself avoids it.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open the Console now and type `60 * 24`. That is the number of minutes in a day.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open the Console now and type `60 * 24`. The `*` sign means multiply, so that is the number of minutes in a day.
 
 ### 7. How do you read an error message?
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When JavaScript cannot run a line, it stops and prints an **error**. An error is not a punishment. It is a report.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *JavaScript error reference* says each error "has a `name` and a `message`." Read every error in the same order. **Where:** the file name and line number at the top. **What line:** the code it was running, with a `^` under the problem spot. **Name:** the word before the colon, such as `ReferenceError` (a name JavaScript does not recognize) or `SyntaxError` (the code is not valid JavaScript, so nothing in the file ran). **Message:** the words after the colon. The lines starting with `at` are the *stack*; the first one repeats your file with `line:column`, and the rest point inside Node itself, so you can usually skip them.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *JavaScript error reference* says each error "has a `name` and a `message`." A Node error has five parts. Read them in the same order every time, from the top:
+
+1. **Where:** the file name and line number at the top.
+2. **The line:** the code Node was running.
+3. **The caret:** the `^` under the problem spot.
+4. **Name and message:** the name is the word before the colon, such as `ReferenceError` (a name JavaScript does not recognize) or `SyntaxError` (the code is not valid JavaScript, so nothing in the file ran). The message is the words after the colon.
+5. **The stack:** the lines starting with `at`. The first one repeats your file as `file:line:column`, and the rest point inside Node itself, so you can usually skip them. In a `SyntaxError`, every `at` line points inside Node, because your file never started running.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -138,7 +146,7 @@ console.log(2 + 3); // a number, not text
 In the Console, the same mistake shows a shorter error. It starts with `Uncaught`, which only means no code caught the error before it reached you.
 
 ![The Console showing consol.log("hi") giving Uncaught ReferenceError: consol is not defined, and console.log("hi) giving Uncaught SyntaxError: Invalid or unexpected token.](images/m05-console-error.png)
-*Same names, same messages as in Node. The real Console also adds a small location link next to each error; this render shows only the name and message. (real output, rendered; evaluated in Chromium)*
+*Same names, same messages as in Node. The real Console also adds a small location link next to each error, and under the ReferenceError one stack line, `at <anonymous>:1:1` (line 1, column 1 of what you typed); this render shows only the name and message. (real output, rendered; evaluated in Chromium)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In the Console, type `consol.log("hi")` with the missing `e`. Say the error's name and message out loud.
 
@@ -167,20 +175,20 @@ In the Console, the same mistake shows a shorter error. It starts with `Uncaught
    ![A terminal running node hello.js and printing four lines, the last one I added this line.](images/m05-node-hello-modified.png)
    *The new line appears last, because it is the last statement in the file. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
-5. **Create.** Add a line of your own that logs a sum, for example the number of hours in a week. Predict the number first. Then add `console.log(10 - 4);` and `console.log("10 - 4");` and check your prediction from Core Concept 4.
+5. **Create.** Add a line of your own that logs a multiplication with `*`, for example the number of hours in a week. Predict the number first. Then add `console.log(10 - 4);` and `console.log("10 - 4");` and check your prediction from Core Concept 4.
 6. **Break it on purpose: a misspelled name.** On line 2, delete the `e` so it reads `consol.log("Hello, world!");`. Save and run.
 
    ![A terminal showing the full Node error: the file and line 2, the code line, a caret, ReferenceError: consol is not defined, and the stack.](images/m05-node-reference-error.png)
-   *Node stopped at line 2, so nothing printed, not even the lines after it. Name: `ReferenceError`. Message: `consol is not defined`. The first line and the first `at` line show the path to your own `hello.js`. On Windows the paths start with your drive, for example `C:\Users\…`. The `node:internal` lines and the last line, `Node.js v22.22.0`, depend on the Node version, so yours may show different numbers. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
+   *Node stopped at line 2, so nothing printed, not even the lines after it. Name: `ReferenceError`. Message: `consol is not defined`. The first line and the first `at` line show the path to your own `hello.js`. On Windows the paths start with your drive, for example `C:\Users\…`. The `node:internal` lines and the last line, `Node.js v22.22.0`, depend on the Node version, so yours may show different lines and numbers. With Node 24.21.0, everything down to the first `at` line was the same. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
-   Find the four parts from Core Concept 7. Fix the spelling, save, and run again to prove it works.
+   Find the five parts from Core Concept 7. Fix the spelling, save, and run again to prove it works.
 7. **Break it again: a missing quote.** On line 3, delete the closing quote so it reads `console.log("This line runs second.);`. Save and run.
 
    ![A terminal showing a Node SyntaxError: Invalid or unexpected token, pointing at line 3 with a row of carets under the text.](images/m05-node-syntax-error.png)
    *A `SyntaxError` is different: Node could not read the file at all, so not even line 2 printed. The carets underline everything from the open quote to the end of the line, because Node is still looking for the closing quote. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Fix it, save, and run once more.
-8. **Try the Console.** Open any page in Edge or Chrome, press **F12** (or **Ctrl+Shift+J**), click the **Console** tab, and type `2 + 3`, then `"Hello, " + "world"`, then `consol.log("hi")`. Compare with the Console image in Core Concept 7.
+8. **Try the Console.** Open any page in Edge or Chrome, press **F12** (or **Ctrl+Shift+J**), click the **Console** tab, and type `2 + 3`, then `"Hello, " + "world"`, then `consol.log("hi")`. Compare with the Console images in Core Concepts 6 and 7.
 
 ## Project (in the full packet)
 
@@ -194,11 +202,11 @@ What would you say? Hint: count how many useful facts the ReferenceError in step
 
 ## Summary
 
-A program is a list of instructions that run in order, top to bottom. JavaScript runs in the browser and, through Node, in the terminal. HTML is structure, CSS is appearance and JavaScript is behavior. A statement is one instruction ending in a semicolon, and `//` starts a comment the computer skips. `console.log()` prints a value so you can see it. `node file.js` runs a file from the terminal in the file's folder. Ctrl+Shift+J opens the DevTools Console, where you type an expression and press Enter. An error tells you where (file and line), what kind (its name) and what went wrong (its message). Predict → Run → Modify → Create → Debug is the habit for every piece of code.
+A program is a list of instructions that run in order, top to bottom. JavaScript runs in the browser and, through Node, in the terminal. HTML is structure, CSS is appearance and JavaScript is behavior. A statement is one instruction ending in a semicolon, and `//` starts a comment the computer skips. `console.log()` prints a value so you can see it. `node file.js` runs a file from the terminal in the file's folder. Ctrl+Shift+J opens the DevTools Console, where you type an expression and press Enter. A Node error has five parts, read from the top: where (file and line), the code line, the caret, the name and message (what kind of error and what went wrong), and the `file:line:column` in the stack. Predict → Run → Modify → Create → Debug is the habit for every piece of code.
 
 ## Check your understanding
 
-1. In step 6, why did nothing print at all, even though lines 3 to 5 were fine?
+1. In step 6, why did nothing print at all, even though the lines after line 2 were fine?
 2. What is the difference between `console.log(10 - 4);` and `console.log("10 - 4");`?
 3. **Why does it work?** You typed `console.log("Hello from the Console")` in the Console and saw the text and then `undefined`. Why does the `undefined` appear, and why is it not an error?
 
@@ -207,7 +215,7 @@ A program is a list of instructions that run in order, top to bottom. JavaScript
 - [ ] `hello.js` runs with `node hello.js` and prints the lines you predicted
 - [ ] You can open the Console with Ctrl+Shift+J and evaluate an expression
 - [ ] You broke `hello.js` twice and can name the error each time (ReferenceError, SyntaxError)
-- [ ] You can point to the file, line, name and message in any error
+- [ ] You can point to the five parts of a Node error
 - [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
@@ -219,9 +227,6 @@ A program is a list of instructions that run in order, top to bottom. JavaScript
 - Microsoft Edge Developer documentation: *Keyboard shortcuts*
 - Chrome for Developers and Microsoft Edge Developer documentation: *Console features reference* (the Eager evaluation setting)
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript Tutorial](AFFILIATE_W3SCHOOLS_JS)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 

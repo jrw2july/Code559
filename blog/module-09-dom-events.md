@@ -10,6 +10,8 @@ estimated_time: "about 2 to 2½ hours (estimate)"
 
 *Find elements, decide what they should do, and connect that to a click.*
 
+**Time:** about 2 to 2½ hours (estimate)
+
 **In this module you will learn:**
 
 - The three layers of a page: HTML is structure, CSS is appearance, JavaScript is behavior
@@ -106,7 +108,7 @@ The variable does not hold a copy. It holds a **reference** to the real element 
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When you want every match, not just the first, use `querySelectorAll()`.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It gives back a **NodeList**, a collection of elements in page order. MDN calls it "a static (not live) NodeList" and adds that when nothing matches you get "an empty NodeList," not `null` (MDN, *Document: querySelectorAll() method*). A NodeList has a `.length` and works with the `for...of` loop from Module 8, so you can visit each element in turn. The difference matters: with no match, `querySelector()` gives `null`, and `querySelectorAll()` gives an empty list whose `.length` is `0`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It gives back a **NodeList**, a collection of elements in page order. MDN calls it "a static (not live) NodeList" and adds that when nothing matches you get "an empty NodeList," not `null` (MDN, *Document: querySelectorAll() method*). Static means a snapshot taken at the moment of the call. It does not change later. Checked in Chromium: a list stored in a variable still had a `.length` of 3 after a fourth `li` was added to the page. A new call gave 4. A NodeList has a `.length` and works with the `for...of` loop from Module 8, so you can visit each element in turn. The difference matters: with no match, `querySelector()` gives `null`, and `querySelectorAll()` gives an empty list whose `.length` is `0`.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -144,6 +146,8 @@ toggleButton.addEventListener("click", toggleDetails()); // wrong: runs it once,
 
 The browser keeps the function and calls it each time the click happens. You do not call it. The click does.
 
+In Module 7 the same mistake with `showMessage()` gave a TypeError. Here you get no error at all. The difference is what the call hands over: `showMessage()` returns a string, which a listener cannot be, and `toggleDetails()` returns `undefined`, which the browser quietly accepts as "no listener." Checked in Chromium 141: `addEventListener("click", undefined)` gave no error, and `addEventListener("click", "Hello")` gave Module 7's TypeError.
+
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> You will see the wrong version for real in the Exercise, step 9.
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Answer the standing question for this module: **what causes this function to run?** For `toggleDetails`, the answer is "a click on the button," not "the line that mentions it."
@@ -152,7 +156,7 @@ The browser keeps the function and calls it each time the click happens. You do 
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every element has a `classList`, a list of its CSS classes that JavaScript can change.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN: it "contains a live DOMTokenList collection representing the class attribute of the element," changed with "the `add()`, `remove()`, `replace()`, and `toggle()` methods" (MDN, *Element: classList property*). `add("is-open")` puts the class on. `remove("is-open")` takes it off. `toggle("is-open")` flips it: on if it was off, off if it was on, and it returns `true` or `false` to tell you which. `contains("is-open")` only asks. This is how JavaScript and CSS share the work: CSS says what `.is-open` looks like, and JavaScript only decides when the class is there.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN: it "contains a live DOMTokenList collection representing the class attribute of the element," changed with "the `add()`, `remove()`, `replace()`, and `toggle()` methods" (MDN, *Element: classList property*). A DOMTokenList is a list of words, here the class names. Live is the opposite of the static list in Concept 4: it always shows the element's classes as they are now. Checked in Chromium: a `classList` stored in a variable showed the new class after the element's `class` attribute was changed. `add("is-open")` puts the class on. `remove("is-open")` takes it off. `toggle("is-open")` flips it: on if it was off, off if it was on, and it returns `true` or `false` to tell you which. `contains("is-open")` only asks. This is how JavaScript and CSS share the work: CSS says what `.is-open` looks like, and JavaScript only decides when the class is there.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -174,7 +178,7 @@ document.querySelector("#toggle-btn").classList.toggle("is-open")
 
 ### 8. How do you show and hide something?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The `hidden` attribute you used in Module 4 has a matching JavaScript property.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The `hidden` attribute you met in Module 4 has a matching JavaScript property.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `details.hidden = true` hides it; `details.hidden = false` shows it. To flip it, use `!` from Module 8: `details.hidden = !details.hidden;`. The text stays in the HTML the whole time; only whether it is shown changes. One trap: MDN warns that "changing the value of the CSS `display` property on a hidden element will override the hidden state" (MDN, *hidden* global attribute). Checked in Chromium: a paragraph with `hidden` and `display: block` in its style had a computed `display` of `"block"`, so it showed. If `hidden` "does nothing," look for a `display` rule on that element.
 
@@ -218,7 +222,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Scripts get long. A fixed order makes them easy to read and easy to fix.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Every script has three blocks, marked with comments. **1. Find elements**: every `querySelector()`, stored in `const`, at the top. **2. Define behavior**: the functions, which say what should happen but do not run yet. **3. Connect events**: the `addEventListener()` lines, plus any function that should run once at load, like `buildList()`. When a button does nothing, check block 3. When you get `null`, check block 1.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Every script has three blocks, marked with comments. **1. Find elements**: every `querySelector()`, stored in `const`, at the top, and the data the script works on, like the `interests` array. **2. Define behavior**: the functions, which say what should happen but do not run yet. **3. Connect events**: the `addEventListener()` lines, plus any function that should run once at load, like `buildList()`. When a button does nothing, check block 3. When you get `null`, check block 1.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -352,7 +356,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
    Does the star image appear in the logged text? (It does not. An `<img>` has no text content; its `alt` is an attribute.)
 7. **Modify.** Add a fourth interest object to the array. Save and press **F5**. The page should show four items without any change to the HTML.
 8. **Keyboard test.** Click in the address bar, then press **Tab** until the button has a focus ring. Press **Enter**. Press **Space**. Each press should toggle the paragraph and add a line to the Console.
-9. **Break it on purpose.** In block 3, add parentheses: `toggleButton.addEventListener("click", toggleDetails());`. Save. Before you reload, predict: will the paragraph start hidden? Then reload and click the button twice.
+9. **Break it on purpose.** Before you change anything, predict: if you add parentheses in block 3, will the paragraph start hidden? Then add them: `toggleButton.addEventListener("click", toggleDetails());`. Save, press **F5** and click the button twice.
 
    ![Two real renders at 390 px of the broken page. Just loaded, with no click yet, the paragraph is already showing and the button says Hide details. After two clicks, nothing has changed.](images/m09-break-call.png)
    *With the parentheses, `toggleDetails()` ran once while the page loaded, so the paragraph opened by itself. The listener received `undefined`, so clicks do nothing. The Console shows exactly one `toggleDetails ran` line and no red error. Labels added above each render. (real: rendered in Chromium)*
@@ -401,9 +405,6 @@ HTML is structure, CSS is appearance, and JavaScript is behavior. A script in th
 - MDN: *Element: append() method*
 - MDN: *ARIA: button role* (the keyboard table, and why a native `<button>` is preferred)
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript HTML DOM](AFFILIATE_W3SCHOOLS_DOM)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -413,4 +414,4 @@ Keep `practice-09` with its three-block `script.js`, and a note of the two break
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "&lt;script&gt;: The Script element"; MDN "Document: querySelector() method"; MDN "Document: querySelectorAll() method"; MDN "Node: textContent property"; MDN "EventTarget: addEventListener() method"; MDN "Element: classList property"; MDN "HTMLElement: hidden property"; MDN "hidden" (HTML global attribute); MDN "Element: append() method"; MDN "&lt;button&gt;: The Button element"; MDN "ARIA: button role". Every page render, Console result and key-press result was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "&lt;script&gt;: The Script element"; MDN "Document: querySelector() method"; MDN "Document: querySelectorAll() method"; MDN "Node: textContent property"; MDN "EventTarget: addEventListener() method"; MDN "Element: classList property"; MDN "HTMLElement: hidden property"; MDN "hidden" (HTML global attribute); MDN "Element: append() method"; MDN "&lt;button&gt;: The Button element"; MDN "ARIA: button role". Checked 2026-10-11: MDN "NodeList" (live and static lists). Every page render, Console result and key-press result was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*

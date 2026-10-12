@@ -10,6 +10,8 @@ estimated_time: "about 60–90 minutes (estimate)"
 
 *Install every tool once, so no later module stops for an install.*
 
+**Time:** about 60–90 minutes (estimate)
+
 **In this module you will learn:**
 
 - What each tool in a front-end developer's kit does, and why you need it
@@ -35,8 +37,8 @@ By the end you will have four tools installed and checked, a browser to see your
 ## Before you start
 
 1. You need a Windows 11 computer with an internet connection and permission to install software. This course is written for Windows only.
-2. Create a free GitHub account at github.com if you do not have one. Pick a username you would be happy to show an employer; it appears in your website address later.
-3. Decide where your course work will live. Choose a folder with a **short name and no spaces**, for example a folder called `code559` inside Documents.
+2. Create a free GitHub account at github.com if you do not have one. Pick a username you would be happy to show an employer; it appears in your website address later. Since March 2023, GitHub has required "all users who contribute code on GitHub.com" to turn on two-factor authentication (2FA): after your password, a second check such as a code from an app on your phone (GitHub Docs, *About mandatory two-factor authentication*). Turn it on when GitHub asks.
+3. Decide where your course work will live. Choose a folder with a **short name and no spaces**, for example a folder called `code559` inside Documents. If OneDrive backs up your Documents folder (OneDrive settings, **Sync and backup**, **Manage backup**), choose a folder outside it instead, such as `C:\Users\you\code559`. The pictures in this course still show `Documents\code559`.
 
 > **Checkpoint.** You can sign in to github.com, and you know the folder where your course work will live.
 
@@ -71,7 +73,7 @@ By the end you will have four tools installed and checked, a browser to see your
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> From Module 1 on, you open each page straight in the browser: double-click the file in File Explorer, or drag it onto a browser window. (Double-clicking it in VS Code opens the code, not the page.) After each save, press **F5** to reload. Later modules also use **F12**, which opens the browser's DevTools. This works the same way on every page in the course.
 
-**Optional: Live Preview.** Live Preview is a Microsoft extension for VS Code that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*). It shows your page inside VS Code and updates it when you save. You do not need it for this course, and the Marketplace page says it "is still under development." If you install it, know one thing: VS Code opens a new folder in **Restricted Mode** (VS Code Docs, *Workspace Trust*), and Live Preview stays off in Restricted Mode. To turn it on, trust the folder: in the Restricted Mode banner at the top, click **Manage**, then click **Trust**. Only trust folders you made yourself, like your course folders.
+**Optional: Live Preview.** Live Preview is a Microsoft extension for VS Code that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*). It shows your page inside VS Code and, by default, updates it as you type, even before you save (its setting `livePreview.autoRefreshPreview` is "On All Changes in Editor" unless you change it). You do not need it for this course, and the Marketplace page says it "is still under development." If you install it, know one thing: VS Code opens a new folder in **Restricted Mode** (VS Code Docs, *Workspace Trust*), and Live Preview stays off in Restricted Mode. To turn it on, trust the folder: in the Restricted Mode banner at the top, click **Manage**, then click **Trust**. Only trust folders you made yourself, like your course folders.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -115,7 +117,7 @@ By the end you will have four tools installed and checked, a browser to see your
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running gh auth login, showing the first three prompts answered GitHub.com and HTTPS, ending at the Authenticate Git question.](images/m00-gh-auth-prompts.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. The "How would you like to authenticate" question and the one-time-code steps come next; they are described above, not shown here. (real output, rendered; captured on Linux)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three prompts as GitHub CLI 2.89.0 prints them; the picture stops while `gh` waits for your answer to the third. For the first two, use the arrow keys to move and Enter to choose; for the (Y/n) question, press Enter to answer Yes. The "How would you like to authenticate" question and the one-time-code steps come next; they are described above, not shown here. (real output, rendered; captured on Linux)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
 
@@ -123,7 +125,7 @@ By the end you will have four tools installed and checked, a browser to see your
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Node.js runs JavaScript on your computer instead of inside a web page.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Node's download page lists **v24.21.0** as the current LTS (Long-Term Support) version on the day this post was written; "LTS" is the version to choose.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In Modules 5 to 8 you will practice the JavaScript language before you touch a web page. Node lets you run a script from the terminal and see the result. Installing it now means those modules never stop for setup. Choose the version that Node's download page marks **LTS** (Long-Term Support). When this post was checked, that was v24.21.0; Node's release schedule makes v26 the LTS version from 2026-10-28. Any LTS version, v24 or newer, works for this course.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -143,7 +145,7 @@ By the end you will have four tools installed and checked, a browser to see your
 5. **Optional: install Live Preview.** You can skip this step: Edge or Chrome and F5 are all this course needs (Concept 3). To install it, click the Extensions icon in the left bar (or press Ctrl+Shift+X). Search **Live Preview**. Check the publisher says **Microsoft**. Click **Install**. It stays off until you trust your folder in step 6.
 6. **Open a terminal.** In VS Code: **File → Open Folder…**, choose `my-site`, then **Terminal → New Terminal**. The prompt should end in `my-site>`. If VS Code shows a Restricted Mode banner or asks whether you trust this folder, trust it: it is your own folder (Concept 3). VS Code may ask again when you open each new practice folder in later modules; trust those too, for the same reason.
 
-   ![VS Code with the my-site folder open and a terminal at the bottom whose prompt ends in my-site>.](images/m00-vscode-terminal.png)
+   ![VS Code with the still-empty my-site folder open and a terminal at the bottom whose prompt ends in my-site>.](images/m00-vscode-terminal.png)
    *The prompt shows which folder the terminal is in. Always check it before you type a Git command.*
 
 7. **Install Git.** In the terminal type:
@@ -185,7 +187,7 @@ By the end you will have four tools installed and checked, a browser to see your
 
 ## Project (in the full packet)
 
-There is no build project in Module 0. The full packet adds a one-page **setup log** you fill in (each tool, its version number, and the command that proved it), plus a troubleshooting section for the five most common install problems. The full packet is the Module 0 packet. [Get the packet →](PACKET_LINK_MODULE_0)
+Your project is a **setup log**: each tool, its version number, and the command that proved it. The packet adds a troubleshooting guide for five problems that can stop you in Modules 0 and 1, a self-assessment, and answers to this lesson's questions. When an install breaks in a later module, you (or anyone helping you) can see at a glance what you have and what to try first. The full brief and the step-by-step build are in the Module 0 packet. [Get the packet →](PACKET_LINK_MODULE_0)
 
 ## Common misconception
 
@@ -219,9 +221,6 @@ A front-end developer writes code in VS Code, sees it in Edge or Chrome (open th
 - GitHub CLI manual: `gh auth login`
 - nodejs.org: *Download Node.js*
 - GitHub Docs: *Creating an account on GitHub*
-- [W3Schools Git Tutorial](AFFILIATE_W3SCHOOLS_GIT)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -231,4 +230,4 @@ Keep a note of the four version numbers you saw (Git, GitHub CLI, Node, npm) and
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: git-scm.com "Install for Windows"; GitHub CLI "Installing gh on Windows" (github.com/cli/cli docs); VS Code Docs "Set up GitHub Copilot in VS Code"; VS Code Marketplace "Live Preview"; nodejs.org "Download Node.js". Checked 2026-10-11: VS Code Docs "Quickstart: use source control in VS Code"; VS Code Docs "Workspace Trust"; Live Preview's `package.json` (microsoft/vscode-livepreview on GitHub, untrusted workspaces not supported); GitHub CLI source code (cli/cli on GitHub: `internal/authflow/flow.go` and `pkg/cmd/auth/shared/login_flow.go`); microsoft/winget-pkgs on GitHub (`manifests/o/OpenJS/NodeJS/LTS`).*
+*Sources checked 2026-10-09: git-scm.com "Install for Windows"; GitHub CLI "Installing gh on Windows" (github.com/cli/cli docs); VS Code Docs "Set up GitHub Copilot in VS Code"; VS Code Marketplace "Live Preview"; nodejs.org "Download Node.js". Checked 2026-10-11: VS Code Docs "Quickstart: use source control in VS Code"; VS Code Docs "Workspace Trust"; Live Preview's `package.json` (microsoft/vscode-livepreview on GitHub: untrusted workspaces not supported; `autoRefreshPreview` default); GitHub CLI 2.89.0 source code (cli/cli on GitHub: `internal/authflow/flow.go` and `pkg/cmd/auth/shared/login_flow.go`); microsoft/winget-pkgs on GitHub (`manifests/o/OpenJS/NodeJS/LTS`); GitHub Docs "About mandatory two-factor authentication" and "About two-factor authentication"; Microsoft Support "Back up your folders with OneDrive"; nodejs.org "Download Node.js" again (v24.21.0 LTS) and Node's release schedule (`schedule.json` in nodejs/Release on GitHub: v26 LTS from 2026-10-28).*

@@ -10,6 +10,8 @@ estimated_time: "about 2 hours (estimate)"
 
 *Read the red line, find the cause, change one thing, and prove it works with a written test.*
 
+**Time:** about 2 hours (estimate)
+
 **In this module you will learn:**
 
 - What a bug is in plain terms: a gap between what you expected and what happened
@@ -60,12 +62,18 @@ Testing is the other half. A test is a written promise: "when I do this, I expec
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When JavaScript cannot go on, it stops and prints a red line in the Console. That line has three parts, and each one is a clue.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Here is a two-line script for a page with a button whose id is `message-button`. The id in the script is misspelled:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Here is a short script for a page with a button whose id is `message-button` and a paragraph whose id is `message`. The id in the script is misspelled:
 
 ```js
 const messageButton = document.querySelector("#mesage-button");
 messageButton.addEventListener("click", showMessage);
+
+function showMessage() {
+  document.querySelector("#message").textContent = "Hello!";
+}
 ```
+
+The function is written below line 2, which uses it. That is allowed: MDN's *function* page says "You can use the function before you declared it." It is placed there only so the error stays on line 2; in your own scripts, keep Module 9's order (find, define, connect).
 
 Read the red line from left to right. **The type** comes first (`TypeError`): what kind of problem. **The message** comes next: what JavaScript tried to do. **The location** is on the right (`script.js:2`): the file and the line number. Click that link in DevTools and it opens the file at that line. The `at script.js:2:15` line underneath adds the column: character 15 on line 2.
 
@@ -82,7 +90,7 @@ Read the red line from left to right. **The type** comes first (`TypeError`): wh
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A **`SyntaxError`** means the code is not valid JavaScript, so none of the file runs; look for a missing bracket, quote or parenthesis. A **`ReferenceError`** means you used a name that does not exist; it is almost always a typo or a variable used before it was made. A **`TypeError`** means the name exists, but its value is the wrong kind for what you asked; the most common one in front-end work is trying to use `null` as if it were an element.
 
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The same two-line script, broken two other ways. First a missing `)` at the end of line 2, then a typo in the function name (`showMesage`):
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The same script, with the id spelled correctly, broken two other ways. First a missing `)` at the end of line 2, then a typo in the function name (`showMesage`):
 
 ![A Console with two red lines: Uncaught SyntaxError: missing ) after argument list at script.js:2, and Uncaught ReferenceError: showMesage is not defined at script.js:2.](images/m11-console-syntax-reference.png)
 *Both errors point at line 2, but they mean different things. The `SyntaxError` has no `at …` line because the file never started running. (real output, rendered; captured in Chromium from two pages loaded as files. The Console frame is drawn.)*
@@ -145,7 +153,7 @@ then loading the page and clicking Next three times gives this:
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> DevTools has a **Sources** panel that can pause your code on a line, so you can look at every variable at that moment. You do not need it yet; `console.log()` is enough for this course. You should know it exists.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Chrome's documentation (*Pause your code with breakpoints*) says to open the Sources panel, open the file, and click the line number to set a **line-of-code breakpoint**. The next time that line runs, the page freezes and the side panel shows the current values. Writing `debugger;` in your code does the same thing from inside the file.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Chrome's documentation (*Pause your code with breakpoints*) says to open the Sources panel, open the file, and click the line number to set a **line-of-code breakpoint**. The next time that line runs, the page freezes and the side panel shows the current values. Writing `debugger;` in your code does the same thing from inside the file, but only while DevTools is open. With DevTools closed, the line does nothing; MDN's *debugger* page says that without debugging tools "this statement has no effect."
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -171,7 +179,7 @@ then loading the page and clicking Next three times gives this:
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> This is the testing format for the rest of the course. Every interactive feature gets one.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It is a table with three columns. **Action** is one thing a visitor does, written so someone else could repeat it. **Expected** is what should happen, written *before* you test. **Actual** is what did happen, written *after*. A row passes when the last two match. Here is a filled-in example for the tip card you will build:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It is a table with three columns. **Action** is one thing a visitor does, written so someone else could repeat it. **Expected** is what should happen, written *before* you test. **Actual** is what did happen, written *after*. A row passes when the last two match. Here is a ready-to-use table for the tip card you will build:
 
 | Action | Expected | Actual |
 | --- | --- | --- |
@@ -181,6 +189,7 @@ then loading the page and clicking Next three times gives this:
 | Click Next on the last tip | Wraps to the first tip; "Tip 1 of 3" | |
 | Submit the form with the box empty | No tip added; a message asks for text | |
 | Submit with only spaces | Same as empty | |
+| Click Show help | The help text appears under it | |
 | Tab through the page | Every button and the text box get a visible ring, in order | |
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The Actual column is empty on purpose. You fill it in during the Exercise.
@@ -193,7 +202,7 @@ then loading the page and clicking Next three times gives this:
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Four edges come up in almost every feature in this course. **Empty input**: the visitor submits nothing, or only spaces. **The first item**: what does Previous do when you are already at the start? **The last item**: what does Next do at the end? **Wrap-around**: when you go past an end, do you land on the other end, or on nothing? Not every edge case finds a bug. You still test each one, because you do not know which one will.
 
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Four of the seven rows in the table above are edge cases. Point to each one.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Four of the eight rows in the table above are edge cases. Point to each one.
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For one feature you built in Module 10 (or on your own site), write one edge case you have never tested.
 
@@ -322,7 +331,7 @@ then loading the page and clicking Next three times gives this:
 
    Use concepts 4 and 5 to find **bug 1**. Fix only that. Save. Press F5.
 
-6. **Run the test table.** Now the page loads with no red line. Go through the Action / Expected / Actual table from concept 10, one row at a time, and fill in Actual. You should get at least three rows that do not match. Here are two of them:
+6. **Run the test table.** Now the page loads with no red line. Go through the Action / Expected / Actual table from concept 10, one row at a time, and fill in Actual. At first, every row fails; the count bug alone breaks the first four. Here are two of them:
 
    ![The tip card at 390 px reading "Save before you refresh." and "Tip 0 of 3".](images/m11-bughunt-count-390.png)
    *Row 1: Expected "Tip 1 of 3", Actual "Tip 0 of 3". No red line, so this is a logic error. (real: rendered in Chromium at 390 px)*
@@ -339,6 +348,8 @@ then loading the page and clicking Next three times gives this:
 <details>
 <summary>Check your hunt: the six bugs (open only after you have tried)</summary>
 
+Line numbers are for `script.js` as you first typed it. A fix that adds lines moves the lines below it down.
+
 1. Line 8: the selector `#tip-txt` does not match the HTML id `tip-text`, so `tipText` is `null` (the `TypeError` on line 19).
 2. Line 20: the count shows `index`, which starts at 0; people count from 1.
 3. Line 25: `index > tips.length` lets `index` reach 3, one past the last tip; it should wrap when `index` reaches `tips.length`.
@@ -346,7 +357,7 @@ then loading the page and clicking Next three times gives this:
 5. Line 49: the script toggles `visible`, but the CSS shows `.help.is-visible`.
 6. HTML: "Show help" is a `<div>`, so Tab skips it and Enter does nothing; it should be a `<button type="button">`.
 
-In the corrected version, all seven rows of the table pass in Chromium, including both wrap-arounds and the spaces-only submit.
+In the corrected version, all eight rows of the table pass in Chromium, including both wrap-arounds and the spaces-only submit.
 </details>
 
 ## Project (in the full packet)
@@ -387,9 +398,6 @@ A bug is a gap between what you expected and what actually happened, so you writ
 - MDN: *:focus-visible*
 - Chrome for Developers: *Pause your code with breakpoints*
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript Debugging](AFFILIATE_W3SCHOOLS_JS_DEBUGGING)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -399,4 +407,4 @@ Keep your filled-in bug-hunt test table and the empty Action / Expected / Actual
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "What went wrong? Troubleshooting JavaScript"; MDN "TypeError: "x" is (not) "y""; MDN "Document: querySelector() method"; MDN "console: log() static method"; MDN "HTML: A good basis for accessibility"; MDN ":focus-visible"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: Chrome for Developers "Open Chrome DevTools" (F12 and Ctrl+Shift+J).*
+*Sources checked 2026-10-09: MDN "What went wrong? Troubleshooting JavaScript"; MDN "TypeError: "x" is (not) "y""; MDN "Document: querySelector() method"; MDN "console: log() static method"; MDN "HTML: A good basis for accessibility"; MDN ":focus-visible"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: Chrome for Developers "Open Chrome DevTools" (F12 and Ctrl+Shift+J); MDN "debugger"; MDN "function" (Hoisting).*

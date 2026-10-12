@@ -10,6 +10,8 @@ estimated_time: "about 2 hours (estimate)"
 
 *One page that works on a phone, a tablet and a laptop.*
 
+**Time:** about 2 hours (estimate)
+
 **In this module you will learn:**
 
 - The box model: content, padding, border and margin
@@ -229,8 +231,8 @@ The browser also counts pixel density. A phone screen often has two or three dev
 *Your hands, about 50 minutes (estimate).* Work in `practice-03`. Type it, do not paste it. The `srcset` and the grid line especially should go through your fingers once.
 
 1. **Make the files.** In `practice-03`, create `index.html`, `styles.css` and a folder called `images`. Put three copies of any one photo in `images`, resized to 400, 800 and 1600 px wide, and name them `photo-one-400.jpg`, `photo-one-800.jpg` and `photo-one-1600.jpg`. (The Windows Photos app can resize; any image editor works.)
-2. **Write the HTML.** The normal head, with the viewport line and a link to `styles.css`. In the body: a `<header class="site-header">` with a logo link and a `<nav>` holding a `<ul class="nav-list">` of four links; then a `<main>` with an `<h1>` and a `<ul class="card-grid">` of six `<li class="card">` items. Give the first card `class="card featured"` and put the `<figure>` from Concept 7 in it. The other five get an `<h2>` and a `<p>`.
-3. **Write the base CSS, phone first.** The `box-sizing` rule from Concept 2. `img { max-width: 100%; height: auto; display: block; }`. The stacked `.site-header` from Concept 4. `.nav-list` with `display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0;`. `main { max-width: 1100px; margin: 0 auto; padding: 1rem; }`. The `.card-grid` rule from Concept 6 (add `list-style: none; padding: 0;`). Give `.card` some padding, a border and a white background.
+2. **Write the HTML.** The normal head, with the viewport line and a link to `styles.css`. In the body: a `<header class="site-header">` with a logo link (a plain text link with your site's name, such as `<a href="index.html">My site</a>`; no image needed) and a `<nav>` holding a `<ul class="nav-list">` of four links; then a `<main>` with an `<h1>` and a `<ul class="card-grid">` of six `<li class="card">` items. Give the first card `class="card featured"` and put the `<figure>` from Concept 7 in it. In its `<img>`, change `height="1000"` to the real height of your `photo-one-1600.jpg` (right-click the file, **Properties → Details**); `1000` is right only for a photo that is 1600 × 1000. The other five get an `<h2>` and a `<p>`.
+3. **Write the base CSS, phone first.** The `box-sizing` rule from Concept 2. `img { max-width: 100%; height: auto; display: block; }`. The stacked `.site-header` from Concept 4. `.nav-list` with `display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0;`. `main { max-width: 1100px; margin: 0 auto; padding: 1rem; }`. The `.card-grid` rule from Concept 6 (add `list-style: none; padding: 0;`). Give `.card` some padding, a border and a white background. Add `body { margin: 0; }` and `figure { margin: 0; }`: browsers give the page and every figure a margin by default. Without the `body` rule your column widths will not match the table in Concept 6; without the `figure` rule the photos do not fill their cards as they do in the pictures.
 4. **Add the media query last.** At the bottom of `styles.css`, one `@media (min-width: 700px)` block that turns the header into a row and gives `.featured` `grid-column: span 2`.
 5. **Look at three widths.** Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. With DevTools open, press **Ctrl+Shift+M** to turn on device mode, and check 390, 800 and 1200. You should see 1, 3 and 4 columns. Now check your prediction from Concept 6 at 1000.
 6. **Check the image.** Click in the Console. Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives.
@@ -239,7 +241,7 @@ The browser also counts pixel density. A phone screen often has two or three dev
    document.querySelector('.featured img').currentSrc
    ```
 
-   Which file did your browser choose? Change the width, press **F5**, then type the line again.
+   Which file did your browser choose? Change the width, press **F5**, then type the line again. Device mode's Responsive setting counts 2 device pixels per CSS pixel (step 8a says why), so compare your answers with the "2 pixels per CSS px" column of the table in Concept 7.
 7. **Watch the columns change.** Click in the Console. Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives.
 
    ```js
@@ -259,7 +261,7 @@ The browser also counts pixel density. A phone screen often has two or three dev
 
 ## Project (in the full packet)
 
-Your **Interests** page becomes a responsive card grid: one card per interest, each with a photo in a `<figure>`, a short caption and a sentence about why you like it. On a phone it is one easy column; on a laptop it spreads into a grid, with your favorite interest spanning two columns. Every photo comes in sizes the browser can choose from, and the page never jumps while the photos load. The full brief, the step-by-step build, and the finishing work in Git are in the Module 3 packet. [Get the packet →](PACKET_LINK_MODULE_3)
+You add an **Interests** page to `my-site` and build it as a responsive card grid: one card per interest, each with a photo in a `<figure>`, a short caption and a sentence about why you like it. On a phone it is one easy column; on a laptop it spreads into a grid, with your favorite interest spanning two columns. Every photo comes in sizes the browser can choose from, and the page never jumps while the photos load. The full brief, the step-by-step build, and the finishing work in Git are in the Module 3 packet. [Get the packet →](PACKET_LINK_MODULE_3)
 
 ## Common misconception
 
@@ -290,10 +292,6 @@ Every element is a box of content, padding, border and margin, and `box-sizing: 
 - MDN: *The box model*; *Using media queries*; *Basic concepts of grid layout*; *repeat()*; *Using responsive images in HTML*; the `<img>` element page; `<meta name="viewport">`
 - Chrome for Developers: *Simulate mobile devices with device mode*; *Keyboard shortcuts* (DevTools)
 - freeCodeCamp: the responsive web design and CSS Grid lessons in the current curriculum (search "CSS Grid")
-- [W3Schools CSS Grid Tutorial](AFFILIATE_W3SCHOOLS_CSS_GRID)
-- [W3Schools Responsive Web Design](AFFILIATE_W3SCHOOLS_RWD)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -303,4 +301,4 @@ Keep `practice-03` with the media query back at the bottom, and a note of which 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "The box model"; MDN "Using media queries"; MDN "Basic concepts of grid layout"; MDN "repeat()"; MDN "Using responsive images in HTML"; MDN "`<img>`: The Image Embed element"; MDN "`<meta name="viewport">`"; Chrome for Developers "Simulate mobile devices with device mode" and "Keyboard shortcuts". Checked 2026-10-11: Chrome DevTools source code, `front_end/models/emulation/DeviceModeModel.ts` (GitHub, ChromeDevTools/devtools-frontend). Measurements made with Chromium 141 (headless, via Playwright).*
+*Sources checked 2026-10-09: MDN "The box model"; MDN "Using media queries"; MDN "Basic concepts of grid layout"; MDN "repeat()"; MDN "Using responsive images in HTML"; MDN "`<img>`: The Image Embed element"; MDN "`<meta name="viewport">`"; Chrome for Developers "Simulate mobile devices with device mode" and "Keyboard shortcuts". Checked 2026-10-11: Chrome DevTools source code, `front_end/models/emulation/DeviceModeModel.ts` (GitHub, ChromeDevTools/devtools-frontend: Responsive defaults to Mobile with pixel ratio 2); HTML Standard "Rendering" (default margins of `body` and `figure`). Measurements made with Chromium 141 (headless, via Playwright).*

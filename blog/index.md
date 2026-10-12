@@ -41,7 +41,7 @@ Each module tells you how long it takes. Those times are estimates.
 
 ## Get the packets
 
-Each module's packet adds the full project, the finishing work in Git, and a printable version of the lesson. [See the packets →](PACKET_LINK_INDEX)
+Each module's packet adds the full project, the finishing work in Git, a printable version of the lesson, and answers to its questions. [See the packets →](PACKET_LINK_INDEX)
 
 ---
 

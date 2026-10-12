@@ -10,6 +10,8 @@ estimated_time: "about 2 hours (estimate)"
 
 *Forms that send the right data and work for every visitor, with or without a mouse.*
 
+**Time:** about 2 hours (estimate)
+
 **In this module you will learn:**
 
 - The parts of a form: `form`, `label` with `for`, `input` types, `textarea`, `button` and `required`
@@ -85,7 +87,7 @@ By the end of this module your practice contact page is ready to send data, and 
 <label for="hours-low">0 to 2</label>
 <input type="radio" name="hours" value="3-5" id="hours-mid">
 <label for="hours-mid">3 to 5</label>
-<input type="radio" name="hours" value="6+" id="hours-high">
+<input type="radio" name="hours" value="6-plus" id="hours-high">
 <label for="hours-high">6 or more</label>
 ```
 
@@ -117,7 +119,7 @@ Second, `required` checked in the Console with nothing selected:
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's `hidden` page says "the browser will not render elements that are in the hidden state," and "if something is marked hidden, it is hidden from all presentations, including, for instance, screen readers." It is also out of the Tab order. One warning from the same page: a CSS `display` rule on the element (for example `display: block`) overrides `hidden`, so do not give a hidden element a `display` value in your stylesheet.
 
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> On the keyboard practice page in Concept 6, a `<section hidden>` holds a button. Chromium measured the section at `offsetHeight` 0 with computed `display: none`. Pressing Tab eight times visited the skip link, four nav links and the visible button, and never reached the hidden button.
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> On the skip-link page in Concept 7, a `<section hidden>` holds a button. Chromium measured the section at `offsetHeight` 0 with computed `display: none`. Pressing Tab eight times visited the skip link, four nav links and the visible button, and never reached the hidden button.
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: you remove `hidden` from that section. Name two things that change. (It appears, and its button joins the Tab order.)
 
@@ -158,7 +160,7 @@ nav a[aria-current="page"] { text-decoration: underline; font-weight: 700; }
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A page whose first Tab reveals a Skip to main content link with a light orange focus ring, drawn over the dark navigation bar.](images/m04-skip-link.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first Tab on the page reveals the skip link. Pressing Enter moved focus to `<main>` (Chromium reported the address ending in `#main`), and the next Tab went straight to the button in the main content. (real: rendered in Chromium at 600 px)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first Tab on the page reveals the skip link. Pressing Enter jumped to `<main>` (Chromium reported the address ending in `#main`), and the next Tab started from there: it went straight to the button in the main content. (real: rendered in Chromium at 600 px)*
 
 ![The same page after three Tabs: the About link on the dark navigation bar has a light orange focus ring and is bold and underlined.](images/m04-focus-visible.png)
 *Three Tabs in: the light orange ring is the `:focus-visible` style for links on the navy bar. About is bold and underlined because it has `aria-current="page"`. (real: rendered in Chromium at 600 px)*
@@ -188,7 +190,7 @@ Finally, style the label from the radio's **state**. Put each input right before
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -243,15 +245,15 @@ Finally, style the label from the radio's **state**. Put each input right before
 7. **Break it on purpose.** Change the **second** radio's `name` from `hours` to `hourz`. Save, press **F5**, and click all three labels. Two radios stay on at once.
 
    ![The radio form with 3 to 5 and 6 or more both selected, above a Console that counts 2 checked inputs named hourz and hours.](images/m04-hourz-break.png)
-   *One typo made a second group. The Console confirms two checked radios, `hourz=3-5` and `hours=6+`. Submitting now would send both. (real: rendered in Chromium; Console values from a real run)*
+   *One typo made a second group. The Console confirms two checked radios, `hourz=3-5` and `hours=6-plus`. Submitting now would send both. You do not need to type these Console lines; they only show the check behind the picture, and a real Console prints the list with single quotes. (real: rendered in Chromium; Console values from a real run)*
 
    Write one sentence: what changed, and why? Then put the name back to `hours`.
-8. **Style it without breaking it.** Create `states.html` with the same kind of group (three choices, `name="pick"`). Give each input `class="visually-hidden"` and put each input directly before its label inside `<fieldset class="choices">`. Add a `<style>` element inside `<head>` (it holds CSS in the HTML file itself, instead of in a separate `styles.css`) with the CSS from Concept 8, plus a size and round shape for `.choices label` (for example `display: inline-block; width: 48px; height: 48px; border-radius: 50%; text-align: center; line-height: 48px;`). Open `states.html` in Edge or Chrome and test with the mouse, then with Tab and the arrow keys. The ring follows the keyboard.
-9. **Break it again.** Change `.visually-hidden` on one input to a class that sets `display: none`. Save, press **F5**, and Tab into the group. Write one sentence: what happened to that choice for the keyboard? Put it back.
+8. **Style it without breaking it.** Create `states.html` with the same kind of group (three choices, `name="pick"`). Give each input `class="visually-hidden"` and put each input directly before its label inside `<fieldset class="choices">`. Add a `<style>` element inside `<head>` (it holds CSS in the HTML file itself, instead of in a separate `styles.css`) with the CSS from Concept 8, plus a size and round shape for `.choices label` (for example `display: inline-block; width: 48px; height: 48px; border-radius: 50%; background: #eee; text-align: center; line-height: 48px;`). Open `states.html` in Edge or Chrome and test with the mouse, then with Tab and the arrow keys. The ring follows the keyboard.
+9. **Break it again.** Add `.gone { display: none; }` to your `<style>`, then change one input's `class="visually-hidden"` to `class="gone"`. Save, press **F5**, and Tab into the group. Write one sentence: what happened to that choice for the keyboard? Put it back.
 
 ## Project (in the full packet)
 
-You build a **rating card** from a written brief: a small card that asks "Rate this lesson," offers five round choices from 1 to 5, and has a Send rating button. It is your own design, with your own colors stored as custom properties, a visually hidden legend, radios you cannot see but can reach with the keyboard, clear `:hover`, `:checked` and `:focus-visible` states, and a thank-you section that waits with `hidden`. You build the HTML first and test it with no CSS, then add the look, phone first. Its JavaScript, which swaps the two states, comes in Module 10. The packet also adds a Contact page to `my-site`, built the same way as your practice contact page.
+You build a **rating card** from a written brief, as a new page in `my-site`: a small card that asks "Rate this lesson," offers five round choices from 1 to 5, and has a Send rating button. It is your own design, with your own colors stored as custom properties, a visually hidden legend, radios you cannot see but can reach with the keyboard, clear `:hover`, `:checked` and `:focus-visible` states, and a thank-you section that waits with `hidden`. You build the HTML first and test it with no CSS, then add the look, phone first. Its JavaScript, which swaps the two states, comes in Module 10. The packet also adds a Contact page to `my-site`, built the same way as your practice contact page.
 
 ![A finished rating card in two states. Left: Rate this lesson, five circles with 4 filled teal, and a dark Send rating button. Right: a check icon, You chose 4 out of 5, and Thanks for the feedback.](images/m04-rating-card.png)
 *The kind of card you will build. The thank-you state was shown here by removing `hidden` in the page by hand, because the card's JavaScript is Module 10. (real: rendered in Chromium at 390 px)*
@@ -286,10 +288,6 @@ A form holds controls, each joined to a `<label>` by `for` and `id`, and `requir
 
 - MDN: `<form>`; `<label>`; `<input type="radio">`; `<fieldset>`; the `hidden` global attribute; `:focus-visible`; *ARIA: aria-current attribute*; *Using CSS custom properties (variables)*; *Sending form data*
 - freeCodeCamp: the HTML forms and accessibility lessons in the current curriculum (search "accessibility")
-- [W3Schools HTML Forms](AFFILIATE_W3SCHOOLS_FORMS)
-- [W3Schools Accessibility Tutorial](AFFILIATE_W3SCHOOLS_ACCESSIBILITY)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -299,4 +297,4 @@ Keep `practice-04` with all three files fixed, and your sentences from steps 5, 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "`<form>`: The Form element"; MDN "`<label>`: The Label element"; MDN "`<input type="radio">`"; MDN "`<fieldset>`: The Field Set element"; MDN "hidden" (global attribute); MDN ":focus-visible"; MDN "ARIA: aria-current attribute"; MDN "Using CSS custom properties (variables)"; MDN "Sending form data". Checked 2026-10-11: MDN "hidden" (global attribute, again); MDN ":root"; MDN "ARIA"; MDN "Attribute selectors"; MDN "position"; MDN "`<style>`: The Style Information element"; MDN "Color contrast"; MDN "outline-color". Submissions, validity checks and keyboard behavior tested in Chromium 141 (headless, via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "`<form>`: The Form element"; MDN "`<label>`: The Label element"; MDN "`<input type="radio">`"; MDN "`<fieldset>`: The Field Set element"; MDN "hidden" (global attribute); MDN ":focus-visible"; MDN "ARIA: aria-current attribute"; MDN "Using CSS custom properties (variables)"; MDN "Sending form data". Checked 2026-10-11: MDN "hidden" (global attribute, again); MDN ":root"; MDN "ARIA"; MDN "Attribute selectors"; MDN "position"; MDN "`<style>`: The Style Information element"; MDN "Color contrast"; MDN "outline-color"; MDN "clip" (deprecated; the page points to `clip-path`); MDN "clip-path". Submissions, validity checks and keyboard behavior tested in Chromium 141 (headless, via Playwright) on Linux.*

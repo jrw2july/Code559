@@ -10,6 +10,8 @@ estimated_time: "about 2 hours for this post; the full capstone takes longer (es
 
 *Build a small app from a written requirement, prove every row works, and finish your portfolio.*
 
+**Time:** about 2 hours for this post; the full capstone takes longer (estimate)
+
 **In this module you will learn:**
 
 - How to read a written requirement table and turn each row into tasks
@@ -50,7 +52,7 @@ This is also the end of the core course. The last part of the module is a whole-
 | 1 | A visitor can type a task and add it with the Add button or the Enter key. The text box has a visible label. | The task appears at the end of the list and the box empties. |
 | 2 | An empty or spaces-only task is not added. A message says why. | The list does not change, and the message appears under the form. |
 | 3 | Each task has a checkbox. Checking it marks the task done, and a line shows how many are done. | The task text is struck through, and the line reads, for example, "1 of 3 done." Unchecking undoes both. |
-| 4 | One column on a phone. From 700 px wide, the form sits beside the list. | At 390 px the panels stack; at 1200 px they sit side by side. |
+| 4 | One column on a phone. From 700 px wide, the form sits beside the list. | At 390 px and 699 px the panels stack; at 700 px and 1200 px they sit side by side. |
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Row 2's nouns are "task" and "message." Its verbs are "is not added" and "says why." Its test is "the list does not change, and the message appears."
 
@@ -71,7 +73,7 @@ This is also the end of the core course. The last part of the module is a whole-
 
 ### 3. What does the finished sample look like?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> To check that the four rows above can be built with what you already know, a minimal Pocket Planner was built for this post from those rows, and nothing else.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> To check that the four rows above can be built with what you already know, a minimal Pocket Planner was built for this post from those rows. It adds only two small things no row asks for: a header with the planner's name and a short tagline, and the line "No tasks yet." when the list is empty.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Most of it uses things from earlier modules: a form with a label, `querySelector`, a `submit` listener with `preventDefault()`, `.trim()` and an empty check, `createElement` and `textContent` (no `innerHTML`), `classList`, and one media query. Then each row's "done when" was run as a test. Row 3 needs one thing no earlier module taught: the checkbox's `change` event.
 
@@ -134,7 +136,7 @@ doneBox.addEventListener("change", function () {
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Before you call the site finished, check it the way a visitor with different needs would use it. Four checks cover most problems.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold). Interface parts need contrast too: the same page asks for at least **3:1** for "user interface components and graphical objects," and that includes a focus ring you style yourself, against the colors next to it (W3C, *Understanding SC 1.4.11: Non-text Contrast*). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold; W3C's *Understanding SC 1.4.3: Contrast (Minimum)* puts these at about 24px, or about 18.5px bold). Interface parts need contrast too: MDN's *Color contrast* page also asks for at least **3:1** for "user interface components and graphical objects," and that includes a focus ring you style yourself, against the colors next to it (W3C, *Understanding SC 1.4.11: Non-text Contrast*). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The sample planner passed the keyboard check: from the text box, two presses of Tab reached the first checkbox, and Space checked it.
 
@@ -170,7 +172,7 @@ The planner's colors were also checked with a short Node script that applies the
 
 ## Exercise
 
-*Your hands, about 45 minutes (estimate).* Type it, do not paste it. You will turn a three-row requirement into tasks and build **one** row through the nine steps.
+*Your hands, about 45 minutes (estimate).* Type it, do not paste it. You will turn a three-row requirement into tasks and build **one** row through the first seven of the nine steps, up to commit.
 
 The requirement, for a "Goal counter" page:
 
@@ -218,7 +220,7 @@ The requirement, for a "Goal counter" page:
 
 5. **Predict, run, explain.** Write your prediction for row 1's test. Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Click +1 three times, and fill in Actual. (In Chromium: 0 on load, 3 after three clicks.) Then explain each line of `script.js` out loud in one sentence.
 6. **Modify.** Change `count + 1` to `count + 2`. Predict the count after three clicks. Run it. Change it back.
-7. **Break it on purpose.** Change the last line to `addButton.addEventListener("click", addOne());` (with the parentheses). Predict first. Then run row 1's test again. In Chromium the count reads **1** as soon as the page loads, clicking does nothing, and there is no red line in the Console. Why? (Hint: Module 7, reference versus call.)
+7. **Break it on purpose.** Change the last line to `addButton.addEventListener("click", addOne());` (with the parentheses). Predict first. Then run row 1's test again. In Chromium the count reads **1** as soon as the page loads, clicking does nothing, and there is no red line in the Console. Why? (Hint: Module 7, reference versus call, and Module 9, why `addEventListener()` takes no parentheses.)
 8. **Debug and retest.** Remove the parentheses. Run row 1's test again, from a fresh page load. Write the new Actual.
 9. **Commit.** Row 1 is one change, so it is one commit. Open the `goal-counter` folder in VS Code with **File → Open Folder…**, then **Terminal → New Terminal**. Check that the prompt ends in `goal-counter>`. Then type these five commands, one at a time:
 
@@ -226,12 +228,12 @@ The requirement, for a "Goal counter" page:
    git init
    git status --short
    git add .
-   git commit -m "Row 1: +1 button raises the count"
+   git commit -m "Add +1 button for row 1"
    git log --oneline
    ```
 
-   ![A terminal in practice-13\goal-counter running git init, git status --short showing two untracked files, git add ., git commit with the message Row 1: +1 button raises the count, and git log --oneline showing one commit.](images/m13-git-row1.png)
-   *One row, one commit, and the message names the row. Your commit id will be different. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
+   ![A terminal in practice-13\goal-counter running git init, git status --short showing two untracked files, git add ., git commit with the message Add +1 button for row 1, and git log --oneline showing one commit.](images/m13-git-row1.png)
+   *One row, one commit, and the message starts with a verb (Module 12) and names the row. Your commit id will be different. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    This is a throwaway folder, so stop at commit. In the Project, the last two of the nine steps (push and verify live) are required for every row.
 
@@ -273,9 +275,6 @@ A requirement table lists what the page must do, one row at a time, with a "done
 - Chrome for Developers: *Pause your code with breakpoints* (for debugging a larger build)
 - WebAIM: *Color Contrast Checker* (named on the MDN *Color contrast* page)
 - freeCodeCamp: its Responsive Web Design and JavaScript certification projects, for more practice building from a written requirement
-- [W3Schools Accessibility Tutorial](AFFILIATE_W3SCHOOLS_ACCESSIBILITY)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -285,4 +284,4 @@ Keep your requirement-to-tasks lines, your test tables, and the three links you 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: MDN "Color contrast" (3:1 for interface parts); W3C "Understanding SC 1.4.11: Non-text Contrast"; MDN "HTMLElement: change event"; MDN "HTMLInputElement: checked property"; Chrome for Developers "Open Chrome DevTools". The `change` example, the planner and the Goal counter were run in Chromium 141.0.7390.37 (via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: MDN "Color contrast" (3:1 for interface parts); W3C "Understanding SC 1.4.11: Non-text Contrast"; MDN "HTMLElement: change event"; MDN "HTMLInputElement: checked property"; Chrome for Developers "Open Chrome DevTools"; W3C "Understanding SC 1.4.3: Contrast (Minimum)" (1pt = 1.333px). The `change` example, the planner and the Goal counter were run in Chromium 141.0.7390.37 (via Playwright) on Linux.*

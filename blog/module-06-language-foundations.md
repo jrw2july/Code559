@@ -10,9 +10,11 @@ estimated_time: "about 90 minutes (estimate)"
 
 *Values, types, variables, operators and your first decisions, all in the Console.*
 
+**Time:** about 90 minutes (estimate)
+
 **In this module you will learn:**
 
-- What a value is, and the five basic types: string, number, boolean, undefined and null
+- What a value is, and the five basic types in this module: string, number, boolean, undefined and null
 - How `typeof` tells you a value's type, including the odd result for `null`
 - How to store values with `const` and `let`, and why this course does not use `var`
 - The difference between assignment (`=`) and comparison (`===`)
@@ -43,12 +45,12 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A **value** is one piece of data: a word, a number, yes or no. Every value has a **type**, and the type decides what you can do with it.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Five types cover almost everything in this course. A **string** is text, always inside quotes: `"hello"`, `"42"`. A **number** is a number with no quotes: `42`, `3.5`. A **boolean** is `true` or `false`. **undefined** means a variable has no value yet. **null** means "nothing here," on purpose; you assign it yourself. The `typeof` operator tells you the type, as a string. One result looks wrong: `typeof null` gives `"object"`. MDN's *typeof* page explains it as a leftover from the first version of JavaScript, kept because changing it would break old code. Remember it as a known exception.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Five types cover almost everything in this course. (JavaScript has three more: objects, which you will meet in Module 8, and BigInt and Symbol, which this course does not use.) A **string** is text, always inside quotes: `"hello"`, `"42"`. A **number** is a number with no quotes: `42`, `3.5`. A **boolean** is `true` or `false`. **undefined** means a variable has no value yet. **null** means "nothing here," on purpose; you assign it yourself. The `typeof` operator tells you the type, as a string. One result looks wrong: `typeof null` gives `"object"`. MDN's *typeof* page explains it as a leftover from the first version of JavaScript; a fix was proposed for the language, but it was rejected. Remember it as a known exception.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The Console showing typeof for "hello", 42, 3.5, true, undefined, null and "42", with results string, number, number, boolean, undefined, object, string.](images/m06-typeof.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Look at the last line: `"42"` is a string, not a number, because of the quotes. And `typeof null` really is `"object"`. (real output, rendered; evaluated in Chromium)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Look at the last line: `"42"` is a string, not a number, because of the quotes. And `typeof null` really is `"object"`. As in Module 5, your Console may show text in single quotes, such as `'string'`; both mean text. (real output, rendered; evaluated in Chromium)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In the Console, type `typeof "true"`. Predict first: quotes or no quotes?
 
@@ -56,7 +58,7 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A **variable** is a name that holds a value. You create one with `const` or `let`.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Use `const` when the name should always hold the same value, and `let` when it needs to change. MDN's *const* page says a constant's value "can't be changed through reassignment." Start with `const` every time; switch to `let` only when you find you need to change it. A `let` with no value holds `undefined` until you give it one. You will also see `var` in older code and tutorials. It follows older rules about where a name can be seen (MDN's *var* page notes that blocks such as `if` "do not create scopes for `var`"), which causes surprises. This course uses only `const` and `let`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Use `const` when the name should always hold the same value, and `let` when it needs to change. MDN's *const* page says a constant's value "can't be changed through reassignment." Start with `const` every time; switch to `let` only when you find you need to change it. A `let` with no value holds `undefined` until you give it one. You will also see `var` in older code and tutorials. It follows older rules about where a name can be used (an idea called *scope*, which Module 7 explains), and those rules cause surprises. This course uses only `const` and `let`.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -121,7 +123,7 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `if` runs a block of code only when a condition is `true`. `else if` adds another condition to check. `else` catches everything left over.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it. **Careful:** never put a semicolon right after `if (...)`, or between a block's closing `}` and `else`, even though Module 5 ends every statement with one. In `if (temp < 50); { … }`, the semicolon ends the `if`, so the block runs every time. If no `else` follows, you get no error message at all; if an `else` follows, Node stops with `SyntaxError: Unexpected token 'else'`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it. VS Code uses four spaces by default (its *Basic editing* page: "4 spaces per Tab key"); that is fine too, because the spaces do not change what the code does. **Careful:** never put a semicolon right after `if (...)`, or between a block's closing `}` and `else`, even though Module 5 ends every statement with one. In `if (temp < 50); { … }`, the semicolon ends the `if`, so the block runs every time. If no `else` follows, you get no error message at all; if an `else` follows, Node stops with `SyntaxError: Unexpected token 'else'`.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -154,7 +156,7 @@ console.log("Checked " + temp + " degrees");
 
 *Your hands, about 40 minutes (estimate).* Type it, do not paste it. Work in the Console unless a step says otherwise.
 
-1. **Predict on paper.** Copy the left column of this table and write your prediction next to each line. Do not run anything yet.
+1. **Predict on paper.** Copy the **Type this** column of this table and write your prediction next to each line. Do not run anything yet.
 
    | # | Type this | Your prediction |
    |---|---|---|
@@ -192,6 +194,8 @@ console.log("Checked " + temp + " degrees");
    ![The Console: const city = "Fresno", then city = "Chicago" gives Uncaught TypeError: Assignment to constant variable. at anonymous 1:6, then city still gives "Fresno".](images/m06-const-error.png)
    *Name: `TypeError`. Message: `Assignment to constant variable.` The value did not change. MDN's *const* page notes the exact wording can differ between browsers; this is Chromium's, the engine inside Edge and Chrome. (real output, rendered; evaluated in Chromium)*
 
+   One Console difference: the Console lets you type a whole `const` line again to start over, so `const city = "Chicago"` would work there. In a file, declaring the same name twice is an error: Node stops with `SyntaxError: Identifier 'city' has already been declared`.
+
 6. **Same mistake in Node.** Create `break-const.js` in `practice-06` with these three lines, save, and run `node break-const.js`:
 
    ```js
@@ -217,7 +221,7 @@ What would you say? Hint: look at `visits = visits + 1` in Core Concept 2. In ma
 
 ## Summary
 
-A value is one piece of data, and its type is string, number, boolean, undefined or null; `typeof` names the type, and `typeof null` is `"object"` for historical reasons. `const` holds a value that will not be reassigned, `let` holds one that will, and this course does not use `var`. One `=` assigns; `===` compares. `+` adds numbers but joins strings, while `-`, `*`, `/` and `%` only do math. `===` treats different types as different; `==` converts them first, which hides mistakes. Every comparison produces a Boolean you can store and test. `if`, `else if` and `else` check conditions from top to bottom and run only the first block whose condition is true.
+A value is one piece of data with a type, and this module's five types are string, number, boolean, undefined and null; `typeof` names the type, and `typeof null` is `"object"` for historical reasons. `const` holds a value that will not be reassigned, `let` holds one that will, and this course does not use `var`. One `=` assigns; `===` compares. `+` adds numbers but joins strings, while `-`, `*`, `/` and `%` only do math. `===` treats different types as different; `==` converts them first, which hides mistakes. Every comparison produces a Boolean you can store and test. `if`, `else if` and `else` check conditions from top to bottom and run only the first block whose condition is true.
 
 ## Check your understanding
 
@@ -232,7 +236,7 @@ A value is one piece of data, and its type is string, number, boolean, undefined
 
 ## Before next module
 
-- [ ] You can name the five basic types and check any value with `typeof`
+- [ ] You can name this module's five basic types and check any value with `typeof`
 - [ ] You start every variable with `const` and switch to `let` only when it must change
 - [ ] You can explain `"5" + 3` and `"5" - 3` without running them
 - [ ] You use `===` and `!==`, never `==`
@@ -248,9 +252,6 @@ A value is one piece of data, and its type is string, number, boolean, undefined
 - MDN: *if...else*
 - MDN: *JavaScript error reference* (for *TypeError*)
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript Tutorial](AFFILIATE_W3SCHOOLS_JS)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -260,4 +261,4 @@ Keep your filled-in prediction table, with a sentence beside every line you got 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference". Checked 2026-10-11: MDN "Empty statement" (the semicolon after `if`).*
+*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference". Checked 2026-10-11: MDN "Empty statement" (the semicolon after `if`); MDN "typeof" (the `typeof null` section); MDN "JavaScript data types and data structures"; VS Code Docs "Basic editing" (Indentation); ChromeDevTools/devtools-frontend on GitHub (`ConsoleViewMessage.ts` and `StringUtilities.ts`: Console results use single quotes).*

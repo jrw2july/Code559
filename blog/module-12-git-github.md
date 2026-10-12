@@ -10,6 +10,8 @@ estimated_time: "about 2–3 hours (estimate)"
 
 *Move from a memorized routine to a workflow you understand: diff, branches, merges, Issues, pull requests and releases.*
 
+**Time:** about 2–3 hours (estimate)
+
 **In this module you will learn:**
 
 - The Git mental model: working folder → staging area → commits → remote
@@ -39,10 +41,10 @@ Employers read your GitHub profile. A history of small, clear commits, merged pu
 ## Before you start
 
 1. Your `my-site` folder from earlier modules is on GitHub, and the live page loads.
-2. In VS Code, open a terminal. Type `git --version` and `gh auth status`. Both should answer without an error (you set them up in Module 0).
+2. In VS Code, open a terminal. Type `git --version` and `gh auth status`. Both should answer without an error (you set them up in Module 0). Then type `git config init.defaultBranch`. It should print `main` (Module 0, step 8). If it prints nothing, run `git config --global init.defaultBranch main` now. Without it, `git init` names the first branch `master`, and `git switch main` in the Exercise fails with "fatal: invalid reference: main".
 3. This module's Exercise uses a practice folder called `practice-12`, inside your `code559` folder. **Not** inside `my-site`.
 
-> **Checkpoint.** `git --version` prints a version, `gh auth status` says you are logged in, and you know where your practice folder will go.
+> **Checkpoint.** `git --version` prints a version, `git config init.defaultBranch` prints `main`, `gh auth status` says you are logged in, and you know where your practice folder will go.
 
 A note on the pictures. Every terminal image in this post comes from a real run of Git 2.43.0 in a throwaway project on Linux, drawn in a Windows Terminal frame. The commit IDs (like `b4cf5d1`) are real for that run; yours will be different, because a commit ID depends on the time and the author too. GitHub.com, VS Code and GitHub Desktop pictures are drawings, because nothing in this post was pushed to GitHub. The `git push` and `git pull` steps in Concepts 10 and 12 were checked against a local repository standing in for GitHub.
 
@@ -122,7 +124,7 @@ In the story below, two different changes are waiting: a new tagline in `index.h
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> When the branch is ready, you stand on `main` and run `git merge` with the branch name.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> If `main` has not changed since you made the branch, Git does not need a new commit. It simply moves `main` forward to the branch's last commit. The manual calls this a **fast-forward**: "only update the branch pointer to match the merged branch; do not create a merge commit" (*git-merge*). After the merge, the branch has done its job; `git branch -d` deletes the name. Your commits stay. Git refuses to delete a branch whose work is not merged yet; in a test it printed "error: the branch 'y' is not fully merged."
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> If `main` has not changed since you made the branch, Git does not need a new commit. It simply moves `main` forward to the branch's last commit. The manual calls this a **fast-forward**: "only update the branch pointer to match the merged branch; do not create a merge commit" (*git-merge*). After the merge, the branch has done its job; `git branch -d` deletes the name. Your commits stay. Git refuses to delete a branch whose work is not merged yet. If you run `git branch -d add-about-page` before the merge, Git stops with "error: the branch 'add-about-page' is not fully merged". The next line suggests `git branch -D`. Do not use `-D` unless you want to throw that work away: it deletes the branch "irrespective of its merged status" (*git-branch*).
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -156,14 +158,14 @@ Thumbs.db
 *.log
 ```
 
-`.vscode/` (with the slash) matches a folder; the manual says a pattern ending in a slash "will only match directories." `Thumbs.db` is a file Windows can create to store picture thumbnails. `*.log` matches every file ending in `.log`, because "an asterisk `*` matches anything except a slash" (*gitignore*). One catch: "Files already tracked by Git are not affected" (*gitignore*). Add the `.gitignore` before you commit those files, not after.
+`.vscode/` (with the slash) matches a folder; the manual says a pattern ending in a slash "will only match directories." `Thumbs.db` is a file Windows can create to store picture thumbnails. `*.log` matches every file ending in `.log`, because "an asterisk `*` matches anything except a slash" (*gitignore*). One catch: "Files already tracked by Git are not affected" (*gitignore*). Add the `.gitignore` before you commit those files, not after. If you already committed one, the same page says to use `git rm --cached` "to remove the file from the index" (the staging area). For the editor folder, type `git rm -r --cached .vscode` (`-r` takes the whole folder), then commit. The files stay in your folder; Git stops tracking them.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal: git status --short lists .vscode/, Thumbs.db and debug.log as untracked; after .gitignore is created, git status --short lists only .gitignore; then it is committed and status is clean.](images/m12-gitignore.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The proof: three untracked entries disappear the moment `.gitignore` exists. The files are still in the folder; Git just stops reporting them. (real output, rendered; captured on Linux with Git 2.43.0)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Run `git status --short` in `my-site`. If you see `.vscode/` or a `.log` file listed, that is your sign to add a `.gitignore`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Run `git status --short` in `my-site`. If you see `.vscode/` or a `.log` file listed, that is your sign to add a `.gitignore`. If `git ls-files` lists a file inside `.vscode/`, it was committed before; use `git rm -r --cached .vscode` as above.
 
 ### 9. What goes in a README?
 
@@ -227,7 +229,7 @@ Your release, and the form on GitHub that makes it, may look a little different 
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An **Issue** is a note on GitHub that names a piece of work. A **pull request** (PR) proposes the commits that do that work. GitHub Docs puts it plainly: "Pull requests are proposals to merge code changes into a project" (*Pull requests*).
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The flow is: open an Issue (say, #1 "Add a Links page"); make a branch with `git switch -c add-links-page`; commit a new `links.html` on it; push the branch; open a pull request from the branch into `main`. In the PR description, write **`Closes #1`**. When the PR is merged, GitHub closes Issue #1 for you. The keywords that work are close, closes, closed, fix, fixes, fixed, resolve, resolves and resolved, and GitHub only reads them "when the pull request targets the repository's *default* branch" (*Linking a pull request to an issue*). For you, that is `main`.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The flow is: open an Issue (say, #1 "Add a Links page"); make a branch with `git switch -c add-links-page`; commit a new `links.html` on it; push the branch; open a pull request from the branch into `main`. The pull request gets the number #2, because Issues and pull requests in one repository share one list of numbers ("Pull requests are a type of issue," *REST API endpoints for pull requests*). In the PR description, write **`Closes #1`**. When the PR is merged, GitHub closes Issue #1 for you. The keywords that work are close, closes, closed, fix, fixes, fixed, resolve, resolves and resolved, and GitHub only reads them "when the pull request targets the repository's *default* branch" (*Linking a pull request to an issue*). For you, that is `main`.
 
 Pushing a brand-new branch takes a little more than your usual `git push`:
 
@@ -237,7 +239,7 @@ git push -u origin add-links-page
 
 `origin` is the name your GitHub copy got in Module 1 (the `--remote=origin` part of `gh repo create`). `-u` links your branch to a branch of the same name on GitHub; the manual says it adds an "upstream (tracking) reference" (*git-push*). After that, a plain `git push` on this branch works. If you forget `-u`, a plain `git push` stops with "The current branch add-links-page has no upstream branch" and prints the command to use (`--set-upstream` is the long form of `-u`).
 
-Working alone, you can still review your own work. In the PR, open **Files changed**, hover a line number, and click the blue comment icon. Type a note, then choose **Comment** for one note or **Start a review** for several (*Commenting on a pull request*). Reading your own diff on GitHub, slowly, catches mistakes you skipped past in the terminal.
+Working alone, you can still review your own work. In the PR, open **Files changed**, hover a line number, and click the blue comment icon. Type a note, then choose **Comment** for one note or **Start a review** for several (*Commenting on a pull request*). If you start a review, finish it: click **Submit review** (some screens call this first button **Review changes**), write a short summary, and click **Submit review** again. Until then, your notes are "pending and only visible to you" (*Reviewing proposed changes in a pull request*). Reading your own diff on GitHub, slowly, catches mistakes you skipped past in the terminal.
 
 When you merge the pull request on GitHub, the merge exists only on GitHub, not on your computer yet. To bring it home, run:
 
@@ -261,7 +263,7 @@ git log --oneline
 
 ### 13. What is GitHub Desktop?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> GitHub Desktop is "a free, open source application that helps you to work with files hosted on GitHub" (*About GitHub Desktop*). It runs on Windows and macOS.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> GitHub Desktop is "a free, open source application that helps you to work with files hosted on GitHub or other Git hosting services" (*About GitHub Desktop*). It runs on Windows and macOS.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It shows the same ideas you now know: a Changes list (status and diff), a History list (log), a commit box, and buttons to talk to GitHub. In this course it is **awareness only**. You do not need to install it. If a future job uses it, you will recognize every part.
 
@@ -292,7 +294,7 @@ Which folders trigger this message depends on your drives and accounts, so you m
 *Your hands, about 45 minutes (estimate).* Type every command. Do not paste. This is a throwaway folder: you will not push it.
 
 1. **Make the practice folder.** In File Explorer, create `practice-12` inside your `code559` folder (beside `my-site`, not inside it). Open it in VS Code with **File → Open Folder…**, then **Terminal → New Terminal**. Check that the prompt ends in `practice-12>`.
-2. **Start a repository.** Type `git init`. Create a file `notes.txt` with one line, `Favorite color: blue` (use your own color). Press **Enter** at the end of the line, so the cursor sits on an empty line 2. Save it. Then:
+2. **Start a repository.** Type `git init`. Create a file `notes.txt` with one line, `Favorite color: blue`. Press **Enter** at the end of the line, so the cursor sits on an empty line 2. Save it. Then:
 
    ```
    git status --short
@@ -330,7 +332,7 @@ Which folders trigger this message depends on your drives and accounts, so you m
    ![A terminal: git merge change-color prints CONFLICT (content): Merge conflict in notes.txt; git status --short shows UU notes.txt; the file contains HEAD and change-color sections separated by equals signs, with the hobby line untouched below.](images/m12-conflict.png)
    *Git merged what it could (the hobby line) and stopped at the line both branches changed. `UU` means "both changed it." Between `<<<<<<< HEAD` and `=======` is your side (`main`); below it, the branch. (real output, rendered; captured on Linux with Git 2.43.0. On Windows, `cat` in PowerShell shows the same file lines.)*
 
-7. **Fix it.** Open `notes.txt` in VS Code. Delete the three marker lines (`<<<<<<<`, `=======`, `>>>>>>>`) and the color you do not want, so one `Favorite color` line is left. Save. Then:
+7. **Fix it.** Open `notes.txt` in VS Code. Delete the three marker lines (`<<<<<<<`, `=======`, `>>>>>>>`) and the color you do not want, so one `Favorite color` line is left. VS Code can do this for you with the links it shows above the conflict: **Accept Current Change** keeps your side on `main` (the line `Favorite color: orange`) and **Accept Incoming Change** keeps the branch's side (the line `Favorite color: green`) (*Resolve merge conflicts in VS Code*). Save. Then:
 
    ```
    git add notes.txt
@@ -343,7 +345,7 @@ Which folders trigger this message depends on your drives and accounts, so you m
    *This time the log shows a real merge commit with two parents: the graph splits and joins. Compare it with the straight line after the fast-forward in step 5. (real output, rendered; captured on Linux with Git 2.43.0)*
 
 8. **Tag it.** `git tag v0.1`, then `git log --oneline -1`. The newest commit should show `tag: v0.1`.
-9. **Modify.** Make one more branch of your own, change one line, and merge it. Before you merge, say whether it will be a fast-forward, and why.
+9. **Modify.** Make one more branch of your own, change one line, save, and commit it on the branch (`git add notes.txt`, then `git commit -m "…"`). Then `git switch main` and merge your branch. Before you merge, say whether it will be a fast-forward, and why. If you also committed something on `main`, the merge makes a merge commit, and Git opens an editor in the terminal for its message. Git for Windows uses Vim unless you chose another editor. To keep Git's message, press **Esc**, type `:wq` and press **Enter**.
 
 ## Project (in the full packet)
 
@@ -401,9 +403,6 @@ If you did this module's packet project in `my-site`:
   - *Review pull requests* (`skills/review-pull-requests`)
   - *Resolve Merge Conflicts* (`skills/resolve-merge-conflicts`)
   - *Create a release based workflow* (`skills/release-based-workflow`)
-- [W3Schools Git Tutorial](AFFILIATE_W3SCHOOLS_GIT)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -413,4 +412,4 @@ Keep your `practice-12` folder until you finish the Project; its `git log --onel
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: git-scm.com "git-switch", "git-merge", "gitignore", "git-restore", "git-checkout"; GitHub Docs "Pull requests" (the page at the about-pull-requests address), "Linking a pull request to an issue", "Commenting on a pull request", "About issues", "About releases", "About GitHub Desktop"; VS Code Docs "Quickstart: use source control in VS Code" and "Source control in VS Code"; GitHub repositories skills/communicate-using-markdown, skills/review-pull-requests, skills/resolve-merge-conflicts, skills/release-based-workflow. Checked 2026-10-11: git-scm.com "git-restore" (default source), "git-push" (`--set-upstream`), "git-log" (`--decorate`, default `auto`); Git documentation `core.pager` (Git sets `LESS` to `FRX`); Git source code, setup.c and compat/mingw.c (the dubious-ownership message, and the owner lines Git for Windows adds); GitHub Docs "Managing releases in a repository" and "Configuring commit merging for pull requests"; Git 2.48.0 release notes (`git fetch` creates a missing `origin/HEAD`).*
+*Sources checked 2026-10-09: git-scm.com "git-switch", "git-merge", "gitignore", "git-restore", "git-checkout"; GitHub Docs "Pull requests" (the page at the about-pull-requests address), "Linking a pull request to an issue", "Commenting on a pull request", "About issues", "About releases", "About GitHub Desktop"; VS Code Docs "Quickstart: use source control in VS Code" and "Source control in VS Code"; GitHub repositories skills/communicate-using-markdown, skills/review-pull-requests, skills/resolve-merge-conflicts, skills/release-based-workflow. Checked 2026-10-11: git-scm.com "git-restore" (default source), "git-push" (`--set-upstream`), "git-log" (`--decorate`, default `auto`); Git documentation `core.pager` (Git sets `LESS` to `FRX`); Git source code, setup.c and compat/mingw.c (the dubious-ownership message, and the owner lines Git for Windows adds); GitHub Docs "Managing releases in a repository" and "Configuring commit merging for pull requests"; Git 2.48.0 release notes (`git fetch` creates a missing `origin/HEAD`); git-scm.com "gitignore" (NOTES: `git rm --cached`), "git-rm" (`-r`, `--cached`), "git-branch" (`-D`, `--force`); Git source code, builtin/branch.c (the not-fully-merged message); GitHub Docs "About GitHub Desktop" (full sentence), "Commenting on a pull request" and "Reviewing proposed changes in a pull request" (Submit review, pending comments), "REST API endpoints for pull requests" ("Pull requests are a type of issue"); VS Code Docs "Resolve merge conflicts in VS Code" (Accept Current Change, Accept Incoming Change; current and incoming in a merge); Git for Windows installer source (git-for-windows/build-extra on GitHub, `installer/install.iss`: Vim is the default editor).*

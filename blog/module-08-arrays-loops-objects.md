@@ -10,6 +10,8 @@ estimated_time: "about 2.5 hours (estimate)"
 
 *Keep many values in one place, visit each one in turn, and give each item named facts.*
 
+**Time:** about 2.5 hours (estimate)
+
 **In this module you will learn:**
 
 - What an array is, and why its indexes start at 0
@@ -94,7 +96,7 @@ pages
 
 ### 4. How does a `for` loop visit every item?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A loop runs the same block of code again and again. The traditional `for` loop counts, so it is a natural fit for indexes.
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A loop runs the same block of code again and again. Each run is called a **lap**, like one lap around a running track. The traditional `for` loop counts, so it is a natural fit for indexes.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The line `for (let i = 0; i < pages.length; i++)` has three parts between the parentheses, separated by semicolons. **Start**: `let i = 0` runs once. **Check**: `i < pages.length` runs before every lap; while it is `true`, the body runs; when it is `false`, the loop stops. **Step**: `i++` runs after every lap. `++` means "add 1 to this variable." It is short for `i = i + 1`. Inside the body, `pages[i]` is the item for this lap.
 
@@ -126,16 +128,6 @@ count
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The pattern is: make a counter before the loop, check each item inside the loop, and add to the counter when the check is true. After the loop, the counter holds the answer. You used `if` in Module 6; nothing about it changes inside a loop.
 
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> In the image under Concept 6, an array of practice minutes is checked day by day, and every `0` adds one to `restDays`. The answer is `2`.
-
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Change the check to `minutes[i] >= 30` and the name to `longDays`. Predict the answer before you run it. (It is 2: the 30 and the 45.)
-
-### 6. When should you use `for...of` instead?
-
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> MDN describes `for...of` as a loop that "operates on a sequence of values sourced from an iterable object." For arrays, that means: one lap per item, and the item itself in a variable.
-
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `for (const amount of minutes)` gives you each value directly, with no `i` and no square brackets. Use it when you only need the items. Use the counting `for` loop when you also need the position, for example to print `1:`, `2:`, `3:` beside each one.
-
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 Typed into the Console for the picture below, in this order. (In the picture, `let restDays = 0;` and the loop were typed as one entry. If you type them one at a time, you see one extra `undefined` after the first line.)
@@ -149,13 +141,31 @@ for (let i = 0; i < minutes.length; i++) {
   }
 }
 restDays
+```
+
+![The Console: minutes is [30, 0, 45, 20, 0]; a for loop with an if inside counts the zeros and shows 1 right after it; then restDays shows 2.](images/m08-loop-if.png)
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *An array of practice minutes is checked day by day, and every `0` adds one to `restDays`. The answer is `2`. The `1` right after the loop is not the answer: after any loop, the Console also shows a value left over from the last lap, often `undefined`. To see the answer, ask for the variable, as on the next line. (real output, rendered)*
+
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Change the check to `minutes[i] >= 30` and the name to `longDays`. Predict the answer before you run it. (It is 2: the 30 and the 45.)
+
+### 6. When should you use `for...of` instead?
+
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `for...of` is a second kind of loop. On an array, it runs one lap per item, in order, and puts the item itself in a variable for you.
+
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `for (const amount of minutes)` gives you each value directly, with no `i` and no square brackets. Use it when you only need the items. Use the counting `for` loop when you also need the position, for example to print `1:`, `2:`, `3:` beside each one.
+
+<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+Typed into the Console for the picture below, in this order, right after the Concept 5 lines (so `minutes` already exists):
+
+```js
 for (const amount of minutes) {
   console.log(amount + " min");
 }
 ```
 
-![The Console: a for loop counting zeros in [30, 0, 45, 20, 0] gives restDays 2, then a for...of loop prints 30 min, 0 min, 45 min, 20 min, 0 min.](images/m08-loop-if-forof.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Top: a condition inside a counting loop. The `1` right after that loop is the Console showing the value of the last line that ran inside it; ask for `restDays` to get the answer. Bottom: `for...of` visits the same five values with less to type. (real output, rendered)*
+![The Console: a for...of loop over minutes prints 30 min, 0 min, 45 min, 20 min and 0 min, then undefined.](images/m08-loop-if-forof.png)
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`for...of` visits the same five values as the counting loop in Concept 5, with less to type. The `undefined` at the end is the value left over from the last lap, as in Concept 5. (real output, rendered)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Rewrite the rest-day counter with `for...of`. You need `if (amount === 0)` inside.
 
@@ -181,7 +191,7 @@ interests.join()
 ![The Console: interests.includes("music") is true, includes("Music") is false, "front-end developer".includes("end") is true, interests.join(", ") is 'drawing, cycling, music', and interests.join() is 'drawing,cycling,music'.](images/m08-includes-join.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Capital letters matter to `.includes()`. And notice the difference between `join(", ")` and `join()`: the space after the comma only appears when you ask for it. (real output, rendered)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Join your own interests with `" · "` and with `" and "`. Which reads better as a sentence?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Join your own interests with `" / "` and with `" and "`. Which reads better as a sentence?
 
 ### 8. What is the difference between a property and a method?
 
@@ -214,7 +224,7 @@ tags.length()
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An object is a named bundle of properties. Where an array is a list in order, an object is a set of labeled facts about one thing.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You write an object with curly braces. Each property is a name, a colon and a value, separated by commas: `{ title: "Rating card", year: 2026, live: true }`. You read a property with a dot: `project.title`. A value can be anything, including an array, so `project.tags.length` reads the length of the array stored in `tags`. Asking for a property that does not exist gives `undefined`, just like reading past the end of an array.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You write an object with curly braces. Each property is a name, a colon and a value, separated by commas: `{ title: "Rating card", year: 2026, live: true, tags: ["html", "css"] }`. You read a property with a dot: `project.title`. A value can be anything, including an array, so `project.tags.length` reads the length of the array stored in `tags`. Asking for a property that does not exist gives `undefined`, just like reading past the end of an array.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -255,6 +265,8 @@ for (const p of projects) {
 
 ### 11. How do `&&`, `||` and `!` combine true and false?
 
+A change of topic for the last concept: it is not about arrays, but the Exercise needs it to check two facts about each place at once.
+
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Logical operators join two checks into one, or flip one.
 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `&&` (AND) is `true` only when **both** sides are `true`. `||` (OR) is `true` when **at least one** side is `true`. `!` (NOT) flips `true` to `false` and `false` to `true`. You will use them in `if` statements, such as "the project is live AND it is from this year." MDN adds one detail: with values that are not `true` or `false`, these operators hand back one of the values themselves (for example, `"Home" && "About"` gives `'About'`). In this course you will use them with `true` and `false`.
@@ -283,7 +295,7 @@ live || year === 2026
 
 *Your hands, about 50 minutes (estimate).* Type it, do not paste it. Work in `practice-08`. Use your own interests and places instead of the examples if you like; the shape is what matters.
 
-1. **Create `practice.js`** and type an array of three interests. Below it, log its `.length` and its last item using `length - 1`.
+1. **Create `practice.js`** and type an array of three interests named `interests`, for example `const interests = ["drawing", "cycling", "music"];`. Below it, log its `.length` and its last item using `length - 1`.
 2. **Push one more** interest with `.push()`.
 3. **Loop with indexes.** Write a `for` loop that logs each item with its index in front, like `0: drawing`.
 4. **Check and join.** Log `interests.includes(…)` for one item you have and one you do not. Then log `interests.join(" | ")`.
@@ -351,9 +363,6 @@ An array keeps a list of values in order, and its first index is 0. `.length` is
 - MDN: *Logical AND (&&)*, and the matching *Logical OR (||)* and *Logical NOT (!)* pages
 - MDN Glossary: *Method*; and *String.prototype.trim()*
 - freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
-- [W3Schools JavaScript Arrays](AFFILIATE_W3SCHOOLS_ARRAYS)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -363,4 +372,4 @@ Keep `practice.js` and your array of objects for your own projects or milestones
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Array.prototype.push()"; MDN "Array.prototype.includes()"; MDN "Array.prototype.join()"; MDN "for...of"; MDN "Logical AND (&&)"; MDN Glossary "Method"; MDN "String.prototype.trim()"; Chromium (via Playwright) for every Console result; Node 22.22.0 for every terminal result.*
+*Sources checked 2026-10-09: MDN "Array.prototype.push()"; MDN "Array.prototype.includes()"; MDN "Array.prototype.join()"; MDN "for...of"; MDN "Logical AND (&&)"; MDN Glossary "Method"; MDN "String.prototype.trim()"; Chromium (via Playwright) for every Console result; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "for...of" (plain-words summary); Chromium 141 for the split Concept 5 and 6 pictures (one Console session), the value shown after each loop, `project.tags.length` and `join(" / ")`.*

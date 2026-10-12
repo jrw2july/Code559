@@ -10,6 +10,8 @@ estimated_time: "about 2.5–3 hours (estimate)"
 
 *Write your first pages by hand, link them together, and put them on the web.*
 
+**Time:** about 2.5–3 hours (estimate)
+
 **In this module you will learn:**
 
 - How the web works: client, server, request and response
@@ -36,7 +38,7 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 
 1. Finish Module 0. You need VS Code (AI features off), Edge or Chrome, Git, the GitHub CLI signed in (`gh auth status`), and a `my-site` folder inside your course folder.
 2. Make a second folder next to `my-site` called `practice-01`. This is your practice folder for the Exercise. Nothing in it is published directly; in step 11 you copy your finished page into `my-site`.
-3. Find one picture you are happy to put on a public website (a photo you took, or a drawing). Copy it into `practice-01` and rename it `image-one.jpg`, all lowercase. If yours is a `.png`, keep the `.png` ending and use that name everywhere this post says `image-one.jpg`. Windows treats `image-one.JPG` and `image-one.jpg` as the same file, but a web server may not, so the picture can work on your computer and be missing online. Use lowercase names and match them exactly.
+3. Find one picture you are happy to put on a public website (a photo you took, or a drawing). A photo taken with a phone can also store the place where it was taken, and anyone who downloads it from your site may be able to read that place (Apple Support, *Manage location metadata in Photos*). So do not use a photo taken at your home. Copy your picture into `practice-01` and rename it `image-one.jpg`, all lowercase. If yours is a `.png`, keep the `.png` ending and use that name everywhere this post says `image-one.jpg`. Windows treats `image-one.JPG` and `image-one.jpg` as the same file, but a web server may not, so the picture can work on your computer and be missing online. Use lowercase names and match them exactly.
 
 > **Checkpoint.** You have `my-site` and `practice-01` side by side, there is an image file in `practice-01`, and `gh auth status` says you are logged in.
 
@@ -72,7 +74,7 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An HTML page is a text file whose name ends in `.html`. The home page of a site is called `index.html` by convention.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In VS Code, use **File → Open Folder…** and choose the folder you want to work in. The Explorer panel on the left lists its files. Use the **New File** button at the top of the Explorer, type the full name including `.html`, and press Enter. When a tab shows a dot instead of an ✕, the file has unsaved changes. Press **Ctrl+S** to save. To see the page, open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. From then on you work in a loop: **edit → save → refresh**. If the browser does not show your change, the most common reason is that you did not save.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> In VS Code, use **File → Open Folder…** and choose the folder you want to work in. The Explorer panel on the left lists its files. Use the **New File** button at the top of the Explorer, type the full name including `.html`, and press Enter. When a tab shows a dot instead of an ✕, the file has unsaved changes. Press **Ctrl+S** to save. To see the page, open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. From then on you work in a loop: **edit → save → refresh**. If the browser does not show your change, the most common reason is that you did not save. The next thing to check is that the browser shows the file you are editing: its address bar should end with that folder and file name, for example `practice-01/index.html`.
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The first page in the next concept was opened from disk, which is why its address starts with `file:///`.
 
@@ -235,7 +237,7 @@ Your Pages settings page may look slightly different from this drawing. The name
 2. Create a new file called `index.html`.
 3. **Predict.** Before you type the body, say what you expect to see: how many headings, how many bullets, one link, one picture.
 4. Type the skeleton from Concept 4. Change the `<title>` to `Practice Page`.
-5. Inside `<body>`, type an `<h1>`, a `<p>`, and three short parts. Each part is just an `<h2>` and its content, with no `<section>` yet: one `<h2>` with a `<ul>` of three `<li>` items, one with a `<p>` containing a link to `https://developer.mozilla.org/`, and one with your `<img>` and its `alt` text. Choose your own words.
+5. Inside `<body>`, type an `<h1>`, a `<p>`, and three short parts. Each part is just an `<h2>` and its content, with no `<section>` yet: one `<h2>` with a `<ul>` of three `<li>` items, one with a `<p>` containing a link to `https://developer.mozilla.org/`, and one with your `<img>`, its `alt` text and `width="320"`, as in Concept 7. Without a width, a phone photo shows at its full size, often thousands of pixels wide, and the page scrolls sideways. Choose your own words.
 6. **Run.** Save with Ctrl+S. Open `index.html` in Edge or Chrome. Compare with your prediction.
 
    ![The practice page with a large heading Things I Like, a paragraph, a bulleted list of three favorites, a part with a link to MDN Web Docs, and a part with a picture.](images/m01-exercise-page.png)
@@ -264,7 +266,7 @@ Your Pages settings page may look slightly different from this drawing. The name
     git log --oneline
     ```
 
-    `git log --oneline` should show one commit with your message, as in the picture under Concept 9. If `git commit` says "Please tell me who you are," you skipped part of Module 0: do its step 8, then run the `git commit` line again.
+    `git log --oneline` should show one commit with your message, as in the picture under Concept 9. If `git commit` says "Please tell me who you are," you skipped part of Module 0: do its step 8 (all three lines). Then type `git status`. If it says `On branch master`, type `git branch -m main`, so your branch has the name GitHub Pages looks for in step 15. Then run the `git commit` line again.
 14. **Create the repository and upload.** Type:
 
     ```
@@ -304,7 +306,7 @@ A browser (the client) requests files from a server and draws the HTML it gets b
 
 1. In `https://www.example.com/about.html#contact`, which part is never sent to the server, and what does the browser do with it?
 2. You changed your page, refreshed, and nothing changed. Name two things to check, in order.
-3. **What would you test** after adding a third page to a site with shared navigation, and how many clicks does it take?
+3. **What would you test** after adding a third page to the Practice Site from Concept 8, so that its nav has four links, and how many clicks does it take?
 
 ## Before next module
 
@@ -323,9 +325,6 @@ A browser (the client) requests files from a server and draws the HTML it gets b
 - GitHub Docs: *What is GitHub Pages?* and *Configuring a publishing source for your GitHub Pages site*
 - GitHub CLI manual: `gh repo create`
 - freeCodeCamp: the HTML section of the Responsive Web Design curriculum
-- [W3Schools HTML Tutorial](AFFILIATE_W3SCHOOLS_HTML)
-
-*Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
@@ -335,4 +334,4 @@ Keep your `practice-01` folder, the address of your live page, and a note of the
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "What is a URL?"; MDN "What's in the head? Web page metadata"; MDN "<meta name="viewport">"; MDN "Creating links"; GitHub Skills "Introduction to GitHub" (github.com/skills/introduction-to-github); GitHub Docs "What is GitHub Pages?"; GitHub Docs "Configuring a publishing source for your GitHub Pages site"; GitHub CLI manual "gh repo create". Checked 2026-10-11: GitHub Docs "Creating a GitHub Pages site"; GitHub Docs "Troubleshooting 404 errors for GitHub Pages sites"; GitHub CLI source code (cli/cli on GitHub: `pkg/cmd/repo/create/create.go` and `git/client.go`, for what `gh repo create --push` prints and does).*
+*Sources checked 2026-10-09: MDN "What is a URL?"; MDN "What's in the head? Web page metadata"; MDN "<meta name="viewport">"; MDN "Creating links"; GitHub Skills "Introduction to GitHub" (github.com/skills/introduction-to-github); GitHub Docs "What is GitHub Pages?"; GitHub Docs "Configuring a publishing source for your GitHub Pages site"; GitHub CLI manual "gh repo create". Checked 2026-10-11: GitHub Docs "Creating a GitHub Pages site"; GitHub Docs "Troubleshooting 404 errors for GitHub Pages sites"; GitHub CLI source code (cli/cli on GitHub: `pkg/cmd/repo/create/create.go` and `git/client.go`, for what `gh repo create --push` prints and does); Apple Support "Manage location metadata in Photos" (Personal Safety User Guide).*
