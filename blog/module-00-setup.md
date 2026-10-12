@@ -245,7 +245,7 @@ By the end you will have four tools installed and checked, a browser to see your
 
 ## Project (in the full packet)
 
-Your project is a **setup log**: each tool, its version number, and the command that proved it. The packet adds a troubleshooting guide for five problems that can stop you in Modules 0 and 1, a self-assessment, and answers to this lesson's questions. When an install breaks in a later module, you (or anyone helping you) can see at a glance what you have and what to try first. The full brief and the step-by-step build are in the Module 0 packet. [Get the packet →](PACKET_LINK_MODULE_0)
+Your project is a **setup log**: each tool, its version number, and the command that proved it. The packet adds a troubleshooting guide for five problems that can stop you in Modules 0 and 1, a self-assessment, and answers to this lesson's questions. When an install breaks in a later module, you (or anyone helping you) can see at a glance what you have and what to try first. The full brief and the step-by-step build are in the Module 0 packet. [Get the packet →](https://code559.gumroad.com/l/module-00-setup)
 
 ## Common misconception
 

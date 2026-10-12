@@ -41,7 +41,7 @@ Each module tells you how long it takes. Those times are estimates.
 
 ## Get the packets
 
-Each module's packet adds the full project, the finishing work in Git, a printable version of the lesson, and answers to its questions. [See the packets →](PACKET_LINK_INDEX)
+Each module's packet adds the full project, the finishing work in Git, a printable version of the lesson, and answers to its questions. The Module 0 packet is free. The others are $8.99 each, or $89 for all thirteen, about 24% less than buying them one at a time ($116.87). [See the packets →](https://code559.gumroad.com)
 
 ---
 

@@ -298,7 +298,7 @@ The requirement, for a "Goal counter" page:
 
 ## Project (in the full packet)
 
-The capstone is the full Pocket Planner, built from a **nine-row** written requirement with far less help than any module so far: a responsive hero image, a layout that changes at set widths, a feature grid built from an array of objects, and the planner's own behavior, all without `innerHTML`. Every row goes through the nine steps, gets a test row, and is committed, pushed and checked live in its own repository, with any tool-written line marked and explained. You finish with the **required final explanation**: a written walk-through of how your capstone works, which line you were least sure about, and what you would test next. The full brief, the step-by-step build, and the finishing work in Git are in the Module 13 packet. [Get the packet →](PACKET_LINK_MODULE_13)
+The capstone is the full Pocket Planner, built from a **nine-row** written requirement with far less help than any module so far: a responsive hero image, a layout that changes at set widths, a feature grid built from an array of objects, and the planner's own behavior, all without `innerHTML`. Every row goes through the nine steps, gets a test row, and is committed, pushed and checked live in its own repository, with any tool-written line marked and explained. You finish with the **required final explanation**: a written walk-through of how your capstone works, which line you were least sure about, and what you would test next. The full brief, the step-by-step build, and the finishing work in Git are in the Module 13 packet. [Get the packet →](https://code559.gumroad.com/l/module-13-capstone)
 
 ## Common misconception
 

@@ -295,7 +295,7 @@ The big label is what makes `align-items` visible. When every item is the same h
 
 ## Project (in the full packet)
 
-You will style your personal site: one shared `styles.css` linked from the Home and About pages, site-wide rules for color, type and spacing, a reusable class or two, and a Flexbox navigation bar that looks the same on every page. A visitor sees a consistent, readable site and can move between pages from a tidy nav bar, and the restyled site is live at your GitHub Pages address. The full brief, the step-by-step build, and the finishing work in Git are in the Module 2 packet. [Get the packet →](PACKET_LINK_MODULE_2)
+You will style your personal site: one shared `styles.css` linked from the Home and About pages, site-wide rules for color, type and spacing, a reusable class or two, and a Flexbox navigation bar that looks the same on every page. A visitor sees a consistent, readable site and can move between pages from a tidy nav bar, and the restyled site is live at your GitHub Pages address. The full brief, the step-by-step build, and the finishing work in Git are in the Module 2 packet. [Get the packet →](https://code559.gumroad.com/l/module-02-css-foundations)
 
 ## Common misconception
 

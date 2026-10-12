@@ -251,7 +251,7 @@ In the Console, the same mistake shows a shorter error. It starts with `Uncaught
 
 ## Project (in the full packet)
 
-The Project is a short **"about me in the Console"** script. When you run it with Node, it prints a tidy introduction in a few labeled lines: who you are, what you are learning, and one thing you want to build, with a blank line and a divider between sections so it reads like a small card in the terminal. You will plan it with comments first, predict its output before each run, and keep it as the first JavaScript file in your site's repository. The full brief, the step-by-step build, and the finishing work in Git are in the Module 5 packet. [Get the packet →](PACKET_LINK_MODULE_5)
+The Project is a short **"about me in the Console"** script. When you run it with Node, it prints a tidy introduction in a few labeled lines: who you are, what you are learning, and one thing you want to build, with a blank line and a divider between sections so it reads like a small card in the terminal. You will plan it with comments first, predict its output before each run, and keep it as the first JavaScript file in your site's repository. The full brief, the step-by-step build, and the finishing work in Git are in the Module 5 packet. [Get the packet →](https://code559.gumroad.com/l/module-05-javascript-primer)
 
 ## Common misconception
 

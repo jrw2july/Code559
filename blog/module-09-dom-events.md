@@ -430,7 +430,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
 
 Two projects use this module on your own site. The **interests gallery** shows one image at a time from an array, with Previous and Next buttons that wrap around from the last image to the first and back. And an **FAQ accordion about you**, where each question is a button that opens and closes its own answer with a plus or minus icon, works the same with a mouse and a keyboard.
 
-The full brief, the step-by-step build, and the finishing work in Git are in the Module 9 packet. [Get the packet →](PACKET_LINK_MODULE_9)
+The full brief, the step-by-step build, and the finishing work in Git are in the Module 9 packet. [Get the packet →](https://code559.gumroad.com/l/module-09-dom-events)
 
 ## Common misconception
 

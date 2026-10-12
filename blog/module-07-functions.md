@@ -338,7 +338,7 @@ pickColor("light") === null
 
 The project is a small, tested `helpers.js` for your personal site. You write four helper functions from one-sentence descriptions, each with its test calls written first and run in Node: one turns a page name into its file name, one builds the text for a page title, one decides whether a screen width counts as narrow, and one returns `null` when it is asked about a page your site does not have. In Module 9 you use the same patterns on a web page, where a click runs a function.
 
-The full brief, the step-by-step build, and the finishing work in Git are in the Module 7 packet. [Get the packet →](PACKET_LINK_MODULE_7)
+The full brief, the step-by-step build, and the finishing work in Git are in the Module 7 packet. [Get the packet →](https://code559.gumroad.com/l/module-07-functions)
 
 ## Common misconception
 

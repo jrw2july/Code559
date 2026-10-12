@@ -424,7 +424,7 @@ In the corrected version, all eight rows of the table pass in Chromium, includin
 
 ## Project (in the full packet)
 
-Your personal site now has several interactive features: navigation, forms with validation, show/hide panels, maybe a gallery. In the project you write an Action / Expected / Actual test plan for **every** interactive feature on the site, including the keyboard and the four edge cases, run it on the live site, record every Actual, and fix what fails, one change at a time. The finished test plan is saved in the repository so you can rerun it after every future change. The full brief, the step-by-step build, and the finishing work in Git are in the Module 11 packet. [Get the packet →](PACKET_LINK_MODULE_11)
+Your personal site now has several interactive features: navigation, forms with validation, show/hide panels, maybe a gallery. In the project you write an Action / Expected / Actual test plan for **every** interactive feature on the site, including the keyboard and the four edge cases, run it on the live site, record every Actual, and fix what fails, one change at a time. The finished test plan is saved in the repository so you can rerun it after every future change. The full brief, the step-by-step build, and the finishing work in Git are in the Module 11 packet. [Get the packet →](https://code559.gumroad.com/l/module-11-debugging-testing)
 
 ## Common misconception
 

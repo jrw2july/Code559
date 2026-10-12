@@ -269,7 +269,7 @@ console.log("Checked " + temp + " degrees");
 
 ## Project (in the full packet)
 
-The Project is a **"plan my day"** script. You set one number, the hour of the day from 0 to 23, and the script decides what to print: a different plan for the morning, the afternoon and the evening, plus a polite message when the hour makes no sense, like 25. You will choose your own time ranges, predict the output for the edge hours before you run them, and test every branch on purpose. The full brief, the step-by-step build, and the finishing work in Git are in the Module 6 packet. [Get the packet →](PACKET_LINK_MODULE_6)
+The Project is a **"plan my day"** script. You set one number, the hour of the day from 0 to 23, and the script decides what to print: a different plan for the morning, the afternoon and the evening, plus a polite message when the hour makes no sense, like 25. You will choose your own time ranges, predict the output for the edge hours before you run them, and test every branch on purpose. The full brief, the step-by-step build, and the finishing work in Git are in the Module 6 packet. [Get the packet →](https://code559.gumroad.com/l/module-06-language-foundations)
 
 ## Common misconception
 

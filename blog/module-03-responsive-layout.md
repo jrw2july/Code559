@@ -320,7 +320,7 @@ The browser also counts pixel density. A phone screen often has two or three dev
 
 ## Project (in the full packet)
 
-You add an **Interests** page to `my-site` and build it as a responsive card grid: one card per interest, each with a photo in a `<figure>`, a short caption and a sentence about why you like it. On a phone it is one easy column; on a laptop it spreads into a grid, with your favorite interest spanning two columns. Every photo comes in sizes the browser can choose from, and the page never jumps while the photos load. The full brief, the step-by-step build, and the finishing work in Git are in the Module 3 packet. [Get the packet →](PACKET_LINK_MODULE_3)
+You add an **Interests** page to `my-site` and build it as a responsive card grid: one card per interest, each with a photo in a `<figure>`, a short caption and a sentence about why you like it. On a phone it is one easy column; on a laptop it spreads into a grid, with your favorite interest spanning two columns. Every photo comes in sizes the browser can choose from, and the page never jumps while the photos load. The full brief, the step-by-step build, and the finishing work in Git are in the Module 3 packet. [Get the packet →](https://code559.gumroad.com/l/module-03-responsive-layout)
 
 ## Common misconception
 

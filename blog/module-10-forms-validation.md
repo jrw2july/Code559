@@ -493,7 +493,7 @@ Press **F5** afterwards to get the `required` attributes back.
 
 Two projects use this module on your own site. The **Contact page** is finished: your Module 4 form gets the full validation cycle from this module, with messages written in your own voice, focus on the first problem, a confirmation that names the visitor, the four form states styled to match your site, and a keyboard-only test you write down and run. It still sends nothing; it is ready for a real server when you have one. And the **rating card** from Module 4 gets its JavaScript: it reads the chosen rating, shows it in the thank-you message, and swaps the form for the thank-you section.
 
-The full brief, the step-by-step build, and the finishing work in Git are in the Module 10 packet. [Get the packet →](PACKET_LINK_MODULE_10)
+The full brief, the step-by-step build, and the finishing work in Git are in the Module 10 packet. [Get the packet →](https://code559.gumroad.com/l/module-10-forms-validation)
 
 ## Common misconception
 

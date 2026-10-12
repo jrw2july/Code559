@@ -44,7 +44,7 @@ Its own practice folder (`practice-NN`), numbered steps, "Type it, do not paste 
 
 ## Project (in the full packet)
 Teaser only: one paragraph describing the finished thing and what the visitor can do, plus the sentence:
-"The full brief, the step-by-step build, and the finishing work in Git are in the Module N packet. [Get the packet →](PACKET_LINK_MODULE_N)"
+"The full brief, the step-by-step build, and the finishing work in Git are in the Module N packet. [Get the packet →](https://code559.gumroad.com/l/module-NN-slug)" (the product address is the post's file name without `.md`; decided 2026-10-12)
 
 ## Common misconception
 > *"quoted wrong belief"*

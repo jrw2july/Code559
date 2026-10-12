@@ -318,7 +318,7 @@ You build a **rating card** from a written brief, as a new page in `my-site`: a 
 ![A finished rating card in two states. Left: Rate this lesson, five circles with 4 filled teal, and a dark Send rating button. Right: a check icon, You chose 4 out of 5, and Thanks for the feedback.](images/m04-rating-card.png)
 *The kind of card you will build. The thank-you state was shown here by removing `hidden` in the page by hand, because the card's JavaScript is Module 10. (real: rendered in Chromium at 390 px)*
 
-The full brief, the step-by-step build, and the finishing work in Git are in the Module 4 packet. [Get the packet →](PACKET_LINK_MODULE_4)
+The full brief, the step-by-step build, and the finishing work in Git are in the Module 4 packet. [Get the packet →](https://code559.gumroad.com/l/module-04-forms-accessibility)
 
 ## Common misconception
 
