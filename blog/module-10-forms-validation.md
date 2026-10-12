@@ -12,6 +12,66 @@ estimated_time: "about 2 to 2½ hours (estimate)"
 
 **Time:** about 2 to 2½ hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to catch a form before it sends, check what was typed, show accessible error messages, and confirm success. It's a kindness to your visitors: a clear message in the right place saves them from guessing. You'll also learn why these checks are about the visitor's experience, not security.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. How do you catch a form before it leaves?](#1-how-do-you-catch-a-form-before-it-leaves)
+  - [2. How do you read what the visitor typed, and why trim it?](#2-how-do-you-read-what-the-visitor-typed-and-why-trim-it)
+  - [3. What does the browser already check for you?](#3-what-does-the-browser-already-check-for-you)
+  - [4. When do you write your own checks?](#4-when-do-you-write-your-own-checks)
+  - [5. How do you show an error that everyone can perceive?](#5-how-do-you-show-an-error-that-everyone-can-perceive)
+  - [6. Where should the cursor go when something is wrong?](#6-where-should-the-cursor-go-when-something-is-wrong)
+  - [7. How do you confirm success and clear the form?](#7-how-do-you-confirm-success-and-clear-the-form)
+  - [8. How do you show what state the form is in?](#8-how-do-you-show-what-state-the-form-is-in)
+  - [9. Why is client-side validation not security?](#9-why-is-client-side-validation-not-security)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - How to handle a form with `addEventListener("submit", …)` and stop the page from reloading with `event.preventDefault()`

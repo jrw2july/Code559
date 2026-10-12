@@ -12,6 +12,64 @@ estimated_time: "about 60–90 minutes (estimate)"
 
 **Time:** about 60–90 minutes (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You set up file extensions, VS Code (with its AI features off), Git, the GitHub CLI and Node.js, and prove each one works with a single command. It's what keeps the rest of the course moving: every later module assumes these tools are ready, so no lesson ever stops for an install.
+
+**Tips for the learner**
+
+This module is mostly installing, so its prompts ask you to write things down. In later modules, some prompts will also ask you to explain code to yourself, out loud. Each habit does a different job.
+
+**Write it down to check yourself.** Here that means your answers in Concept 1, and what each version command prints. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. If a tool stops working in a later module, your notes show what was working before.
+
+**Recite to understand.** From the later modules on, when a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently, and it shows you right away which line you cannot explain yet.
+
+**Start one notebook for this course, today.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number. Your first entries come from this module: the four version numbers (Git, GitHub CLI, Node, npm) and the folder path of `my-site`.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is each tool for?](#1-what-is-each-tool-for)
+  - [2. Why show file extensions?](#2-why-show-file-extensions)
+  - [3. How will you see your pages?](#3-how-will-you-see-your-pages)
+  - [4. Why turn off AI features?](#4-why-turn-off-ai-features)
+  - [5. What does Git need to know about you?](#5-what-does-git-need-to-know-about-you)
+  - [6. Why sign in to GitHub from the terminal?](#6-why-sign-in-to-github-from-the-terminal)
+  - [7. Why install Node.js now?](#7-why-install-nodejs-now)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What each tool in a front-end developer's kit does, and why you need it
@@ -52,7 +110,7 @@ By the end you will have four tools installed and checked, a browser to see your
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Look at the toolkit picture above. Every box is something you will use in almost every module.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you install anything, say out loud which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you install anything, write down which tool you would use to (a) see your page, (b) save a snapshot, (c) publish. Check your answers against the paragraph above.
 
 ### 2. Why show file extensions?
 

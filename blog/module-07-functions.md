@@ -12,6 +12,66 @@ estimated_time: "about 2 hours (estimate)"
 
 **Time:** about 2 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to define, call, test and return values from functions, including how to write one from a one-sentence description. It's how working developers check their code: a function that hands back a value can be tested with made-up inputs before any web page exists.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is a function?](#1-what-is-a-function)
+  - [2. What is the difference between defining and calling?](#2-what-is-the-difference-between-defining-and-calling)
+  - [3. What is a parameter, and what is an argument?](#3-what-is-a-parameter-and-what-is-an-argument)
+  - [4. What does `return` do, and why is `console.log()` not the same?](#4-what-does-return-do-and-why-is-consolelog-not-the-same)
+  - [5. What is local scope?](#5-what-is-local-scope)
+  - [6. How do you test a function by itself?](#6-how-do-you-test-a-function-by-itself)
+  - [7. How do you write a function from a one-sentence description?](#7-how-do-you-write-a-function-from-a-one-sentence-description)
+  - [8. What is the difference between `showMessage` and `showMessage()`?](#8-what-is-the-difference-between-showmessage-and-showmessage)
+  - [9. How does a function say "there is no answer"?](#9-how-does-a-function-say-there-is-no-answer)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What a function is: a named, reusable set of instructions
@@ -54,7 +114,7 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 ![A function definition for toMinutes with labels on the keyword, the name, the parameter and the body, and below it a call toMinutes(2) labeled with the argument and the parentheses.](images/m07-anatomy.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Top: the definition. Bottom: a call. The parentheses after the name are what make it run.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Point at each part of `function toMinutes(hours) { return hours * 60; }` and say its name out loud: keyword, name, parameter, body.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Point at each part of `function toMinutes(hours) { return hours * 60; }` and name it to yourself, out loud: keyword, name, parameter, body.[^recite]
 
 ### 2. What is the difference between defining and calling?
 
@@ -318,4 +378,6 @@ Keep `helpers.js` with its predictions in comments, and your paper notes from th
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Functions" (JavaScript Guide); MDN "return"; Chromium (via Playwright) for every Console result and the addEventListener TypeError; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "String: length"; MDN "Functions" (section titles); MDN "EventTarget: addEventListener() method" (the listener may be `null`); Chromium 141 for `addEventListener("click", sayHi())` with a function that returns nothing (no error, one run at once, clicks do nothing) and for the Concept 9 Apply; Node 22.22.0 for the `countLetters` tests in Concept 6.*
+*Sources checked 2026-10-09: MDN "Functions" (JavaScript Guide); MDN "return"; Chromium (via Playwright) for every Console result and the addEventListener TypeError; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "String: length"; MDN "Functions" (section titles); MDN "EventTarget: addEventListener() method" (the listener may be `null`); Chromium 141 for `addEventListener("click", sayHi())` with a function that returns nothing (no error, one run at once, clicks do nothing) and for the Concept 9 Apply; Node 22.22.0 for the `countLetters` tests in Concept 6. Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

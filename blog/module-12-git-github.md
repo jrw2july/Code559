@@ -12,6 +12,71 @@ estimated_time: "about 2–3 hours (estimate)"
 
 **Time:** about 2–3 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn what your save routine actually does: staging, diffs, history, branches, merges, and Issues and pull requests connected with `Closes #1`. You also learn to tag a v1.0 release. It's what employers look for: a history of small, clear commits and merged pull requests shows you work the way a team does.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. Where does your work live in Git?](#1-where-does-your-work-live-in-git)
+  - [2. What is `git status` telling you?](#2-what-is-git-status-telling-you)
+  - [3. What do `git add` and `git commit` actually do?](#3-what-do-git-add-and-git-commit-actually-do)
+  - [4. How do you check your work before you commit?](#4-how-do-you-check-your-work-before-you-commit)
+  - [5. How do you read history, and what is a branch?](#5-how-do-you-read-history-and-what-is-a-branch)
+  - [6. How does a merge bring the branch back?](#6-how-does-a-merge-bring-the-branch-back)
+  - [7. What are `switch`, `restore` and `checkout`?](#7-what-are-switch-restore-and-checkout)
+  - [8. How do you keep files out of Git?](#8-how-do-you-keep-files-out-of-git)
+  - [9. What goes in a README?](#9-what-goes-in-a-readme)
+  - [10. How do you mark a finished version?](#10-how-do-you-mark-a-finished-version)
+  - [11. Can VS Code do all of this with buttons?](#11-can-vs-code-do-all-of-this-with-buttons)
+  - [12. How do Issues and pull requests work together?](#12-how-do-issues-and-pull-requests-work-together)
+  - [13. What is GitHub Desktop?](#13-what-is-github-desktop)
+  - [14. What does "dubious ownership" mean?](#14-what-does-dubious-ownership-mean)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - The Git mental model: working folder → staging area → commits → remote
@@ -61,7 +126,7 @@ A note on the pictures. Every terminal image in this post comes from a real run 
 ![Four boxes left to right: Working folder, Staging area, Commits, Remote (GitHub), joined by arrows labeled git add, git commit, git push, with a git pull arrow pointing back from Remote to Commits. Brackets underneath show what git diff and git diff --staged compare.](images/m12-mental-model.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Each arrow is one command. `git diff` compares the folder with staging; `git diff --staged` compares staging with the last commit.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say out loud which box a file is in right after you save it in VS Code. (Answer: only the working folder.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: which box is a file in right after you save it in VS Code? (Answer: only the working folder.)
 
 ### 2. What is `git status` telling you?
 
@@ -345,7 +410,7 @@ Which folders trigger this message depends on your drives and accounts, so you m
    *This time the log shows a real merge commit with two parents: the graph splits and joins. Compare it with the straight line after the fast-forward in step 5. (real output, rendered; captured on Linux with Git 2.43.0)*
 
 8. **Tag it.** `git tag v0.1`, then `git log --oneline -1`. The newest commit should show `tag: v0.1`.
-9. **Modify.** Make one more branch of your own, change one line, save, and commit it on the branch (`git add notes.txt`, then `git commit -m "…"`). Then `git switch main` and merge your branch. Before you merge, say whether it will be a fast-forward, and why. If you also committed something on `main`, the merge makes a merge commit, and Git opens an editor in the terminal for its message. Git for Windows uses Vim unless you chose another editor. To keep Git's message, press **Esc**, type `:wq` and press **Enter**.
+9. **Modify.** Make one more branch of your own, change one line, save, and commit it on the branch (`git add notes.txt`, then `git commit -m "…"`). Then `git switch main` and merge your branch. Before you merge, think this through: will it be a fast-forward, and why? If you also committed something on `main`, the merge makes a merge commit, and Git opens an editor in the terminal for its message. Git for Windows uses Vim unless you chose another editor. To keep Git's message, press **Esc**, type `:wq` and press **Enter**.
 
 ## Project (in the full packet)
 

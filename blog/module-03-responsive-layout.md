@@ -12,6 +12,65 @@ estimated_time: "about 2 hours (estimate)"
 
 **Time:** about 2 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn the box model, mobile-first media queries, CSS Grid and responsive images, and how to test a page at different widths. It's essential because more visitors will see your site on a phone than on a laptop, and one HTML file with one stylesheet can serve them all.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is the box model?](#1-what-is-the-box-model)
+  - [2. What does `box-sizing: border-box` change?](#2-what-does-box-sizing-border-box-change)
+  - [3. What does the viewport meta tag do?](#3-what-does-the-viewport-meta-tag-do)
+  - [4. How does a mobile-first media query work?](#4-how-does-a-mobile-first-media-query-work)
+  - [5. What makes navigation responsive?](#5-what-makes-navigation-responsive)
+  - [6. How does CSS Grid make a card layout?](#6-how-does-css-grid-make-a-card-layout)
+  - [7. How do responsive images work?](#7-how-do-responsive-images-work)
+  - [8. How do you test at different widths?](#8-how-do-you-test-at-different-widths)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - The box model: content, padding, border and margin

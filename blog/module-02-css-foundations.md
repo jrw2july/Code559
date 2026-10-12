@@ -12,6 +12,64 @@ estimated_time: "about 2.5 hours (estimate)"
 
 **Time:** about 2.5 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to link a stylesheet, write rules for color, type and spacing, predict which rule wins, and build a navigation bar with Flexbox. It saves you hours: when a rule "does nothing," the cause is almost always one of the three problems this module teaches on purpose.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. How does a page get its styles?](#1-how-does-a-page-get-its-styles)
+  - [2. What are the parts of a CSS rule?](#2-what-are-the-parts-of-a-css-rule)
+  - [3. Which properties give you color, type and spacing?](#3-which-properties-give-you-color-type-and-spacing)
+  - [4. What is the difference between an element selector and a class selector?](#4-what-is-the-difference-between-an-element-selector-and-a-class-selector)
+  - [5. When two rules disagree, which one wins?](#5-when-two-rules-disagree-which-one-wins)
+  - [6. What is the difference between block and inline boxes?](#6-what-is-the-difference-between-block-and-inline-boxes)
+  - [7. How does Flexbox lay out a navigation bar?](#7-how-does-flexbox-lay-out-a-navigation-bar)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - How to link an external stylesheet with `<link rel="stylesheet">`
@@ -61,7 +119,7 @@ By the end you will style a page with one shared stylesheet and build a navigati
 ![Two renders of the same page side by side. Left, without the link line: black serif text on white with blue underlined links. Right, with the link: a dark blue header with white text and links, a light background and sans-serif text.](images/m02-before-after-link.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The HTML is identical except for one `<link>` line. Each side was rendered at 560 px wide; the labels above them were added to the picture. (real: rendered in Chromium)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say which part of the `<link>` element you would check first if a page showed no styles at all. (The `href`.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Think this through: which part of the `<link>` element would you check first if a page showed no styles at all? (The `href`.)
 
 ### 2. What are the parts of a CSS rule?
 
@@ -213,7 +271,7 @@ The big label is what makes `align-items` visible. When every item is the same h
 1. Create a new file in `practice-02` called `styles.css`.
 2. In `index.html`, add `<link rel="stylesheet" href="styles.css">` as the last line inside `<head>`.
 3. Add a `<nav>` at the top of `<body>` with two same-page links to two of your `<h2>` headings (give each heading an `id`, as in Module 1). Add `class="highlight"` to one paragraph.
-4. **Predict.** Before you write any CSS, say what will change when you add a `body` rule with a background color.
+4. **Predict.** Before you write any CSS, think this through: what will change when you add a `body` rule with a background color?
 5. In `styles.css`, type a `body` rule (font, color, background, margin, padding), an `h1` rule and an `h2` rule with different colors, a `.highlight` rule, a `nav` rule with `display: flex`, `gap`, `padding` and a background color, and a `nav a` rule that makes the links white. Use your own colors.
 6. **Run.** Save both files and press **F5** in the browser.
 

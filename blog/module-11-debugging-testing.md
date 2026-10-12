@@ -12,6 +12,68 @@ estimated_time: "about 2 hours (estimate)"
 
 **Time:** about 2 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to read errors, track down bugs with the Console, test with the keyboard, and write Action / Expected / Actual test plans. It turns fixing into a method, not luck: guess-and-edit stops working once a page has real JavaScript, and a written test can be checked again after every change.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is a bug, exactly?](#1-what-is-a-bug-exactly)
+  - [2. How do you read a Console error?](#2-how-do-you-read-a-console-error)
+  - [3. What do the three common error types usually mean?](#3-what-do-the-three-common-error-types-usually-mean)
+  - [4. What does `null` mean, and why does a `TypeError` follow it?](#4-what-does-null-mean-and-why-does-a-typeerror-follow-it)
+  - [5. How do you debug a selector?](#5-how-do-you-debug-a-selector)
+  - [6. How do you see what a variable holds?](#6-how-do-you-see-what-a-variable-holds)
+  - [7. Why change one thing at a time?](#7-why-change-one-thing-at-a-time)
+  - [8. What is the browser debugger?](#8-what-is-the-browser-debugger)
+  - [9. How do you test with the keyboard?](#9-how-do-you-test-with-the-keyboard)
+  - [10. What is the Action / Expected / Actual test matrix?](#10-what-is-the-action--expected--actual-test-matrix)
+  - [11. What is an edge case?](#11-what-is-an-edge-case)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What a bug is in plain terms: a gap between what you expected and what happened
@@ -82,7 +144,7 @@ Read the red line from left to right. **The type** comes first (`TypeError`): wh
 ![A Console showing Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') with script.js:2 on the right.](images/m11-console-typeerror.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn.)* Your Console may look slightly different: if you do not see the `at …` lines, click the small arrow beside the red message to open them.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say the three parts of that error out loud: type, message, file and line.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Find the three parts of that error and write them down: type, message, file and line.
 
 ### 3. What do the three common error types usually mean?
 
@@ -147,7 +209,7 @@ then loading the page and clicking Next three times gives this:
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Look at the loop picture in concept 1 again: "Change one thing" comes before "Retest," every time.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For the rest of this module, say out loud which single thing you are changing before you save.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For the rest of this module, write down which single thing you are changing before you save.
 
 ### 8. What is the browser debugger?
 
@@ -339,7 +401,7 @@ then loading the page and clicking Next three times gives this:
    ![The tip card at 390 px with no tip text and the count "Tip 3 of 3".](images/m11-bughunt-undefined-390.png)
    *After three clicks on Next the tip disappears. Concept 6 shows the `console.log()` line that explains why. (real: rendered in Chromium at 390 px, after three real clicks on Next)*
 
-7. **Fix one bug at a time.** For each row that failed: say which line you think is wrong, change one thing, save, and run the **same row** again. Write the new Actual. Do not move on until the row passes.
+7. **Fix one bug at a time.** For each row that failed: write down which line you think is wrong, change one thing, save, and run the **same row** again. Write the new Actual. Do not move on until the row passes.
 8. **Break it on purpose.** Once Next wraps correctly, change `>=` (or whatever you used) back to `>`. Predict what row 4 will show now. Run row 4. Then fix it again and rerun row 4. Breaking a fixed bug and watching the test catch it is how you learn to trust the test.
 9. **Check the help button.** Click "Show help" with the mouse. Does the help paragraph appear? If not, compare the class name in `script.js` with the class names in `styles.css`. Fix it, save, press F5, and click again. Do this step before step 10: until the class name is fixed, the help text cannot appear, by mouse or by keyboard.
 10. **Test the keyboard.** Put the mouse away. Press Tab from the top of the page. With the HTML as you typed it, focus goes Previous → Next → the text box → Add tip, and then leaves the page; "Show help" is never reached (checked in Chromium with real Tab presses). Fix it so Tab reaches "Show help" and Enter opens the help text. Hint: concept 9.

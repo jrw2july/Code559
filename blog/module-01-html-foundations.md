@@ -12,6 +12,66 @@ estimated_time: "about 2.5–3 hours (estimate)"
 
 **Time:** about 2.5–3 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn how the web delivers a page, how to write HTML by hand, how to link pages together, and how to publish your first page on GitHub Pages. This is foundational: every website, framework and page builder ends up as an HTML file a browser reads. You also finish the first week with something live on the web.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What happens when you visit a web page?](#1-what-happens-when-you-visit-a-web-page)
+  - [2. What are the parts of a URL?](#2-what-are-the-parts-of-a-url)
+  - [3. How do you create, save and see a file in VS Code?](#3-how-do-you-create-save-and-see-a-file-in-vs-code)
+  - [4. What does every HTML document need?](#4-what-does-every-html-document-need)
+  - [5. How do headings, paragraphs and lists work?](#5-how-do-headings-paragraphs-and-lists-work)
+  - [6. How does a link work?](#6-how-does-a-link-work)
+  - [7. How does an image work, and what is `alt` for?](#7-how-does-an-image-work-and-what-is-alt-for)
+  - [8. What are semantic elements, and how do pages share navigation?](#8-what-are-semantic-elements-and-how-do-pages-share-navigation)
+  - [9. How do you publish your first page?](#9-how-do-you-publish-your-first-page)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - How the web works: client, server, request and response
@@ -55,7 +115,7 @@ You will not style anything yet. Plain black-and-white pages are the point: stru
 ![A client box (your browser) sends a request for /about.html to a server box that holds index.html, about.html, styles.css and image-one.jpg; the server sends the file's contents back.](images/m01-request-response.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Two messages: the request goes out, the response comes back. Everything else in this course happens inside one of these two boxes.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any website and click one link. Say out loud which part was the request and which part was the response.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any website and click one link. Write down which part was the request and which part was the response.
 
 ### 2. What are the parts of a URL?
 
@@ -227,7 +287,7 @@ Finally, turn on Pages. GitHub Docs (*Configuring a publishing source for your G
 
 Your Pages settings page may look slightly different from this drawing. The names **Settings**, **Pages**, **Deploy from a branch**, **main**, **/ (root)** and **Save** are what matter.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you run anything, say what each of the four commands above does in five words or fewer.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you run anything, write down what each of the four commands above does in five words or fewer.
 
 ## Exercise
 
@@ -235,7 +295,7 @@ Your Pages settings page may look slightly different from this drawing. The name
 
 1. In VS Code, **File → Open Folder…** and choose `practice-01`. Check the Explorer shows your `image-one.jpg`.
 2. Create a new file called `index.html`.
-3. **Predict.** Before you type the body, say what you expect to see: how many headings, how many bullets, one link, one picture.
+3. **Predict.** Before you type the body, sketch on paper what you expect to see: how many headings, how many bullets, one link, one picture.
 4. Type the skeleton from Concept 4. Change the `<title>` to `Practice Page`.
 5. Inside `<body>`, type an `<h1>`, a `<p>`, and three short parts. Each part is just an `<h2>` and its content, with no `<section>` yet: one `<h2>` with a `<ul>` of three `<li>` items, one with a `<p>` containing a link to `https://developer.mozilla.org/`, and one with your `<img>`, its `alt` text and `width="320"`, as in Concept 7. Without a width, a phone photo shows at its full size, often thousands of pixels wide, and the page scrolls sideways. Choose your own words.
 6. **Run.** Save with Ctrl+S. Open `index.html` in Edge or Chrome. Compare with your prediction.

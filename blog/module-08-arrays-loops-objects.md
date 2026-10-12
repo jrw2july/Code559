@@ -12,6 +12,68 @@ estimated_time: "about 2.5 hours (estimate)"
 
 **Time:** about 2.5 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to keep lists in arrays, visit every item with a loop, and give each item named facts with objects. It's the toolkit for any page built from data: twenty projects or milestones don't fit in twenty separate variables.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is an array, and why does counting start at 0?](#1-what-is-an-array-and-why-does-counting-start-at-0)
+  - [2. What does `.length` tell you, and where is the last item?](#2-what-does-length-tell-you-and-where-is-the-last-item)
+  - [3. How do you add an item with `.push()`?](#3-how-do-you-add-an-item-with-push)
+  - [4. How does a `for` loop visit every item?](#4-how-does-a-for-loop-visit-every-item)
+  - [5. How do you use a condition inside a loop?](#5-how-do-you-use-a-condition-inside-a-loop)
+  - [6. When should you use `for...of` instead?](#6-when-should-you-use-forof-instead)
+  - [7. How do `.includes()` and `.join()` help?](#7-how-do-includes-and-join-help)
+  - [8. What is the difference between a property and a method?](#8-what-is-the-difference-between-a-property-and-a-method)
+  - [9. What is an object?](#9-what-is-an-object)
+  - [10. When does an array of objects beat parallel arrays?](#10-when-does-an-array-of-objects-beat-parallel-arrays)
+  - [11. How do `&&`, `||` and `!` combine true and false?](#11-how-do---and--combine-true-and-false)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What an array is, and why its indexes start at 0
@@ -56,7 +118,7 @@ You stay in the Console and Node one more time. In Module 9 you use the same pat
 ![Four boxes labeled Home, About, Interests and Projects, with index 0 to 3 under them, and a dashed empty box at index 4 labeled nothing here.](images/m08-indexes.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Four items, indexes 0 to 3. There is no index 4.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you type anything, say what `pages[2]` holds.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Before you type anything, think this through: what does `pages[2]` hold?
 
 ### 2. What does `.length` tell you, and where is the last item?
 
@@ -218,7 +280,7 @@ tags.length()
 ![The Console: tags.length is 2, tags.push("js") returns 3, tags.length is now 3, tags.length() throws TypeError: tags.length is not a function, "  hello  ".length is 9, .trim() gives 'hello', .trim().length is 5, and "hello".trim with no parentheses shows ƒ trim() { [native code] }.](images/m08-props-methods.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Parentheses on a property are an error, because a number cannot be run. A method without parentheses gives you the function itself, the same thing you saw with `showMessage` in Module 7. (real output, rendered)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For each of these, say "property" or "method" before you type it: `pages.length`, `pages.push("Blog")`, `"Hi ".trim()`, `"Hi ".length`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For each of these, say "property" or "method" to yourself, out loud, before you type it:[^recite] `pages.length`, `pages.push("Blog")`, `"Hi ".trim()`, `"Hi ".length`.
 
 ### 9. What is an object?
 
@@ -315,7 +377,7 @@ live || year === 2026
    }
    ```
 
-   Read the `if` out loud before you run it: "not visited, and free."
+   Read the `if` to yourself, out loud, before you run it: "not visited, and free."
 6. **Run it.** Save, then type `node practice.js` in the terminal. Predict every line first. With the example data you should get 10 lines, ending in `Next free trip: River park`.
 7. **Break it on purpose.** In the `for` loop from step 3, change `i < interests.length` to `i <= interests.length`. Save and run.
 
@@ -372,4 +434,6 @@ Keep `practice.js` and your array of objects for your own projects or milestones
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Array.prototype.push()"; MDN "Array.prototype.includes()"; MDN "Array.prototype.join()"; MDN "for...of"; MDN "Logical AND (&&)"; MDN Glossary "Method"; MDN "String.prototype.trim()"; Chromium (via Playwright) for every Console result; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "for...of" (plain-words summary); Chromium 141 for the split Concept 5 and 6 pictures (one Console session), the value shown after each loop, `project.tags.length` and `join(" / ")`.*
+*Sources checked 2026-10-09: MDN "Array.prototype.push()"; MDN "Array.prototype.includes()"; MDN "Array.prototype.join()"; MDN "for...of"; MDN "Logical AND (&&)"; MDN Glossary "Method"; MDN "String.prototype.trim()"; Chromium (via Playwright) for every Console result; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "for...of" (plain-words summary); Chromium 141 for the split Concept 5 and 6 pictures (one Console session), the value shown after each loop, `project.tags.length` and `join(" / ")`. Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

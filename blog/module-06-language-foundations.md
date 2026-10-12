@@ -12,6 +12,64 @@ estimated_time: "about 90 minutes (estimate)"
 
 **Time:** about 90 minutes (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn values and types, `const` and `let`, operators, comparisons, and `if`/`else`. These are the moves behind every interactive feature: store a value, compare it, decide. They are also where most early bugs come from, so you cause each one on purpose to learn to recognize it.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What are values and types?](#1-what-are-values-and-types)
+  - [2. How do you store a value: const or let?](#2-how-do-you-store-a-value-const-or-let)
+  - [3. What is the difference between = and ===?](#3-what-is-the-difference-between--and-)
+  - [4. How does arithmetic work, and why is + different?](#4-how-does-arithmetic-work-and-why-is--different)
+  - [5. How do comparisons work, and why === instead of ==?](#5-how-do-comparisons-work-and-why--instead-of-)
+  - [6. What does a comparison produce?](#6-what-does-a-comparison-produce)
+  - [7. How does a program make a decision?](#7-how-does-a-program-make-a-decision)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What a value is, and the five basic types in this module: string, number, boolean, undefined and null
@@ -78,7 +136,7 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 ![The Console: let mood = "calm", mood === "busy" gives false, mood = "busy" gives "busy", mood === "busy" gives true.](images/m06-assign-compare.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The comparison does not change `mood`. Only the assignment on the third line does. (real output, rendered; evaluated in Chromium)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say each line of the image out loud using "becomes" for `=` and "is it…?" for `===`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Explain each line of the image to yourself, out loud, using "becomes" for `=` and "is it…?" for `===`.[^recite]
 
 ### 4. How does arithmetic work, and why is + different?
 
@@ -261,4 +319,6 @@ Keep your filled-in prediction table, with a sentence beside every line you got 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference". Checked 2026-10-11: MDN "Empty statement" (the semicolon after `if`); MDN "typeof" (the `typeof null` section); MDN "JavaScript data types and data structures"; VS Code Docs "Basic editing" (Indentation); ChromeDevTools/devtools-frontend on GitHub (`ConsoleViewMessage.ts` and `StringUtilities.ts`: Console results use single quotes).*
+*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference". Checked 2026-10-11: MDN "Empty statement" (the semicolon after `if`); MDN "typeof" (the `typeof null` section); MDN "JavaScript data types and data structures"; VS Code Docs "Basic editing" (Indentation); ChromeDevTools/devtools-frontend on GitHub (`ConsoleViewMessage.ts` and `StringUtilities.ts`: Console results use single quotes). Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

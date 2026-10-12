@@ -12,6 +12,68 @@ estimated_time: "about 2 to 2½ hours (estimate)"
 
 **Time:** about 2 to 2½ hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to find elements on a page, change them, and react to clicks and keys, organizing every script in the same three blocks. This is where everything you've learned becomes visible: the language from Modules 5–8 finally changes what a visitor sees.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What does each layer of a page do?](#1-what-does-each-layer-of-a-page-do)
+  - [2. How do you connect `script.js`, and when does it run?](#2-how-do-you-connect-scriptjs-and-when-does-it-run)
+  - [3. What does `querySelector()` give you, and why store it?](#3-what-does-queryselector-give-you-and-why-store-it)
+  - [4. What does `querySelectorAll()` give you, and how do you loop through it?](#4-what-does-queryselectorall-give-you-and-how-do-you-loop-through-it)
+  - [5. How do you change text, and why not `innerHTML`?](#5-how-do-you-change-text-and-why-not-innerhtml)
+  - [6. How does `addEventListener()` work, and why no parentheses?](#6-how-does-addeventlistener-work-and-why-no-parentheses)
+  - [7. How do you add, remove and toggle a class?](#7-how-do-you-add-remove-and-toggle-a-class)
+  - [8. How do you show and hide something?](#8-how-do-you-show-and-hide-something)
+  - [9. How do you build page items from an array of objects?](#9-how-do-you-build-page-items-from-an-array-of-objects)
+  - [10. How is every script in this course organized?](#10-how-is-every-script-in-this-course-organized)
+  - [11. Why does a real button work with the keyboard for free?](#11-why-does-a-real-button-work-with-the-keyboard-for-free)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - The three layers of a page: HTML is structure, CSS is appearance, JavaScript is behavior
@@ -86,7 +148,7 @@ Two notes from the same MDN page: `defer` only works on a script with a `src`, n
 ![Two real renders of the same page at 390 px. Left, script in head without defer: the Things I like box is empty. Right, with defer: three list items appear, two with a star.](images/m09-defer-compare.png)
 *Same files, one word different. Without `defer` the script stopped at the error, so the list was never built. With `defer` everything runs. Labels added above each render. (real: rendered in Chromium)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say in one sentence why `null` appears even though the button is in your HTML.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Explain to yourself, out loud, in one sentence, why `null` appears even though the button is in your HTML.[^recite]
 
 ### 3. What does `querySelector()` give you, and why store it?
 
@@ -414,4 +476,6 @@ Keep `practice-09` with its three-block `script.js`, and a note of the two break
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "&lt;script&gt;: The Script element"; MDN "Document: querySelector() method"; MDN "Document: querySelectorAll() method"; MDN "Node: textContent property"; MDN "EventTarget: addEventListener() method"; MDN "Element: classList property"; MDN "HTMLElement: hidden property"; MDN "hidden" (HTML global attribute); MDN "Element: append() method"; MDN "&lt;button&gt;: The Button element"; MDN "ARIA: button role". Checked 2026-10-11: MDN "NodeList" (live and static lists). Every page render, Console result and key-press result was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "&lt;script&gt;: The Script element"; MDN "Document: querySelector() method"; MDN "Document: querySelectorAll() method"; MDN "Node: textContent property"; MDN "EventTarget: addEventListener() method"; MDN "Element: classList property"; MDN "HTMLElement: hidden property"; MDN "hidden" (HTML global attribute); MDN "Element: append() method"; MDN "&lt;button&gt;: The Button element"; MDN "ARIA: button role". Checked 2026-10-11: MDN "NodeList" (live and static lists). Every page render, Console result and key-press result was captured in Chromium 141.0.7390.37 (via Playwright) on Linux. Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

@@ -12,6 +12,66 @@ estimated_time: "about 2 hours (estimate)"
 
 **Time:** about 2 hours (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to build forms with real controls, labels and radio groups, and to test them with the keyboard and style their states. It matters to every visitor: a missing label or name can leave a screen reader user guessing, or lose what a visitor typed. The browser already gives you most of the fix if you use the right elements.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What are the parts of a form?](#1-what-are-the-parts-of-a-form)
+  - [2. What does a form send, and why does `name` matter?](#2-what-does-a-form-send-and-why-does-name-matter)
+  - [3. What makes radio buttons a group?](#3-what-makes-radio-buttons-a-group)
+  - [4. What do `fieldset` and `legend` add?](#4-what-do-fieldset-and-legend-add)
+  - [5. What does the `hidden` attribute do?](#5-what-does-the-hidden-attribute-do)
+  - [6. How does a keyboard user move through a form?](#6-how-does-a-keyboard-user-move-through-a-form)
+  - [7. What are `:focus-visible`, `aria-current` and a skip link?](#7-what-are-focus-visible-aria-current-and-a-skip-link)
+  - [8. How do custom properties and state selectors style a control you cannot see?](#8-how-do-custom-properties-and-state-selectors-style-a-control-you-cannot-see)
+  - [9. How do you read a design brief?](#9-how-do-you-read-a-design-brief)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - The parts of a form: `form`, `label` with `for`, `input` types, `textarea`, `button` and `required`
@@ -101,7 +161,7 @@ Second, `required` checked in the Console with nothing selected:
 ![A Console session: checkValidity is false, the third radio has no required attribute but its valueMissing is true, the message is Please select one of these options, and after clicking the third radio checkValidity is true.](images/m04-required-console.png)
 *Only the first radio has `required`, yet the third radio also reports `valueMissing: true`. Checking any one radio makes the whole form valid. Pressing Send with nothing chosen left the address unchanged and moved focus to the first radio. (real output, rendered; Chromium 141. The message text may be worded differently in your browser or language.)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say out loud what `id`, `name` and `value` each do on one radio. Then check yourself against the paragraph above.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at one radio in the code above and explain to yourself, out loud, what its `id`, `name` and `value` each do.[^recite] Then check yourself against the paragraph above.
 
 ### 4. What do `fieldset` and `legend` add?
 
@@ -297,4 +357,6 @@ Keep `practice-04` with all three files fixed, and your sentences from steps 5, 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "`<form>`: The Form element"; MDN "`<label>`: The Label element"; MDN "`<input type="radio">`"; MDN "`<fieldset>`: The Field Set element"; MDN "hidden" (global attribute); MDN ":focus-visible"; MDN "ARIA: aria-current attribute"; MDN "Using CSS custom properties (variables)"; MDN "Sending form data". Checked 2026-10-11: MDN "hidden" (global attribute, again); MDN ":root"; MDN "ARIA"; MDN "Attribute selectors"; MDN "position"; MDN "`<style>`: The Style Information element"; MDN "Color contrast"; MDN "outline-color"; MDN "clip" (deprecated; the page points to `clip-path`); MDN "clip-path". Submissions, validity checks and keyboard behavior tested in Chromium 141 (headless, via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "`<form>`: The Form element"; MDN "`<label>`: The Label element"; MDN "`<input type="radio">`"; MDN "`<fieldset>`: The Field Set element"; MDN "hidden" (global attribute); MDN ":focus-visible"; MDN "ARIA: aria-current attribute"; MDN "Using CSS custom properties (variables)"; MDN "Sending form data". Checked 2026-10-11: MDN "hidden" (global attribute, again); MDN ":root"; MDN "ARIA"; MDN "Attribute selectors"; MDN "position"; MDN "`<style>`: The Style Information element"; MDN "Color contrast"; MDN "outline-color"; MDN "clip" (deprecated; the page points to `clip-path`); MDN "clip-path". Submissions, validity checks and keyboard behavior tested in Chromium 141 (headless, via Playwright) on Linux. Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

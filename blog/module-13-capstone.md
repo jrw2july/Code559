@@ -12,6 +12,65 @@ estimated_time: "about 2 hours for this post; the full capstone takes longer (es
 
 **Time:** about 2 hours for this post; the full capstone takes longer (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn to turn a written requirement into tasks, and to finish each feature with the nine-step completion standard. Then you check the whole site and audit your portfolio. It's the skill real work asks for: building from a short list with no step-by-step guide, and knowing when you are actually done.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. How do you read a requirement table?](#1-how-do-you-read-a-requirement-table)
+  - [2. How do you turn a row into tasks?](#2-how-do-you-turn-a-row-into-tasks)
+  - [3. What does the finished sample look like?](#3-what-does-the-finished-sample-look-like)
+  - [4. What is the nine-step completion standard?](#4-what-is-the-nine-step-completion-standard)
+  - [5. What is code-origin honesty?](#5-what-is-code-origin-honesty)
+  - [6. How do you run a final accessibility pass?](#6-how-do-you-run-a-final-accessibility-pass)
+  - [7. What is a portfolio audit?](#7-what-is-a-portfolio-audit)
+  - [8. What comes after the core course?](#8-what-comes-after-the-core-course)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module: what comes next](#before-next-module-what-comes-next)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - How to read a written requirement table and turn each row into tasks
@@ -218,7 +277,7 @@ The requirement, for a "Goal counter" page:
    addButton.addEventListener("click", addOne);
    ```
 
-5. **Predict, run, explain.** Write your prediction for row 1's test. Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Click +1 three times, and fill in Actual. (In Chromium: 0 on load, 3 after three clicks.) Then explain each line of `script.js` out loud in one sentence.
+5. **Predict, run, explain.** Write your prediction for row 1's test. Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Click +1 three times, and fill in Actual. (In Chromium: 0 on load, 3 after three clicks.) Then explain each line of `script.js` to yourself, out loud, in one sentence.[^recite]
 6. **Modify.** Change `count + 1` to `count + 2`. Predict the count after three clicks. Run it. Change it back.
 7. **Break it on purpose.** Change the last line to `addButton.addEventListener("click", addOne());` (with the parentheses). Predict first. Then run row 1's test again. In Chromium the count reads **1** as soon as the page loads, clicking does nothing, and there is no red line in the Console. Why? (Hint: Module 7, reference versus call, and Module 9, why `addEventListener()` takes no parentheses.)
 8. **Debug and retest.** Remove the parentheses. Run row 1's test again, from a fresh page load. Write the new Actual.
@@ -284,4 +343,6 @@ Keep your requirement-to-tasks lines, your test tables, and the three links you 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: MDN "Color contrast" (3:1 for interface parts); W3C "Understanding SC 1.4.11: Non-text Contrast"; MDN "HTMLElement: change event"; MDN "HTMLInputElement: checked property"; Chrome for Developers "Open Chrome DevTools"; W3C "Understanding SC 1.4.3: Contrast (Minimum)" (1pt = 1.333px). The `change` example, the planner and the Goal counter were run in Chromium 141.0.7390.37 (via Playwright) on Linux.*
+*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: MDN "Color contrast" (3:1 for interface parts); W3C "Understanding SC 1.4.11: Non-text Contrast"; MDN "HTMLElement: change event"; MDN "HTMLInputElement: checked property"; Chrome for Developers "Open Chrome DevTools"; W3C "Understanding SC 1.4.3: Contrast (Minimum)" (1pt = 1.333px). The `change` example, the planner and the Goal counter were run in Chromium 141.0.7390.37 (via Playwright) on Linux. Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

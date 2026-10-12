@@ -12,6 +12,65 @@ estimated_time: "about 75 minutes (estimate)"
 
 **Time:** about 75 minutes (estimate)
 
+<!-- about:start -->
+<details>
+<summary><strong>About this module</strong></summary>
+
+**What this module covers**
+
+You learn what a program is, where JavaScript runs, how to see a value and how to read an error message. You also start the Predict → Run → Modify → Create → Debug habit. It's the habit every later module depends on: run it, change it, break it, and read what the computer tells you.
+
+**Tips for the learner**
+
+Some prompts ask you to explain code to yourself, out loud. Others ask you to write something down. Each habit does a different job.
+
+**Recite to understand.** When a prompt says "out loud," explain the code in your own words, as if you were teaching it. Saying it aloud makes a deeper impression than reading silently. It helps you picture how the pieces of code fit together. And it shows you right away which line you cannot explain yet. That line is the one to review.
+
+**Write it down to check yourself.** When a prompt says "write down," it is usually a prediction, a choice, or a guess about a bug. A written answer can't change after you see the result, so the comparison is fair and you learn from the difference. Writing also keeps your attention on the lesson and helps you pick out the main points.
+
+**Keep one notebook for this course.** Use it for your predictions, key terms, steps, mistakes, and questions to come back to. Date each entry and write the module number, so you can find it later. Before you start a new module, read your last few entries and recite one or two of them out loud.
+
+**The four badges**
+
+Every core concept moves through the same four steps, called IEIA. Each step is marked with its badge.
+
+<img src="images/brand/marker-introduce.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Introduce** (a lightbulb: a new idea) - You meet the concept: its name, and why it matters to you, in a sentence or two.
+
+<img src="images/brand/marker-explain.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Explain** (a speech bubble: the idea in words) - How it works, one idea at a time, in plain words.
+
+<img src="images/brand/marker-illustrate.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Illustrate** (an eye: see it) - A small example you can look at: a code snippet, a real screenshot or a diagram. Its caption, which starts with this badge, tells you what to notice.
+
+<img src="images/brand/marker-apply.svg" alt="" width="24" height="24" style="vertical-align:-0.35em;"> - **Apply** (a keyboard: your turn) - A short task to do right now, before you read on. Often you type or predict something; sometimes you write it down, sketch it, or explain code to yourself out loud.
+
+</details>
+<!-- about:end -->
+
+<!-- contents:start -->
+
+**Contents**
+
+- [Why this matters](#why-this-matters)
+- [Before you start](#before-you-start)
+- [Core concepts](#core-concepts)
+  - [1. What is a program?](#1-what-is-a-program)
+  - [2. Where does JavaScript run?](#2-where-does-javascript-run)
+  - [3. What are statements, semicolons and comments?](#3-what-are-statements-semicolons-and-comments)
+  - [4. How do you see a value?](#4-how-do-you-see-a-value)
+  - [5. How do you run a file with Node?](#5-how-do-you-run-a-file-with-node)
+  - [6. How do you open the Console and try an expression?](#6-how-do-you-open-the-console-and-try-an-expression)
+  - [7. How do you read an error message?](#7-how-do-you-read-an-error-message)
+  - [8. What is the habit?](#8-what-is-the-habit)
+- [Exercise](#exercise)
+- [Project (in the full packet)](#project-in-the-full-packet)
+- [Common misconception](#common-misconception)
+- [Summary](#summary)
+- [Check your understanding](#check-your-understanding)
+- [Before next module](#before-next-module)
+- [Go further](#go-further)
+- [What to keep](#what-to-keep)
+
+<!-- contents:end -->
+
 **In this module you will learn:**
 
 - What a program is: instructions that run in order, top to bottom
@@ -66,7 +125,7 @@ This module is short on new syntax and long on habits. You will run a script, ch
 ![Your JavaScript on the left, with arrows to two boxes: In the browser, and In Node.](images/m05-where-js-runs.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Same language, two places to run it. Modules 5 to 8 use both; Module 9 brings JavaScript into your pages.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say which place you would use to (a) try `2 + 3` quickly, (b) run a saved file called `hello.js`. (Answers: the Console; Node.)
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Write down which place you would use to (a) try `2 + 3` quickly, (b) run a saved file called `hello.js`. (Answers: the Console; Node.)
 
 ### 3. What are statements, semicolons and comments?
 
@@ -83,7 +142,7 @@ console.log("This line runs second.");
 console.log(2 + 3); // a number, not text
 ```
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Point at each semicolon and say "end of instruction." Then find the comment at the end of line 4.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Point at each semicolon and say "end of instruction" to yourself, out loud.[^recite] Then find the comment at the end of line 4.
 
 ### 4. How do you see a value?
 
@@ -148,13 +207,13 @@ In the Console, the same mistake shows a shorter error. It starts with `Uncaught
 ![The Console showing consol.log("hi") giving Uncaught ReferenceError: consol is not defined, and console.log("hi) giving Uncaught SyntaxError: Invalid or unexpected token.](images/m05-console-error.png)
 *Same names, same messages as in Node. The real Console also adds a small location link next to each error, and under the ReferenceError one stack line, `at <anonymous>:1:1` (line 1, column 1 of what you typed); this render shows only the name and message. (real output, rendered; evaluated in Chromium)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In the Console, type `consol.log("hi")` with the missing `e`. Say the error's name and message out loud.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In the Console, type `consol.log("hi")` with the missing `e`. Find the error's name and its message, and write them down.
 
 ### 8. What is the habit?
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every piece of code in this course goes through five steps: **Predict, Run, Modify, Create, Debug.**
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Predict:** before you press Enter, say what will happen. **Run:** run it and compare with your prediction. **Modify:** change one thing and predict again. **Create:** write a line of your own that does something similar. **Debug:** break it on purpose and read the message. The prediction is the important part. When your prediction is wrong, you have found exactly the thing you did not understand yet.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Predict:** before you press Enter, write down what will happen. **Run:** run it and compare with your prediction. **Modify:** change one thing and predict again. **Create:** write a line of your own that does something similar. **Debug:** break it on purpose and read the message. The prediction is the important part. When your prediction is wrong, you have found exactly the thing you did not understand yet.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -236,4 +295,6 @@ Keep `hello.js` in `practice-05`, and write down the names of the two errors you
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "What is JavaScript?"; MDN "JavaScript error reference"; MDN "Lexical grammar"; Chrome for Developers "Open Chrome DevTools"; Microsoft Edge Developer documentation "Keyboard shortcuts". Checked 2026-10-11: Chrome for Developers "Console features reference" and "How Chrome DevTools helps to defend against self-XSS attacks"; Microsoft Edge Developer documentation "Console features reference" and "Run JavaScript in the Console".*
+*Sources checked 2026-10-09: MDN "What is JavaScript?"; MDN "JavaScript error reference"; MDN "Lexical grammar"; Chrome for Developers "Open Chrome DevTools"; Microsoft Edge Developer documentation "Keyboard shortcuts". Checked 2026-10-11: Chrome for Developers "Console features reference" and "How Chrome DevTools helps to defend against self-XSS attacks"; Microsoft Edge Developer documentation "Console features reference" and "Run JavaScript in the Console". Checked 2026-10-12: Ozubko and MacLeod, "The Production Effect in Memory: Evidence That Distinctiveness Underlies the Benefit," *Journal of Experimental Psychology: Learning, Memory, and Cognition* 36(6), 2010 (the footnote on saying code out loud).*
+
+[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.

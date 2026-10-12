@@ -22,6 +22,12 @@ estimated_time: "about 90 minutes (estimate)"
 # Module N — Title
 *One-line subtitle.*
 
+**Time:** about N minutes (estimate)
+
+<!-- about:start --> collapsed <details> "About this module" (every module): What this module covers, Tips for the learner, The four badges <!-- about:end -->
+
+<!-- contents:start --> **Contents**: a link to every ## section, with the Core concepts ### questions nested under it <!-- contents:end -->
+
 **In this module you will learn:** bullet list (every concept introduced).
 
 ## Why this matters
@@ -63,6 +69,13 @@ What the reader should have at the end, plus "Which step would be hardest to rep
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 ```
 
+## About block and Contents (decided 2026-10-12)
+
+- Both blocks are generated, never edited by hand: `about_toc.py` (kept outside this repository, with the image scripts) inserts them under the **Time:** line between the marker comments, and rerunning it refreshes them. Run it again after adding, renaming or reordering any `##` or `###` heading.
+- **What this module covers** (one per module, approved by the owner): the scope of the module, then why it matters, with the "why" chosen to fit that module (foundational, saves you hours, essential, and so on). The badge legend is the same in every module. The tips are the same in Modules 1–13; Module 0 has its own version (decided 2026-10-12), written for a module that is mostly installing.
+- Contents links use GitHub-style heading ids (lowercase, punctuation dropped, spaces to hyphens). The static page build must give headings the same ids.
+- The paid packets build an "About this module" page right after the cover from the same block, then a Contents page with page numbers and links (every module, Module 0 included).
+
 ## Style rules (from the braindump)
 
 - Plain, direct, adult, a little informal. Short sentences. One idea per sentence. 6th–10th grade readability. No opening fluff. No profanity.
@@ -73,6 +86,7 @@ What the reader should have at the end, plus "Which step would be hardest to rep
 - One new concept per layer per module. Do not introduce higher-order functions, recursion, modules or frameworks. Explain anything new the first time it is used, even in a code sample.
 - Avoid the "test scores" theme in examples.
 - Never use the words "genuinely", "honestly" or "straightforward".
+- **"Out loud" is only for explaining code to yourself** ("explain each line to yourself, out loud"). Other prompts vary the action: write it down, sketch it on paper, point at it, or "Think this through:" followed by a question. The first "out loud" prompt in a post (not counting the tips in the About block) carries the footnote marker `[^recite]`, and the post ends with the standard footnote (see "Standard wording"). Later uses in the same post have no marker.
 - Modules 2–11 end with the standard Git checklist line in "Before next module" (see "Standard wording"); full Git is Module 12.
 
 ## Course decisions (owner, 2026-10-11)
@@ -94,6 +108,8 @@ What the reader should have at the end, plus "Which step would be hardest to rep
   `- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)`
 - **DOM code typed before Module 9** (Modules 3–4): introduce each Console line with "Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives."
 - **Code shown only in a Console picture:** put the exact lines in a `js` block above the picture, starting with "Typed into the Console for the picture below, in this order:". A Console picture that only shows how a result was checked, and that the reader is not meant to repeat, needs no block; its caption says "You do not need to type…".
+- **"Out loud" footnote** (last line of the post, after "Sources checked"; add the dated source entry to that line):
+  `[^recite]: **Why out loud?** Most people have recited something to learn it by heart: a phone number, a poem, lines for a play. Words you say aloud stick better than words you read silently; memory researchers call this the production effect (Ozubko and MacLeod, 2010). Explaining code to yourself out loud uses the same idea. It also shows you the line you cannot explain yet, and that line is the one to study next.`
 - **freeCodeCamp line, Modules 5–11** (Go further): `- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked YYYY-MM-DD) has practice on this topic.` No module names.
 
 ## Accessibility standard
