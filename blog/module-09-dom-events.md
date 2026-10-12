@@ -27,7 +27,7 @@ estimated_time: "about 2 to 2½ hours (estimate)"
 
 ## Why this matters
 
-In Modules 5 to 8 you learned the JavaScript language in the Console and in Node. Your code could add, compare, loop and return values. But no visitor ever saw any of it. This module connects that language to a real page. After it, a click on your site can show a hidden paragraph, change a button's text, or build a list from data.
+In Modules 5 to 8 you learned the JavaScript language in the Console and in Node. Your code could add, compare, loop and return values. But no visitor ever saw any of it. This module connects that language to a real page. After it, your page can build a list from data, and a click can show a hidden paragraph or change a button's text.
 
 The browser turns your HTML into a tree of objects called the **DOM** (Document Object Model). JavaScript can find any object in that tree, read it and change it. Everything in this module is one of three moves: find an element, change something about it, or wait for the visitor to do something and then change it.
 
@@ -36,11 +36,17 @@ You also learn a habit that keeps scripts readable: every script in this course 
 ## Before you start
 
 1. Finish Module 8. You should be able to write a function, loop over an array with `for...of`, and read a property from an object with a dot (`interest.name`).
-2. In your course folder (for example `Documents\code559`), create a throwaway folder called `m09-practice`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
-3. Find any small image (a PNG or SVG icon) and copy it into `m09-practice` with the name `icon-star.svg` (or keep its own name and change the file name in the code later). The renders below use a small orange star. If you have no image, skip it; the code still works.
+2. In your course folder (for example `Documents\code559`), create a throwaway folder called `practice-09`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
+3. In `practice-09`, make a new file named `icon-star.svg`. Type (or paste) this one line into it and save. It draws the small orange star that the renders below use:
+
+   ```xml
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="2 2 20 20"><polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.5 5.5,21 7.5,13.5 2,9 9,9" fill="#fc7614"/></svg>
+   ```
+
+   To use your own small icon instead, keep its real name and ending (for example `heart.png`) and change `icon-star.svg` in the script to match. Renaming a PNG to `.svg` does not work: the browser shows a broken image.
 4. Keep Edge or Chrome open. You will use **F12 → Console** to read messages and to test lines.
 
-> **Checkpoint.** You have an `m09-practice` folder open in VS Code, an image in it, and you can open the Console in your browser.
+> **Checkpoint.** You have a `practice-09` folder open in VS Code, `icon-star.svg` in it, and you can open the Console in your browser.
 
 ## Core concepts
 
@@ -64,7 +70,7 @@ You also learn a habit that keeps scripts readable: every script in this course 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A plain `<script src="script.js">` runs **the moment the browser reaches it**, before it reads the rest of the HTML. If that tag is in the `<head>`, your script runs while the `<body>` does not exist yet. Every `querySelector()` finds nothing and gives back `null`. There are two fixes. You can put the tag at the very bottom of `<body>`, after all the HTML. Or you can keep it in the `<head>` and add `defer`. MDN describes `defer` as meaning "the script is meant to be executed after the document has been parsed, but before firing `DOMContentLoaded`" (MDN, *&lt;script&gt;: The Script element*). This course uses `defer`, so the head holds both the stylesheet and the script:
 
 ```html
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
 ```
 
@@ -150,6 +156,17 @@ The browser keeps the function and calls it each time the click happens. You do 
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order. You can type them yourself on the Exercise page once it is open (step 4):
+
+```js
+document.querySelector("#toggle-btn").classList.add("is-open")
+document.querySelector("#toggle-btn").className
+document.querySelector("#toggle-btn").classList.contains("is-open")
+document.querySelector("#toggle-btn").classList.remove("is-open")
+document.querySelector("#toggle-btn").classList.toggle("is-open")
+document.querySelector("#toggle-btn").classList.toggle("is-open")
+```
+
 ![The Console: classList.add("is-open") returns undefined, className is now "is-open", contains("is-open") is true, remove returns undefined, then toggle returns true and a second toggle returns false.](images/m09-classlist-console.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`add` and `remove` give back nothing. `toggle` tells you the new state: `true` means the class is now on. (real output, rendered; evaluated in Chromium 141)*
 
@@ -221,16 +238,16 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
 ![The Console after the four key presses holds only two lines, both reading click on the real button.](images/m09-keyboard.png)
 *Two key presses on the button gave two clicks. Two key presses on the div gave none. (real output, rendered; key presses sent to Chromium 141 with Playwright)*
 
-![The exercise page at 390 px after pressing Tab and then Enter: the Hide details button has an orange focus ring and the paragraph is showing.](images/m09-keyboard-focus.png)
-*Tab moved focus to the button (the orange ring is the `:focus-visible` style), and Enter ran the same `toggleDetails` a mouse click runs. (real: rendered in Chromium)*
+![The exercise page at 390 px after pressing Tab and then Enter: the Hide details button has a dark orange focus ring and the paragraph is showing.](images/m09-keyboard-focus.png)
+*Tab moved focus to the button (the dark orange ring is the `:focus-visible` style), and Enter ran the same `toggleDetails` a mouse click runs. (real: rendered in Chromium)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will test this yourself in Exercise step 8.
 
 ## Exercise
 
-*Your hands, about 60 minutes (estimate).* Type it, do not paste it. Work in `m09-practice`. Nothing here is published.
+*Your hands, about 60 minutes (estimate).* Type it, do not paste it. Work in `practice-09`. Nothing here is published.
 
-1. **Create the HTML.** Make `index.html` in `m09-practice`:
+1. **Create the HTML.** Make `index.html` in `practice-09`:
 
    ```html
    <!DOCTYPE html>
@@ -239,7 +256,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>DOM practice</title>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="styles.css">
      <script src="script.js" defer></script>
    </head>
    <body>
@@ -261,7 +278,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
    </html>
    ```
 
-2. **Add some CSS.** Make `style.css`. The behavior does not depend on it, so you may style it your own way, but it needs a `button.is-open` rule and a `:focus-visible` rule so you can see the class and the focus:
+2. **Add some CSS.** Make `styles.css`. The behavior does not depend on it, so you may style it your own way, but it needs a `button.is-open` rule and a `:focus-visible` rule so you can see the class and the focus. The `#interest-list img` rule keeps the icon 16 pixels square, whatever image you use:
 
    ```css
    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f4f1ea; color: #1f2328; }
@@ -271,11 +288,11 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
    .card { background: #fff; border: 1px solid #ddd5c4; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
    button { font: inherit; padding: 8px 16px; border: 2px solid #2d4a7a; border-radius: 6px; background: #fff; color: #2d4a7a; cursor: pointer; }
    button.is-open { background: #2d4a7a; color: #fff; }
-   button:focus-visible { outline: 3px solid #f0a500; outline-offset: 2px; }
+   button:focus-visible { outline: 3px solid #b45309; outline-offset: 2px; }
    #interest-list { margin: 0; padding-left: 20px; }
    #interest-list li { margin-bottom: 8px; }
    #interest-list li.favorite { font-weight: 600; }
-   #interest-list img { margin-left: 6px; vertical-align: -2px; }
+   #interest-list img { width: 16px; height: 16px; margin-left: 6px; vertical-align: -2px; }
    ```
 
 3. **Type the script.** Make `script.js`. Type the three comments first, then fill each block. Change the three interests to your own words.
@@ -324,7 +341,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
    buildList();
    ```
 
-4. **Predict, then run.** Before you open the page, write down: how many list items will appear, and which ones get a star? Then open `index.html` with Live Preview (or in the browser) and open the Console. Check your prediction against the left half of the image under Concept 8.
+4. **Predict, then run.** Before you open the page, write down: how many list items will appear, and which ones get a star? Then open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Check your prediction against the left half of the image under Concept 8.
 5. **Click.** Click **Show details** twice. Predict the Console first: how many `toggleDetails ran` lines after two clicks? (Two: one per click.)
 6. **Use `querySelectorAll()` in the Console.** Type `document.querySelectorAll("#interest-list li").length`. Then loop over it:
 
@@ -333,7 +350,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
    ```
 
    Does the star image appear in the logged text? (It does not. An `<img>` has no text content; its `alt` is an attribute.)
-7. **Modify.** Add a fourth interest object to the array. Save. The page should show four items without any change to the HTML.
+7. **Modify.** Add a fourth interest object to the array. Save and press **F5**. The page should show four items without any change to the HTML.
 8. **Keyboard test.** Click in the address bar, then press **Tab** until the button has a focus ring. Press **Enter**. Press **Space**. Each press should toggle the paragraph and add a line to the Console.
 9. **Break it on purpose.** In block 3, add parentheses: `toggleButton.addEventListener("click", toggleDetails());`. Save. Before you reload, predict: will the paragraph start hidden? Then reload and click the button twice.
 
@@ -345,7 +362,7 @@ The HTML holds only an empty `<ul id="interest-list"></ul>`. The data decides ho
 
 ## Project (in the full packet)
 
-Three projects use this module on your own site. The **interests gallery** shows one image at a time from an array, with Previous and Next buttons that wrap around from the last image to the first and back. The **feedback card** from Module 4 gets its JavaScript: it reads the chosen rating, shows it in the thank-you message, and swaps the form for the thank-you section. And an **FAQ accordion about you**, where each question is a button that opens and closes its own answer with a plus or minus icon, works the same with a mouse and a keyboard.
+Two projects use this module on your own site. The **interests gallery** shows one image at a time from an array, with Previous and Next buttons that wrap around from the last image to the first and back. And an **FAQ accordion about you**, where each question is a button that opens and closes its own answer with a plus or minus icon, works the same with a mouse and a keyboard.
 
 The full brief, the step-by-step build, and the finishing work in Git are in the Module 9 packet. [Get the packet →](PACKET_LINK_MODULE_9)
 
@@ -367,12 +384,12 @@ HTML is structure, CSS is appearance, and JavaScript is behavior. A script in th
 
 ## Before next module
 
-- [ ] Your `m09-practice` page builds its list from the array and the button toggles the paragraph
+- [ ] Your `practice-09` page builds its list from the array and the button toggles the paragraph
 - [ ] You saw the `null` TypeError when `defer` was missing, and fixed it
 - [ ] You saw `toggleDetails()` run once at load with no error, and fixed it
 - [ ] The button works with Tab, Enter and Space
 - [ ] You can say the three blocks of a script in order without looking
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -383,14 +400,14 @@ HTML is structure, CSS is appearance, and JavaScript is behavior. A script in th
 - MDN: *Element: classList property*; *HTMLElement: hidden property*; *hidden* (global attribute)
 - MDN: *Element: append() method*
 - MDN: *ARIA: button role* (the keyboard table, and why a native `<button>` is preferred)
-- freeCodeCamp: the DOM manipulation and events material in the JavaScript curriculum **[unverified: exact current module name in the curriculum]**
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript HTML DOM](AFFILIATE_W3SCHOOLS_DOM)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
-Keep `m09-practice` with its three-block `script.js`, and a note of the two breakages you caused: what you changed, what you saw, and what the clue was. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep `practice-09` with its three-block `script.js`, and a note of the two breakages you caused: what you changed, what you saw, and what the clue was. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 

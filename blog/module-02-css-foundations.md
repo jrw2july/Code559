@@ -15,11 +15,11 @@ estimated_time: "about 2.5 hours (estimate)"
 - How to link an external stylesheet with `<link rel="stylesheet">`
 - The parts of a CSS rule: selector, property, value, declaration
 - Colors, typography and spacing: `color`, `background-color`, `font-family`, `font-size`, `line-height`, `margin`, `padding`
-- Element selectors vs class selectors, and writing reusable rules
+- Element selectors vs class selectors, writing reusable rules, and the descendant selector (`nav a`)
 - The cascade and specificity: which rule wins when two rules disagree
 - Block boxes vs inline boxes in normal flow
 - Flexbox for a navigation bar: `display: flex`, `gap`, `justify-content`, `align-items`
-- Saving your work with the Git routine from Module 1
+- Saving packet-project work in `my-site` with the Git routine from Module 1
 
 ## Why this matters
 
@@ -31,9 +31,9 @@ By the end you will style a page with one shared stylesheet and build a navigati
 
 ## Before you start
 
-1. Finish Module 1. Your `my-site` folder should have a Home and an About page and be live on GitHub Pages.
+1. Finish Module 1. Your `my-site` folder should be live on GitHub Pages, with your first page (or with your Home and About pages, if you did the Module 1 packet project).
 2. Make a throwaway folder next to `my-site` called `practice-02`. Copy your `practice-01/index.html` and your image into it.
-3. Open `practice-02` in VS Code (**File → Open Folder…**) and open `index.html` in Edge or Chrome next to it.
+3. Open `practice-02` in VS Code (**File → Open Folder…**). Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab.
 
 > **Checkpoint.** You can edit `practice-02/index.html`, save, refresh, and see the change. Your live site from Module 1 still opens.
 
@@ -65,7 +65,7 @@ By the end you will style a page with one shared stylesheet and build a navigati
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A stylesheet is a list of **rules**. Each rule picks some elements and says how they should look.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The **selector** comes first and chooses the elements. Inside the curly braces are **declarations**. Each declaration is a **property**, a colon, a **value** and a semicolon. A missing colon or semicolon usually breaks only that one declaration, and the browser shows no error, so look closely when one line "does nothing."
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> The **selector** comes first and chooses the elements. Inside the curly braces are **declarations**. Each declaration is a **property**, a colon, a **value** and a semicolon. A missing colon breaks that one declaration. A missing semicolon breaks that declaration *and the next one*, because the browser reads the two as one long value that makes no sense. (The semicolon after the last declaration, just before `}`, is optional, so leaving out that one breaks nothing.) The browser shows no error, so look closely when a line "does nothing," and check the line above it too.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -106,6 +106,12 @@ p { color: gray; }           /* every paragraph */
   background-color: #edae49;
   padding: 8px 12px;
 }
+```
+
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You can also join two selectors with a space. `nav a` is a **descendant selector**: it matches every `a` that sits anywhere inside a `nav`, and no other links. (MDN calls the space a *descendant combinator*.) You will use it in the Exercise to make only the nav links white.
+
+```css
+nav a { color: white; }      /* links inside the nav; other links keep their color */
 ```
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> In the Exercise screenshot, only the paragraph with `class="highlight"` gets the orange background.
@@ -185,7 +191,7 @@ nav {
 3. Add a `<nav>` at the top of `<body>` with two same-page links to two of your `<h2>` headings (give each heading an `id`, as in Module 1). Add `class="highlight"` to one paragraph.
 4. **Predict.** Before you write any CSS, say what will change when you add a `body` rule with a background color.
 5. In `styles.css`, type a `body` rule (font, color, background, margin, padding), an `h1` rule and an `h2` rule with different colors, a `.highlight` rule, a `nav` rule with `display: flex`, `gap` and a background color, and a `nav a` rule that makes the links white. Use your own colors.
-6. **Run.** Save both files and refresh.
+6. **Run.** Save both files and press **F5** in the browser.
 
    ![The practice page at phone width: a dark nav bar with two white links, a red main heading, a paragraph, an orange highlighted paragraph, teal section headings, a bulleted list and a picture, on a cream background.](images/m02-exercise-phone.png)
    *One example, measured at 390 px wide, about the width of a phone. Your colors and words will differ. (page real: rendered in Chromium; browser frame drawn)*
@@ -196,10 +202,12 @@ nav {
    ![The same practice page with no styles at all: black serif text, blue underlined links side by side, no colors or background.](images/m02-break-href.png)
    *Every style is gone, but nothing on the page says why. The HTML still works; only the request for the stylesheet failed. (page real: rendered in Chromium; browser frame drawn)*
 
-   Press **F12** to open DevTools and look at the **Console**.
+   Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab.
 
    ![A DevTools-style Console showing one red error: Failed to load resource: net::ERR_FILE_NOT_FOUND.](images/m02-break-console.png)
-   *The browser did report the problem, just not on the page. In real DevTools the line also names the file it could not find. (real output, rendered; captured from Chromium loading the broken page from disk)* **[unverified: the exact layout of this message in Edge and Chrome DevTools on Windows.]**
+   *The browser did report the problem, just not on the page. In real DevTools the line also names the file it could not find. (real output, rendered; captured from Chromium loading the broken page from disk)*
+
+   Edge and Chrome may lay out this message a little differently. Look for the red error and the file name it could not load.
 
 9. **Debug.** Fix the `href`, save and refresh. Then make a second, different mistake: delete the colon in one declaration, such as `color #d1495b;`. Which part of the page lost its style? Fix it.
 
@@ -215,13 +223,13 @@ What would you say? Hint: look again at line 3 in the cascade test, and at which
 
 ## Summary
 
-A `<link rel="stylesheet">` in the `<head>` fetches a CSS file by a relative path, and a wrong `href` silently removes every style. A rule is a selector followed by declarations of property and value. `color`, `background-color`, `font-family`, `font-size`, `line-height`, `margin` and `padding` cover color, type and spacing, and some properties such as `color` are inherited. Element selectors style every element of a kind, while class selectors style only the elements you mark and can be reused anywhere. When rules conflict, the more specific selector wins (id over class over element), and source order decides only a tie. Block boxes start on a new line and stack, while inline boxes sit in the line and ignore `width` and `height`. `display: flex` on a parent lines its children up in a row, and `gap`, `justify-content` and `align-items` control their spacing and alignment.
+A `<link rel="stylesheet">` in the `<head>` fetches a CSS file by a relative path, and a wrong `href` silently removes every style. A rule is a selector followed by declarations of property and value. `color`, `background-color`, `font-family`, `font-size`, `line-height`, `margin` and `padding` cover color, type and spacing, and some properties such as `color` are inherited. Element selectors style every element of a kind, while class selectors style only the elements you mark and can be reused anywhere; a selector with a space, such as `nav a`, matches elements inside other elements. When rules conflict, the more specific selector wins (id over class over element), and source order decides only a tie. Block boxes start on a new line and stack, while inline boxes sit in the line and ignore `width` and `height`. `display: flex` on a parent lines its children up in a row, and `gap`, `justify-content` and `align-items` control their spacing and alignment.
 
 ## Check your understanding
 
 1. Your page has no styles at all, but your CSS file is full of rules. What are the first two things you check?
 2. A `<p>` has `class="note"`. The stylesheet has `.note { color: green; }` and later `p { color: gray; }`. What color is the paragraph, and why?
-3. **What happens if this changes?** You add `width: 200px;` to a rule for `a`. What changes on the page, and why?
+3. **What happens if this changes?** A paragraph contains a link: `<p>Read <a href="https://developer.mozilla.org/">MDN</a> first.</p>`. You add the rule `p a { width: 200px; }`. What changes on the page, and why?
 
 ## Before next module
 
@@ -229,7 +237,7 @@ A `<link rel="stylesheet">` in the `<head>` fetches a CSS file by a relative pat
 - [ ] You broke the `href`, saw the unstyled page and the Console error, and fixed it
 - [ ] You can explain why line 3 in the cascade test is purple
 - [ ] Your nav uses `display: flex` with `gap`
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -250,4 +258,4 @@ Keep your `practice-02` folder, including the cascade test if you typed it, and 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Handling conflicts" (MDN's Learn page on cascade, specificity and inheritance); MDN "Block and inline layout in normal flow"; MDN "The box model".*
+*Sources checked 2026-10-09: MDN "Handling conflicts" (MDN's Learn page on cascade, specificity and inheritance); MDN "Block and inline layout in normal flow"; MDN "The box model". Checked 2026-10-11: MDN "Descendant combinator"; MDN "Introduction to CSS syntax: declarations, rulesets, and statements".*

@@ -31,11 +31,11 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 ## Before you start
 
-1. Finish Module 5. You should be able to run `node hello.js` in your `js-practice` folder and open the Console with Ctrl+Shift+J.
-2. Open `js-practice` in VS Code and open a terminal in it.
-3. Open a new tab in Edge or Chrome and open the Console. Keep it beside VS Code; you will switch between them.
+1. Finish Module 5. You should be able to run `node hello.js` in your `practice-05` folder and open the Console with Ctrl+Shift+J.
+2. In your course folder, create a new folder called `practice-06`, next to `practice-05`. Open `practice-06` in VS Code with **File → Open Folder…** and open a terminal in it.
+3. Open Edge or Chrome. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Keep it beside VS Code; you will switch between them.
 
-> **Checkpoint.** You have a terminal whose prompt ends in `js-practice>` and a browser Console with a blinking cursor next to `>`.
+> **Checkpoint.** You have a terminal whose prompt ends in `practice-06>` and a browser Console with a blinking cursor next to `>`.
 
 ## Core concepts
 
@@ -121,7 +121,7 @@ As in Module 5, nothing touches your site yet. Every result in this post was pro
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> `if` runs a block of code only when a condition is `true`. `else if` adds another condition to check. `else` catches everything left over.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> JavaScript checks the conditions **from top to bottom** and runs the block for the **first one that is true**. Then it skips the rest and carries on after the last `}`. At most one block runs. Order matters: in the script below, `temp < 70` can only be reached when `temp < 50` was false, so the second block means "50 to 69." The code inside each block is indented two spaces so you can see what belongs to it. **Careful:** never put a semicolon right after `if (...)`, or between a block's closing `}` and `else`, even though Module 5 ends every statement with one. In `if (temp < 50); { … }`, the semicolon ends the `if`, so the block runs every time. If no `else` follows, you get no error message at all; if an `else` follows, Node stops with `SyntaxError: Unexpected token 'else'`.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -146,9 +146,9 @@ console.log("Checked " + temp + " degrees");
 *Checked top to bottom; the first true condition wins.*
 
 ![A terminal running node weather.js three times, printing Wear a coat and Checked 40 degrees, Bring a jacket and Checked 62 degrees, T-shirt weather and Checked 85 degrees.](images/m06-if-else-node.png)
-*The file was edited and saved between runs, with `temp` set to 40, then 62, then 85. Each run printed exactly one suggestion, and the last line ran every time because it is outside the `if`. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
+*The file was edited and saved between runs, with `temp` set to 40, then 62, then 85. Each run printed exactly one suggestion, and the last line ran every time because it is outside the `if`. On Windows the output is the same. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> **What happens if this changes?** Predict the output for `temp` set to `50` and to `70`. Edit, save and run to check. Those are the edges, and edges are where bugs live.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Create `weather.js` in `practice-06` and type the script above. Save, then run `node weather.js` in the terminal. It should print `Wear a coat` and `Checked 40 degrees`, like the first run in the image. **What happens if this changes?** Predict the output for `temp` set to `50` and to `70`, and write your predictions down. Change the number on line 2, save and run again for each one. Those are the edges, and edges are where bugs live. (Check: `50` prints `Bring a jacket`, because `50 < 50` is false. `70` prints `T-shirt weather`, because `70 < 70` is also false.)
 
 ## Exercise
 
@@ -192,7 +192,7 @@ console.log("Checked " + temp + " degrees");
    ![The Console: const city = "Fresno", then city = "Chicago" gives Uncaught TypeError: Assignment to constant variable. at anonymous 1:6, then city still gives "Fresno".](images/m06-const-error.png)
    *Name: `TypeError`. Message: `Assignment to constant variable.` The value did not change. MDN's *const* page notes the exact wording can differ between browsers; this is Chromium's, the engine inside Edge and Chrome. (real output, rendered; evaluated in Chromium)*
 
-6. **Same mistake in Node.** Create `break-const.js` in `js-practice` with these three lines, save, and run `node break-const.js`:
+6. **Same mistake in Node.** Create `break-const.js` in `practice-06` with these three lines, save, and run `node break-const.js`:
 
    ```js
    const city = "Fresno";
@@ -201,7 +201,7 @@ console.log("Checked " + temp + " degrees");
    ```
 
    ![A terminal showing node break-const.js with the error pointing at line 2, a caret under the equals sign, and TypeError: Assignment to constant variable.](images/m06-const-error-node.png)
-   *Same name and message as the Console, plus the file and line from Module 5's error-reading routine. Line 3 never ran. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the first line shows your Windows path to the file.)*
+   *Same name and message as the Console, plus the file and line from Module 5's error-reading routine. Line 3 never ran. Your own error shows the path to your own file. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Fix it by changing `const` to `let` on line 1. Run again and confirm it prints `Chicago`. Then ask yourself whether `let` was the right fix, or whether the program should never have changed the city.
 
@@ -238,7 +238,7 @@ A value is one piece of data, and its type is string, number, boolean, undefined
 - [ ] You use `===` and `!==`, never `==`
 - [ ] `weather.js` runs, and you tested the edge values 50 and 70
 - [ ] You caused the const `TypeError` in the Console and in Node and can read both
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -247,16 +247,17 @@ A value is one piece of data, and its type is string, number, boolean, undefined
 - MDN: *Strict equality (===)* and *Equality (==)*
 - MDN: *if...else*
 - MDN: *JavaScript error reference* (for *TypeError*)
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Tutorial](AFFILIATE_W3SCHOOLS_JS)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
-Keep your filled-in prediction table, with a sentence beside every line you got wrong, and keep `weather.js` in `js-practice`. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep your filled-in prediction table, with a sentence beside every line you got wrong, and keep `weather.js` in `practice-06`. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference".*
+*Sources checked 2026-10-09: MDN "typeof"; MDN "const"; MDN "let"; MDN "var"; MDN "Strict equality (===)"; MDN "Equality (==)"; MDN "if...else"; MDN "JavaScript error reference". Checked 2026-10-11: MDN "Empty statement" (the semicolon after `if`).*

@@ -26,20 +26,20 @@ estimated_time: "about 2.5 hours (estimate)"
 
 ## Why this matters
 
-Your site has several pages, several projects and several milestones. So far, every value in your JavaScript has lived in its own variable. That works for two or three values. It does not work for twenty, and it does not work when you do not know how many there will be.
+A real site has several pages, several projects and several milestones. So far, every value in your JavaScript has lived in its own variable. That works for two or three values. It does not work for twenty, and it does not work when you do not know how many there will be.
 
 This module gives you the three tools every data-driven page is built from. An **array** keeps a list in one variable. A **loop** visits every item in that list without you writing one line per item. An **object** gives each item named facts, like a title, a year and whether it is live. Put the three together and you have an array of objects, which is how most real web data is shaped.
 
-You stay in the Console and Node one more time. In Module 9, the data you shape here becomes cards and rows on your real Projects and Milestones pages.
+You stay in the Console and Node one more time. In Module 9 you use the same patterns on a web page, where a loop over an array of objects builds a list a visitor can see.
 
 ## Before you start
 
 1. Finish Module 7. You should be able to write a function with a parameter and a `return`, and test it with several calls.
-2. In your course folder, create a throwaway folder called `m08-practice`. Open it in VS Code with **File → Open Folder…**, then open a terminal with **Terminal → New Terminal**.
-3. Open Edge or Chrome, press **F12**, and click the **Console** tab.
+2. In your course folder, create a throwaway folder called `practice-08`. Open it in VS Code with **File → Open Folder…**, then open a terminal with **Terminal → New Terminal**.
+3. Open Edge or Chrome. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab.
 4. On paper, write down three of your own interests and two projects or milestones you would like on your site. You will use them instead of the examples.
 
-> **Checkpoint.** You have an empty `m08-practice` folder open in VS Code, a terminal whose prompt ends in `m08-practice>`, a Console ready, and your own short list on paper.
+> **Checkpoint.** You have an empty `practice-08` folder open in VS Code, a terminal whose prompt ends in `practice-08>`, a Console ready, and your own short list on paper.
 
 ## Core concepts
 
@@ -63,6 +63,19 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Because counting starts at 0, the last index is always one less than the length. That is why `pages[pages.length - 1]` always gives the last item, however long the list grows. Reading at an index that does not exist is not an error. You get `undefined`, quietly.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+Typed into the Console for the picture below, in this order:
+
+```js
+const pages = ["Home", "About", "Interests", "Projects"];
+pages[0]
+pages[3]
+pages.length
+pages[pages.length - 1]
+pages[4]
+pages.push("Contact")
+pages
+```
 
 ![The Console: pages[0] is 'Home', pages[3] is 'Projects', pages.length is 4, pages[pages.length - 1] is 'Projects', pages[4] is undefined, pages.push("Contact") returns 5, and pages now shows five items.](images/m08-array-basics.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`pages[4]` gives `undefined`, not an error. Note what `.push()` prints: `5`, the new length, not the array. (real output, rendered)*
@@ -90,6 +103,18 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 ![The for loop line split into four boxes: Start, Check, Body and Step, with what each part does.](images/m08-loop-anatomy.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The check uses `<`, not `<=`. With 4 items, `i` takes the values 0, 1, 2 and 3, and the loop stops when `i` reaches 4.*
 
+Typed into the Console for the picture below, in this order. The first line makes a fresh four-item `pages`, without the `"Contact"` you pushed above. (The Console lets you type a `const` line again to start over; in a file, declaring the same name twice is an error.)
+
+```js
+const pages = ["Home", "About", "Interests", "Projects"];
+for (let i = 0; i < pages.length; i++) {
+  console.log(i + ": " + pages[i]);
+}
+let count = 0;
+count++
+count
+```
+
 ![The Console: the loop prints 0: Home, 1: About, 2: Interests, 3: Projects. Then let count = 0, count++ shows 0, and count shows 1.](images/m08-for-loop.png)
 *Four laps, four lines. At the bottom, `count++` shows `0` because it hands back the old value and then adds 1. Asking for `count` on the next line shows the 1. Inside a loop you never use that handed-back value, so it does not matter there. (real output, rendered)*
 
@@ -113,6 +138,22 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order. (In the picture, `let restDays = 0;` and the loop were typed as one entry. If you type them one at a time, you see one extra `undefined` after the first line.)
+
+```js
+const minutes = [30, 0, 45, 20, 0];
+let restDays = 0;
+for (let i = 0; i < minutes.length; i++) {
+  if (minutes[i] === 0) {
+    restDays++;
+  }
+}
+restDays
+for (const amount of minutes) {
+  console.log(amount + " min");
+}
+```
+
 ![The Console: a for loop counting zeros in [30, 0, 45, 20, 0] gives restDays 2, then a for...of loop prints 30 min, 0 min, 45 min, 20 min, 0 min.](images/m08-loop-if-forof.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Top: a condition inside a counting loop. The `1` right after that loop is the Console showing the value of the last line that ran inside it; ask for `restDays` to get the answer. Bottom: `for...of` visits the same five values with less to type. (real output, rendered)*
 
@@ -125,6 +166,17 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `.includes()` works on arrays and on strings. On an array, it checks whole items. On a string, it checks for a piece of text anywhere inside. It is exact: `"Music"` and `"music"` are different. `.join()` puts the text you give it between items. With nothing in the parentheses, MDN says the items "are separated with a comma."
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+Typed into the Console for the picture below, in this order:
+
+```js
+const interests = ["drawing", "cycling", "music"];
+interests.includes("music")
+interests.includes("Music")
+"front-end developer".includes("end")
+interests.join(", ")
+interests.join()
+```
 
 ![The Console: interests.includes("music") is true, includes("Music") is false, "front-end developer".includes("end") is true, interests.join(", ") is 'drawing, cycling, music', and interests.join() is 'drawing,cycling,music'.](images/m08-includes-join.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Capital letters matter to `.includes()`. And notice the difference between `join(", ")` and `join()`: the space after the comma only appears when you ask for it. (real output, rendered)*
@@ -139,6 +191,20 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order (two spaces before and after `hello`):
+
+```js
+const tags = ["html", "css"];
+tags.length
+tags.push("js")
+tags.length
+tags.length()
+"  hello  ".length
+"  hello  ".trim()
+"  hello  ".trim().length
+"hello".trim
+```
+
 ![The Console: tags.length is 2, tags.push("js") returns 3, tags.length is now 3, tags.length() throws TypeError: tags.length is not a function, "  hello  ".length is 9, .trim() gives 'hello', .trim().length is 5, and "hello".trim with no parentheses shows ƒ trim() { [native code] }.](images/m08-props-methods.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Parentheses on a property are an error, because a number cannot be run. A method without parentheses gives you the function itself, the same thing you saw with `showMessage` in Module 7. (real output, rendered)*
 
@@ -148,11 +214,28 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> An object is a named bundle of properties. Where an array is a list in order, an object is a set of labeled facts about one thing.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You write an object with curly braces. Each property is a name, a colon and a value, separated by commas: `{ title: "Feedback card", year: 2026, live: true }`. You read a property with a dot: `project.title`. A value can be anything, including an array, so `project.tags.length` reads the length of the array stored in `tags`. Asking for a property that does not exist gives `undefined`, just like reading past the end of an array.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> You write an object with curly braces. Each property is a name, a colon and a value, separated by commas: `{ title: "Rating card", year: 2026, live: true }`. You read a property with a dot: `project.title`. A value can be anything, including an array, so `project.tags.length` reads the length of the array stored in `tags`. Asking for a property that does not exist gives `undefined`, just like reading past the end of an array.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
-![The Console: project.title is 'Feedback card', project.tags.length is 2, project.status is undefined; then an array of two project objects, projects[1].title is 'FAQ card', and a for...of loop prints Feedback card (2026) and FAQ card (2026).](images/m08-objects.png)
+Typed into the Console for the picture below, in this order:
+
+```js
+const project = { title: "Rating card", year: 2026, live: true, tags: ["html", "css"] };
+project.title
+project.tags.length
+project.status
+const projects = [
+  { title: "Rating card", year: 2026, live: true },
+  { title: "FAQ card", year: 2026, live: false }
+];
+projects[1].title
+for (const p of projects) {
+  console.log(p.title + " (" + p.year + ")");
+}
+```
+
+![The Console: project.title is 'Rating card', project.tags.length is 2, project.status is undefined; then an array of two project objects, projects[1].title is 'FAQ card', and a for...of loop prints Rating card (2026) and FAQ card (2026).](images/m08-objects.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`projects[1].title` reads from left to right: the array, then item 1, then its `title`. The loop at the bottom visits each object and reads two of its properties. (real output, rendered)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Make an object for one of your own projects or milestones, with at least a `title` and a `year`. Read each property back.
@@ -178,6 +261,19 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order:
+
+```js
+[true && true, true && false, false && true, false && false]
+[true || true, true || false, false || true, false || false]
+[!true, !false]
+const live = true;
+const year = 2025;
+live && year === 2026
+live || year === 2026
+!live
+```
+
 ![The Console: the four && combinations give true, false, false, false; the four || combinations give true, true, true, false; !true is false and !false is true; with live true and year 2025, live && year === 2026 is false, live || year === 2026 is true, and !live is false.](images/m08-logic.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three lines are the full truth tables. Only one `&&` row is `true`; only one `||` row is `false`. Then a real use: `year === 2026` is `false`, so the `&&` fails and the `||` passes. (real output, rendered)*
 
@@ -185,7 +281,7 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 ## Exercise
 
-*Your hands, about 50 minutes (estimate).* Type it, do not paste it. Work in `m08-practice`. Use your own interests and places instead of the examples if you like; the shape is what matters.
+*Your hands, about 50 minutes (estimate).* Type it, do not paste it. Work in `practice-08`. Use your own interests and places instead of the examples if you like; the shape is what matters.
 
 1. **Create `practice.js`** and type an array of three interests. Below it, log its `.length` and its last item using `length - 1`.
 2. **Push one more** interest with `.push()`.
@@ -212,7 +308,7 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 7. **Break it on purpose.** In the `for` loop from step 3, change `i < interests.length` to `i <= interests.length`. Save and run.
 
    ![A terminal running node practice.js where the index loop now prints a fifth line, 4: undefined, after 3: cooking.](images/m08-break-it.png)
-   *One character added, one extra lap. On the last lap `i` is 4, which equals the length, and `interests[4]` is `undefined`. No error message, just a wrong line. This is called an off-by-one error. (real output, rendered; captured on Linux with Node 22.22.0. Node prints the same lines on Windows.)*
+   *One character added, one extra lap. On the last lap `i` is 4, which equals the length, and `interests[4]` is `undefined`. No error message, just a wrong line. This is called an off-by-one error. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Change `<=` back to `<`, run again, and check the `undefined` line is gone.
 8. **Your own.** Below everything, write a loop that counts how many places are `free` and logs the count. With the example data, the answer is 2.
@@ -220,7 +316,7 @@ You stay in the Console and Node one more time. In Module 9, the data you shape 
 
 ## Project (in the full packet)
 
-The project is a `site-data.js` file for your personal site: your real Projects and Milestones written as two arrays of objects (title, year, a short description, tags, and whether each one is live), plus a few small functions that summarize the data, written from one-sentence descriptions and tested in Node. One counts the live projects, one lists every title as a single line of text, and one collects the milestones from a given year. In Module 9, the Projects and Milestones pages read this file and build themselves from it.
+The project is a `site-data.js` file for your personal site: your real Projects and Milestones written as two arrays of objects (title, year, a short description, tags, and whether each one is live), plus a few small functions that summarize the data, written from one-sentence descriptions and tested in Node. One counts the live projects, one lists every title as a single line of text, and one collects the milestones from a given year. In Module 9 you use the same patterns on a web page, building a list from an array of objects.
 
 The full brief, the step-by-step build, and the finishing work in Git are in the Module 8 packet. [Get the packet →](PACKET_LINK_MODULE_8)
 
@@ -246,7 +342,7 @@ An array keeps a list of values in order, and its first index is 0. `.length` is
 - [ ] You saw the extra `undefined` line from `<=` and fixed it
 - [ ] You can say, for `.length`, `.push()` and `.trim()`, which is a property and which are methods
 - [ ] Your own projects or milestones are written on paper (or in a file) as an array of objects
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -254,7 +350,7 @@ An array keeps a list of values in order, and its first index is 0. `.length` is
 - MDN: *for...of*; and search "for statement" for the counting loop
 - MDN: *Logical AND (&&)*, and the matching *Logical OR (||)* and *Logical NOT (!)* pages
 - MDN Glossary: *Method*; and *String.prototype.trim()*
-- freeCodeCamp: the modules on arrays, loops and objects in the JavaScript curriculum, with their quizzes **[unverified: exact current module names in the curriculum]**
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Arrays](AFFILIATE_W3SCHOOLS_ARRAYS)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*

@@ -31,11 +31,10 @@ estimated_time: "about 90 minutes (estimate)"
 Numbered steps; nothing installs inside the body. Ends with a **Checkpoint** block (blockquote).
 
 ## Core concepts
-Each concept is a numbered bold question, answered in one or two short paragraphs, labeled with the IEIA stage in italics:
-  *Introduce* → *Explain* → *Illustrate* (snippet, image, or diagram with caption) → *Apply* (a one-line "try it" the reader does right now).
+Each concept is a numbered `###` question, answered in short paragraphs that follow the IEIA stages: Introduce → Explain → Illustrate (snippet, image, or diagram with caption) → Apply (a one-line "try it" the reader does right now). There are no text labels; each stage paragraph starts with its badge (see "Badges and dividers" below).
 
 ## Exercise
-Isolated, throwaway folder, numbered steps, "Type it, do not paste it," one deliberate break-it step. Labeled *Apply — your hands, about N minutes (estimate)*.
+Its own practice folder (`practice-NN`), numbered steps, "Type it, do not paste it," one deliberate break-it step. First line: *Your hands, about N minutes (estimate).*
 
 ## Project (in the full packet)
 Teaser only: one paragraph describing the finished thing and what the visitor can do, plus the sentence:
@@ -55,7 +54,7 @@ Three questions; one is a standing question (rotate: Why does it work? / What va
 - [ ] checkboxes
 
 ## Go further
-Real resources only: MDN (search term or page title), GitHub Docs article titles, matching freeCodeCamp module. Affiliate slots as plain placeholders: `[W3Schools HTML Tutorial](AFFILIATE_W3SCHOOLS)` with the line "*Affiliate link: Code559 may earn a commission at no extra cost to you.*" Never invent video titles or runtimes.
+Real resources only: MDN (search term or page title), GitHub Docs article titles, and freeCodeCamp. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). Affiliate slots as plain placeholders: `[W3Schools HTML Tutorial](AFFILIATE_W3SCHOOLS)` with the line "*Affiliate link: Code559 may earn a commission at no extra cost to you.*" Never invent video titles or runtimes.
 
 ## What to keep
 What the reader should have at the end, plus "Which step would be hardest to repeat without this post, and why?"
@@ -71,26 +70,64 @@ What the reader should have at the end, plus "Which step would be hardest to rep
 - Prose in paragraphs, not one sentence per line.
 - Generic snippets the reader adapts (`"image-one.jpg"`, "a folder you choose, short name, no spaces"). Never the pilot student's name, email, username, site, drive letter or folder names.
 - Windows 11 and Edge or Chrome assumed. VS Code with AI features off (Module 0).
-- One new concept per layer per module. Do not introduce higher-order functions, recursion, modules or frameworks.
+- One new concept per layer per module. Do not introduce higher-order functions, recursion, modules or frameworks. Explain anything new the first time it is used, even in a code sample.
 - Avoid the "test scores" theme in examples.
-- Modules 2–11 end with the simple Git routine (status → add → commit → push → verify) as a reminder line in "Before next module"; full Git is Module 12.
+- Never use the words "genuinely", "honestly" or "straightforward".
+- Modules 2–11 end with the standard Git checklist line in "Before next module" (see "Standard wording"); full Git is Module 12.
+
+## Course decisions (owner, 2026-10-11)
+
+1. **Free path.** Module 1 ends with free readers publishing a first page of `my-site` to GitHub Pages. From Module 2 on, each Exercise uses its own practice folder; building out `my-site` is the paid packet's Project. Text for free readers must not assume `my-site` has more than that first page.
+2. **Viewing pages.** Learners open pages directly in Edge or Chrome and press **F5** after each save. **F12** (or **Ctrl+Shift+J**) opens DevTools. Live Preview is optional and explained only in Module 0. Never send a learner to the Console from Live Preview, and never rely on a local server address.
+3. **Names, everywhere.**
+   - Stylesheet: `styles.css`.
+   - Practice folders: `practice-NN` inside the course folder (`practice-01` … `practice-13`). Sub-folders are fine (`practice-13\goal-counter`).
+   - The Module 4 card is the **rating card**. Its HTML and CSS are Module 4; its JavaScript is Module 10.
+   - The personal site folder and repository: `my-site`. Live address: `https://your-username.github.io/my-site/`.
+   - The course folder in examples: `C:\Users\you\Documents\code559`.
+4. **Reader notes, not flags.** Nothing unverified is published. A claim is either checked and stated plainly with its source, or written as a plain reader note that says what to expect or do (for example *"Your screen may look slightly different; the button names are what matter."*). No bracketed "[unverified]" notes.
+
+## Standard wording (use exactly, adapting only the bracketed part)
+
+- **Opening a page and the Console** (first time per module where needed): "Open `[file]` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab." When there is no file to open, use "Open Edge or Chrome." and the last sentence. When nothing is saved in the module, the F5 sentence may be left out.
+- **Git checklist line, Modules 2–11** ("Before next module"):
+  `- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)`
+- **DOM code typed before Module 9** (Modules 3–4): introduce each Console line with "Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives."
+- **Code shown only in a Console picture:** put the exact lines in a `js` block above the picture, starting with "Typed into the Console for the picture below, in this order:".
+- **freeCodeCamp line, Modules 5–11** (Go further): `- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked YYYY-MM-DD) has practice on this topic.` No module names.
+
+## Accessibility standard
+
+- Focus rings and other interface outlines: **`#b45309`** (dark orange, 5.0:1 on white). MDN *Color contrast* asks for at least 3:1 for interface parts.
+- On a dark background the ring must change: the navy bar `#1d3557` gets **`#fdba74`** (light orange, 7.3:1 on that navy), set with `outline-color`. Check every ring against what is behind it.
+- Body text meets 4.5:1. Alt text and captions name the ring color in words ("dark orange ring", "light orange ring").
 
 ## Honesty rules (non-negotiable)
 
 - Every command and every output shown was run for real in the build environment. Terminal images are rendered from real captured output.
-- **Image captions say what the reader should notice AND whether the image is real or drawn.** Use exactly one of these tags at the end of every caption:
-  - `(real: rendered in Chromium)` — a lesson page captured by Chromium.
-  - `(real output, rendered)` — terminal or console text captured from a real run, drawn into a terminal-styled frame. If captured on Linux, say so and say what differs on Windows.
-  - `(illustration, not a screenshot)` — a drawn facsimile of VS Code, GitHub.com, Windows, DevTools, or a diagram.
+- **Image captions say what the reader should notice, and real images say they are real.** Three kinds of image:
+  - **Real** (a page captured by Chromium, or terminal/Console text from a real run drawn into a frame). The caption ends with a tag such as `(real: rendered in Chromium at 600 px)` or `(real output, rendered)`. When the run happened in another folder or on Linux, use exactly: `(real output, rendered; captured on Linux, with the folder path changed to the course folder)`. Only the folder path may be changed; every other character is real. Git paths in Git's own messages use forward slashes (`C:/Users/you/…`), as Git for Windows prints them; prompts use backslashes. Capture Git through a pseudo-terminal so `git log` shows its labels (`(HEAD -> main)`) as a real terminal does.
+  - **Drawn screen copies** (VS Code, GitHub.com, GitHub Desktop, DevTools, File Explorer). The yellow ILLUSTRATION tag is drawn into the image. The caption has no tag.
+  - **Diagrams.** No ILLUSTRATION tag and no caption tag.
+- No image or text ever shows a build path (`/home/...`, `/tmp/...`) or a real person's name, username or folder.
 - Numbers are measured, not estimated, and say so; time estimates say "(estimate)".
-- Anything not verified is flagged inline: **[unverified: …]**.
-- Sources named by page title (MDN page titles, GitHub Docs article titles, git-scm.com docs, GitHub CLI manual).
+- Nothing unverified is published (see decision 4).
+- Sources named by page title (MDN page titles, GitHub Docs article titles, git-scm.com docs, GitHub CLI manual). Each post ends with a "Sources checked" line; add a dated entry when you check new pages.
+
+## Badges and dividers
+
+- Each Core concept paragraph starts with its stage badge, an inline image:
+  `<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> ` (also `marker-explain.svg`, `marker-illustrate.svg`, `marker-apply.svg`, with matching alt text). Plain notes have no badge.
+- A floor-plan divider (wall, window, wall, door) sits on its own line before each Illustrate picture, and before the "Typed into the Console…" block when the picture has one. The Illustrate badge then goes at the start of the caption under the picture:
+  `<div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>`
+- Badge and divider files are in `images/brand/` (icons from Lucide; see `LICENSE-lucide.txt`).
 
 ## Image helpers
 
-`build/imgkit.py` provides:
+The image build scripts are kept outside this repository. `build/imgkit.py` provides:
 - `render_page(html_path, out_png, width, height=None, full_page=True, actions=None)` — real Chromium render of a lesson page. `actions` is a list of (kind, arg) such as ("click", "#faq-1"), ("press", "Tab"), ("fill", ("#name","Ada")).
 - `render_terminal(cmd_blocks, out_png, title="Windows Terminal — PowerShell")` — draws a light-theme terminal frame; `cmd_blocks` is a list of (prompt, command, output). **Output must come from a real run** (use `run(cmd, cwd)` which executes and returns stdout+stderr).
 - `render_console(entries, out_png)` — DevTools-Console-styled frame; entries are (kind, text) with kind in `log|error|result|input`. Values must come from a real run (`node_eval(js)` or `browser_eval(html, js)` return real results).
 - `render_svg(svg_text, out_png, width)` — rasterizes a drawn illustration or diagram.
-- `browser_frame(html_path, out_png, url_text, width)` — real page render inside a drawn browser chrome (address bar). Caption as `(page real: rendered in Chromium; browser frame drawn)`.
+- `browser_frame(html_path, out_png, url_text, width)` — real page render inside a drawn browser chrome (address bar). Caption as `(page real: rendered in Chromium; browser frame drawn)`. Its frame cannot load `file://` pages; for a page opened from disk, render the real page and draw the frame around it in a separate step.
+- Never re-run an old module build script over the images folder: the scripts may hold older names and colors than the posts. Copy a script, render only the image you need, look at it, then copy that one image in.

@@ -36,10 +36,10 @@ This module is short on new syntax and long on habits. You will run a script, ch
 ## Before you start
 
 1. Finish Module 0. Node must be installed: in a terminal, `node --version` should print a version starting with `v`.
-2. In your course folder (for example `Documents\code559`), create a new folder called `js-practice`. This is a scratch folder for practice files. It sits next to `my-site`, not inside it.
-3. Open `js-practice` in VS Code with **File → Open Folder…**, then open a terminal with **Terminal → New Terminal**.
+2. In your course folder (for example `Documents\code559`), create a new folder called `practice-05`. This is a scratch folder for practice files. It sits next to `my-site`, not inside it.
+3. Open `practice-05` in VS Code with **File → Open Folder…**, then open a terminal with **Terminal → New Terminal**.
 
-> **Checkpoint.** Your terminal prompt ends in `js-practice>` and `node --version` prints a version.
+> **Checkpoint.** Your terminal prompt ends in `practice-05>` and `node --version` prints a version.
 
 ## Core concepts
 
@@ -102,7 +102,7 @@ console.log(2 + 3); // a number, not text
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running node hello.js and printing Hello, world!, This line runs second., and 5.](images/m05-node-hello.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Three statements, three lines of output, in the same order. The comment printed nothing. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the output is the same.)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Three statements, three lines of output, in the same order. The comment printed nothing. On Windows the output is the same. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Look at the third output line. Why does it show `5` and not `2 + 3`?
 
@@ -110,7 +110,7 @@ console.log(2 + 3); // a number, not text
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Every Edge and Chrome window has built-in developer tools, called **DevTools**. The **Console** is one of its panels.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Click inside any web page, then press **Ctrl + Shift + J** to open DevTools straight to the Console. **F12** also opens DevTools, on whichever panel you used last; if that is not Console, click the **Console** tab. (Both shortcuts are listed in Chrome's *Open Chrome DevTools* page and Microsoft's *Keyboard shortcuts* page for Edge DevTools.) Click next to the `>` sign at the bottom, type an expression, and press Enter. The Console shows the result on the next line.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Open `index.html` from your `my-site` folder (or any other page) in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. (Both shortcuts are listed in Chrome's *Open Chrome DevTools* page and Microsoft's *Keyboard shortcuts* page for Edge DevTools.) Click next to the `>` sign at the bottom, type an expression, and press Enter. The Console shows the result on the next line.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -119,6 +119,8 @@ console.log(2 + 3); // a number, not text
 
 ![The Console after typing 2 + 3, "Hello, " + "world", 60 * 24, and a console.log line.](images/m05-console-expressions.png)
 *Each expression gets an answer line. `console.log()` prints its text, then shows `undefined`: that is the Console reporting that `console.log()` itself hands back no value. It is not an error. Your Console may show text in single quotes instead of double; both mean text. (real output, rendered; evaluated in Chromium)*
+
+**Predict first.** Write your prediction down before you type. In Edge and Chrome, the Console shows a gray preview of the result under the line you are typing, before you press Enter. This feature is called **Eager evaluation**, and it is on by default. If you want to predict first, turn it off: click the **Console settings** gear in the top-right corner of the Console and clear the **Eager evaluation** checkbox. (Chrome's and Microsoft's *Console features reference* pages both describe this setting.) One more thing: if you paste code into the Console, Edge or Chrome may block it and ask you to type `allow pasting` first. This warning protects people from pasting harmful code they do not understand. Typing the code yourself avoids it.
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open the Console now and type `60 * 24`. That is the number of minutes in a day.
 
@@ -131,7 +133,7 @@ console.log(2 + 3); // a number, not text
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![The top of a real Node error, labeled: file and line, the code line, the caret, the error name and message, and the file:line:column in the stack.](images/m05-error-anatomy.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read from the top down. This is the real error from the Exercise's break-it step, with the long folder path shortened to `.../` on the stack line only.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read from the top down. This is the real error from the Exercise's break-it step, with the folder path changed to the course folder and shortened to `...\` on the stack line.*
 
 In the Console, the same mistake shows a shorter error. It starts with `Uncaught`, which only means no code caught the error before it reached you.
 
@@ -155,30 +157,30 @@ In the Console, the same mistake shows a shorter error. It starts with `Uncaught
 
 ## Exercise
 
-*Your hands, about 30 minutes (estimate).* Type it, do not paste it. Work in `js-practice`, your scratch folder.
+*Your hands, about 30 minutes (estimate).* Type it, do not paste it. Work in `practice-05`, your scratch folder.
 
-1. **Create the file.** In VS Code, create `hello.js` in `js-practice`. Type the four lines from Core Concept 3 exactly. Save with Ctrl+S.
+1. **Create the file.** In VS Code, create `hello.js` in `practice-05`. Type the four lines from Core Concept 3 exactly. Save with Ctrl+S.
 2. **Predict.** Before you run it, write down the three lines you expect to see, in order.
 3. **Run.** In the terminal, type `node hello.js` and press Enter. Compare with your prediction.
 4. **Modify.** Add a fifth line at the bottom: `console.log("I added this line.");` Save. Predict, then run again.
 
    ![A terminal running node hello.js and printing four lines, the last one I added this line.](images/m05-node-hello-modified.png)
-   *The new line appears last, because it is the last statement in the file. (real output, rendered; captured on Linux with Node 22.22.0)*
+   *The new line appears last, because it is the last statement in the file. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
 5. **Create.** Add a line of your own that logs a sum, for example the number of hours in a week. Predict the number first. Then add `console.log(10 - 4);` and `console.log("10 - 4");` and check your prediction from Core Concept 4.
 6. **Break it on purpose: a misspelled name.** On line 2, delete the `e` so it reads `consol.log("Hello, world!");`. Save and run.
 
    ![A terminal showing the full Node error: the file and line 2, the code line, a caret, ReferenceError: consol is not defined, and the stack.](images/m05-node-reference-error.png)
-   *Node stopped at line 2, so nothing printed, not even the lines after it. Name: `ReferenceError`. Message: `consol is not defined`. (real output, rendered; captured on Linux with Node 22.22.0. On Windows the first line and the first `at` line show your own Windows path to `hello.js`, starting with `C:\`.)* **[unverified: exact path format of Node's error header on Windows.]**
+   *Node stopped at line 2, so nothing printed, not even the lines after it. Name: `ReferenceError`. Message: `consol is not defined`. The first line and the first `at` line show the path to your own `hello.js`. On Windows the paths start with your drive, for example `C:\Users\…`. The `node:internal` lines and the last line, `Node.js v22.22.0`, depend on the Node version, so yours may show different numbers. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Find the four parts from Core Concept 7. Fix the spelling, save, and run again to prove it works.
 7. **Break it again: a missing quote.** On line 3, delete the closing quote so it reads `console.log("This line runs second.);`. Save and run.
 
    ![A terminal showing a Node SyntaxError: Invalid or unexpected token, pointing at line 3 with a row of carets under the text.](images/m05-node-syntax-error.png)
-   *A `SyntaxError` is different: Node could not read the file at all, so not even line 2 printed. The carets underline everything from the open quote to the end of the line, because Node is still looking for the closing quote. (real output, rendered; captured on Linux with Node 22.22.0)*
+   *A `SyntaxError` is different: Node could not read the file at all, so not even line 2 printed. The carets underline everything from the open quote to the end of the line, because Node is still looking for the closing quote. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Fix it, save, and run once more.
-8. **Try the Console.** Open any page in Edge or Chrome, press Ctrl+Shift+J, and type `2 + 3`, then `"Hello, " + "world"`, then `consol.log("hi")`. Compare with the Console image in Core Concept 7.
+8. **Try the Console.** Open any page in Edge or Chrome, press **F12** (or **Ctrl+Shift+J**), click the **Console** tab, and type `2 + 3`, then `"Hello, " + "world"`, then `consol.log("hi")`. Compare with the Console image in Core Concept 7.
 
 ## Project (in the full packet)
 
@@ -206,7 +208,7 @@ A program is a list of instructions that run in order, top to bottom. JavaScript
 - [ ] You can open the Console with Ctrl+Shift+J and evaluate an expression
 - [ ] You broke `hello.js` twice and can name the error each time (ReferenceError, SyntaxError)
 - [ ] You can point to the file, line, name and message in any error
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -215,16 +217,18 @@ A program is a list of instructions that run in order, top to bottom. JavaScript
 - MDN: *Lexical grammar* (the sections on comments and automatic semicolon insertion)
 - Chrome for Developers: *Open Chrome DevTools*
 - Microsoft Edge Developer documentation: *Keyboard shortcuts*
+- Chrome for Developers and Microsoft Edge Developer documentation: *Console features reference* (the Eager evaluation setting)
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Tutorial](AFFILIATE_W3SCHOOLS_JS)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
-Keep `hello.js` in `js-practice`, and write down the names of the two errors you caused and what fixed each one. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep `hello.js` in `practice-05`, and write down the names of the two errors you caused and what fixed each one. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "What is JavaScript?"; MDN "JavaScript error reference"; MDN "Lexical grammar"; Chrome for Developers "Open Chrome DevTools"; Microsoft Edge Developer documentation "Keyboard shortcuts".*
+*Sources checked 2026-10-09: MDN "What is JavaScript?"; MDN "JavaScript error reference"; MDN "Lexical grammar"; Chrome for Developers "Open Chrome DevTools"; Microsoft Edge Developer documentation "Keyboard shortcuts". Checked 2026-10-11: Chrome for Developers "Console features reference" and "How Chrome DevTools helps to defend against self-XSS attacks"; Microsoft Edge Developer documentation "Console features reference" and "Run JavaScript in the Console".*

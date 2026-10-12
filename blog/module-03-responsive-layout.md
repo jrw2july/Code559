@@ -31,11 +31,11 @@ This module also brings in CSS Grid. In Module 2 you used Flexbox to put things 
 
 ## Before you start
 
-1. Module 2 is done: your `my-site` pages share one external stylesheet, and your navigation uses Flexbox.
-2. Open your course folder (for example `Documents\code559`). Next to `my-site`, create a new folder called `layout-lab`. This is the throwaway folder for the Exercise. Nothing in it is published.
+1. Module 2 is done: you can link a page to an external stylesheet, and you have used Flexbox to put a navigation bar in a row.
+2. Open your course folder (for example `Documents\code559`). Next to `my-site`, create a new folder called `practice-03`. This is the throwaway folder for the Exercise. Nothing in it is published.
 3. Open Edge or Chrome and press **F12** once to check that DevTools opens. Press F12 again to close it.
 
-> **Checkpoint.** You have an empty `layout-lab` folder next to `my-site`, and F12 opens DevTools in your browser.
+> **Checkpoint.** You have an empty `practice-03` folder next to `my-site`, and F12 opens DevTools in your browser.
 
 ## Core concepts
 
@@ -50,7 +50,7 @@ This module also brings in CSS Grid. In Module 2 you used Flexbox to put things 
 ![Four nested rectangles labeled margin, border, padding and content, with a short note about each.](images/m03-box-model.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Margin is outside the border, padding is inside it, and `width` sets only the content in the default model.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any page you built, press F12, click an element in the Elements panel and find the Computed tab. DevTools draws that element's box with all four layers and their sizes.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open any page you built in Edge or Chrome, press F12, click an element in the Elements panel and find the Computed tab. DevTools draws that element's box with all four layers and their sizes.
 
 ### 2. What does `box-sizing: border-box` change?
 
@@ -117,7 +117,7 @@ The order matters. A rule inside a media query has the same specificity as the s
 ![Two 1200-pixel-wide headers. With the media query after the base rules, the logo is left and the links are right. With the media query moved above, the header is stacked even on a wide screen.](images/m03-rule-order.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Both renders are 1200 px wide, so the media query is true in both. Moved above the base rules, it loses: Chromium measured `flex-direction: column` instead of `row`. (real: rendered in Chromium)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In your own stylesheet, find every `@media` block. Is each one below the rules it changes?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: with the CSS above, which `flex-direction` does the header get on a 500 px screen? (`column`: the media query is false below 700 px, so only the base rule applies.)
 
 ### 5. What makes navigation responsive?
 
@@ -127,7 +127,7 @@ The order matters. A rule inside a media query has the same specificity as the s
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Compare the top of the 390 px and 1200 px screenshots in Concept 6 below. Same HTML, same stylesheet.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Add `flex-wrap: wrap` to your own navigation list now, and give its links `padding: 0.4rem 0.75rem`.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your `practice-02/styles.css` from Module 2. Add `flex-wrap: wrap` to the `nav` rule and `padding: 0.4rem 0.75rem` to the `nav a` rule. Save and press **F5**. If the links ever run out of room on a narrow window, they now move onto a second line instead of running off the edge.
 
 ### 6. How does CSS Grid make a card layout?
 
@@ -154,6 +154,8 @@ There is no media query in that rule. The number of columns changes with the wid
 | 1200 px | 4 | 255px |
 
 One card can be wider than the others with `grid-column: span 2`. Put that inside the `min-width` media query. When it was applied at all widths, Chromium measured `220px 122px` at 390 px: the span forced a second, squeezed column onto a phone.
+
+The minimum in `minmax()` always holds: if the space is narrower than one minimum-width column, Grid still makes that column at the minimum width, and it sticks out past the edge, so the page scrolls sideways. And if only one column fits but a card has `span 2`, Grid adds a column anyway, and that extra column comes out narrower than the first one, as in the `220px 122px` measurement above.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -207,7 +209,7 @@ The browser also counts pixel density. A phone screen often has two or three dev
 ![Two panels. The left panel has a grey placeholder the size of the photo with the text below it. The right panel has no placeholder, and its text sits right under the heading.](images/m03-layout-shift.png)
 *While the photos were still loading, Chromium measured the left image at 221 px tall and the right one at 0 px. When the right photo arrives, its text jumps down. (real: rendered in Chromium at 800 px)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick any image on your site. Find its real pixel size (right-click the file in File Explorer, **Properties → Details**) and add `width` and `height` to its `<img>` tag.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick the picture on your `practice-02` page. Find its real pixel size (right-click the file in File Explorer, **Properties → Details**). In its `<img>` tag, set `width` to the real width (replace `320` if it is there) and add `height` with the real height. Then add `img { max-width: 100%; height: auto; }` to `practice-02/styles.css` so the picture still fits the window. Save and press **F5**. The picture may now show larger, but never wider than the page.
 
 ### 8. How do you test at different widths?
 
@@ -220,22 +222,40 @@ The browser also counts pixel density. A phone screen often has two or three dev
 ![A drawn browser with the device toolbar open, set to 390 by 844, a phone-width page in the middle, and the DevTools panel on the right with the device toolbar toggle highlighted.](images/m03-devtools-device.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The device toolbar sits above the page; the toggle is next to the Elements tab. Labels in your browser may differ slightly.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your Home page in the browser, open device mode, and try 390, 800 and 1200. Write down one thing that looks wrong at 390.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your Home page in Edge or Chrome, open device mode (F12, then Ctrl+Shift+M), and try 390, 800 and 1200. Write down one thing that looks wrong at 390.
 
 ## Exercise
 
-*Your hands, about 50 minutes (estimate).* Work in `layout-lab`. Type it, do not paste it. The `srcset` and the grid line especially should go through your fingers once.
+*Your hands, about 50 minutes (estimate).* Work in `practice-03`. Type it, do not paste it. The `srcset` and the grid line especially should go through your fingers once.
 
-1. **Make the files.** In `layout-lab`, create `index.html`, `style.css` and a folder called `images`. Put three copies of any one photo in `images`, resized to 400, 800 and 1600 px wide, and name them `photo-one-400.jpg`, `photo-one-800.jpg` and `photo-one-1600.jpg`. (The Windows Photos app can resize; any image editor works.)
-2. **Write the HTML.** The normal head, with the viewport line and a link to `style.css`. In the body: a `<header class="site-header">` with a logo link and a `<nav>` holding a `<ul class="nav-list">` of four links; then a `<main>` with an `<h1>` and a `<ul class="card-grid">` of six `<li class="card">` items. Give the first card `class="card featured"` and put the `<figure>` from Concept 7 in it. The other five get an `<h2>` and a `<p>`.
+1. **Make the files.** In `practice-03`, create `index.html`, `styles.css` and a folder called `images`. Put three copies of any one photo in `images`, resized to 400, 800 and 1600 px wide, and name them `photo-one-400.jpg`, `photo-one-800.jpg` and `photo-one-1600.jpg`. (The Windows Photos app can resize; any image editor works.)
+2. **Write the HTML.** The normal head, with the viewport line and a link to `styles.css`. In the body: a `<header class="site-header">` with a logo link and a `<nav>` holding a `<ul class="nav-list">` of four links; then a `<main>` with an `<h1>` and a `<ul class="card-grid">` of six `<li class="card">` items. Give the first card `class="card featured"` and put the `<figure>` from Concept 7 in it. The other five get an `<h2>` and a `<p>`.
 3. **Write the base CSS, phone first.** The `box-sizing` rule from Concept 2. `img { max-width: 100%; height: auto; display: block; }`. The stacked `.site-header` from Concept 4. `.nav-list` with `display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0;`. `main { max-width: 1100px; margin: 0 auto; padding: 1rem; }`. The `.card-grid` rule from Concept 6 (add `list-style: none; padding: 0;`). Give `.card` some padding, a border and a white background.
-4. **Add the media query last.** At the bottom of `style.css`, one `@media (min-width: 700px)` block that turns the header into a row and gives `.featured` `grid-column: span 2`.
-5. **Look at three widths.** Open the page, open device mode (F12, then Ctrl+Shift+M), and check 390, 800 and 1200. You should see 1, 3 and 4 columns. Now check your prediction from Concept 6 at 1000.
-6. **Check the image.** In DevTools, open the Console tab and type `document.querySelector('.featured img').currentSrc`. Which file did your browser choose? Change the width and reload, then ask again.
-7. **Watch the columns change.** In the Console, type `getComputedStyle(document.querySelector('.card-grid')).gridTemplateColumns`. The answer is a list of column widths. Count them.
+4. **Add the media query last.** At the bottom of `styles.css`, one `@media (min-width: 700px)` block that turns the header into a row and gives `.featured` `grid-column: span 2`.
+5. **Look at three widths.** Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. With DevTools open, press **Ctrl+Shift+M** to turn on device mode, and check 390, 800 and 1200. You should see 1, 3 and 4 columns. Now check your prediction from Concept 6 at 1000.
+6. **Check the image.** Click in the Console. Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives.
+
+   ```js
+   document.querySelector('.featured img').currentSrc
+   ```
+
+   Which file did your browser choose? Change the width, press **F5**, then type the line again.
+7. **Watch the columns change.** Click in the Console. Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives.
+
+   ```js
+   getComputedStyle(document.querySelector('.card-grid')).gridTemplateColumns
+   ```
+
+   The answer is a list of column widths. Count them.
 8. **Break it on purpose (two ways).**
-   - **a. Remove the viewport line.** Delete the `<meta name="viewport" …>` line, save, and reload in device mode. In the Dimensions menu choose a phone from the list (not Responsive), then reload. The page is shrunk and the text is tiny. In the Console, `innerWidth` no longer matches the phone. **[unverified: whether your browser's device mode shows the full effect with Responsive selected; this post measured it with Chromium's phone emulation, which reported `innerWidth` 980.]** Put the line back.
-   - **b. Move the media query to the top.** Cut the `@media` block and paste it above the `.site-header` rule. Save and look at 1200 px. The header is stacked again. Write one sentence: why did the base rule win? Then move the block back to the bottom.
+   - **a. Remove the viewport line.** Delete the `<meta name="viewport" …>` line, save, and press **F5** with device mode on at 390. The page is shrunk and the text is tiny. You do not need to pick a phone from the Dimensions menu: Responsive already acts like a phone by default, because the Chrome DevTools source code (the file `DeviceModeModel.ts`) sets its default device type to Mobile and its default pixel ratio to 2. Click in the Console. Type this line exactly as shown. You will learn how it works in Module 9; for now, read the answer it gives.
+
+     ```js
+     innerWidth
+     ```
+
+     The answer no longer matches the phone's 390. Chromium reported 980 when this post tested it the same way (a phone at 390 px, pixel ratio 2). Put the line back.
+   - **b. Move the media query to the top.** Cut the `@media` block and paste it above the `.site-header` rule. Save, press **F5** and look at 1200 px. The header is stacked again. Write one sentence: why did the base rule win? Then move the block back to the bottom.
 
 ## Project (in the full packet)
 
@@ -259,11 +279,11 @@ Every element is a box of content, padding, border and margin, and `box-sizing: 
 
 ## Before next module
 
-- [ ] `layout-lab` shows 1, 3 and 4 columns at 390, 800 and 1200 px
+- [ ] `practice-03` shows 1, 3 and 4 columns at 390, 800 and 1200 px
 - [ ] You have seen both breaks in step 8 and put both back
-- [ ] Every page of `my-site` has the viewport line and the `box-sizing` rule
-- [ ] Every `@media` block in your stylesheet is below the rules it changes
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] Your `practice-03` page has the viewport line and the `box-sizing` rule
+- [ ] The `@media` block in `practice-03/styles.css` is below the rules it changes
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -277,10 +297,10 @@ Every element is a box of content, padding, border and margin, and `box-sizing: 
 
 ## What to keep
 
-Keep `layout-lab` with the media query back at the bottom, and a note of which image file your browser chose at each width. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep `practice-03` with the media query back at the bottom, and a note of which image file your browser chose at each width. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "The box model"; MDN "Using media queries"; MDN "Basic concepts of grid layout"; MDN "repeat()"; MDN "Using responsive images in HTML"; MDN "`<img>`: The Image Embed element"; MDN "`<meta name="viewport">`"; Chrome for Developers "Simulate mobile devices with device mode" and "Keyboard shortcuts". Measurements made with Chromium 141 (headless, via Playwright).*
+*Sources checked 2026-10-09: MDN "The box model"; MDN "Using media queries"; MDN "Basic concepts of grid layout"; MDN "repeat()"; MDN "Using responsive images in HTML"; MDN "`<img>`: The Image Embed element"; MDN "`<meta name="viewport">`"; Chrome for Developers "Simulate mobile devices with device mode" and "Keyboard shortcuts". Checked 2026-10-11: Chrome DevTools source code, `front_end/models/emulation/DeviceModeModel.ts` (GitHub, ChromeDevTools/devtools-frontend). Measurements made with Chromium 141 (headless, via Playwright).*

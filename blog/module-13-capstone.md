@@ -32,10 +32,10 @@ This is also the end of the core course. The last part of the module is a whole-
 
 1. Finish Modules 11 and 12. You need the Action / Expected / Actual test table from Module 11 and the full Git routine from Module 12.
 2. Make sure your personal site is live on GitHub Pages and that `git status` in `my-site` says the working tree is clean.
-3. In your course folder (for example `Documents\code559`), create a throwaway folder called `m13-practice` and open it in VS Code with **File → Open Folder…**.
+3. In your course folder (for example `Documents\code559`), create a throwaway folder called `practice-13` and open it in VS Code with **File → Open Folder…**.
 4. Have your Module 11 test-table template open in a text file.
 
-> **Checkpoint.** Your live site loads, `my-site` has nothing uncommitted, and you have an empty `m13-practice` folder open in VS Code.
+> **Checkpoint.** Your live site loads, `my-site` has nothing uncommitted, and you have an empty `practice-13` folder open in VS Code.
 
 ## Core concepts
 
@@ -73,7 +73,18 @@ This is also the end of the core course. The last part of the module is a whole-
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> To check that the four rows above can be built with what you already know, a minimal Pocket Planner was built for this post from those rows, and nothing else.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> It uses only things from earlier modules: a form with a label, `querySelector`, a `submit` listener with `preventDefault()`, `.trim()` and an empty check, `createElement` and `textContent` (no `innerHTML`), `classList`, and one media query. Then each row's "done when" was run as a test.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Most of it uses things from earlier modules: a form with a label, `querySelector`, a `submit` listener with `preventDefault()`, `.trim()` and an empty check, `createElement` and `textContent` (no `innerHTML`), `classList`, and one media query. Then each row's "done when" was run as a test. Row 3 needs one thing no earlier module taught: the checkbox's `change` event.
+
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A checkbox fires a **`change`** event each time it is checked or unchecked, by mouse or keyboard (MDN, *HTMLElement: change event*). Inside the listener, the box's **`.checked`** property is `true` if the box is now checked and `false` if not, so the planner gives each new checkbox its own `change` listener when it makes the task. For a page with `<input id="done-box" type="checkbox">` and a `<label>` tied to it:
+
+```js
+const doneBox = document.querySelector("#done-box");
+doneBox.addEventListener("change", function () {
+  console.log("checked is", doneBox.checked);
+});
+```
+
+*In Chromium, the first click logged `checked is true` and the second logged `checked is false`. Clicking the box's label, or pressing Space on the focused box, did the same.*
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -99,7 +110,7 @@ This is also the end of the core course. The last part of the module is a whole-
 ![Nine boxes in three rows: Predict, Run, Explain; Modify, Debug, Retest; Commit, Push, Verify live.](images/m13-nine-steps.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Read it as three groups: understand it (1–3), make it right (4–6), ship it (7–9). Skipping a group is how "it worked on my computer" happens.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Think of the last feature you added to your site. Which of the nine steps did you skip?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Think of the last feature you built (in a practice folder or on your own site). Which of the nine steps did you skip?
 
 ### 5. What is code-origin honesty?
 
@@ -123,17 +134,17 @@ This is also the end of the core course. The last part of the module is a whole-
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> Before you call the site finished, check it the way a visitor with different needs would use it. Four checks cover most problems.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **Keyboard:** put the mouse away and Tab through every page (Module 11). Every link, button, text box and checkbox must be reachable and show a visible focus ring, and Space or Enter must work on it. **Labels:** every form field needs a `<label>` tied to it with `for` and `id`; MDN's *HTML: A good basis for accessibility* points out you can then "click the label to select or activate the form element." **Alt text:** every `<img>` needs an `alt`. The same MDN page says the alt "should be brief and concise," and an image that is only decoration gets an empty `alt=""`. **Color contrast:** MDN's *Color contrast* page gives the WCAG AA minimums as **4.5:1** for normal text and **3:1** for large text (at least 18pt, or 14pt bold). Interface parts need contrast too: the same page asks for at least **3:1** for "user interface components and graphical objects," and that includes a focus ring you style yourself, against the colors next to it (W3C, *Understanding SC 1.4.11: Non-text Contrast*). To check in Chrome or Edge, Chrome's *Make your website more readable* says: open DevTools, click **Inspect** and hover over text; the tooltip shows the contrast ratio, with a warning icon if it is too low. For a whole page at once, the same page names a **Lighthouse** accessibility report.
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> The sample planner passed the keyboard check: from the text box, two presses of Tab reached the first checkbox, and Space checked it.
 
-![Pocket Planner at 390 px with an amber focus ring around the first task's checkbox, which is checked, and the line 1 of 2 done.](images/m13-planner-focus.png)
+![Pocket Planner at 390 px with a dark orange focus ring around the first task's checkbox, which is checked, and the line 1 of 2 done.](images/m13-planner-focus.png)
 *Keyboard only: Tab, Tab, Space. The ring shows where focus is, and the summary updated, so row 3 works without a mouse. (real: rendered in Chromium at 390 px with real Tab and Space key presses)*
 
 The planner's colors were also checked with a short Node script that applies the WCAG contrast formula. You do not need to write such a script; DevTools shows the same kind of ratio.
 
-![A terminal running node contrast.js, listing five color pairs: four pass AA with ratios from 6.54:1 to 15.11:1, and a light gray on white fails at 2.56:1.](images/m13-contrast.png)
-*All four colors the planner uses pass AA for normal text. The light gray is there to show what a fail looks like: it is the kind of "soft" gray that looks elegant and is hard to read. (real output, rendered; captured on Linux with Node 22. The prompt is drawn to match the course folder.)*
+![A terminal in practice-13 running node contrast.js, listing six color pairs with the ratio each needs: four text colors pass 4.5:1 with ratios from 6.54:1 to 15.11:1, the focus ring #b45309 passes 3:1 at 5.02:1, and a light gray on white fails at 2.56:1.](images/m13-contrast.png)
+*The four text colors the planner uses pass 4.5:1, and its dark orange focus ring passes the 3:1 it needs. The light gray is there to show what a fail looks like: it is the kind of "soft" gray that looks elegant and is hard to read. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your home page, open DevTools, click Inspect, and hover over your smallest, palest text. Write down the ratio.
 
@@ -151,11 +162,11 @@ The planner's colors were also checked with a short Node script that applies the
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> You can now build, test, publish and explain a multi-page site with HTML, CSS and JavaScript. That is the core.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> There is one optional extension: a module on a small **Node server** and **`fetch`**, so a form can send data to a program you wrote and show the reply without leaving the page. After that, many learners want a framework. Frameworks are a separate product, not part of this course, and you should not move to one just because you reached the last module. Move when plain JavaScript feels easy to read and write, and you can explain why a framework would help with a page you have actually built.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> A later, optional module (not yet published) will cover a small **Node server** and **`fetch`**, so a form can send data to a program you wrote and show the reply without leaving the page. After that, many learners want a framework. Frameworks are a separate product, not part of this course, and you should not move to one just because you reached the last module. Move when plain JavaScript feels easy to read and write, and you can explain why a framework would help with a page you have actually built.
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> A good sign you are ready for more: you can rewrite one of your own functions from a one-sentence description, with the file closed.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick one function from your site. Close the file. Rewrite it from memory, then compare.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick one function you wrote in Modules 9 to 11 (or on your own site). Close the file. Rewrite it from memory, then compare.
 
 ## Exercise
 
@@ -170,7 +181,7 @@ The requirement, for a "Goal counter" page:
 | 3 | The count stops at 10, and a message says the goal is reached. | The eleventh click leaves the count at 10 and the message appears. |
 
 1. **Make tasks.** For each of the three rows, write Structure, Look, Behavior and Test lines (concept 2). That is twelve short lines. Do not code rows 2 or 3; the list is the deliverable for them.
-2. **Make the folder.** In `m13-practice`, create a folder called `goal-counter` with `index.html` and `script.js`.
+2. **Make the folder.** In `practice-13`, create a folder called `goal-counter` with `index.html` and `script.js`.
 3. **Structure for row 1.** Type `index.html`:
 
    ```html
@@ -205,16 +216,24 @@ The requirement, for a "Goal counter" page:
    addButton.addEventListener("click", addOne);
    ```
 
-5. **Predict, run, explain.** Write your prediction for row 1's test. Open the page, click +1 three times, and fill in Actual. (In Chromium: 0 on load, 3 after three clicks.) Then explain each line of `script.js` out loud in one sentence.
+5. **Predict, run, explain.** Write your prediction for row 1's test. Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Click +1 three times, and fill in Actual. (In Chromium: 0 on load, 3 after three clicks.) Then explain each line of `script.js` out loud in one sentence.
 6. **Modify.** Change `count + 1` to `count + 2`. Predict the count after three clicks. Run it. Change it back.
 7. **Break it on purpose.** Change the last line to `addButton.addEventListener("click", addOne());` (with the parentheses). Predict first. Then run row 1's test again. In Chromium the count reads **1** as soon as the page loads, clicking does nothing, and there is no red line in the Console. Why? (Hint: Module 7, reference versus call.)
 8. **Debug and retest.** Remove the parentheses. Run row 1's test again, from a fresh page load. Write the new Actual.
-9. **Commit.** Row 1 is one change, so it is one commit:
+9. **Commit.** Row 1 is one change, so it is one commit. Open the `goal-counter` folder in VS Code with **File → Open Folder…**, then **Terminal → New Terminal**. Check that the prompt ends in `goal-counter>`. Then type these five commands, one at a time:
 
-   ![A terminal in goal-counter running git init, git status --short showing two untracked files, git add ., git commit with the message Row 1: +1 button raises the count, and git log --oneline showing one commit.](images/m13-git-row1.png)
-   *One row, one commit, and the message names the row. Your commit id will be different. (real output, rendered; captured on Linux with Git 2.43.0 using a throwaway Git identity. The repository path in the "Initialized" line was replaced with the course folder.)*
+   ```
+   git init
+   git status --short
+   git add .
+   git commit -m "Row 1: +1 button raises the count"
+   git log --oneline
+   ```
 
-   This is a throwaway folder, so stop at commit. In the Project, steps 8 and 9 (push and verify live) are required for every row.
+   ![A terminal in practice-13\goal-counter running git init, git status --short showing two untracked files, git add ., git commit with the message Row 1: +1 button raises the count, and git log --oneline showing one commit.](images/m13-git-row1.png)
+   *One row, one commit, and the message names the row. Your commit id will be different. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
+
+   This is a throwaway folder, so stop at commit. In the Project, the last two of the nine steps (push and verify live) are required for every row.
 
 ## Project (in the full packet)
 
@@ -228,7 +247,7 @@ What would you say? Hint: count how many of the nine steps come after "it works.
 
 ## Summary
 
-A requirement table lists what the page must do, one row at a time, with a "done when" column that becomes your test. Each row breaks into small tasks in the order structure, look, behavior, plus a test row. The Code559 completion standard says a feature is done only after predict, run, explain, modify, debug, retest, commit, push and verify live. Any line a tool wrote is marked with a comment that says where it came from, what it does and what you changed. A final accessibility pass checks the keyboard, labels, alt text and color contrast (4.5:1 for normal text). A portfolio audit makes sure every page, link, test plan and README is ready for someone else to read. After the core, the optional next step is a Node server with `fetch`; frameworks are a separate product, for when plain JavaScript feels easy.
+A requirement table lists what the page must do, one row at a time, with a "done when" column that becomes your test. Each row breaks into small tasks in the order structure, look, behavior, plus a test row. The Code559 completion standard says a feature is done only after predict, run, explain, modify, debug, retest, commit, push and verify live. Any line a tool wrote is marked with a comment that says where it came from, what it does and what you changed. A final accessibility pass checks the keyboard, labels, alt text and color contrast (4.5:1 for normal text). A portfolio audit makes sure every page, link, test plan and README is ready for someone else to read. After the core, a later, optional module (not yet published) will cover a Node server with `fetch`; frameworks are a separate product, for when plain JavaScript feels easy.
 
 ## Check your understanding
 
@@ -239,12 +258,12 @@ A requirement table lists what the page must do, one row at a time, with a "done
 ## Before next module: what comes next
 
 - [ ] Your sample tasks: twelve lines for the Goal counter's three rows, and row 1 built, broken, fixed and committed
-- [ ] Every page of your site passed the keyboard, labels, alt text and contrast checks, and you fixed what failed
+- [ ] Every page of your live site passed the keyboard, labels, alt text and contrast checks, and you fixed what failed
 - [ ] Any tool-written line in `my-site` is marked and explained, or rewritten
 - [ ] Your portfolio audit is done on a phone and a computer, with no red lines in any Console
 - [ ] Your final changes are saved with the routine: git status → git add . → git commit -m "…" → git push → check the live page
-- [ ] You have a short list of links ready to share: your live site, your site's repository, and your best project's repository
-- [ ] You know your next step: the optional Node and `fetch` extension, or the certification path; the full course is built to prepare you for a certification exam
+- [ ] You have a short list of links ready to share: your live site, your site's repository, and, if you did the packet projects, your best project's repository
+- [ ] You know your next step: more practice from Go further, or a later, optional module on a Node server and `fetch` (not yet published)
 
 ## Go further
 
@@ -266,4 +285,4 @@ Keep your requirement-to-tasks lines, your test tables, and the three links you 
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints".*
+*Sources checked 2026-10-09: MDN "Color contrast"; MDN "HTML: A good basis for accessibility"; Chrome for Developers "Make your website more readable"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: MDN "Color contrast" (3:1 for interface parts); W3C "Understanding SC 1.4.11: Non-text Contrast"; MDN "HTMLElement: change event"; MDN "HTMLInputElement: checked property"; Chrome for Developers "Open Chrome DevTools". The `change` example, the planner and the Goal counter were run in Chromium 141.0.7390.37 (via Playwright) on Linux.*

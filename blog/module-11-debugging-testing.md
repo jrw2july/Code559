@@ -34,12 +34,12 @@ Testing is the other half. A test is a written promise: "when I do this, I expec
 
 ## Before you start
 
-1. Finish Module 10. Your site should have at least one feature that responds to a click or a form submit.
-2. In your course folder (for example `Documents\code559`), create a throwaway folder called `m11-practice`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
+1. Finish Module 10. You should be able to make a page respond to a click or a form submit with `addEventListener()`.
+2. In your course folder (for example `Documents\code559`), create a throwaway folder called `practice-11`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
 3. Open Edge or Chrome. You will press **F12** often in this module. Click the **Console** tab once so it opens there next time.
 4. Have paper or a blank text file ready. You will write predictions before you run things.
 
-> **Checkpoint.** You have an empty `m11-practice` folder open in VS Code, Live Preview works, and you can open the Console with F12.
+> **Checkpoint.** You have an empty `practice-11` folder open in VS Code, and you can open the Console with F12.
 
 ## Core concepts
 
@@ -54,7 +54,7 @@ Testing is the other half. A test is a written promise: "when I do this, I expec
 ![Five boxes in a row: Predict, Run, Compare, Change one thing, Retest.](images/m11-loop.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The loop you will use for every bug in this module. Notice that "Compare" needs a written prediction to compare against.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Pick one button on your own site. Before you click it, write one sentence: "When I click ___, I expect ___." Click it. Did the actual result match?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your `practice-10` page from Module 10 (or your own site, if you did the packet projects) and pick one button. Before you click it, write one sentence: "When I click ___, I expect ___." Click it. Did the actual result match?
 
 ### 2. How do you read a Console error?
 
@@ -72,7 +72,7 @@ Read the red line from left to right. **The type** comes first (`TypeError`): wh
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A Console showing Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') with script.js:2 on the right.](images/m11-console-typeerror.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn. In your DevTools the `at …` lines may be folded under a small arrow.)* **[unverified: whether your version of Edge or Chrome shows the stack lines expanded or folded by default.]**
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Type, message, location. The message says "of null": the variable on line 2 holds `null`. (real output, rendered; the error text, file name and line came from Chromium loading this page from a file. The Console frame is drawn.)* Your Console may look slightly different: if you do not see the `at …` lines, click the small arrow beside the red message to open them.
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Say the three parts of that error out loud: type, message, file and line.
 
@@ -97,7 +97,7 @@ Read the red line from left to right. **The type** comes first (`TypeError`): wh
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> When you see "of null" in a message, go to the `querySelector` line that filled that variable, and compare its selector with the HTML, letter by letter.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In your own `script.js`, find one `querySelector` line. Write down the exact id or class it looks for. Now find that id or class in your HTML. Do they match exactly, including `#` or `.`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> In your `practice-10/script.js` (or your own site's script), find one `querySelector` line. Write down the exact id or class it looks for. Now find that id or class in your HTML. Do they match exactly, including `#` or `.`?
 
 ### 5. How do you debug a selector?
 
@@ -110,7 +110,7 @@ Read the red line from left to right. **The type** comes first (`TypeError`): wh
 ![A Console where querySelector("#mesage-button") returns null, querySelector("#message-button") returns the button element, and querySelectorAll("button").length returns 1.](images/m11-selector-null.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One letter changes the answer from `null` to the button. Testing the selector by itself takes seconds and ends the guessing. (real output, rendered; evaluated in Chromium against the demo page)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> On your own site, open the Console and type one of your `querySelector` calls. Is the answer an element or `null`?
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> On that same page, open the Console and type one of your `querySelector` calls. Is the answer an element or `null`?
 
 ### 6. How do you see what a variable holds?
 
@@ -162,10 +162,10 @@ then loading the page and clicking Next three times gives this:
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
-![The fixed practice page at 390 px with a thick amber ring around the Show help button.](images/m11-focus-help-fixed.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *After five presses of Tab, focus is on "Show help," and the amber `:focus-visible` outline from the stylesheet shows it. (real: rendered in Chromium at 390 px, focus moved with five real Tab key presses)*
+![The fixed practice page at 390 px with a thick dark orange ring around the Show help button.](images/m11-focus-help-fixed.png)
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *After five presses of Tab, focus is on "Show help," and the dark orange `:focus-visible` outline from the stylesheet shows it. (real: rendered in Chromium at 390 px, focus moved with five real Tab key presses)*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your site. Put the mouse away. Press Tab until you have visited every link and button. Write down any you could not reach or could not see.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open your `practice-10` page (or your own site). Put the mouse away. Press Tab until you have visited every link and button. Write down any you could not reach or could not see.
 
 ### 10. What is the Action / Expected / Actual test matrix?
 
@@ -195,13 +195,13 @@ then loading the page and clicking Next three times gives this:
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Four of the seven rows in the table above are edge cases. Point to each one.
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For one feature on your own site, write one edge case you have never tested.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For one feature you built in Module 10 (or on your own site), write one edge case you have never tested.
 
 ## Exercise
 
 *Your hands, about 60 minutes (estimate).* Type it, do not paste it. This page has **six planted bugs**. Some print a red line. Some do not. Your job is to find all six with the Console, `console.log()`, the keyboard, and the test table.
 
-1. **Make the files.** In `m11-practice`, create a folder called `bug-hunt` with three files: `index.html`, `style.css`, `script.js`.
+1. **Make the files.** In `practice-11`, create a folder called `bug-hunt` with three files: `index.html`, `styles.css`, `script.js`.
 2. **Type `index.html`.**
 
    ```html
@@ -211,7 +211,7 @@ then loading the page and clicking Next three times gives this:
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>Bug hunt</title>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="styles.css">
    </head>
    <body>
      <main>
@@ -242,7 +242,7 @@ then loading the page and clicking Next three times gives this:
    </html>
    ```
 
-3. **Type `style.css`.**
+3. **Type `styles.css`.**
 
    ```css
    body { font-family: system-ui, sans-serif; margin: 0; background: #f4f6f8; color: #1d2733; }
@@ -251,7 +251,7 @@ then loading the page and clicking Next three times gives this:
    .card { background: #fff; border: 1px solid #d5dbe1; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
    .card h2 { margin-top: 0; font-size: 1.2rem; }
    button, .help-toggle { font: inherit; padding: 8px 14px; border: 1px solid #2f5d8a; border-radius: 6px; background: #2f5d8a; color: #fff; cursor: pointer; display: inline-block; }
-   button:focus-visible, input:focus-visible { outline: 3px solid #e3a008; outline-offset: 2px; }
+   button:focus-visible, input:focus-visible { outline: 3px solid #b45309; outline-offset: 2px; }
    label { display: block; margin-bottom: 4px; }
    input { font: inherit; padding: 8px; border: 1px solid #8a96a3; border-radius: 6px; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
    .help { display: none; }
@@ -315,12 +315,12 @@ then loading the page and clicking Next three times gives this:
    showTip();
    ```
 
-5. **Predict, then run.** Write your prediction: what will the tip card show? Open `index.html` with Live Preview or in the browser, then press F12. The tip card has buttons but no tip and no count, and the Console shows this:
+5. **Predict, then run.** Write your prediction: what will the tip card show? Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. The tip card has buttons but no tip and no count, and the Console shows this:
 
    ![A Console showing Uncaught TypeError: Cannot set properties of null (setting 'textContent') at showTip (script.js:19:23) and at script.js:52:1.](images/m11-bughunt-console.png)
    *Read the stack from the top: the error happened inside `showTip` on line 19, and `showTip` was called from line 52. The real cause is on neither line. (real output, rendered; captured in Chromium loading the file. The Console frame is drawn.)*
 
-   Use concepts 4 and 5 to find **bug 1**. Fix only that. Save. Reload.
+   Use concepts 4 and 5 to find **bug 1**. Fix only that. Save. Press F5.
 
 6. **Run the test table.** Now the page loads with no red line. Go through the Action / Expected / Actual table from concept 10, one row at a time, and fill in Actual. You should get at least three rows that do not match. Here are two of them:
 
@@ -332,8 +332,8 @@ then loading the page and clicking Next three times gives this:
 
 7. **Fix one bug at a time.** For each row that failed: say which line you think is wrong, change one thing, save, and run the **same row** again. Write the new Actual. Do not move on until the row passes.
 8. **Break it on purpose.** Once Next wraps correctly, change `>=` (or whatever you used) back to `>`. Predict what row 4 will show now. Run row 4. Then fix it again and rerun row 4. Breaking a fixed bug and watching the test catch it is how you learn to trust the test.
-9. **Test the keyboard.** Put the mouse away. Press Tab from the top of the page. In the page as typed, focus goes Previous → Next → the text box → Add tip, and then leaves the page; "Show help" is never reached (checked in Chromium with real Tab presses). Fix it so Tab reaches "Show help" and Enter opens the help text. Hint: concept 9.
-10. **Check the last one.** Click "Show help" with the mouse. Does the help paragraph appear? If not, compare the class name in `script.js` with the class names in `style.css`.
+9. **Check the help button.** Click "Show help" with the mouse. Does the help paragraph appear? If not, compare the class name in `script.js` with the class names in `styles.css`. Fix it, save, press F5, and click again. Do this step before step 10: until the class name is fixed, the help text cannot appear, by mouse or by keyboard.
+10. **Test the keyboard.** Put the mouse away. Press Tab from the top of the page. With the HTML as you typed it, focus goes Previous → Next → the text box → Add tip, and then leaves the page; "Show help" is never reached (checked in Chromium with real Tab presses). Fix it so Tab reaches "Show help" and Enter opens the help text. Hint: concept 9.
 11. **Finish the table.** Every row's Actual now matches Expected. Add one more row of your own: one edge case the table does not cover yet.
 
 <details>
@@ -374,8 +374,8 @@ A bug is a gap between what you expected and what actually happened, so you writ
 - [ ] You can name the three parts of a Console error and click through to the line
 - [ ] You found all six bugs in `bug-hunt`, one change at a time, and broke one fix on purpose and caught it again
 - [ ] Every row of your bug-hunt test table has an Actual that matches Expected
-- [ ] You tabbed through your own site with the mouse put away, and wrote down what you could not reach
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] You tabbed through a page you built (your `practice-10` page, or your own site) with the mouse put away, and wrote down what you could not reach
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -386,7 +386,7 @@ A bug is a gap between what you expected and what actually happened, so you writ
 - MDN: *HTML: A good basis for accessibility* (the keyboard sections)
 - MDN: *:focus-visible*
 - Chrome for Developers: *Pause your code with breakpoints*
-- freeCodeCamp: the debugging lessons in its JavaScript curriculum (search "debugging" on freecodecamp.org)
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Debugging](AFFILIATE_W3SCHOOLS_JS_DEBUGGING)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
@@ -399,4 +399,4 @@ Keep your filled-in bug-hunt test table and the empty Action / Expected / Actual
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "What went wrong? Troubleshooting JavaScript"; MDN "TypeError: "x" is (not) "y""; MDN "Document: querySelector() method"; MDN "console: log() static method"; MDN "HTML: A good basis for accessibility"; MDN ":focus-visible"; Chrome for Developers "Pause your code with breakpoints".*
+*Sources checked 2026-10-09: MDN "What went wrong? Troubleshooting JavaScript"; MDN "TypeError: "x" is (not) "y""; MDN "Document: querySelector() method"; MDN "console: log() static method"; MDN "HTML: A good basis for accessibility"; MDN ":focus-visible"; Chrome for Developers "Pause your code with breakpoints". Checked 2026-10-11: Chrome for Developers "Open Chrome DevTools" (F12 and Ctrl+Shift+J).*

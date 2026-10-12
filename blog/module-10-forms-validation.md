@@ -34,10 +34,10 @@ This module stays on your own computer. Nothing is sent anywhere. A one-second t
 ## Before you start
 
 1. Finish Module 9. You should be able to find an element with `querySelector()`, change it with `textContent` and `classList`, and connect a function with `addEventListener()`.
-2. In your course folder (for example `Documents\code559`), create a throwaway folder called `m10-practice`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
-3. Open the page with **Live Preview** this time, not by double-clicking the file. A real page address (`http://127.0.0.1:3000/…` is Live Preview's default) lets you see what a form adds to the address bar. Live Preview's default port is 3000 according to its `package.json`; yours may differ if 3000 is busy.
+2. In your course folder (for example `Documents\code559`), create a throwaway folder called `practice-10`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
+3. Keep Edge or Chrome open. You will open the page as a file, as in Module 9, and use **F12 → Console** to read messages and to test lines. No server is needed: a form on a page opened as a file still shows what it sends in the address bar (Exercise step 9).
 
-> **Checkpoint.** You have an empty `m10-practice` folder open in VS Code, and you know how to open a file with Live Preview and open the Console.
+> **Checkpoint.** You have an empty `practice-10` folder open in VS Code, and you know how to open a file in Edge or Chrome and open the Console.
 
 ## Core concepts
 
@@ -77,13 +77,25 @@ One detail, checked in Chromium: an `<input type="email">` already strips spaces
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Predict: what is `"  hi  ".trim().length`?
 
+Checkboxes and radio buttons hold their answer in a different way. A checkbox has `.checked`, which is `true` or `false`; the Exercise reads `pretendFail.checked`. For a group of radio buttons, ask for the one that is ticked: `document.querySelector('input[name="rating"]:checked')`. The outer single quotes let the double quotes around `rating` stay inside the text. `:checked` is the CSS pseudo-class for a ticked radio button, checkbox or `<option>` (MDN, *:checked*). You get the chosen radio, or `null` if nothing is chosen yet. Its `.value` is the text in its `value` attribute, as a string. Checked in Chromium on a group of five radios named `rating`: with nothing chosen the result was `null`, and after a click on 4, `.value` gave `"4"`. Check for `null` before you read `.value`; `null.value` gives the TypeError you met in Module 9.
+
 ### 3. What does the browser already check for you?
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> HTML has validation built in. You used `required` in Module 4.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console:
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN lists the attributes: `required` ("needs to be filled in before the form can be submitted"), `minlength` and `maxlength` (length of text), `min` and `max` (numbers), `type` ("a number, an email address, or some other specific preset type"), and `pattern` ("a regular expression that defines a pattern the entered data needs to follow") (MDN, *Client-side form validation*). With these on a form and no JavaScript, pressing Send on an empty required field shows the browser's own message bubble and **stops the submit**. Checked in Chromium: with `novalidate` removed, a click on Send fired the `submit` event 0 times and moved focus to the empty Name field. You can read the browser's verdict yourself from the Console.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+Typed into the Console for the picture below, in this order. You can type them yourself on the Exercise page once it is open (step 4):
+
+```js
+document.querySelector("#name").validity.valueMissing
+document.querySelector("#name").validationMessage
+document.querySelector("#email").value = "you@"
+document.querySelector("#email").checkValidity()
+document.querySelector("#email").validationMessage
+```
 
 ![The Console: the empty name field's validity.valueMissing is true and its validationMessage is "Please fill out this field." After setting the email value to "you@", checkValidity() is false and validationMessage is "Please enter a part following '@'. 'you@' is incomplete."](images/m10-builtin-console.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`checkValidity()` returns `true` or `false` using the HTML rules. `validationMessage` is the text the browser would show in its bubble; the exact wording differs between browsers and languages. (real output, rendered; evaluated in Chromium 141)*
@@ -127,8 +139,8 @@ This is the only ARIA in the form, on purpose. MDN quotes the first rule of ARIA
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
-![Two real renders at 390 px. Before: an empty form with Name, Email and Message fields, a practice checkbox and a Send button. After Send with Your Name, you@ and hi: the email box has the orange focus ring and the message "That email address looks incomplete. Check the @ and the part after it." The message box has a red border and "Please write at least 10 characters."](images/m10-form-errors.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Name was fine, so the first problem is Email, and that is where focus went (the orange ring). Both problems are listed at once, so the visitor fixes everything in one pass. Labels added above each render. (real: rendered in Chromium)*
+![Two real renders at 390 px. Before: an empty form with Name, Email and Message fields, a practice checkbox and a Send button. After Send with Your Name, you@ and hi: the email box has a red border inside the dark orange focus ring, and the message "That email address looks incomplete. Check the @ and the part after it." The message box also has a red border and "Please write at least 10 characters."](images/m10-form-errors.png)
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Name was fine, so the first problem is Email, and that is where focus went (the dark orange ring around its red border). Both problems are listed at once, so the visitor fixes everything in one pass. Labels added above each render. (real: rendered in Chromium)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> If all three fields had problems, which field would receive focus? Why that one?
 
@@ -158,7 +170,7 @@ function setState(stateName) {
 }
 ```
 
-`remove()` accepts several class names at once; classes that are not there are ignored. While sending, the button is also disabled with `sendButton.disabled = true`, so a second click cannot send twice. In the Exercise, `setTimeout(finishSending, 1000)` waits one second and then calls `finishSending`, a stand-in for a server's answer. (Same rule as listeners: you pass `finishSending`, not `finishSending()`.) A practice checkbox lets you choose whether the pretend send fails, so you can see every state. In a later module, a real server replaces the timer. **Nothing in this module leaves your computer.**
+`remove()` accepts several class names at once; classes that are not there are ignored. While sending, the button is also disabled with `sendButton.disabled = true`, so a second click cannot send twice. In the Exercise, `setTimeout(finishSending, 1000)` waits one second and then calls `finishSending`, a stand-in for a server's answer. (Same rule as listeners: you pass `finishSending`, not `finishSending()`.) A practice checkbox lets you choose whether the pretend send fails, so you can see every state. In a later, optional module (not yet published), a real server replaces the timer. **Nothing in this module leaves your computer.**
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
@@ -178,6 +190,16 @@ function setState(stateName) {
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order. You can type them yourself on the Exercise page once it is open (step 4):
+
+```js
+document.querySelector("#contact-form").checkValidity()
+for (const field of document.querySelectorAll("[required]")) { field.removeAttribute("required"); }
+document.querySelector("#contact-form").checkValidity()
+```
+
+Press **F5** afterwards to get the `required` attributes back.
+
 ![The Console on the practice page: the form's checkValidity() is false; a for...of loop over querySelectorAll("[required]") removes each required attribute; checkValidity() is now true.](images/m10-bypass-console.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One line in the Console, using Module 9's `querySelectorAll()` and `for...of`, switched the browser's rules off. The empty form now counts as valid. (real output, rendered; evaluated in Chromium 141)*
 
@@ -188,7 +210,7 @@ function setState(stateName) {
 
 ## Exercise
 
-*Your hands, about 75 minutes (estimate).* Type it, do not paste it. Work in `m10-practice`. Nothing here is published, and nothing is sent anywhere.
+*Your hands, about 75 minutes (estimate).* Type it, do not paste it. Work in `practice-10`. Nothing here is published, and nothing is sent anywhere.
 
 1. **Create the HTML.** Make `index.html`:
 
@@ -199,7 +221,7 @@ function setState(stateName) {
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Form practice</title>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="styles.css">
      <script src="script.js" defer></script>
    </head>
    <body>
@@ -235,7 +257,9 @@ function setState(stateName) {
 
    Notice: `novalidate` on the form, `class="idle"` to start, each field's `aria-describedby` naming the empty `<p>` under it, and the `#status` paragraph outside the form, right after it.
 
-2. **Add the CSS.** Make `style.css`. The last block is the state styles. `.sent + #status` means "the `#status` element right after a form with the class `sent`."
+2. **Add the CSS.** Make `styles.css`. The last block is the state styles. `.sent + #status` means "the `#status` element right after a form with the class `sent`." `:empty` matches an element with nothing inside it, not even a space (MDN, *:empty*). So `.error:empty` hides an error line until it has text. `#status:empty` only takes away the padding and margin: the empty status line takes no space, but it stays in the page, ready for screen readers (Concept 7). Checked in Chromium's accessibility tree: the empty `#status` is there at load, as a polite `status` region.
+
+   Why `input.invalid` and not just `.invalid`? Module 2's specificity: `input[type="text"]` scores 0-1-1, because an attribute selector counts in the class column, so it beats `.invalid` (0-1-0); `input.invalid` also scores 0-1-1 and wins the tie because it comes later in the file.
 
    ```css
    body {
@@ -265,10 +289,10 @@ function setState(stateName) {
      border-radius: 6px;
    }
    input:focus-visible, textarea:focus-visible, button:focus-visible {
-     outline: 3px solid #f0a500;
+     outline: 3px solid #b45309;
      outline-offset: 2px;
    }
-   .invalid { border: 2px solid #b3261e; }
+   input.invalid, textarea.invalid { border: 2px solid #b3261e; }
    .error { color: #b3261e; margin: 4px 0 0; font-size: 0.95rem; }
    .error:empty { display: none; }
    button {
@@ -283,7 +307,7 @@ function setState(stateName) {
    /* Form states */
    .sending button { opacity: 0.6; cursor: wait; }
    #status { margin: 14px 0 0; padding: 10px 12px; border-radius: 6px; }
-   #status:empty { display: none; }
+   #status:empty { padding: 0; margin: 0; }
    .sent + #status { background: #e3f4e5; color: #1e5b2a; }
    .failed + #status { background: #fbe4e2; color: #8c1d18; }
    .sending + #status { background: #eef1f6; color: #2d4a7a; }
@@ -383,18 +407,18 @@ function setState(stateName) {
    form.addEventListener("submit", handleSubmit);
    ```
 
-4. **Predict, then test empty.** Open the page with Live Preview and open the Console. Predict what happens when you press **Send** with every field empty: how many messages, and where does the cursor go? Then press Send.
+4. **Predict, then test empty.** Open `index.html` in Edge or Chrome (double-click it in File Explorer, or drag it onto a browser window). After each save, press **F5** to reload. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Predict what happens when you press **Send** with every field empty: how many messages, and where does the cursor go? Then press Send.
 5. **Test the tricky values.** Type three spaces in Name, `you@` in Email and `hi` in Message. Press Send. Compare with the right half of the image under Concept 6 (that one had a real name, so Name passed).
 6. **Fix and send.** Fix all three fields and press Send. Watch for `Sending...` and the faded button, then the green thank-you one second later. The fields should be empty.
 7. **Test the failure.** Fill the form again, tick **Practice only: pretend the send fails**, and press Send. Your values should still be there under the red message.
 8. **Keyboard only.** Reload. Use only Tab, typing and Enter to fill the form with one mistake and submit it. Pressing Enter in a text field submits the form too. Does focus land on the mistake?
-9. **Break it on purpose.** In `handleSubmit`, comment out the first line: `// event.preventDefault();`. Save. Type a name, leave the rest empty, and press Send. Watch the address bar.
+9. **Break it on purpose.** In `handleSubmit`, comment out the first line: `// event.preventDefault();`. Save and press **F5**. Type a name, leave the rest empty, and press Send. Watch the address bar.
 
-   ![A real render of the practice page inside a drawn browser frame. The address reads http://127.0.0.1:3000/index.html?name=Your+Name&email=&message= and the form is empty, with no error messages showing.](images/m10-no-prevent.png)
-   *Your handler ran and even wrote the error messages, but then the browser did its default: it sent the form by adding `name=value` pairs to the address and loaded the page again. The new page starts fresh, so the name you typed and every message are gone. The `?name=Your+Name&email=&message=` part is real, captured from Chromium after the click; the frame around it is drawn. (page real: rendered in Chromium; browser frame drawn)*
+   ![A real render of the practice page inside a drawn browser frame. The address reads file:///C:/Users/you/Documents/code559/practice-10/index.html?name=Your+Name&email=&message= and the form is empty, with no error messages showing.](images/m10-no-prevent.png)
+   *Your handler ran and even wrote the error messages, but then the browser did its default: it sent the form by adding `name=value` pairs to the address and loaded the page again. The new page starts fresh, so the name you typed and every message are gone. The `?name=Your+Name&email=&message=` part is real, captured from Chromium after the click on the page opened as a file; the frame around it is drawn. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
-   The clue is the address bar, not the Console: nothing went red. Remove the `//`, save, reload (and delete the `?…` part of the address), and test again.
-10. **Optional second break.** In `findFirstProblem`, change `const name = nameInput.value.trim();` to `const name = nameInput.value;`. Type three spaces as the name, fill the rest correctly, and press Send.
+   The clue is the address bar, not the Console: nothing went red. Remove the `//` and save. Then delete the `?…` part of the address, press Enter to load the page again, and test again.
+10. **Optional second break.** In `findFirstProblem`, change `const name = nameInput.value.trim();` to `const name = nameInput.value;`. Save and press **F5**. Type three spaces as the name, fill the rest correctly, and press Send.
 
     ![A real render at 390 px: the form is empty after a successful send, and the green message reads "Thanks, . Your message was sent."](images/m10-no-trim.png)
     *Three spaces are not `""`, so the check passed and the form "sent" with no name. The thank-you line still trims, so the visitor sees "Thanks, ." (real: rendered in Chromium)*
@@ -403,7 +427,7 @@ function setState(stateName) {
 
 ## Project (in the full packet)
 
-The project is the **Contact page** of your personal site, finished: your Module 4 form gets the full validation cycle from this module, with messages written in your own voice, focus on the first problem, a confirmation that names the visitor, the four form states styled to match your site, and a keyboard-only test you write down and run. It still sends nothing; it is ready for a real server when you have one.
+Two projects use this module on your own site. The **Contact page** is finished: your Module 4 form gets the full validation cycle from this module, with messages written in your own voice, focus on the first problem, a confirmation that names the visitor, the four form states styled to match your site, and a keyboard-only test you write down and run. It still sends nothing; it is ready for a real server when you have one. And the **rating card** from Module 4 gets its JavaScript: it reads the chosen rating, shows it in the thank-you message, and swaps the form for the thank-you section.
 
 The full brief, the step-by-step build, and the finishing work in Git are in the Module 10 packet. [Get the packet →](PACKET_LINK_MODULE_10)
 
@@ -425,12 +449,12 @@ A form fires `submit` on the form itself, and `event.preventDefault()` stops the
 
 ## Before next module
 
-- [ ] Your `m10-practice` form shows every problem at once and puts focus on the first one
+- [ ] Your `practice-10` form shows every problem at once and puts focus on the first one
 - [ ] Three spaces in Name are refused
 - [ ] You saw all four states: idle, sending, sent, failed
 - [ ] You saw the page reload and lose its messages without `preventDefault()`, and fixed it
 - [ ] You can say in one sentence why client-side validation is not security
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
@@ -439,17 +463,17 @@ A form fires `submit` on the form itself, and `event.preventDefault()` stops the
 - MDN: *String.prototype.trim()*
 - MDN: *HTMLFormElement: reset() method*
 - MDN: *ARIA: aria-describedby attribute*; *ARIA live regions*; *ARIA* (the "Before using ARIA" section and the first rule of ARIA)
-- freeCodeCamp: the form-validation material in the JavaScript curriculum **[unverified: exact current module name in the curriculum]**
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Form Validation](AFFILIATE_W3SCHOOLS_FORMS)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
 
 ## What to keep
 
-Keep `m10-practice` with its finished `script.js`, and write down the five tests from steps 4 to 8 as one line each: what you did, what you expected, what happened. Module 11 turns that list into a test plan. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
+Keep `practice-10` with its finished `script.js`, and write down the five tests from steps 4 to 8 as one line each: what you did, what you expected, what happened. Module 11 turns that list into a test plan. Then answer for yourself: **which step would be hardest to repeat without this post, and why?**
 
 ---
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Client-side form validation"; MDN "HTMLFormElement: submit event"; MDN "Event: preventDefault() method"; MDN "String.prototype.trim()"; MDN "HTMLFormElement: reset() method"; MDN "ARIA: aria-describedby attribute"; MDN "ARIA live regions"; MDN "ARIA"; microsoft/vscode-livepreview `package.json` on GitHub (default `livePreview.portNumber` is 3000). Every page render, Console result and accessibility-tree check was captured in Chromium 141.0.7390.37 (via Playwright) on Linux, with the page served from a local test server at 127.0.0.1:3000.*
+*Sources checked 2026-10-09: MDN "Client-side form validation"; MDN "HTMLFormElement: submit event"; MDN "Event: preventDefault() method"; MDN "String.prototype.trim()"; MDN "HTMLFormElement: reset() method"; MDN "ARIA: aria-describedby attribute"; MDN "ARIA live regions"; MDN "ARIA". Checked 2026-10-11: MDN ":checked"; MDN ":empty"; MDN "Handling conflicts" (attribute selectors count in the class column). Every page render, Console result and accessibility-tree check was captured in Chromium 141.0.7390.37 (via Playwright) on Linux.*

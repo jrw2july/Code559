@@ -8,7 +8,7 @@ series: Code559 Front-End Developer Course
 
 *Learn HTML, CSS, JavaScript and Git from zero, one module at a time.*
 
-This free course takes you from an empty folder to a published personal website and a portfolio on GitHub. Every module follows the same four steps: **Introduce** the idea, **Explain** it one piece at a time, **Illustrate** it with a small example you can see, and **Apply** it with your own hands. Every module includes a hands-on exercise. The full project for each module, with the step-by-step build and the finishing work in Git, is in that module's packet.
+This free course takes you from an empty folder to your first page live on the web, and teaches the HTML, CSS, JavaScript and Git you need to build a full personal website and share your work on GitHub. Every module follows the same four steps: **Introduce** the idea, **Explain** it one piece at a time, **Illustrate** it with a small example you can see, and **Apply** it with your own hands. Every module includes a hands-on exercise. The full project for each module, with the step-by-step build and the finishing work in Git, is in that module's packet.
 
 You need a Windows 11 computer, an internet connection, and a free GitHub account. You do not need to know any code.
 
@@ -34,6 +34,8 @@ You need a Windows 11 computer, an internet connection, and a free GitHub accoun
 ## How to use this course
 
 Do the modules in order. The JavaScript language (Modules 5 to 8) comes before the page work in Module 9 on purpose: you learn the language first, then use it on a page. Type the code instead of pasting it. When an exercise asks you to break something, break it; reading what goes wrong is half of the skill.
+
+You see your pages in Edge or Chrome: open the file, and press F5 after each save. No extra tools are needed for that. Module 1 ends with your first page live on the web. From Module 2 on, each exercise uses its own practice folder, and building out your personal site in `my-site` is the project in each module's packet.
 
 Each module tells you how long it takes. Those times are estimates.
 

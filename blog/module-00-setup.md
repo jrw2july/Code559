@@ -14,12 +14,12 @@ estimated_time: "about 60–90 minutes (estimate)"
 
 - What each tool in a front-end developer's kit does, and why you need it
 - How to show file extensions in File Explorer
-- How to install VS Code and the Live Preview extension
+- How to install VS Code, and how you will see your pages in Edge or Chrome (the Live Preview extension is optional)
 - How to turn off VS Code's built-in AI features, and why this course asks you to
 - How to install Git and set your name, email and default branch
 - How to install the GitHub CLI and sign in to GitHub from the terminal
 - How to install Node.js so you can run JavaScript outside the browser
-- How to open a terminal in the right folder
+- How to open a terminal in the right folder, and why you restart VS Code after each install
 
 ## Why this matters
 
@@ -27,10 +27,10 @@ Every developer works inside a small set of tools. You write code in an editor, 
 
 You will also make one decision that shapes the rest of the course: you will turn off the AI assistant in your editor. That is not because AI tools are bad. It is because this course asks you to explain every line you commit, and the simplest way to explain a line truthfully is to have written it yourself.
 
-By the end you will have five tools installed and checked, and a folder ready for the site you build in Module 1.
+By the end you will have four tools installed and checked, a browser to see your pages, and a folder ready for the site you build in Module 1.
 
-![Five boxes in a row: VS Code, Live Preview, Git, GitHub CLI, Node.js, with what each one does.](images/m00-toolkit.png)
-*The five tools you install in this module and the job each one does.*
+![Five boxes in a row: VS Code, Edge or Chrome, Git, GitHub CLI, Node.js, with what each one does.](images/m00-toolkit.png)
+*The five tools you use from now on and the job each one does. Edge is already on Windows 11; you install the other four in this module.*
 
 ## Before you start
 
@@ -46,7 +46,7 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> A front-end developer builds the part of a website that people see and use. To do that you need a place to write code, a way to see it, a way to keep its history, and a place to publish it.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **VS Code** is the editor where you type HTML, CSS and JavaScript. **Live Preview** is a VS Code extension that shows your page and refreshes it when you save. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> **VS Code** is the editor where you type HTML, CSS and JavaScript. **Edge or Chrome** is the browser where you see your page; after each save you press F5 to reload it. **Git** keeps a history of your project as a series of saved snapshots, called commits. **GitHub** is a website that stores a copy of that history online and can publish your site. The **GitHub CLI** (`gh`) lets you do GitHub tasks from the terminal. **Node.js** runs JavaScript outside the browser; you will use it in the JavaScript modules.
 
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> Look at the toolkit picture above. Every box is something you will use in almost every module.
 
@@ -65,18 +65,20 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> Open File Explorer. Select **View → Show → File name extensions** so it has a check mark.
 
-### 3. What do VS Code and Live Preview do together?
+### 3. How will you see your pages?
 
-<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> VS Code is free and made by Microsoft. Live Preview is a Microsoft extension that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*).
+<img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> VS Code is free and made by Microsoft. You write a page in VS Code and look at it in a browser. This course uses Edge or Chrome. Edge is already on Windows 11, so you need nothing extra.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> Without Live Preview you save a file, switch to the browser, and refresh. With it, the preview sits next to your code and updates when you save. Note that the Marketplace page labels it "still under development." If it ever misbehaves, opening the file in Edge or Chrome and pressing F5 always works.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> From Module 1 on, you open each page straight in the browser: double-click the file in File Explorer, or drag it onto a browser window. (Double-clicking it in VS Code opens the code, not the page.) After each save, press **F5** to reload. Later modules also use **F12**, which opens the browser's DevTools. This works the same way on every page in the course.
+
+**Optional: Live Preview.** Live Preview is a Microsoft extension for VS Code that, in its own words, "Hosts a local server in your workspace for you to preview your webpages on" (VS Code Marketplace, *Live Preview*). It shows your page inside VS Code and updates it when you save. You do not need it for this course, and the Marketplace page says it "is still under development." If you install it, know one thing: VS Code opens a new folder in **Restricted Mode** (VS Code Docs, *Workspace Trust*), and Live Preview stays off in Restricted Mode. To turn it on, trust the folder: in the Restricted Mode banner at the top, click **Manage**, then click **Trust**. Only trust folders you made yourself, like your course folders.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![VS Code's Extensions view showing Live Preview by Microsoft with an Install button.](images/m00-vscode-live-preview.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install.*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *If you choose to install Live Preview, search the Extensions view for "Live Preview" and check that the publisher is Microsoft before you install.*
 
-<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will install both in the Exercise.
+<img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> You will install VS Code in the Exercise. Live Preview is step 5, and you may skip it.
 
 ### 4. Why turn off AI features?
 
@@ -108,12 +110,12 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 <img src="images/brand/marker-introduce.svg" alt="Introduce" width="24" height="24" style="vertical-align:-0.35em;"> The GitHub CLI can create a repository on GitHub and push your files to it with one command. It needs permission to act as you.
 
-<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. GitHub shows a one-time code; you paste it in the browser page that opens.
+<img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> `gh auth login` asks a few questions, then opens your browser so you can approve the sign-in. You answer **GitHub.com**, then **HTTPS**, then **Yes** to "Authenticate Git with your GitHub credentials?", then choose **Login with a web browser**. Next, the terminal shows a one-time code on a line that starts `! First copy your one-time code:`. Copy the code or write it down. The terminal then says **Press Enter to open** a github.com address **in your browser**. Press Enter, and your browser opens a GitHub page. Paste or type the code there and approve the sign-in. The terminal then says **Authentication complete** and **Logged in as** your username. (These messages are checked against the GitHub CLI's source code in the cli/cli repository on GitHub.)
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running gh auth login, showing the first three prompts answered GitHub.com and HTTPS, ending at the Authenticate Git question.](images/m00-gh-auth-prompts.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. (real output, rendered; captured on Linux. The later "How would you like to authenticate" and one-time-code steps were not captured for this post.)* **[unverified: exact wording of the browser-login step in your version of `gh`.]**
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The first three prompts as GitHub CLI 2.89.0 prints them. Use the arrow keys to move and Enter to choose. The "How would you like to authenticate" question and the one-time-code steps come next; they are described above, not shown here. (real output, rendered; captured on Linux)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> After you sign in, `gh auth status` should say you are logged in to github.com. That is your proof.
 
@@ -136,10 +138,10 @@ By the end you will have five tools installed and checked, and a folder ready fo
 
 1. **Show file extensions.** In File Explorer: **View → Show → File name extensions**.
 2. **Make your course folder.** Create the folder you chose (for example `Documents\code559`). Inside it, create a folder called `my-site`.
-3. **Install VS Code.** Download it from code.visualstudio.com and run the installer. On the "Select Additional Tasks" screen, tick **Add "Open with Code" action to Windows Explorer file context menu** and **Add to PATH**. **[unverified: the exact wording of those installer checkboxes in the current installer.]**
+3. **Install VS Code.** Download it from code.visualstudio.com and run the installer. On the "Select Additional Tasks" screen, tick **Add "Open with Code" action to Windows Explorer file context menu** and **Add to PATH**. The wording on your screen may be a little different; look for the two options that add "Open with Code" to the right-click menu and add VS Code to PATH.
 4. **Turn off AI features.** In VS Code: **File → Preferences → Settings**. Type `chat.disableAIFeatures` in the search box and tick it.
-5. **Install Live Preview.** Click the Extensions icon in the left bar (or press Ctrl+Shift+X). Search **Live Preview**. Check the publisher says **Microsoft**. Click **Install**.
-6. **Open a terminal.** In VS Code: **File → Open Folder…**, choose `my-site`, then **Terminal → New Terminal**. The prompt should end in `my-site>`.
+5. **Optional: install Live Preview.** You can skip this step: Edge or Chrome and F5 are all this course needs (Concept 3). To install it, click the Extensions icon in the left bar (or press Ctrl+Shift+X). Search **Live Preview**. Check the publisher says **Microsoft**. Click **Install**. It stays off until you trust your folder in step 6.
+6. **Open a terminal.** In VS Code: **File → Open Folder…**, choose `my-site`, then **Terminal → New Terminal**. The prompt should end in `my-site>`. If VS Code shows a Restricted Mode banner or asks whether you trust this folder, trust it: it is your own folder (Concept 3). VS Code may ask again when you open each new practice folder in later modules; trust those too, for the same reason.
 
    ![VS Code with the my-site folder open and a terminal at the bottom whose prompt ends in my-site>.](images/m00-vscode-terminal.png)
    *The prompt shows which folder the terminal is in. Always check it before you type a Git command.*
@@ -150,7 +152,7 @@ By the end you will have five tools installed and checked, and a folder ready fo
    winget install --id Git.Git -e --source winget
    ```
 
-   (This is the command on git-scm.com's *Install for Windows* page.) When it finishes, **close the terminal and open a new one** so Windows finds Git. Then type `git --version`.
+   (This is the command on git-scm.com's *Install for Windows* page.) When it finishes, **restart VS Code**: close it completely with **File → Exit**, then open VS Code again. It normally reopens your `my-site` folder; if not, use **File → Open Folder…**. Then choose **Terminal → New Terminal** and type `git --version`. A new terminal inside the same VS Code window is not enough, because it still uses the settings VS Code had before the install. VS Code's own docs say: "If the command isn't found, restart VS Code after installing Git" (VS Code Docs, *Quickstart: use source control in VS Code*). Still "not recognized"? Restart the computer, then try again.
 8. **Configure Git.** Use your real name and the email on your GitHub account:
 
    ```
@@ -166,14 +168,14 @@ By the end you will have five tools installed and checked, and a folder ready fo
    winget install --id GitHub.cli --source winget
    ```
 
-   (From the GitHub CLI manual's Windows install page.) Close and reopen the terminal. Type `gh --version`, then `gh auth login` and answer as in Core Concept 6. Finish with `gh auth status`.
+   (From the GitHub CLI manual's Windows install page.) Restart VS Code as in step 7 (**File → Exit**, open VS Code again, **Terminal → New Terminal**). Type `gh --version`, then `gh auth login` and answer as in Core Concept 6. Finish with `gh auth status`.
 10. **Install Node.js (LTS).**
 
     ```
     winget install --id OpenJS.NodeJS.LTS -e --source winget
     ```
 
-    Close and reopen the terminal. Type `node --version` and `npm --version`. **[unverified in this build: the package id `OpenJS.NodeJS.LTS` is taken from winget.run, a third-party index of the winget catalog, not from nodejs.org. If winget says "No package found," download the LTS installer from nodejs.org instead.]**
+    Restart VS Code as in step 7 (**File → Exit**, open VS Code again, **Terminal → New Terminal**). Type `node --version` and `npm --version`. The package id `OpenJS.NodeJS.LTS` is listed in Microsoft's official winget catalog (the microsoft/winget-pkgs repository on GitHub). If winget says "No package found," download the LTS installer from nodejs.org instead.
 11. **Break it on purpose.** In the same terminal, type `git stauts` (letters swapped). Read the message. Git says the command does not exist and suggests the closest real one.
 
     ![A terminal showing git stauts and Git's reply that stauts is not a git command, with status as the most similar command.](images/m00-git-typo.png)
@@ -193,11 +195,11 @@ What would you say? Hint: one of them works with no internet connection at all.
 
 ## Summary
 
-A front-end developer writes code in VS Code, sees it with Live Preview or a browser, records its history with Git, and publishes it through GitHub, using the GitHub CLI from the terminal; Node.js runs JavaScript outside the browser. Showing file extensions stops files from getting a hidden `.txt` ending. AI features are off so that every line you commit is a line you wrote and can explain. Git needs your name, your email and a default branch name of `main`. After every install, a fresh terminal and a version command prove the tool is ready.
+A front-end developer writes code in VS Code, sees it in Edge or Chrome (open the file, press F5 after each save; Live Preview is an optional extra), records its history with Git, and publishes it through GitHub, using the GitHub CLI from the terminal; Node.js runs JavaScript outside the browser. Showing file extensions stops files from getting a hidden `.txt` ending. AI features are off so that every line you commit is a line you wrote and can explain. Git needs your name, your email and a default branch name of `main`. After every install, close VS Code completely and reopen it, then a new terminal and a version command prove the tool is ready.
 
 ## Check your understanding
 
-1. You run `git --version` right after installing Git and get "not recognized." What is the most likely fix?
+1. You install Git, open a new terminal in the same VS Code window, run `git --version` and get "not recognized." What is the most likely fix?
 2. Why does this course set `init.defaultBranch` to `main`?
 3. **What would you test** to prove the GitHub CLI is signed in?
 
@@ -208,6 +210,7 @@ A front-end developer writes code in VS Code, sees it with Live Preview or a bro
 - [ ] `gh auth status` says you are logged in
 - [ ] AI features are off in VS Code
 - [ ] You have a `my-site` folder and can open a terminal in it
+- [ ] You know how to see a page: open it in Edge or Chrome and press F5 after each save (Live Preview is optional; if you installed it, your folder is trusted)
 
 ## Go further
 
@@ -228,4 +231,4 @@ Keep a note of the four version numbers you saw (Git, GitHub CLI, Node, npm) and
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: git-scm.com "Install for Windows"; GitHub CLI "Installing gh on Windows" (github.com/cli/cli docs); VS Code Docs "Set up GitHub Copilot in VS Code"; VS Code Marketplace "Live Preview"; nodejs.org "Download Node.js"; winget.run "NodeJS.LTS".*
+*Sources checked 2026-10-09: git-scm.com "Install for Windows"; GitHub CLI "Installing gh on Windows" (github.com/cli/cli docs); VS Code Docs "Set up GitHub Copilot in VS Code"; VS Code Marketplace "Live Preview"; nodejs.org "Download Node.js". Checked 2026-10-11: VS Code Docs "Quickstart: use source control in VS Code"; VS Code Docs "Workspace Trust"; Live Preview's `package.json` (microsoft/vscode-livepreview on GitHub, untrusted workspaces not supported); GitHub CLI source code (cli/cli on GitHub: `internal/authflow/flow.go` and `pkg/cmd/auth/shared/login_flow.go`); microsoft/winget-pkgs on GitHub (`manifests/o/OpenJS/NodeJS/LTS`).*

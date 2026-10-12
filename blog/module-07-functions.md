@@ -33,11 +33,11 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 ## Before you start
 
 1. Finish Module 6. You should be able to use `const` and `let`, compare values with `===` and `<`, and write an `if` statement.
-2. In your course folder (for example `Documents\code559`), create a throwaway folder called `m07-practice`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
+2. In your course folder (for example `Documents\code559`), create a throwaway folder called `practice-07`. Nothing in it is published. Open it in VS Code with **File → Open Folder…**.
 3. Open a terminal in VS Code with **Terminal → New Terminal**. Type `node --version`. Any `v` followed by numbers means Node is ready.
-4. Open Edge or Chrome, press **F12**, and click the **Console** tab. Anything you type there runs at once and nothing is saved. Keep it open as your scratch pad.
+4. Open Edge or Chrome. Press **F12** (or **Ctrl+Shift+J**) to open DevTools, then click the **Console** tab. Anything you type there runs at once and nothing is saved. Keep it open as your scratch pad.
 
-> **Checkpoint.** You have an empty `m07-practice` folder open in VS Code, a terminal whose prompt ends in `m07-practice>`, and a browser Console you can type into.
+> **Checkpoint.** You have an empty `practice-07` folder open in VS Code, a terminal whose prompt ends in `practice-07>`, and a browser Console you can type into.
 
 ## Core concepts
 
@@ -62,6 +62,17 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order:
+
+```js
+function toMinutes(hours) {
+  return hours * 60;
+}
+toMinutes(2)
+toMinutes(1.5)
+toMinutes(0)
+```
+
 ![The Console after typing the toMinutes definition, which prints undefined, then three calls printing 120, 90 and 0.](images/m07-define-call.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The Console prints `undefined` after the definition. That is its comment on the line you typed, not an answer from your function. The three calls each hand back a number. (real output, rendered)*
 
@@ -85,6 +96,21 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order:
+
+```js
+function logGreeting(name) {
+  console.log("Hello, " + name + "!");
+}
+function makeGreeting(name) {
+  return "Hello, " + name + "!";
+}
+const a = logGreeting("Sam");
+a
+const b = makeGreeting("Sam");
+b
+```
+
 ![The Console with two functions. logGreeting prints Hello, Sam! but storing its result gives undefined. makeGreeting prints nothing, but storing its result gives 'Hello, Sam!'.](images/m07-return-vs-log.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`logGreeting` shows the text and hands back `undefined`, so `a` holds `undefined`. `makeGreeting` shows nothing and hands back the text, so `b` holds `'Hello, Sam!'`. (real output, rendered)*
 
@@ -97,6 +123,17 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 <img src="images/brand/marker-explain.svg" alt="Explain" width="24" height="24" style="vertical-align:-0.35em;"> MDN's *Functions* guide says "variables defined inside a function cannot be accessed from anywhere outside the function." That is a feature. It means two functions can each have a variable called `total` without stepping on each other. If you need a value from inside, `return` it, and store it where you called.
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
+
+Typed into the Console for the picture below, in this order (`word.length` gives the number of characters in `word`; Module 8 covers `.length` in full):
+
+```js
+function countLetters(word) {
+  const total = word.length;
+  return total;
+}
+countLetters("website")
+total
+```
 
 ![The Console with countLetters defined, countLetters("website") returning 7, then typing total and getting Uncaught ReferenceError: total is not defined.](images/m07-scope.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *The function used `total` and handed back `7`. Outside, `total` does not exist, so JavaScript stops with a `ReferenceError`. (real output, rendered)*
@@ -112,7 +149,7 @@ This module stays in the Console and in Node. There is no web page yet. In Modul
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
 ![A terminal running node helpers.js and printing 120, 90, 0, true, false, false, [Function: showMessage] and Thanks for visiting!](images/m07-node-tests.png)
-<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One run, eight answers. The `false` for `isNarrow(600)` is the edge test: 600 is not less than 600. (real output, rendered; captured on Linux with Node 22.22.0. Node prints the same lines on Windows.)*
+<img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *One run, eight answers. The `false` for `isNarrow(600)` is the edge test: 600 is not less than 600. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
 <img src="images/brand/marker-apply.svg" alt="Apply" width="24" height="24" style="vertical-align:-0.35em;"> For `toMinutes`, write down three inputs and the answer you expect for each before you run anything. That list is your test.
 
@@ -148,6 +185,20 @@ function isNarrow(width) {
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order:
+
+```js
+function showMessage() {
+  return "Thanks for visiting!";
+}
+showMessage
+showMessage()
+typeof showMessage
+typeof showMessage()
+const later = showMessage;
+later()
+```
+
 ![The Console with showMessage defined. Typing showMessage shows the function itself; showMessage() returns 'Thanks for visiting!'; typeof gives 'function' for one and 'string' for the other; storing it in later and calling later() gives the same text.](images/m07-reference-call.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *Without parentheses you get the function. With them you get its answer. `typeof` proves it: `'function'` versus `'string'`. In Node, `console.log(showMessage)` prints `[Function: showMessage]` instead (see the Concept 6 image). (real output, rendered)*
 
@@ -166,6 +217,24 @@ This is the bridge to Module 9. There you will tell a button: "when you are clic
 
 <div role="separator" style="display:flex;align-items:flex-end;margin:1.5em 0;"><img src="images/brand/divider-wall.svg" alt="" style="flex:1;min-width:0;height:34px;"><img src="images/brand/divider-window.svg" alt="" style="width:70px;height:34px;"><img src="images/brand/divider-wall.svg" alt="" style="flex:3;min-width:0;height:34px;"><img src="images/brand/divider-door.svg" alt="" style="width:46px;height:34px;"></div>
 
+Typed into the Console for the picture below, in this order:
+
+```js
+function pickColor(mode) {
+  if (mode === "dark") {
+    return "#222222";
+  }
+  if (mode === "light") {
+    return "#ffffff";
+  }
+  return null;
+}
+pickColor("dark")
+pickColor("blue")
+pickColor("blue") === null
+pickColor("light") === null
+```
+
 ![The Console with pickColor defined. pickColor("dark") returns '#222222', pickColor("blue") returns null, pickColor("blue") === null is true, and pickColor("light") === null is false.](images/m07-null.png)
 <img src="images/brand/marker-illustrate.svg" alt="Illustrate" width="24" height="24" style="vertical-align:-0.35em;"> *`"blue"` is not a mode this function knows, so it reaches the last line and returns `null`. The `=== null` check turns that into a plain `true` or `false` you can use in an `if`. (real output, rendered)*
 
@@ -173,9 +242,9 @@ This is the bridge to Module 9. There you will tell a button: "when you are clic
 
 ## Exercise
 
-*Your hands, about 45 minutes (estimate).* Type it, do not paste it. Work in `m07-practice`. Nothing here is published.
+*Your hands, about 45 minutes (estimate).* Type it, do not paste it. Work in `practice-07`. Nothing here is published.
 
-1. **Create the file.** In VS Code, create `helpers.js` inside `m07-practice`.
+1. **Create the file.** In VS Code, create `helpers.js` inside `practice-07`.
 2. **Define and test `toMinutes`.** Type the function from Concept 1. Below it, type three test lines: `console.log(toMinutes(2));`, `console.log(toMinutes(1.5));` and `console.log(toMinutes(0));`. Write your three predictions in a comment above them, like `// expect 120, 90, 0`.
 3. **Run it.** Save, then in the terminal type `node helpers.js`. Compare each line with your comment.
 4. **Write `isNarrow` from its description.** Use the five steps from Concept 7. Write the three `console.log` test lines **before** the body. Run the file again.
@@ -183,7 +252,7 @@ This is the bridge to Module 9. There you will tell a button: "when you are clic
 6. **Break it on purpose.** In `toMinutes`, delete the word `return` so the body reads `hours * 60;`. Save and run.
 
    ![A terminal running node helpers.js after the return was removed. The first three lines are now undefined; the rest are unchanged.](images/m07-break-it.png)
-   *The work `hours * 60` still happens, but nothing hands the answer back, so each call gives `undefined`. No error message. That is what makes this mistake easy to miss. (real output, rendered; captured on Linux with Node 22.22.0)*
+   *The work `hours * 60` still happens, but nothing hands the answer back, so each call gives `undefined`. No error message. That is what makes this mistake easy to miss. (real output, rendered; captured on Linux, with the folder path changed to the course folder)*
 
    Put `return` back, run once more, and check that 120, 90 and 0 return.
 7. **Scope, in the Console.** In the browser Console, type `countLetters` from Concept 5, call it, then type `total`. Read the whole red message. Which word in it tells you the problem?
@@ -191,7 +260,7 @@ This is the bridge to Module 9. There you will tell a button: "when you are clic
 
 ## Project (in the full packet)
 
-The project is a small, tested `helpers.js` for your personal site. You write four helper functions from one-sentence descriptions, each with its test calls written first and run in Node: one turns a page name into its file name, one builds the text for a page title, one decides whether a screen width counts as narrow, and one returns `null` when it is asked about a page your site does not have. In Module 9 these helpers move into your site and run when a visitor clicks.
+The project is a small, tested `helpers.js` for your personal site. You write four helper functions from one-sentence descriptions, each with its test calls written first and run in Node: one turns a page name into its file name, one builds the text for a page title, one decides whether a screen width counts as narrow, and one returns `null` when it is asked about a page your site does not have. In Module 9 you use the same patterns on a web page, where a click runs a function.
 
 The full brief, the step-by-step build, and the finishing work in Git are in the Module 7 packet. [Get the packet →](PACKET_LINK_MODULE_7)
 
@@ -213,17 +282,17 @@ A function is a named, reusable set of instructions. Defining it stores the inst
 
 ## Before next module
 
-- [ ] `helpers.js` in `m07-practice` runs with `node helpers.js` and every line matches your predictions
+- [ ] `helpers.js` in `practice-07` runs with `node helpers.js` and every line matches your predictions
 - [ ] You wrote `isNarrow` and the "an hour or more" function with their tests first
 - [ ] You saw `undefined` appear when `return` was removed, and put it back
 - [ ] You can explain, without notes, why a listener gets `showMessage` and not `showMessage()`
-- [ ] Saved this module's work to GitHub with the routine: git status → git add . → git commit -m "…" → git push → check the live page
+- [ ] If you did this module's packet project in my-site, saved it with the routine: git status → git add . → git commit -m "…" → git push → check the live page. (Your practice folder is not saved to GitHub.)
 
 ## Go further
 
 - MDN: *Functions* (the JavaScript Guide page) — read "Defining functions," "Calling functions" and "Function scope"
 - MDN: *return* (the statement reference page)
-- freeCodeCamp: the Functions module of the JavaScript curriculum and its quiz **[unverified: exact current module name in the curriculum]**
+- freeCodeCamp: the free [JavaScript Certification](https://www.freecodecamp.org/learn/javascript-v9/) (checked 2026-10-11) has practice on this topic.
 - [W3Schools JavaScript Functions](AFFILIATE_W3SCHOOLS_FUNCTIONS)
 
 *Affiliate link: Code559 may earn a commission at no extra cost to you.*
@@ -236,4 +305,4 @@ Keep `helpers.js` with its predictions in comments, and your paper notes from th
 
 *Code559 is a 559 Solutions project. Portions adapted from Visual Studio Code documentation (CC BY 3.0 US), GitHub Docs (CC BY 4.0), and GitHub Skills (MIT). Screenshots used with permission from Microsoft.*
 
-*Sources checked 2026-10-09: MDN "Functions" (JavaScript Guide); MDN "return"; Chromium (via Playwright) for every Console result and the addEventListener TypeError; Node 22.22.0 for every terminal result.*
+*Sources checked 2026-10-09: MDN "Functions" (JavaScript Guide); MDN "return"; Chromium (via Playwright) for every Console result and the addEventListener TypeError; Node 22.22.0 for every terminal result. Checked 2026-10-11: MDN "String: length".*
