@@ -60,7 +60,7 @@ Three questions; one is a standing question (rotate: Why does it work? / What va
 - [ ] checkboxes
 
 ## Go further
-Real resources only: MDN (search term or page title), GitHub Docs article titles, and freeCodeCamp. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). No affiliate links for now (decided 2026-10-12; the W3Schools slots were removed until a program is chosen). Never invent video titles or runtimes.
+Real resources only: MDN, W3C/WAI, GitHub Docs, VS Code docs, nodejs.org and Chrome for Developers page titles, and freeCodeCamp. From the 2026-11 review on, each official page title is a direct link to that page (Modules 2, 3, 4, 6, 7, 8 and 9 so far). Open every link before adding it, and record it in the dated "Sources checked" line. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). No affiliate links for now (decided 2026-10-12; the W3Schools slots were removed until a program is chosen). Never invent video titles or runtimes.
 
 ## What to keep
 What the reader should have at the end, plus "Which step would be hardest to repeat without this post, and why?"
