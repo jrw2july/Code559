@@ -57,10 +57,13 @@ One paragraph, one sentence per concept.
 Three questions; one is a standing question (rotate: Why does it work? / What value does this variable hold? / What happens if this changes? / What causes this function to run? / What would you test?).
 
 ## Before next module
-- [ ] checkboxes
+**You should now be able to do these on your own:**
+- [ ] checkboxes (what the reader did in the Exercise; the Git line stays here)
+**You have only been introduced to these so far:**
+- plain bullets, no checkboxes (ideas shown or mentioned but not practiced alone; say which module returns to each)
 
 ## Go further
-Real resources only: MDN (search term or page title), GitHub Docs article titles, and freeCodeCamp. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). No affiliate links for now (decided 2026-10-12; the W3Schools slots were removed until a program is chosen). Never invent video titles or runtimes.
+Real resources only: MDN, W3C/WAI, GitHub Docs, VS Code docs, nodejs.org and Chrome for Developers page titles, and freeCodeCamp. From the 2026-11 review on, each official page title is a direct link to that page (Modules 2, 3, 4, 6, 7, 8 and 9 so far). Open every link before adding it, and record it in the dated "Sources checked" line. Modules 5–11 use the standard freeCodeCamp line (see "Standard wording"). No affiliate links for now (decided 2026-10-12; the W3Schools slots were removed until a program is chosen). Never invent video titles or runtimes.
 
 ## What to keep
 What the reader should have at the end, plus "Which step would be hardest to repeat without this post, and why?"
@@ -88,6 +91,13 @@ What the reader should have at the end, plus "Which step would be hardest to rep
 - Never use the words "genuinely", "honestly" or "straightforward".
 - **"Out loud" is only for explaining code to yourself** ("explain each line to yourself, out loud"). Other prompts vary the action: write it down, sketch it on paper, point at it, or "Think this through:" followed by a question. The first "out loud" prompt in a post (not counting the tips in the About block) carries the footnote marker `[^recite]`, and the post ends with the standard footnote (see "Standard wording"). Later uses in the same post have no marker.
 - Modules 2–11 end with the standard Git checklist line in "Before next module" (see "Standard wording"); full Git is Module 12.
+
+## Reading rules (from the 2026-11 review)
+
+- **Define a term where it is first used.** One plain sentence, at that point, the first time the term appears in the course. Do not define it again in a later module.
+- **Introduce a tool when it first appears.** One or two sentences: what it is, and why the reader needs it now.
+- **One action per numbered step.** A step that asks for two things becomes two steps. A tight pair that is one move may stay together ("Save and press **F5**"). Content nested under steps 10 and above is indented 4 spaces, not 3. When step numbers change, fix every reference to them: in the post, in other posts, and in the packet parts.
+- **"Before next module" has two labeled lists** (see the template above): what the reader can now do alone, and what they have only been introduced to.
 
 ## Course decisions (owner, 2026-10-11)
 
